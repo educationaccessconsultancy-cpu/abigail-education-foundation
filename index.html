@@ -1,67 +1,354 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abigail Education Access Foundation</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;color:#1A2B4A;line-height:1.6}
-.nav{background:#fff;padding:1rem 2rem;position:fixed;width:100%;top:0;box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:1000;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:1.2rem;font-weight:800;color:#1A2B4A}
-.logo span{color:#2D7A3E}
-.hero{min-height:100vh;background:linear-gradient(135deg,#1A2B4A,#0F1A2E);display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:2rem;padding-top:80px}
-.hero h1{font-size:2.5rem;margin-bottom:1rem}
-.hero h1 span{color:#F5A623}
-.hero p{font-size:1.1rem;max-width:600px;margin:0 auto 2rem;opacity:0.9}
-.btn{display:inline-block;padding:1rem 2rem;border-radius:50px;text-decoration:none;font-weight:700;margin:0.5rem;transition:all 0.3s}
-.btn-primary{background:#2D7A3E;color:#fff}
-.btn-outline{border:2px solid rgba(255,255,255,0.3);color:#fff}
-.mission{background:linear-gradient(135deg,#2D7A3E,#1E5A2A);color:#fff;padding:2rem;text-align:center;font-size:1.2rem;font-weight:700}
-.section{padding:4rem 2rem;max-width:1200px;margin:0 auto}
-.section h2{text-align:center;font-size:2rem;margin-bottom:2rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:2rem}
-.card{background:#fff;border-radius:15px;padding:2rem;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.08);border:1px solid #E2E8F0}
-.card i{font-size:2.5rem;color:#2D7A3E;margin-bottom:1rem}
-.card h3{margin-bottom:0.5rem}
-.card p{color:#64748B;font-size:0.9rem}
-.programs{background:#F8FAFC}
-.program-card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,0.08)}
-.program-header{background:linear-gradient(135deg,#1A2B4A,#0F1A2E);color:#fff;padding:1.5rem}
-.program-header.green{background:linear-gradient(135deg,#2D7A3E,#1E5A2A)}
-.program-header.gold{background:linear-gradient(135deg,#F5A623,#D4880F)}
-.program-body{padding:1.5rem}
-.program-body ul{list-style:none}
-.program-body li{padding:0.5rem 0;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;gap:0.5rem}
-.program-body li i{color:#2D7A3E}
-.impact{background:linear-gradient(135deg,#1A2B4A,#0F1A2E);color:#fff;text-align:center;padding:4rem 2rem}
-.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;max-width:1000px;margin:2rem auto 0}
-.impact-item h3{font-size:2.5rem;color:#F5A623}
-.ebook{background:#FFF3E0;padding:4rem 2rem;text-align:center}
-.ebook h2 span{color:#F5A623}
-.contact{background:#F8FAFC;padding:4rem 2rem}
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1000px;margin:0 auto}
-.contact-item{display:flex;align-items:center;gap:1rem;padding:1rem;background:#fff;border-radius:10px;margin-bottom:1rem}
-.contact-item i{width:40px;height:40px;background:#E8F5E9;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#2D7A3E}
-.footer{background:#0F1A2E;color:#fff;padding:3rem 2rem;text-align:center}
-.footer a{color:#F5A623;text-decoration:none}
-.social{display:flex;justify-content:center;gap:1rem;margin-top:1rem}
-.social a{width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none}
-@media(max-width:768px){.hero h1{font-size:1.8rem}.grid{grid-template-columns:1fr}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abigail Education Access</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        .nav {
+            background: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 span {
+            color: #ffd700;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #ffd700;
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 4rem 5%;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mission i {
+            font-size: 3rem;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .mission h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .mission p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 4rem 5%;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .program-card i {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .program-card h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        /* Ebook Section */
+        .ebook {
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .ebook-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .ebook h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .ebook-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .ebook-form input {
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            width: 300px;
+            font-size: 1rem;
+        }
+
+        .ebook-form button {
+            padding: 1rem 2rem;
+            background: #ffd700;
+            border: none;
+            border-radius: 50px;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .ebook-form button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-<nav class="nav">
-<div class="logo">Abigail Education Access <span>Foundation</span></div>
-</nav>
-<section class="hero">
-<div>
-<h1>Every Foot in a <span>Nice Shoe</span>,<br>Every Child in <span>School</span>.</h1>
-<p>We bridge educational access gaps by providing practical school support that ensures every child walks into school with dignity, confidence, and hope for a brighter future.</p>
-<a href="#programs" class="btn btn-primary"><i class="fas fa-hands-helping"></i> Our Programs</a>
-<a href="#ebook" class="btn btn-outline"><i class="fas fa-book"></i> Buy an E-Book</a>
-</div>
-</section>
-<div class="mission">
-<i class="fas fa-bullseye"></i> To bridge educational access
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="logo">Abigail Education Access</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#ebook">Ebook</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>
+            <h1>Every Foot in a <span>Nice Shoe</span></h1>
+            <p>We bridge educational access gaps by providing resources, mentorship, and opportunities to underserved communities worldwide.</p>
+            <div class="hero-buttons">
+                <a href="#programs" class="btn btn-primary">Our Programs</a>
+                <a href="#ebook" class="btn btn-outline">Get Free Ebook</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="mission-content">
+            <i class="fas fa-bullseye"></i>
+            <h2>Our Mission</h2>
+            <p>To bridge educational access gaps and create equitable learning opportunities for all students, regardless of their background or circumstances. We believe every child deserves quality education and the chance to reach their full potential.</p>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <h2 class="section-title">Our Programs</h2>
+        <div class="program-grid">
+            <div class="program-card">
+                <i class="fas fa-book-reader"></i>
+                <h3>Scholarship Fund</h3>
+                <p>Providing financial assistance to deserving students who lack access to quality education due to economic barriers.</p>
+            </div>
+            <div class="program-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>Mentorship Program</h3>
+                <p>Connecting students with experienced mentors who guide them through academic and career development.</p>
+            </div>
+            <div class="program-card">
+                <i class="fas fa-laptop"></i>
+                <h3>Digital Learning</h3>
+                <p>Supplying computers, tablets, and internet access to schools in underserved communities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ebook Section -->
+    <section class="ebook" id="ebook">
+        <div class="ebook-content">
+            <h2>Get Our Free Ebook</h2>
+            <p>Download "Pathways to Educational Access" - A comprehensive guide for students, parents, and educators.</p>
+            <form class="ebook-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Download Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Abigail Education Access. All rights reserved. | Making education accessible for all.</p>
+    </footer>
+</body>
+</html>
