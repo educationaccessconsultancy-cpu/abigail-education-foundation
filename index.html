@@ -1,82 +1,368 @@
 <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abigail Eduaccess Shule</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        header { background: #1a5276; color: white; text-align: center; padding: 2rem 1rem; }
-        header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-        header p { margin: 0.3rem 0; }
-        .pillars { margin: 1rem 0; font-weight: bold; }
-        .motto { font-style: italic; margin: 1rem 0; }
-        header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-        header p { margin: 0.3rem 0; }
-        .pillars { margin: 1rem 0; font-weight: bold; }
-        .motto { font-style: italic; margin: 1rem 0; }
-        .cta { margin-top: 1rem; }
-        .cta a { color: #f39c12; text-decoration: none; margin: 0 0.5rem; font-weight: bold; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #1a5276;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .nav-logo-icon {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #1a5276;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a5276 0%, #2e86ab 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillars {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .pillars span {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .motto {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: #f39c12;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e67e22;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #1a5276;
+        }
+
+        section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #1a5276;
+            margin-bottom: 2rem;
+        }
+
+        .mission, .provide, .impact, .founder, .ebook, .sponsor, .help {
+            background: white;
+            margin: 2rem auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            padding: 2rem;
+            text-align: center;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        .card h3 {
+            color: #1a5276;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #1a5276;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .pillars {
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <img src="Screenshot_20260506_064133_ChatGPT.jpg" alt="Logo" style="width:150px">
 
+    <nav>
+        <a href="#" class="nav-logo">
+            <div class="nav-logo-icon">🎓</div>
+            <span>Abigail Eduaccess Shule</span>
+        </a>
+        <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">☰</div>
+        <div class="nav-links" id="navLinks">
+            <a href="#mission">Mission</a>
+            <a href="#provide">What We Provide</a>
+            <a href="#impact">Impact</a>
+            <a href="#founder">Founder</a>
+            <a href="#ebook">E-Book</a>
+            <a href="#sponsor">Sponsor</a>
+            <a href="#help">Help</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 0.5rem;">Education Access Advisory Program</p>
         <h1>Abigail Eduaccess Shule</h1>
-         <p>Abigail Eduaccess</p>
-        <p>Shule Foundation</p>
-        <p>Empowering Children Through Education</p>
-        <p class="pillars">Equip • Empower • Educate • Elevate</p>
-         <p class="motto">🦁 Every foot in a nice shoe, every child in school</p>
-        <div class="cta">
-            <a href="#sponsor">Sponsor a Child</a>
+        <p class="tagline">Shule Foundation</p>
+        <p style="font-size: 1.3rem; margin-bottom: 1rem;">Empowering Children Through Education</p>
+        
+        <div class="pillars">
+            <span>Equip</span>
+            <span>Empower</span>
+            <span>Educate</span>
+            <span>Elevate</span>
+        </div>
+        
+        <p class="motto">🦁 Every foot in a nice shoe, every child in school</p>
+        
+        <div class="hero-buttons">
+            <a href="#sponsor" class="btn btn-primary">Sponsor a Child</a>
+            <a href="#ebook" class="btn btn-outline">Buy the E-Book</a>
+            <a href="#mission" class="btn btn-outline">Learn More</a>
         </div>
     </header>
-      
-    <nav>
-        <a href="#mission">Mission</a>
-        <a href="#provide">What We Provide</a>
-        <a href="#impact">Impact</a>
-    </nav>
-    <section id="mission">
+
+    <section id="mission" class="mission">
         <h2>Our Mission</h2>
-        <p>We believe every child deserves access to quality education regardless of their background.</p>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto;">
+            We believe every child deserves access to quality education regardless of their background. 
+            Through our advisory programs and direct support, we bridge the gap between potential and opportunity.
+        </p>
     </section>
-    <section id="provide">
+
+    <section id="provide" class="provide">
         <h2>What We Provide</h2>
-        <p>Educational resources, scholarships, mentorship programs, and school support.</p>
-<img src="kimi-17832576366118799682207020569750" alt="Business Card" style="width:100%;max-width:400px">
-
+        <div class="cards">
+            <div class="card">
+                <h3>📚 Educational Resources</h3>
+                <p>Books, supplies, and learning materials for underserved students.</p>
+            </div>
+            <div class="card">
+                <h3>🎓 Scholarships</h3>
+                <p>Financial support to keep children in school and pursuing their dreams.</p>
+            </div>
+            <div class="card">
+                <h3>👩‍🏫 Mentorship</h3>
+                <p>Guidance and role models to inspire the next generation of leaders.</p>
+            </div>
+            <div class="card">
+                <h3>🏫 School Support</h3>
+                <p>Infrastructure and resources to strengthen local educational institutions.</p>
+            </div>
+        </div>
     </section>
-    <section id="impact">
+
+    <section id="impact" class="impact">
         <h2>Our Impact</h2>
-        <p>500+ children sponsored. 20+ schools supported. 10,000+ books distributed.</p>
+        <div class="cards">
+            <div class="card">
+                <h3>500+</h3>
+                <p>Children Sponsored</p>
+            </div>
+            <div class="card">
+                <h3>20+</h3>
+                <p>Schools Supported</p>
+            </div>
+            <div class="card">
+                <h3>10,000+</h3>
+                <p>Books Distributed</p>
+            </div>
+        </div>
     </section>
-    <section id="founder">
-        <h2>Meet the Founder</h2>
-        <p>Founded with a vision to transform lives through education.</p>
-    </section>
-    <section id="ebook">
-        <h2>Get the E-Book</h2>
-      <p>Your purchase directly funds a child's education.</p>
-<img src="kimi-17832576534315416994761505304103" alt="Catalogue" style="width:100%;max-width:400px">
 
-  
+    <section id="founder" class="founder">
+        <h2>Meet the Founder</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto;">
+            Founded with a vision to transform lives through education, Abigail Eduaccess Shule 
+            was built on the belief that no child should be left behind.
+        </p>
     </section>
-    <section id="sponsor">
+
+    <section id="ebook" class="ebook">
+        <h2>Get the E-Book</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 1.5rem;">
+            Dive deeper into our mission, stories of transformation, and practical guides. 
+            Your purchase directly funds a child's education.
+        </p>
+        <div style="text-align: center;">
+            <a href="#" class="btn btn-primary">Buy Now</a>
+        </div>
+    </section>
+
+    <section id="sponsor" class="sponsor">
         <h2>Sponsor a Child</h2>
-        <p>Join our community of sponsors and change a child's future.</p>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 1.5rem;">
+            For less than the cost of a weekly coffee, you can change a child's entire future. 
+            Join our community of sponsors.
+        </p>
+        <div style="text-align: center;">
+            <a href="#" class="btn btn-primary">Become a Sponsor</a>
+        </div>
     </section>
-    <section id="help">
+
+    <section id="help" class="help">
         <h2>How You Can Help</h2>
-        <p>Donate, volunteer, or spread the word about our mission.</p>
+        <div class="cards">
+            <div class="card">
+                <h3>💰 Donate</h3>
+                <p>Every contribution makes a real difference.</p>
+            </div>
+            <div class="card">
+                <h3>🤝 Volunteer</h3>
+                <p>Share your time and skills with our programs.</p>
+            </div>
+            <div class="card">
+                <h3>📢 Spread the Word</h3>
+                <p>Tell your friends and family about our mission.</p>
+            </div>
+        </div>
     </section>
+
     <footer>
         <p><strong>Abigail Eduaccess Shule</strong></p>
         <p>Empowering Children Through Education</p>
-        <p>Equip • Empower • Educate • Elevate</p>
+        <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">
+            Equip • Empower • Educate • Elevate
+        </p>
     </footer>
 
 </body>
