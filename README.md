@@ -1,3 +1,18 @@
+<!-- Hero Section with Logo -->
+<section style="text-align: center; padding: 40px 20px; background-color: #f8f9fa;">
+  <img 
+    src="Abigail-logo.jpg" 
+    alt="Abigail Eduaccess Shule Foundation Logo" 
+    style="max-width: 100%; height: auto; max-height: 400px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
+  >
+  <h1 style="margin-top: 20px; color: #1a5f2a; font-family: Georgia, serif;">
+    Abigail Eduaccess Shule Foundation
+  </h1>
+  <p style="color: #555; font-size: 1.1em; max-width: 600px; margin: 0 auto;">
+    Equip • Empower • Educate • Elevate
+  </p>
+</section>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
