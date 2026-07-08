@@ -220,7 +220,356 @@
         }
     </style>
 </head>
+<body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abigail Eduaccess Shule</title>
+    <link rel="icon" type="image/jpeg" href="Abigail-logo.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            background: #1a5f2a;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section with Logo */
+        .hero {
+            background: linear-gradient(135deg, #1a5f2a 0%, #2d8a3e 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero img {
+            max-width: 95%;
+            width: 550px;
+            height: auto;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            background: white;
+            padding: 15px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            opacity: 0.95;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .hero .motto {
+            font-style: italic;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Content Sections */
+        section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #1a5f2a;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .mission-text {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Services Grid */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 30px 25px;
+            border-radius: 12px;
+            text-align: center;
+            border-top: 4px solid #1a5f2a;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: #1a5f2a;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #f0f7f0;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1a5f2a;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, #1a5f2a 0%, #2d8a3e 100%);
+            color: white;
+            padding: 60px 20px;
+            max-width: 100%;
+        }
+
+        .cta h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: white;
+            color: #1a5f2a;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.05rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #1a5f2a;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero img { width: 100%; padding: 10px; }
+            .stats { gap: 30px; }
+            .stat-number { font-size: 2.2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
 <body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-text">Abigail Eduaccess Shule</div>
+        <div class="nav-links">
+            <a href="#mission">Mission</a>
+            <a href="#services">Services</a>
+            <a href="#impact">Impact</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Logo -->
+    <section class="hero">
+        <img src="Abigail-logo.jpg" alt="Abigail Eduaccess Shule Foundation">
+        <h1>Shule Foundation</h1>
+        <p class="subtitle">Empowering Children Through Education</p>
+        <p class="tagline">EQUIP • EMPOWER • EDUCATE • ELEVATE</p>
+        <p class="motto">🦁 Every foot in a nice shoe, every child in school</p>
+    </section>
+
+    <!-- Mission -->
+    <section id="mission">
+        <h2>Our Mission</h2>
+        <p class="mission-text">We believe every child deserves access to quality education regardless of their background. Through our advisory programs and direct support, we bridge the gap between potential and opportunity.</p>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <h2>What We Provide</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>📚 Educational Resources</h3>
+                <p>Books, supplies, and learning materials for underserved students.</p>
+            </div>
+            <div class="service-card">
+                <h3>🎓 Scholarships</h3>
+                <p>Financial support to keep children in school and pursuing their dreams.</p>
+            </div>
+            <div class="service-card">
+                <h3>👩‍🏫 Mentorship</h3>
+                <p>Guidance and role models to inspire the next generation of leaders.</p>
+            </div>
+            <div class="service-card">
+                <h3>🏫 School Support</h3>
+                <p>Infrastructure and resources to strengthen local educational institutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact -->
+    <section id="impact" class="stats-section">
+        <h2>Our Impact</h2>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Children Sponsored</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Schools Supported</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10,000+</div>
+                <div class="stat-label">Books Distributed</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder -->
+    <section>
+        <h2>Meet the Founder</h2>
+        <p class="mission-text">Founded with a vision to transform lives through education, Abigail Eduaccess Shule was built on the belief that no child should be left behind.</p>
+    </section>
+
+    <!-- E-Book -->
+    <section>
+        <h2>Get the E-Book</h2>
+        <p class="mission-text">Dive deeper into our mission, stories of transformation, and practical guides. Your purchase directly funds a child's education.</p>
+    </section>
+
+    <!-- How to Help -->
+    <section>
+        <h2>How You Can Help</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>💰 Donate</h3>
+                <p>Every contribution makes a real difference.</p>
+            </div>
+            <div class="service-card">
+                <h3>🤝 Volunteer</h3>
+                <p>Share your time and skills with our programs.</p>
+            </div>
+            <div class="service-card">
+                <h3>📢 Spread the Word</h3>
+                <p>Tell your friends and family about our mission.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta">
+        <h2>Join Us in Making a Difference</h2>
+        <p>Together, we can ensure every child has the education they deserve.</p>
+        <a href="#" class="btn">Get Involved</a>
+    </section>
+
+    <footer>
+        <p>© 2026 Abigail Eduaccess Shule Foundation. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
 
     <nav>
         <a href="#" class="nav-logo">
