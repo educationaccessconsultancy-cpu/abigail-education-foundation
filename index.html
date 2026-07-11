@@ -1247,9 +1247,34 @@ mobileMenuBtn.addEventListener('click', () => {
     }
 });
 
+const mobileMenuBtn = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-menu');
+
+mobileMenuBtn.addEventListener('click', () => {
+    if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+        mobileMenuBtn.textContent = '☰';
+    } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.background = 'white';
+        navLinks.style.padding = '1rem';
+        navLinks.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
+        navLinks.style.zIndex = '1001';
+        mobileMenuBtn.textContent = '✕';
+    }
+});
+
 document.querySelectorAll('#nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.style.display = 'none';
         mobileMenuBtn.textContent = '☰';
+    });
+}
+
     });
 });
