@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abigail Eduaccess Shule Foundation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a5c2e;
-            --primary-light: #2d7a42;
-            --accent: #d4a843;
-            --accent-light: #e8c96a;
-            --text-dark: #1a1a1a;
-            --text-light: #666;
-            --bg-light: #f8faf8;
+            --terracotta: #c75b39;
+            --terracotta-light: #e07a5f;
+            --terracotta-dark: #a04020;
+            --forest: #1b4332;
+            --forest-light: #2d6a4f;
+            --amber: #f4a261;
+            --amber-light: #f9c74f;
+            --cream: #fefae0;
+            --cream-dark: #faedcd;
+            --charcoal: #2b2d42;
             --white: #ffffff;
-            --shadow: 0 4px 20px rgba(0,0,0,0.08);
-            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+            --shadow-soft: 0 10px 40px rgba(0,0,0,0.08);
+            --shadow-glow: 0 0 60px rgba(244,162,97,0.15);
         }
 
         * {
@@ -31,24 +34,42 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Outfit', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--white);
+            color: var(--charcoal);
+            background: var(--cream);
             overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--terracotta);
+            border-radius: 4px;
+        }
+
+        /* Navigation - Glassmorphism */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: rgba(254,250,224,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(199,91,57,0.1);
             padding: 0 5%;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
         }
 
         .nav-container {
@@ -57,168 +78,262 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 70px;
+            height: 75px;
         }
 
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             text-decoration: none;
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.1rem;
         }
 
         .nav-logo-icon {
-            width: 42px;
-            height: 42px;
-            background: var(--primary);
-            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 15px rgba(199,91,57,0.3);
+            transition: transform 0.3s;
+        }
+
+        .nav-logo:hover .nav-logo-icon {
+            transform: rotate(-5deg) scale(1.05);
+        }
+
+        .nav-logo span {
+            color: var(--forest);
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: -0.3px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 32px;
+            gap: 36px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--charcoal);
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
+            font-size: 0.92rem;
+            transition: all 0.3s;
             position: relative;
+            padding: 6px 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background: linear-gradient(90deg, var(--terracotta), var(--amber));
+            border-radius: 2px;
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--terracotta);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
+        .nav-links a:hover::before {
             width: 100%;
         }
 
         .mobile-menu-btn {
             display: none;
-            background: none;
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
             border: none;
-            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            font-size: 1.3rem;
             cursor: pointer;
-            color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(199,91,57,0.3);
         }
 
-        /* Hero Section */
+        /* ============================================
+           HERO SECTION - MOUNT KILIMANJARO BACKGROUND
+           ============================================ */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary) 0%, #0d3d1a 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 5% 80px;
+            padding: 140px 5% 100px;
             position: relative;
             overflow: hidden;
+            /* Mount Kilimanjaro background with parallax */
+            background: 
+                linear-gradient(180deg, 
+                    rgba(27,67,50,0.4) 0%, 
+                    rgba(27,67,50,0.6) 40%,
+                    rgba(15,46,31,0.85) 100%),
+                url('https://images.unsplash.com/photo-1589553416260-f586c8f1514f?w=1920&q=80');
+            background-size: cover;
+            background-position: center 30%;
+            background-attachment: fixed; /* 3D parallax effect */
+            background-repeat: no-repeat;
         }
 
+        /* Animated overlay for depth */
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212,168,67,0.15) 0%, transparent 70%);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(244,162,97,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 100%, rgba(199,91,57,0.1) 0%, transparent 50%);
+            pointer-events: none;
+            animation: heroPulse 6s ease-in-out infinite;
+        }
+
+        @keyframes heroPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        /* Floating particles - snow/dust effect */
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255,255,255,0.4);
             border-radius: 50%;
+            animation: floatParticle linear infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-duration: 15s; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-duration: 18s; animation-delay: 2s; width: 6px; height: 6px; }
+        .particle:nth-child(3) { left: 35%; animation-duration: 12s; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 50%; animation-duration: 20s; animation-delay: 1s; width: 3px; height: 3px; }
+        .particle:nth-child(5) { left: 65%; animation-duration: 16s; animation-delay: 3s; }
+        .particle:nth-child(6) { left: 80%; animation-duration: 14s; animation-delay: 5s; width: 5px; height: 5px; }
+        .particle:nth-child(7) { left: 90%; animation-duration: 19s; animation-delay: 2s; }
+        .particle:nth-child(8) { left: 5%; animation-duration: 17s; animation-delay: 6s; width: 4px; height: 4px; }
+
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 850px;
         }
 
+        /* Tanzania badge */
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(244,162,97,0.4);
             padding: 10px 24px;
             border-radius: 50px;
-            color: var(--white);
-            font-size: 0.95rem;
-            margin-bottom: 32px;
-            backdrop-filter: blur(5px);
+            color: var(--amber-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 36px;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero-badge::before {
+            content: '🇹🇿';
+            font-size: 1.2rem;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.8rem, 7vw, 5rem);
             font-weight: 800;
             color: var(--white);
-            line-height: 1.1;
-            margin-bottom: 16px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
 
         .hero h1 span {
-            color: var(--accent-light);
+            background: linear-gradient(135deg, var(--amber), var(--terracotta-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-family: 'Caveat', cursive;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
             color: rgba(255,255,255,0.85);
             margin-bottom: 40px;
-            font-weight: 300;
+            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
+        /* Animated Pillars */
         .hero-pillars {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 12px;
-            margin-bottom: 40px;
+            gap: 14px;
+            margin-bottom: 48px;
         }
 
         .pillar {
-            padding: 10px 24px;
-            border: 1px solid rgba(255,255,255,0.25);
+            padding: 12px 28px;
+            border: 1.5px solid rgba(244,162,97,0.35);
             border-radius: 50px;
-            color: var(--white);
-            font-weight: 600;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+            color: var(--amber-light);
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 2px;
             background: rgba(255,255,255,0.05);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: default;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.2);
         }
 
         .pillar:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
+            border-color: transparent;
+            color: var(--white);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(199,91,57,0.3);
         }
 
-        /* Hero Items - FIXED & RESPONSIVE */
+        /* Hero Items - Bouncy & Interactive */
         .hero-items {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 12px;
-            margin-top: 40px;
+            gap: 14px;
+            margin-top: 48px;
             position: relative;
             z-index: 10;
         }
@@ -226,83 +341,262 @@
         .hero-item {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 22px;
-            border: 1px solid rgba(255,255,255,0.25);
+            gap: 10px;
+            padding: 14px 26px;
+            border: 1.5px solid rgba(255,255,255,0.2);
             border-radius: 50px;
             background: rgba(255,255,255,0.08);
             color: var(--white);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            font-size: 0.92rem;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             pointer-events: auto;
             position: relative;
             z-index: 20;
-            -webkit-tap-highlight-color: rgba(255,255,255,0.2);
+            -webkit-tap-highlight-color: rgba(244,162,97,0.2);
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .hero-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(244,162,97,0.35) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .hero-item:hover::before,
+        .hero-item:active::before {
+            width: 200px;
+            height: 200px;
         }
 
         .hero-item:hover,
         .hero-item:active {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.5);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.15);
+            border-color: var(--amber);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25), 0 0 20px rgba(244,162,97,0.15);
         }
 
         .hero-item:active {
-            transform: translateY(-1px) scale(0.98);
+            transform: translateY(-2px) scale(0.98);
         }
 
         .hero-icon {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             line-height: 1;
             pointer-events: none;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s;
+        }
+
+        .hero-item:hover .hero-icon {
+            transform: scale(1.2) rotate(-5deg);
+        }
+
+        .hero-item span:last-child {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8rem;
+            animation: bounce 2s infinite;
+            z-index: 2;
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 1.2rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* ============================================
+           KILIMANJARO GALLERY SECTION
+           ============================================ */
+        #gallery {
+            background: linear-gradient(180deg, var(--forest) 0%, #0f2e1f 100%);
+            padding: 80px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--amber), transparent);
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .gallery-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            z-index: 2;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Section Styles */
         section {
-            padding: 80px 5%;
+            padding: 100px 5%;
+            position: relative;
         }
 
         .section-header {
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto 60px;
+            max-width: 650px;
+            margin: 0 auto 70px;
         }
 
         .section-label {
-            display: inline-block;
-            padding: 6px 18px;
-            background: rgba(26,92,46,0.08);
-            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(199,91,57,0.1), rgba(244,162,97,0.1));
+            color: var(--terracotta);
             border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.82rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(199,91,57,0.15);
         }
 
         .section-header h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 12px;
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            color: var(--forest);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
         }
 
         .section-header p {
-            color: var(--text-light);
-            font-size: 1.05rem;
+            color: var(--charcoal);
+            opacity: 0.7;
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
 
         /* Mission Section */
         #mission {
-            background: var(--bg-light);
+            background: var(--cream);
         }
 
         .mission-content {
@@ -312,103 +606,158 @@
         }
 
         .mission-quote {
-            font-size: clamp(1.3rem, 3vw, 1.8rem);
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 24px;
-            font-style: italic;
+            font-family: 'Caveat', cursive;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 700;
+            color: var(--terracotta);
+            margin-bottom: 28px;
+            line-height: 1.3;
         }
 
         .mission-text {
             font-size: 1.05rem;
-            color: var(--text-light);
-            margin-bottom: 16px;
-            line-height: 1.8;
+            color: var(--charcoal);
+            opacity: 0.75;
+            margin-bottom: 20px;
+            line-height: 1.9;
         }
 
         .mission-values {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin-top: 60px;
         }
 
         .value-card {
             background: var(--white);
-            padding: 32px;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
+            padding: 40px 32px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-soft);
             text-align: left;
-            transition: transform 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(199,91,57,0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--terracotta), var(--amber));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
         }
 
         .value-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-glow), var(--shadow-soft);
+        }
+
+        .value-card:hover::before {
+            transform: scaleX(1);
         }
 
         .value-card h4 {
-            font-size: 1.1rem;
-            color: var(--primary);
-            margin-bottom: 10px;
+            font-size: 1.15rem;
+            color: var(--forest);
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .value-card h4 span {
+            font-size: 1.6rem;
         }
 
         .value-card p {
-            color: var(--text-light);
+            color: var(--charcoal);
+            opacity: 0.7;
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         /* Services Section */
         #services {
-            background: var(--white);
+            background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
-            max-width: 1100px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1150px;
             margin: 0 auto;
         }
 
         .service-card {
-            background: var(--bg-light);
-            padding: 36px;
-            border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            background: var(--white);
+            padding: 44px 36px;
+            border-radius: 28px;
+            border: 1px solid rgba(199,91,57,0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: linear-gradient(180deg, transparent, rgba(199,91,57,0.03));
+            transition: height 0.4s ease;
+        }
+
+        .service-card:hover::after {
+            height: 100%;
         }
 
         .service-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow), var(--shadow-soft);
+            transform: translateY(-10px) rotateX(2deg);
         }
 
         .service-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--primary);
-            border-radius: 14px;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 25px rgba(199,91,57,0.25);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(-5deg);
         }
 
         .service-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            color: var(--text-dark);
+            font-size: 1.25rem;
+            margin-bottom: 14px;
+            color: var(--forest);
+            font-weight: 700;
         }
 
-        .service-card p {
-            color: var(--text-light);
+        .service-card > p {
+            color: var(--charcoal);
+            opacity: 0.7;
             font-size: 0.95rem;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            line-height: 1.7;
         }
 
         .service-list {
@@ -416,30 +765,109 @@
         }
 
         .service-list li {
-            padding: 6px 0;
-            color: var(--text-light);
-            font-size: 0.9rem;
+            padding: 8px 0;
+            color: var(--charcoal);
+            opacity: 0.7;
+            font-size: 0.92rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            transition: all 0.3s;
         }
 
         .service-list li::before {
-            content: '✓';
-            color: var(--primary);
-            font-weight: 700;
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .service-card:hover .service-list li {
+            opacity: 0.9;
+            transform: translateX(4px);
+        }
+
+        /* Impact Section with Animated Counters */
+        #impact {
+            background: linear-gradient(135deg, var(--forest) 0%, #0f2e1f 100%);
+            color: var(--white);
+        }
+
+        #impact .section-header h2 {
+            color: var(--white);
+        }
+
+        #impact .section-label {
+            background: rgba(255,255,255,0.1);
+            color: var(--amber-light);
+            border-color: rgba(244,162,97,0.2);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 36px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .impact-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(244,162,97,0.15);
+            padding: 48px 32px;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.4s;
+            backdrop-filter: blur(10px);
+        }
+
+        .impact-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--amber);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .impact-number {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--amber), var(--terracotta-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .impact-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .impact-desc {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
         }
 
         /* E-Book Section */
         #ebook {
-            background: linear-gradient(135deg, var(--bg-light) 0%, #eef5ee 100%);
+            background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
         }
 
         .ebook-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            max-width: 1100px;
+            gap: 80px;
+            max-width: 1150px;
             margin: 0 auto;
             align-items: center;
         }
@@ -450,50 +878,100 @@
             justify-content: center;
         }
 
+        .ebook-cover::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.3;
+            transform: rotate(-3deg);
+            transition: transform 0.4s;
+        }
+
+        .ebook-cover:hover::before {
+            transform: rotate(-5deg) translateY(-5px);
+        }
+
         .ebook-cover img {
             max-width: 100%;
             height: auto;
-            border-radius: 12px;
-            box-shadow: var(--shadow-lg);
-            transition: transform 0.3s;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .ebook-cover img:hover {
-            transform: scale(1.02);
+        .ebook-cover:hover img {
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: var(--shadow-glow), var(--shadow-soft);
+        }
+
+        .ebook-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
+            color: var(--white);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
         }
 
         .ebook-info h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
             margin-bottom: 16px;
-            color: var(--text-dark);
+            color: var(--forest);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .ebook-info .subtitle {
+            font-family: 'Caveat', cursive;
+            font-size: 1.3rem;
+            color: var(--terracotta);
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .ebook-info p {
-            color: var(--text-light);
+            color: var(--charcoal);
+            opacity: 0.75;
             margin-bottom: 20px;
-            line-height: 1.7;
+            line-height: 1.8;
+            font-size: 1rem;
         }
 
         .ebook-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 14px 32px;
-            background: var(--primary);
+            gap: 12px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));
             color: var(--white);
             text-decoration: none;
             border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: none;
             cursor: pointer;
             font-size: 1rem;
+            box-shadow: 0 8px 25px rgba(199,91,57,0.3);
+            margin-top: 10px;
         }
 
         .ebook-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(26,92,46,0.3);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(199,91,57,0.4);
+        }
+
+        .ebook-btn:active {
+            transform: translateY(-1px) scale(0.98);
         }
 
         /* Contact Section */
@@ -503,89 +981,157 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
             max-width: 1000px;
             margin: 0 auto;
         }
 
         .contact-card {
-            background: var(--bg-light);
-            padding: 32px;
-            border-radius: 16px;
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 24px;
             text-align: center;
-            transition: transform 0.3s;
+            transition: all 0.4s;
+            border: 1px solid rgba(199,91,57,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(244,162,97,0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .contact-card:hover::before {
+            opacity: 1;
         }
 
         .contact-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-soft);
+            border-color: rgba(199,91,57,0.15);
         }
 
         .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            border-radius: 50%;
+            width: 68px;
+            height: 68px;
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 16px;
+            font-size: 1.6rem;
+            margin: 0 auto 20px;
             color: var(--white);
+            box-shadow: 0 8px 25px rgba(199,91,57,0.25);
+            transition: transform 0.4s;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .contact-card h4 {
-            margin-bottom: 8px;
-            color: var(--text-dark);
+            margin-bottom: 10px;
+            color: var(--forest);
+            font-size: 1.15rem;
+            font-weight: 700;
         }
 
         .contact-card p,
         .contact-card a {
-            color: var(--text-light);
+            color: var(--charcoal);
+            opacity: 0.7;
             text-decoration: none;
             font-size: 0.95rem;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
         }
 
         .contact-card a:hover {
-            color: var(--primary);
+            color: var(--terracotta);
+            opacity: 1;
         }
 
         /* Footer */
         footer {
-            background: var(--text-dark);
-            color: rgba(255,255,255,0.7);
+            background: var(--forest);
+            color: rgba(255,255,255,0.6);
             text-align: center;
-            padding: 40px 5%;
+            padding: 50px 5%;
             font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--terracotta), var(--amber), var(--terracotta));
         }
 
         footer a {
-            color: var(--accent-light);
+            color: var(--amber-light);
             text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--white);
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                right: 0;
+                background: rgba(254,250,224,0.98);
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+                backdrop-filter: blur(20px);
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .mobile-menu-btn {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .hero {
-                padding: 100px 5% 60px;
+                padding: 120px 5% 80px;
+                background-attachment: scroll; /* Disable parallax on mobile */
             }
 
             .hero-pillars {
-                gap: 8px;
+                gap: 10px;
             }
 
             .pillar {
-                padding: 8px 16px;
-                font-size: 0.75rem;
+                padding: 10px 18px;
+                font-size: 0.72rem;
             }
 
             .hero-items {
@@ -593,36 +1139,52 @@
             }
 
             .hero-item {
-                padding: 10px 18px;
+                padding: 12px 20px;
                 font-size: 0.85rem;
-                min-height: 44px;
+                min-height: 48px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
 
             .ebook-container {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 50px;
             }
 
             .ebook-cover {
                 order: -1;
             }
 
+            .ebook-cover::before {
+                top: 15px;
+                left: 15px;
+                right: -15px;
+                bottom: -15px;
+            }
+
             section {
-                padding: 60px 5%;
+                padding: 70px 5%;
             }
 
             .services-grid,
             .mission-values,
-            .contact-grid {
+            .contact-grid,
+            .impact-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .scroll-indicator {
+                display: none;
             }
         }
 
-        /* Animation */
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -631,26 +1193,41 @@
         }
 
         .fade-in {
-            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+            animation: fadeInUp 0.9s ease forwards;
         }
 
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
+        .delay-1 { animation-delay: 0.15s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.45s; }
+        .delay-4 { animation-delay: 0.6s; }
+        .delay-5 { animation-delay: 0.75s; }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
+    <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">
+            <a href="https://educationaccessconsultancy-cpu.github.io/abigail-education-foundation/" class="nav-logo">
                 <div class="nav-logo-icon">🎓</div>
                 <span>Abigail Eduaccess Shule</span>
             </a>
             <ul class="nav-links" id="nav-menu">
                 <li><a href="#mission">Mission</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#impact">Impact</a></li>
                 <li><a href="#ebook">E-Book</a></li>
                 <li><a href="#contact-info">Contact</a></li>
@@ -659,11 +1236,25 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ============================================
+         HERO SECTION - MOUNT KILIMANJARO BACKGROUND
+         ============================================ -->
     <section class="hero">
+        <!-- Floating particles for 3D atmosphere -->
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
         <div class="hero-content">
             <div class="hero-badge fade-in">
-                <span>🦁</span> Education Access Advisory Program
+                Education Access Advisory Program
             </div>
             <h1 class="fade-in delay-1">
                 Abigail <span>Eduaccess</span><br>
@@ -699,30 +1290,32 @@
                 </a>
             </div>
         </div>
+        <div class="scroll-indicator">Scroll to explore</div>
     </section>
 
     <!-- Mission Section -->
     <section id="mission">
-        <div class="section-header">
-            <span class="section-label">Our Purpose</span>
+        <div class="section-header reveal">
+            <span class="section-label">✨ Our Purpose</span>
             <h2>Our Mission</h2>
+            <p>Dedicated to breaking down barriers and creating pathways to education for every child.</p>
         </div>
         <div class="mission-content">
-            <p class="mission-quote">"Every Child Deserves a Chance to Learn"</p>
-            <p class="mission-text">We believe every child has the right to quality education, regardless of their background or circumstances. Our foundation works tirelessly to remove barriers that prevent children from accessing education.</p>
-            <p class="mission-text">AESF is committed to providing essential educational resources, mentorship, and support to underserved communities, ensuring no child is left behind.</p>
+            <p class="mission-quote reveal">"Every Child Deserves a Chance to Learn"</p>
+            <p class="mission-text reveal">We believe every child has the right to quality education, regardless of their background or circumstances. Our foundation works tirelessly to remove barriers that prevent children from accessing education.</p>
+            <p class="mission-text reveal">AESF is committed to providing essential educational resources, mentorship, and support to underserved communities, ensuring no child is left behind.</p>
             <div class="mission-values">
-                <div class="value-card">
+                <div class="value-card reveal">
                     <h4><span>🤝</span> Child Dignity</h4>
-                    <p>Every child is a person of worth and dignity, deserving of respect, care, and equal opportunity to thrive.</p>
+                    <p>Every child is a person of worth and dignity, deserving of respect, care, and equal opportunity to thrive and reach their full potential.</p>
                 </div>
-                <div class="value-card">
+                <div class="value-card reveal">
                     <h4><span>📚</span> Education as a Right</h4>
-                    <p>Education is not a privilege but a fundamental right that empowers children to build better futures.</p>
+                    <p>Education is not a privilege but a fundamental right that empowers children to build better futures for themselves and their communities.</p>
                 </div>
-                <div class="value-card">
+                <div class="value-card reveal">
                     <h4><span>🔍</span> Early Identification</h4>
-                    <p>We identify barriers before they become roadblocks, intervening early to keep children in school.</p>
+                    <p>We identify barriers before they become roadblocks, intervening early to keep children in school and on track to success.</p>
                 </div>
             </div>
         </div>
@@ -730,15 +1323,16 @@
 
     <!-- Services Section -->
     <section id="services">
-        <div class="section-header">
-            <span class="section-label">What We Do</span>
+        <div class="section-header reveal">
+            <span class="section-label">🎯 What We Do</span>
             <h2>What We Provide</h2>
+            <p>Comprehensive support to ensure every child has what they need to succeed in school.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card reveal">
                 <div class="service-icon">📚</div>
                 <h3>Educational Resources</h3>
-                <p>Essential learning materials to support academic success.</p>
+                <p>Essential learning materials to support academic success and foster a love for learning.</p>
                 <ul class="service-list">
                     <li>Quality school shoes</li>
                     <li>School socks</li>
@@ -746,10 +1340,10 @@
                     <li>Books and stationery</li>
                 </ul>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
                 <div class="service-icon">🎒</div>
                 <h3>School Supplies</h3>
-                <p>Complete kits to prepare children for the classroom.</p>
+                <p>Complete kits to prepare children for the classroom and boost their confidence.</p>
                 <ul class="service-list">
                     <li>School bags</li>
                     <li>Writing materials</li>
@@ -757,10 +1351,10 @@
                     <li>Art supplies</li>
                 </ul>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
                 <div class="service-icon">🩸</div>
                 <h3>Health & Hygiene</h3>
-                <p>Supporting dignity and health for continued attendance.</p>
+                <p>Supporting dignity and health for continued attendance and academic performance.</p>
                 <ul class="service-list">
                     <li>Sanitary pads</li>
                     <li>Hygiene kits</li>
@@ -771,73 +1365,114 @@
         </div>
     </section>
 
-    <!-- Impact Section -->
-    <section id="impact">
-        <div class="section-header">
-            <span class="section-label">Our Reach</span>
-            <h2>Making a Difference</h2>
+    <!-- ============================================
+         KILIMANJARO GALLERY SECTION
+         ============================================ -->
+    <section id="gallery">
+        <div class="gallery-header reveal">
+            <span class="section-label" style="background:rgba(255,255,255,0.1);color:var(--amber-light);border-color:rgba(244,162,97,0.2);">🏔️ Explore Tanzania</span>
+            <h2>The Majesty of Mount Kilimanjaro</h2>
+            <p>Standing tall as Africa's highest peak, Kilimanjaro inspires us to reach new heights in education.</p>
         </div>
-        <div class="services-grid">
-            <div class="service-card" style="text-align:center;">
-                <div class="service-icon" style="margin:0 auto 20px;">👦</div>
-                <h3>500+ Children</h3>
-                <p>Supported with educational resources and school supplies since our founding.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1589553416260-f586c8f1514f?w=600&q=80" alt="Kilimanjaro Sunrise">
+                <div class="gallery-caption">Sunrise over the snow-capped peak</div>
             </div>
-            <div class="service-card" style="text-align:center;">
-                <div class="service-icon" style="margin:0 auto 20px;">🏫</div>
-                <h3>12 Schools</h3>
-                <p>Partner institutions where we provide ongoing support and resources.</p>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80" alt="Kilimanjaro from Savannah">
+                <div class="gallery-caption">View from the African savannah</div>
             </div>
-            <div class="service-card" style="text-align:center;">
-                <div class="service-icon" style="margin:0 auto 20px;">👩‍🎓</div>
-                <h3>95% Retention</h3>
-                <p>Of supported students continue their education without dropping out.</p>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1518182170546-0766bc6f9213?w=600&q=80" alt="Kilimanjaro Summit">
+                <div class="gallery-caption">The summit at dawn</div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=600&q=80" alt="Kilimanjaro Landscape">
+                <div class="gallery-caption">Majestic from every angle</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section with Animated Counters -->
+    <section id="impact">
+        <div class="section-header reveal">
+            <span class="section-label">📊 Our Reach</span>
+            <h2>Making a Difference</h2>
+            <p style="color:rgba(255,255,255,0.7);">Real numbers, real impact, real lives changed.</p>
+        </div>
+        <div class="impact-grid">
+            <div class="impact-card reveal">
+                <div class="impact-number" data-target="500">0</div>
+                <div class="impact-label">Children Supported</div>
+                <div class="impact-desc">With educational resources and school supplies since our founding.</div>
+            </div>
+            <div class="impact-card reveal">
+                <div class="impact-number" data-target="12">0</div>
+                <div class="impact-label">Partner Schools</div>
+                <div class="impact-desc">Institutions where we provide ongoing support and resources.</div>
+            </div>
+            <div class="impact-card reveal">
+                <div class="impact-number" data-target="95">0</div>
+                <div class="impact-label">% Retention Rate</div>
+                <div class="impact-desc">Of supported students continue their education without dropping out.</div>
+            </div>
+            <div class="impact-card reveal">
+                <div class="impact-number" data-target="2500">0</div>
+                <div class="impact-label">Items Distributed</div>
+                <div class="impact-desc">School shoes, uniforms, books, and supplies given to children in need.</div>
             </div>
         </div>
     </section>
 
     <!-- E-Book Section -->
     <section id="ebook">
-        <div class="section-header">
-            <span class="section-label">Resources</span>
+        <div class="section-header reveal">
+            <span class="section-label">📖 Resources</span>
             <h2>Featured Publication</h2>
+            <p>A powerful resource for children and families navigating loss and legacy.</p>
         </div>
         <div class="ebook-container">
-            <div class="ebook-cover">
-                <!-- Replace with your actual book cover image -->
-                <img src="https://placehold.co/400x500/1a5c2e/ffffff?text=The+Legacy+That+Lives+On" alt="The Legacy That Lives On - Book Cover">
+            <div class="ebook-cover reveal">
+                <img src="https://placehold.co/400x520/1b4332/f4a261?text=The+Legacy+That+Lives+On" alt="The Legacy That Lives On - Book Cover">
             </div>
-            <div class="ebook-info">
+            <div class="ebook-info reveal">
+                <span class="ebook-tag">New Release</span>
                 <h3>The Legacy That Lives On</h3>
-                <p><strong>A Child's Guide to Honoring Living and Departed Parents and Guardians</strong></p>
+                <p class="subtitle">A Child's Guide to Honoring Living and Departed Parents and Guardians</p>
                 <p>A profound and compassionate guide that helps children understand, value, and honor the enduring influence of their parents or guardians. Drawing from history, linguistics, theology, and ethical reflection, this book speaks to the heart of every young reader.</p>
                 <p>It teaches children how to build strong relationships, cherish memories, and carry forward values that shape character and destiny.</p>
-                <a href="#contact-info" class="ebook-btn">📖 Get Your Copy</a>
+                <a href="#contact-info" class="ebook-btn">
+                    <span>📖</span> Get Your Copy
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact-info">
-        <div class="section-header">
-            <span class="section-label">Get In Touch</span>
+        <div class="section-header reveal">
+            <span class="section-label">💬 Get In Touch</span>
             <h2>Contact Us</h2>
+            <p>We'd love to hear from you. Reach out and let's make a difference together.</p>
         </div>
         <div class="contact-grid">
-            <div class="contact-card">
+            <div class="contact-card reveal">
                 <div class="contact-icon">📧</div>
                 <h4>Email</h4>
-                <a href="mailto:info@abigaileduaccess.org">info@abigaileduaccess.org</a>
+                <a href="mailto:educationaccessconsultancy@gmail.com">educationaccessconsultancy@gmail.com</a>
             </div>
-            <div class="contact-card">
+            <div class="contact-card reveal">
                 <div class="contact-icon">📱</div>
                 <h4>Phone</h4>
-                <a href="tel:+1234567890">+1 (234) 567-890</a>
+                <a href="tel:+255788698126">+255 788 698 126</a><br>
+                <a href="tel:+255619891985">+255 619 891 985</a><br>
+                <a href="tel:+255754692521">+255 754 692 521</a>
             </div>
-            <div class="contact-card">
+            <div class="contact-card reveal">
                 <div class="contact-icon">📍</div>
-                <h4>Location</h4>
-                <p>Your City, Your Country</p>
+                <h4>Address</h4>
+                <p>Tetex House, Pamba Road<br>Posta, Dar es Salaam<br>Tanzania 🇹🇿</p>
             </div>
         </div>
     </section>
@@ -845,14 +1480,93 @@
     <!-- Footer -->
     <footer>
         <p>© 2026 Abigail Eduaccess Shule Foundation. All rights reserved.</p>
-        <p style="margin-top:8px;">Empowering Children Through Education</p>
+        <p style="margin-top:10px; font-family: 'Caveat', cursive; font-size: 1.2rem;">Empowering Children Through Education 🌟</p>
+        <p style="margin-top:8px; font-size: 0.8rem; opacity: 0.6;">Proudly based in Dar es Salaam, Tanzania</p>
     </footer>
 
     <script>
+        // Mobile Menu Toggle
         function toggleMenu() {
             const menu = document.getElementById('nav-menu');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+            menu.classList.toggle('active');
         }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Animated Counter
+        const counters = document.querySelectorAll('.impact-number');
+        let counted = false;
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !counted) {
+                    counted = true;
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const duration = 2000;
+                        const increment = target / (duration / 16);
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                counter.textContent = Math.floor(current).toLocaleString();
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.textContent = target.toLocaleString() + (target === 95 ? '%' : '+');
+                            }
+                        };
+
+                        updateCounter();
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const impactSection = document.getElementById('impact');
+        if (impactSection) {
+            counterObserver.observe(impactSection);
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+
+        // Parallax effect for hero on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero && window.innerWidth > 768) {
+                hero.style.backgroundPositionY = (30 + scrolled * 0.05) + '%';
+            }
+        });
     </script>
 </body>
 </html>
