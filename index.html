@@ -4,199 +4,731 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abigail Eduaccess Shule Foundation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root{--primary:#1a5f2a;--primary-light:#2d8a3e;--primary-dark:#0d3d17;--accent:#c9a227;--accent-light:#e8c94a;--text-dark:#1a1a2e;--text-medium:#4a4a5a;--text-light:#6a6a7a;--bg-cream:#faf8f5;--bg-white:#ffffff;--bg-light:#f0f4f0;--border:#e0e0e0;--shadow:0 4px 20px rgba(0,0,0,0.08);--shadow-hover:0 8px 30px rgba(0,0,0,0.12)}
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',sans-serif;color:var(--text-dark);line-height:1.7;background:var(--bg-cream);overflow-x:hidden}
-        nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
-        .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--primary);font-weight:700;font-size:1.1rem}
-        .nav-logo-icon{width:40px;height:40px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
-        .nav-links{display:flex;gap:2rem;list-style:none}
-        .nav-links a{text-decoration:none;color:var(--text-medium);font-weight:500;font-size:0.9rem;transition:color 0.3s;position:relative}
-        .nav-links a:hover{color:var(--primary)}
-        .mobile-menu-btn{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--primary);padding:0.5rem;z-index:1002}
-        .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 50%,var(--primary-light) 100%);position:relative;overflow:hidden;padding:6rem 5% 4rem}
-        .hero-content{position:relative;z-index:2;max-width:900px}
-        .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.15);color:white;padding:0.5rem 1.2rem;border-radius:50px;font-size:0.85rem;font-weight:500;margin-bottom:2rem;backdrop-filter:blur(5px);border:1px solid rgba(255,255,255,0.2)}
-        .hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;color:white;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-0.02em}
-        .hero h1 span{color:var(--accent-light)}
-        .hero-subtitle{font-size:clamp(1rem,2.5vw,1.35rem);color:rgba(255,255,255,0.9);margin-bottom:2.5rem;font-weight:300;max-width:600px;margin-left:auto;margin-right:auto}
-        .hero-pillars{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
-        .pillar{background:rgba(255,255,255,0.12);color:white;padding:0.6rem 1.4rem;border-radius:50px;font-weight:600;font-size:0.9rem;letter-spacing:0.05em;border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(5px)}
-        .hero-items{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
-        .hero-item{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85);padding:0.4rem 1rem;border-radius:20px;font-size:0.8rem;border:1px solid rgba(255,255,255,0.15)}
-        .hero-tagline{font-size:1.1rem;color:var(--accent-light);font-weight:500;font-style:italic}
-        section{padding:5rem 5%}
-        .section-header{text-align:center;max-width:700px;margin:0 auto 3rem}
-        .section-label{display:inline-block;background:var(--primary);color:white;padding:0.4rem 1rem;border-radius:20px;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem}
-        .section-header h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:var(--text-dark);margin-bottom:1rem;line-height:1.2}
-        .section-header p{color:var(--text-light);font-size:1.05rem}
-        #mission{background:var(--bg-white)}
-        .mission-content{max-width:800px;margin:0 auto;text-align:center}
-        .mission-quote{font-size:1.3rem;font-style:italic;color:var(--primary);font-weight:500;margin-bottom:1.5rem;padding:1.5rem;border-left:4px solid var(--accent);background:var(--bg-light);border-radius:0 8px 8px 0}
-        .mission-text{font-size:1.05rem;color:var(--text-medium);margin-bottom:2rem}
-        .mission-values{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem}
-        .value-card{background:var(--bg-cream);padding:1.5rem;border-radius:12px;text-align:left;border:1px solid var(--border);transition:transform 0.3s,box-shadow 0.3s}
-        .value-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-        .value-card h4{color:var(--primary);font-size:1rem;margin-bottom:0.5rem}
-        .value-card p{font-size:0.9rem;color:var(--text-light)}
-        #services{background:var(--bg-cream)}
-        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;max-width:1200px;margin:0 auto}
-        .service-card{background:var(--bg-white);padding:2rem;border-radius:16px;box-shadow:var(--shadow);transition:transform 0.3s,box-shadow 0.3s;border:1px solid var(--border)}
-        .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover)}
-        .service-icon{font-size:2.5rem;margin-bottom:1rem}
-        .service-card h3{font-size:1.2rem;color:var(--text-dark);margin-bottom:0.75rem}
-        .service-card p{color:var(--text-light);font-size:0.95rem;margin-bottom:1rem}
-        .service-list{list-style:none;padding:0}
-        .service-list li{padding:0.3rem 0;color:var(--text-medium);font-size:0.9rem;display:flex;align-items:center;gap:0.5rem}
-        .service-list li::before{content:'✓';color:var(--primary);font-weight:bold}
-        #impact{background:var(--primary);color:white;text-align:center}
-        #impact .section-header h2{color:white}
-        #impact .section-header p{color:rgba(255,255,255,0.8)}
-        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;max-width:900px;margin:0 auto}
-        .stat-card{background:rgba(255,255,255,0.1);padding:2rem;border-radius:16px;backdrop-filter:blur(5px);border:1px solid rgba(255,255,255,0.15)}
-        .stat-number{font-size:3rem;font-weight:800;color:var(--accent-light);line-height:1}
-        .stat-label{font-size:1rem;color:rgba(255,255,255,0.9);margin-top:0.5rem}
-        #founder{background:var(--bg-white)}
-        .founder-content{max-width:800px;margin:0 auto;text-align:center}
-        .founder-img{width:180px;height:180px;border-radius:50%;object-fit:cover;border:4px solid var(--primary);margin-bottom:1.5rem;box-shadow:var(--shadow)}
-        .founder-name{font-size:1.5rem;font-weight:700;color:var(--text-dark)}
-        .founder-title{color:var(--primary);font-weight:600;margin-bottom:1rem}
-        .founder-quote{font-size:1.2rem;font-style:italic;color:var(--text-medium);margin:1.5rem 0;padding:1.5rem;background:var(--bg-light);border-radius:12px;border-left:4px solid var(--accent)}
-        #ebook{background:var(--bg-cream)}
-        .ebook-content{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-        .ebook-image{text-align:center}
-        .ebook-cover{max-width:280px;border-radius:12px;box-shadow:var(--shadow-hover);transform:rotate(-3deg);transition:transform 0.3s}
-        .ebook-cover:hover{transform:rotate(0deg) scale(1.02)}
-        .ebook-details h3{font-size:1.5rem;margin-bottom:1rem;color:var(--text-dark)}
-        .ebook-details p{color:var(--text-medium);margin-bottom:1rem}
-        .ebook-list{list-style:none;margin:1.5rem 0}
-        .ebook-list li{padding:0.5rem 0;display:flex;align-items:center;gap:0.75rem;color:var(--text-medium)}
-        .ebook-list li::before{content:'→';color:var(--primary);font-weight:bold}
-        #street-outreach{background:var(--bg-white)}
-        .outreach-content{max-width:1000px;margin:0 auto}
-        .outreach-quote{font-size:1.4rem;font-style:italic;color:var(--primary);text-align:center;margin-bottom:3rem;padding:2rem;background:var(--bg-light);border-radius:16px;border-left:4px solid var(--accent)}
-        .outreach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-bottom:3rem}
-        .outreach-card{background:var(--bg-cream);padding:2rem;border-radius:16px;border:1px solid var(--border);transition:transform 0.3s,box-shadow 0.3s}
-        .outreach-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-        .outreach-card h3{color:var(--primary);font-size:1.2rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
-        .outreach-card p,.outreach-card li{color:var(--text-medium);font-size:0.95rem}
-        .outreach-card ul{list-style:none;padding:0}
-        .outreach-card li{padding:0.4rem 0;display:flex;align-items:flex-start;gap:0.5rem}
-        .outreach-card li::before{content:'•';color:var(--primary);font-weight:bold;font-size:1.2rem;line-height:1}
-        .outreach-mission{background:var(--primary);color:white;padding:2.5rem;border-radius:16px;text-align:center;margin-top:2rem}
-        .outreach-mission h3{color:var(--accent-light);font-size:1.3rem;margin-bottom:1rem}
-        .outreach-mission p{color:rgba(255,255,255,0.9);font-size:1.05rem;max-width:700px;margin:0 auto}
-        #help{background:var(--bg-cream)}
-        .help-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1000px;margin:0 auto}
-        .help-card{background:var(--bg-white);padding:2rem;border-radius:16px;text-align:center;box-shadow:var(--shadow);border:1px solid var(--border);transition:transform 0.3s}
-        .help-card:hover{transform:translateY(-5px)}
-        .help-icon{font-size:3rem;margin-bottom:1rem}
-        .help-card h3{font-size:1.2rem;margin-bottom:0.75rem;color:var(--text-dark)}
-        .help-card p{color:var(--text-light);font-size:0.95rem}
-        #contact-info{background:var(--bg-white)}
-        .contact-content{max-width:700px;margin:0 auto;text-align:center}
-        .contact-card{background:var(--bg-cream);padding:2.5rem;border-radius:20px;border:1px solid var(--border);box-shadow:var(--shadow)}
-        .contact-item{display:flex;align-items:center;justify-content:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);font-size:1.05rem}
-        .contact-item:last-child{border-bottom:none}
-        .contact-item strong{color:var(--primary);min-width:120px;text-align:right}
-        .contact-item a{color:var(--text-medium);text-decoration:none;transition:color 0.3s}
-        .contact-item a:hover{color:var(--primary)}
-        .contact-tagline{margin-top:2rem;font-style:italic;color:var(--primary);font-weight:500;font-size:1.1rem}
-        #cta{background:var(--primary);color:white;text-align:center;padding:5rem 5%}
-        #cta h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1rem}
-        #cta p{font-size:1.1rem;color:rgba(255,255,255,0.9);max-width:600px;margin:0 auto 2rem}
-        .btn{display:inline-block;padding:1rem 2.5rem;border-radius:50px;font-weight:600;text-decoration:none;transition:transform 0.3s,box-shadow 0.3s;font-size:1rem;cursor:pointer;border:none}
-        .btn-primary{background:var(--accent);color:var(--text-dark)}
-        .btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,0.2)}
-        .btn-white{background:white;color:var(--primary)}
-        .btn-white:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,0.2)}
-        footer{background:var(--text-dark);color:rgba(255,255,255,0.7);text-align:center;padding:2rem 5%;font-size:0.9rem}
-        @media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:white;flex-direction:column;padding:1rem;box-shadow:0 4px 10px rgba(0,0,0,0.1);z-index:1001;list-style:none}.nav-links li{padding:0.75rem 0;border-bottom:1px solid var(--border)}.nav-links li:last-child{border-bottom:none}.nav-links a{font-size:1.1rem;display:block}.mobile-menu-btn{display:block}.hero-pillars{gap:0.75rem}.pillar{font-size:0.8rem;padding:0.5rem 1rem}.ebook-content{grid-template-columns:1fr}.contact-item{flex-direction:column;text-align:center;gap:0.5rem}.contact-item strong{text-align:center;min-width:auto}section{padding:3rem 5%}}
-    .hero-items{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:2rem;position:relative;z-index:5}.hero-item{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid rgba(255,255,255,0.3);border-radius:50px;background:rgba(255,255,255,0.08);color:#fff;text-decoration:none;font-size:0.95rem;transition:all 0.3s ease;cursor:pointer;pointer-events:auto;position:relative;z-index:10;-webkit-tap-highlight-color:rgba(255,255,255,0.2);user-select:none;-webkit-user-select:none}.hero-item:hover,.hero-item:active{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.6);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}.hero-item:active{transform:translateY(0) scale(0.98)}.hero-icon{font-size:1.2rem;pointer-events:none}
-</style>
+        :root {
+            --primary: #1a5c2e;
+            --primary-light: #2d7a42;
+            --accent: #d4a843;
+            --accent-light: #e8c96a;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8faf8;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 0 5%;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .nav-logo-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, #0d3d1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 5% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212,168,67,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 24px;
+            border-radius: 50px;
+            color: var(--white);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-light);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-pillars {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .pillar {
+            padding: 10px 24px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 50px;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            background: rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .pillar:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Items - FIXED & RESPONSIVE */
+        .hero-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 50px;
+            background: rgba(255,255,255,0.08);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+            z-index: 20;
+            -webkit-tap-highlight-color: rgba(255,255,255,0.2);
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .hero-item:hover,
+        .hero-item:active {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-item:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .hero-icon {
+            font-size: 1.3rem;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 6px 18px;
+            background: rgba(26,92,46,0.08);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        /* Mission Section */
+        #mission {
+            background: var(--bg-light);
+        }
+
+        .mission-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-quote {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .mission-text {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .mission-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .value-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        #services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            padding: 36px;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            padding: 6px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* E-Book Section */
+        #ebook {
+            background: linear-gradient(135deg, var(--bg-light) 0%, #eef5ee 100%);
+        }
+
+        .ebook-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .ebook-cover {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .ebook-cover img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s;
+        }
+
+        .ebook-cover img:hover {
+            transform: scale(1.02);
+        }
+
+        .ebook-info h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .ebook-info p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .ebook-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .ebook-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26,92,46,0.3);
+        }
+
+        /* Contact Section */
+        #contact-info {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--bg-light);
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 16px;
+            color: var(--white);
+        }
+
+        .contact-card h4 {
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 40px 5%;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 100px 5% 60px;
+            }
+
+            .hero-pillars {
+                gap: 8px;
+            }
+
+            .pillar {
+                padding: 8px 16px;
+                font-size: 0.75rem;
+            }
+
+            .hero-items {
+                gap: 10px;
+            }
+
+            .hero-item {
+                padding: 10px 18px;
+                font-size: 0.85rem;
+                min-height: 44px;
+            }
+
+            .ebook-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .ebook-cover {
+                order: -1;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .services-grid,
+            .mission-values,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
-        <a href="#" class="nav-logo">
-            <div class="nav-logo-icon">🎓</div>
-            <span>Abigail Eduaccess Shule</span>
-        </a>
-        <ul class="nav-links" id="nav-menu">
-            <li><a href="#mission">Mission</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#impact">Impact</a></li>
-            <li><a href="#ebook">E-Book</a></li>
-            <li><a href="#street-outreach">Outreach</a></li>
-            <li><a href="#contact-info">Contact</a></li>
-        </ul>
-        <button class="mobile-menu-btn" id="menu-toggle">☰</button>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-icon">🎓</div>
+                <span>Abigail Eduaccess Shule</span>
+            </a>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#ebook">E-Book</a></li>
+                <li><a href="#contact-info">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">🦁 Education Access Advisory Program</div>
-            <h1>Abigail <span>Eduaccess</span> Shule Foundation</h1>
-            <p class="hero-subtitle">Empowering Children Through Education</p>
-            <div class="hero-pillars">
+            <div class="hero-badge fade-in">
+                <span>🦁</span> Education Access Advisory Program
+            </div>
+            <h1 class="fade-in delay-1">
+                Abigail <span>Eduaccess</span><br>
+                Shule Foundation
+            </h1>
+            <p class="hero-subtitle fade-in delay-2">
+                Empowering Children Through Education
+            </p>
+            <div class="hero-pillars fade-in delay-3">
                 <span class="pillar">EQUIP</span>
                 <span class="pillar">EMPOWER</span>
                 <span class="pillar">EDUCATE</span>
                 <span class="pillar">ELEVATE</span>
             </div>
-            <div class="hero-items">
-    <a href="#services" class="hero-item">
-        <span class="hero-icon">👟</span> School Shoes
-    </a>
-    <a href="#services" class="hero-item">
-        <span class="hero-icon">🧦</span> School Socks
-    </a>
-    <a href="#services" class="hero-item">
-        <span class="hero-icon">👕</span> Uniforms
-    </a>
-    <a href="#services" class="hero-item">
-        <span class="hero-icon">✏️</span> Stationery
-    </a>
-    <a href="#services" class="hero-item">
-        <span class="hero-icon">🎒</span> School Bags
-    </a>
-    <a href="#services" class="hero-item">
-        <span class="hero-icon">🩸</span> Sanitary Pads
-    </a>
-</div>
-
-
-            <p class="hero-tagline">"Every foot in a nice shoe, every child in school"</p>
+            <div class="hero-items fade-in delay-4">
+                <a href="#services" class="hero-item">
+                    <span class="hero-icon">👟</span> School Shoes
+                </a>
+                <a href="#services" class="hero-item">
+                    <span class="hero-icon">🧦</span> School Socks
+                </a>
+                <a href="#services" class="hero-item">
+                    <span class="hero-icon">👕</span> Uniforms
+                </a>
+                <a href="#services" class="hero-item">
+                    <span class="hero-icon">✏️</span> Stationery
+                </a>
+                <a href="#services" class="hero-item">
+                    <span class="hero-icon">🎒</span> School Bags
+                </a>
+                <a href="#services" class="hero-item">
+                    <span class="hero-icon">🩸</span> Sanitary Pads
+                </a>
+            </div>
         </div>
     </section>
 
+    <!-- Mission Section -->
     <section id="mission">
         <div class="section-header">
             <span class="section-label">Our Purpose</span>
             <h2>Our Mission</h2>
         </div>
         <div class="mission-content">
-            <p class="mission-quote">"Every Child Deserves the Dignity to Learn, Every Dream Deserves a Chance to Grow."</p>
-            <p class="mission-text">We believe every child deserves access to quality education regardless of their background. Through our advisory programs and direct support, we bridge the gap between potential and opportunity.</p>
-            <p class="mission-text">AESF is committed to ensuring that vulnerable children are not excluded from education because of poverty-related barriers such as lack of school uniforms, shoes, socks, school bags, stationery, learning materials, or personal dignity items.</p>
+            <p class="mission-quote">"Every Child Deserves a Chance to Learn"</p>
+            <p class="mission-text">We believe every child has the right to quality education, regardless of their background or circumstances. Our foundation works tirelessly to remove barriers that prevent children from accessing education.</p>
+            <p class="mission-text">AESF is committed to providing essential educational resources, mentorship, and support to underserved communities, ensuring no child is left behind.</p>
             <div class="mission-values">
                 <div class="value-card">
-                    <h4>🤝 Child Dignity</h4>
-                    <p>Every child is a person of value and potential. We uphold respect, protection, and ethical engagement.</p>
+                    <h4><span>🤝</span> Child Dignity</h4>
+                    <p>Every child is a person of worth and dignity, deserving of respect, care, and equal opportunity to thrive.</p>
                 </div>
                 <div class="value-card">
-                    <h4>📚 Education as a Right</h4>
-                    <p>Education is not a privilege but a fundamental pathway for human development and community transformation.</p>
+                    <h4><span>📚</span> Education as a Right</h4>
+                    <p>Education is not a privilege but a fundamental right that empowers children to build better futures.</p>
                 </div>
                 <div class="value-card">
-                    <h4>🔍 Early Identification</h4>
-                    <p>We identify barriers before they become reasons for children to abandon education.</p>
+                    <h4><span>🔍</span> Early Identification</h4>
+                    <p>We identify barriers before they become roadblocks, intervening early to keep children in school.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Services Section -->
     <section id="services">
         <div class="section-header">
             <span class="section-label">What We Do</span>
@@ -206,449 +738,121 @@
             <div class="service-card">
                 <div class="service-icon">📚</div>
                 <h3>Educational Resources</h3>
-                <p>Books, supplies, and learning materials for underserved students.</p>
+                <p>Essential learning materials to support academic success.</p>
                 <ul class="service-list">
                     <li>Quality school shoes</li>
                     <li>School socks</li>
                     <li>School uniforms</li>
+                    <li>Books and stationery</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎒</div>
+                <h3>School Supplies</h3>
+                <p>Complete kits to prepare children for the classroom.</p>
+                <ul class="service-list">
                     <li>School bags</li>
-                    <li>Exercise books, pens & pencils</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🎓</div>
-                <h3>Scholarships</h3>
-                <p>Financial support to keep children in school and pursuing their dreams.</p>
-                <ul class="service-list">
-                    <li>School fee support</li>
-                    <li>Learning material funds</li>
-                    <li>Long-term sponsorship</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">👩‍🏫</div>
-                <h3>Mentorship</h3>
-                <p>Guidance and role models to inspire the next generation of leaders.</p>
-                <ul class="service-list">
-                    <li>Academic guidance</li>
-                    <li>Career awareness</li>
-                    <li>Personal development</li>
-                    <li>Positive role modelling</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🏫</div>
-                <h3>School Support</h3>
-                <p>Infrastructure and resources to strengthen local educational institutions.</p>
-                <ul class="service-list">
-                    <li>Classroom resources</li>
-                    <li>Teacher support</li>
-                    <li>Infrastructure improvement</li>
+                    <li>Writing materials</li>
+                    <li>Exercise books</li>
+                    <li>Art supplies</li>
                 </ul>
             </div>
             <div class="service-card">
                 <div class="service-icon">🩸</div>
-                <h3>Girls' Dignity Support</h3>
-                <p>Supporting adolescent girls' continued participation in education.</p>
+                <h3>Health & Hygiene</h3>
+                <p>Supporting dignity and health for continued attendance.</p>
                 <ul class="service-list">
-                    <li>Sanitary towels</li>
-                    <li>Hygiene education</li>
-                    <li>Menstrual dignity awareness</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🤝</div>
-                <h3>Street Outreach</h3>
-                <p>Direct community engagement to reach children often overlooked.</p>
-                <ul class="service-list">
-                    <li>Community visits</li>
-                    <li>School route observations</li>
-                    <li>Local leader engagement</li>
-                    <li>Rapid educational assistance</li>
+                    <li>Sanitary pads</li>
+                    <li>Hygiene kits</li>
+                    <li>Health education</li>
+                    <li>Counseling support</li>
                 </ul>
             </div>
         </div>
     </section>
 
+    <!-- Impact Section -->
     <section id="impact">
         <div class="section-header">
-            <span class="section-label" style="background:white;color:var(--primary)">Our Impact</span>
-            <h2>Our Impact</h2>
-            <p>Together, we are making a measurable difference in children's lives.</p>
+            <span class="section-label">Our Reach</span>
+            <h2>Making a Difference</h2>
         </div>
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Children Sponsored</div>
+        <div class="services-grid">
+            <div class="service-card" style="text-align:center;">
+                <div class="service-icon" style="margin:0 auto 20px;">👦</div>
+                <h3>500+ Children</h3>
+                <p>Supported with educational resources and school supplies since our founding.</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">20+</div>
-                <div class="stat-label">Schools Supported</div>
+            <div class="service-card" style="text-align:center;">
+                <div class="service-icon" style="margin:0 auto 20px;">🏫</div>
+                <h3>12 Schools</h3>
+                <p>Partner institutions where we provide ongoing support and resources.</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">10,000+</div>
-                <div class="stat-label">Books Distributed</div>
+            <div class="service-card" style="text-align:center;">
+                <div class="service-icon" style="margin:0 auto 20px;">👩‍🎓</div>
+                <h3>95% Retention</h3>
+                <p>Of supported students continue their education without dropping out.</p>
             </div>
         </div>
     </section>
 
-    <section id="founder">
+    <!-- E-Book Section -->
+    <section id="ebook">
         <div class="section-header">
-            <span class="section-label">Leadership</span>
-            <h2>Meet the Founder</h2>
+            <span class="section-label">Resources</span>
+            <h2>Featured Publication</h2>
         </div>
-        <div class="founder-content">
-            <img src="images/founder.jpg" alt="Founder" class="founder-img">
-            <p class="founder-name">Founder</p>
-            <p class="founder-title">Abigail Eduaccess Shule Foundation</p>
-            <p>Founded with a vision to transform lives through education, Abigail Eduaccess Shule was built on the belief that no child should be left behind.</p>
-            <p class="founder-quote">"A child should not walk away from education because they lack a pair of shoes, a school bag, a notebook, or someone to encourage them."</p>
-        </div>
-    </section>
-                <!-- E-BOOK SECTION -->
-<section id="ebook" class="ebook-section">
-    <div class="container">
-        <h2>Get the E-Book</h2>
-        
-        <div class="ebook-content">
-            <div class="book-cover">
-                <img src="Screenshot_20260711_230124_Gallery.jpg" alt="Abigael the Brave - A Story of Kindness, Art, and Courage" width="300">
-
+        <div class="ebook-container">
+            <div class="ebook-cover">
+                <!-- Replace with your actual book cover image -->
+                <img src="https://placehold.co/400x500/1a5c2e/ffffff?text=The+Legacy+That+Lives+On" alt="The Legacy That Lives On - Book Cover">
             </div>
-            
-            <div class="book-info">
-                <h3>Abigael the Brave</h3>
-                <p class="subtitle">A Story of Kindness, Art, and Courage</p>
-                
-                <p class="description">
-                    Meet Abigael — a girl who loves green crayons, rainbows, and making friends laugh at Greenpoint Pre & Primary School. When surgery at Midwell Hospital makes her scared, love makes her strong. Her father arrives at 3 o'clock. Her grandfather Bishop Babu Gervas prays. Her friends send drawings. And Abigael discovers she is braver than she knew.
-                </p>
-                
-                <p class="author">Written by Abigael James Mushi</p>
-                <p class="publisher">Published by Education Access E-Book Publishers</p>
-                <p class="isbn">ISBN: 979-8-9862601-8-1</p>
-                
-                <!-- Payment Options -->
-                <div class="payment-options" style="background: #1a1a1a; padding: 25px; border-radius: 12px; margin: 20px 0; text-align: center; border: 1px solid #333;">
-                    <p style="color: #c0392b; font-weight: bold; font-size: 1.1rem; margin-bottom: 10px;">Buy the Book</p>
-                    <p style="color: #ddd; font-size: 0.9rem; margin-bottom: 20px;">Price: $13.00 USD</p>
-                    
-                    <div style="margin-bottom: 15px; padding: 15px; background: #222; border-radius: 8px;">
-                        <p style="color: #27ae60; font-weight: bold; margin-bottom: 8px;">Pay via Airtel Money</p>
-                        <p style="color: #ddd; font-size: 0.9rem;">Send to: <strong style="color: #fff;">+255 788 698 126</strong></p>
-                    </div>
-                    
-                    <div style="padding: 15px; background: #222; border-radius: 8px;">
-                        <p style="color: #8e6e2e; font-weight: bold; margin-bottom: 8px;">Pay via CRDB SimBanking</p>
-                        <p style="color: #ddd; font-size: 0.9rem;">Account: <strong style="color: #fff;">0152001GH22M00</strong></p>
-                    </div>
-                    
-                    <p style="color: #888; font-size: 0.8rem; margin-top: 15px;">After payment, email proof to: educationaccessconsultancy@gmail.com</p>
-                </div>
-                
-                <!-- Free Sample -->
-                <div class="pdf-sample" style="background: #1a1a1a; padding: 30px; border-radius: 12px; margin: 20px 0; border: 1px solid #333;">
-                    <div style="text-align: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid #c0392b;">
-                        <h3 style="color: #c0392b; font-size: 1.5rem; margin-bottom: 5px;">ABIGAEL THE BRAVE</h3>
-                        <p style="color: #27ae60; font-style: italic; margin-bottom: 10px;">A Story of Kindness, Art, and Courage</p>
-                        <p style="color: #888; font-size: 0.85rem;">★ FREE SAMPLE ★</p>
-                    </div>
-                    
-                    <h4 style="color: #27ae60; font-size: 1.2rem; margin-bottom: 5px;">Chapter One</h4>
-                    <h5 style="color: #8e6e2e; font-size: 1rem; margin-bottom: 20px;">Colors and Smiles</h5>
-                    
-                    <p style="color: #ddd; font-size: 0.95rem; line-height: 1.8; margin-bottom: 15px;">My first memory is not a word. It is a color. Green. Like the leaves outside Bibi's window. Like the crayon I grabbed before I could even walk.</p>
-                    
-                    <p style="color: #ddd; font-size: 0.95rem; line-height: 1.8; margin-bottom: 15px;">Bibi's house smelled like cinnamon and soap. She was my grandmother — Bibi, not grandmother, because Bibi was warmer, softer, closer. She had wrinkles around her eyes that danced when she smiled, and she smiled whenever she saw me.</p>
-                    
-                    <p style="color: #ddd; font-size: 0.95rem; line-height: 1.8; margin-bottom: 15px;">"Abigael," she would say, holding out her arms. "My little artist."</p>
-                    
-                    <p style="color: #ddd; font-size: 0.95rem; line-height: 1.8; margin-bottom: 15px;">I did not know what "artist" meant. I just knew that when Bibi gave me the box of crayons — the big one with sixty-four colors and a built-in sharpener — the world became bigger. Brighter. Mine.</p>
-                    
-                    <p style="color: #8e6e2e; font-weight: bold; font-size: 1rem; margin: 20px 0; padding-left: 15px; border-left: 3px solid #8e6e2e;">"I made green!" I shouted. "I made it myself!"</p>
-                    
-                    <p style="color: #ddd; font-size: 0.95rem; line-height: 1.8; margin-bottom: 15px;">That night, Papa called. "I made green, Papa!" I told him. "I made it myself!" "You are a creator, Abigael," he said. His voice was far away but warm. "You make beauty where there was none. That is a gift from God."</p>
-                    
-                    <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #444; text-align: center;">
-                        <p style="color: #c0392b; font-weight: bold; margin-bottom: 10px;">Want to read more?</p>
-                        <p style="color: #aaa; font-size: 0.85rem;">Get the full book to discover how Abigael faced surgery with bravery, how her father arrived at 3 o'clock, and how she learned that courage is not the absence of fear — it is trusting the people who love you.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- BOOK 2: The Legacy That Lives On -->
-<section id="ebook-2" class="ebook-section">
-    <div class="container">
-        <div class="ebook-content">
-            <div class="book-cover">
-                <img src="Screenshot_20260712_165517_Gallery.jpg" alt="Echoes of Presence...">
-
-            </div>
-            
-            <div class="book-info">
+            <div class="ebook-info">
                 <h3>The Legacy That Lives On</h3>
-                <p class="subtitle">A Child's Guide to Honoring Living and Departed Parents and Guardians</p>
-                
-                <p class="description">
-                    A profound and compassionate guide that helps children understand, value, and honor the enduring influence of their parents or guardians. Drawing from history, linguistics, theology, and ethical reflection, this book speaks to the heart of every young reader. It teaches children how to build strong relationships, cherish memories, and carry forward values that shape their lives.
-                </p>
-                
-                <p class="author">Written by Dr. James K. Mushi, PhD</p>
-                <p class="publisher">Published by Heritage Faith Publications</p>
-                <p class="isbn">ISBN: 978-9912-975-001-1</p>
-                
-                <div class="payment-options">
-                    <h4>Buy the Book</h4>
-                    <p class="price">Price: $14.00 USD</p>
-                    
-                    <div class="payment-method">
-                        <h5>Pay via Airtel Money</h5>
-                        <p>Send to: <strong>+255 788 698 126</strong></p>
-                    </div>
-                    
-                    <div class="payment-method">
-                        <h5>Pay via CRDB SimBanking</h5>
-                        <p>Account: <strong>0152001GH22M00</strong></p>
-                    </div>
-                    
-                    <p class="payment-note">After payment, email proof to: educationaccessconsultancy@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-<!-- BOOK 3: Echoes of Presence -->
-<section id="ebook-3" class="ebook-section">
-    <div class="container">
-        <div class="ebook-content">
-            <div class="book-cover">
-                <img src="Screenshot_20260712_165517_Gallery.jpg" alt="Echoes of Presence...">
-
-            
-            <div class="book-info">
-                <h3>Echoes of Presence</h3>
-                <p class="subtitle">Faith, Memory, and the Theology of Endurance</p>
-                
-                <p class="description">
-                    A profound exploration of the love, wisdom, and lasting influence of parents and guardians. Through reflections rooted in faith, memory, and scholarship, this book helps young hearts understand the priceless gift of that love, the lessons they leave behind, and the legacy that continues to shape our future.
-                </p>
-                
-                <p class="author">Written by Dr. James K. Mushi, PhD</p>
-                <p class="publisher">Published by Heritage Faith Publications</p>
-                <p class="isbn">ISBN: 978-9912-784-001-3</p>
-                
-                <div class="payment-options">
-                    <h4>Buy the Book</h4>
-                    <p class="price">Price: $14.00 USD</p>
-                    
-                    <div class="payment-method">
-                        <h5>Pay via Airtel Money</h5>
-                        <p>Send to: <strong>+255 788 698 126</strong></p>
-                    </div>
-                    
-                    <div class="payment-method">
-                        <h5>Pay via CRDB SimBanking</h5>
-                        <p>Account: <strong>0152001GH22M00</strong></p>
-                    </div>
-                    
-                    <p class="payment-note">After payment, email proof to: educationaccessconsultancy@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- BOOK 4: We Belong to One Another -->
-<section id="ebook-4" class="ebook-section">
-    <div class="container">
-        <div class="ebook-content">
-            <div class="book-cover">
-                <img src="Screenshot_20260712_165517_Gallery.jpg" alt="Echoes of Presence...">
-
-            </div>
-            
-            <div class="book-info">
-                <h3>We Belong to One Another</h3>
-                <p class="subtitle">Why Valuing Others Today Secures Our Tomorrow</p>
-                
-                <p class="description">
-                    In a world often divided by difference, this book is a call back to our shared humanity. Drawing from history, language, theology, and political thought, Dr. James K. Mushi invites readers to rediscover the power of valuing others—a principle that strengthens families, communities, nations, and the global order.
-                </p>
-                
-                <p class="author">Written by Dr. James K. Mushi, PhD</p>
-                <p class="publisher">Published by Heritage Faith Publications</p>
-                <p class="isbn">ISBN: 978-9914-401-237-7</p>
-                
-                <div class="payment-options">
-                    <h4>Buy the Book</h4>
-                    <p class="price">Price: $14.00 USD</p>
-                    
-                    <div class="payment-method">
-                        <h5>Pay via Airtel Money</h5>
-                        <p>Send to: <strong>+255 788 698 126</strong></p>
-                    </div>
-                    
-                    <div class="payment-method">
-                        <h5>Pay via CRDB SimBanking</h5>
-                        <p>Account: <strong>0152001GH22M00</strong></p>
-                    </div>
-                    
-                    <p class="payment-note">After payment, email proof to: educationaccessconsultancy@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-
-
-                        
-
-        <div class="outreach-content">
-            <p class="outreach-quote">"To identify, support, and empower vulnerable children by removing practical barriers to education through direct community engagement, provision of essential learning resources, mentorship, and connection to sustainable educational opportunities."</p>
-            <div class="outreach-grid">
-                <div class="outreach-card">
-                    <h3>🔍 Community Observation</h3>
-                    <p>Our outreach teams identify children who may require educational assistance through:</p>
-                    <ul>
-                        <li>Community visits</li>
-                        <li>School route observations</li>
-                        <li>Engagement with local leaders</li>
-                        <li>Collaboration with schools and educators</li>
-                        <li>Community referrals</li>
-                    </ul>
-                </div>
-                <div class="outreach-card">
-                    <h3>⚡ Immediate Assistance</h3>
-                    <p>Where resources are available, AESF provides rapid educational support:</p>
-                    <ul>
-                        <li>Quality school shoes & socks</li>
-                        <li>School uniforms & bags</li>
-                        <li>Exercise books, pens & pencils</li>
-                        <li>Learning materials</li>
-                        <li>Sanitary towels for girls</li>
-                    </ul>
-                </div>
-                <div class="outreach-card">
-                    <h3>🌟 Mentorship & Encouragement</h3>
-                    <p>Beyond material assistance, we provide:</p>
-                    <ul>
-                        <li>Motivation and encouragement</li>
-                        <li>Academic guidance</li>
-                        <li>Career awareness</li>
-                        <li>Personal development mentorship</li>
-                        <li>Positive role modelling</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="outreach-mission">
-                <h3>Our Vision</h3>
-                <p>A society where every child, regardless of economic background, has the confidence, resources, and opportunity to attend school, learn effectively, and pursue a meaningful future.</p>
+                <p><strong>A Child's Guide to Honoring Living and Departed Parents and Guardians</strong></p>
+                <p>A profound and compassionate guide that helps children understand, value, and honor the enduring influence of their parents or guardians. Drawing from history, linguistics, theology, and ethical reflection, this book speaks to the heart of every young reader.</p>
+                <p>It teaches children how to build strong relationships, cherish memories, and carry forward values that shape character and destiny.</p>
+                <a href="#contact-info" class="ebook-btn">📖 Get Your Copy</a>
             </div>
         </div>
     </section>
 
-    <section id="help">
-        <div class="section-header">
-            <span class="section-label">Get Involved</span>
-            <h2>How You Can Help</h2>
-        </div>
-        <div class="help-grid">
-            <div class="help-card">
-                <div class="help-icon">💰</div>
-                <h3>Donate</h3>
-                <p>Every contribution makes a real difference. Sponsor a child's school essentials or support our outreach programmes.</p>
-            </div>
-            <div class="help-card">
-                <div class="help-icon">🤝</div>
-                <h3>Volunteer</h3>
-                <p>Share your time and skills with our programmes. Join our mentorship or outreach teams.</p>
-            </div>
-            <div class="help-card">
-                <div class="help-icon">📢</div>
-                <h3>Spread the Word</h3>
-                <p>Tell your friends and family about our mission. Help us reach more children in need.</p>
-            </div>
-        </div>
-    </section>
-
+    <!-- Contact Section -->
     <section id="contact-info">
         <div class="section-header">
-            <span class="section-label">Reach Out</span>
+            <span class="section-label">Get In Touch</span>
             <h2>Contact Us</h2>
         </div>
-        <div class="contact-content">
+        <div class="contact-grid">
             <div class="contact-card">
-                <div class="contact-item">
-                    <strong>📧 Email:</strong>
-                    <a href="mailto:educationaccessconsultancy@gmail.com">educationaccessconsultancy@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <strong>📞 Contacts:</strong>
-                    <span>+255 788 698 126 | +255 619 801 985 | +255 754 692 521</span>
-                </div>
-                <div class="contact-item">
-                    <strong>📍 Address:</strong>
-                    <span>Tetex House, Pamba Road, Posta, Dar es Salaam</span>
-                </div>
-                <div class="contact-item">
-                    <strong>🌐 Website:</strong>
-                    <a href="https://educationaccessconsultancy-cpu.github.io/abigail-education-foundation/" target="_blank">educationaccessconsultancy-cpu.github.io/abigail-education-foundation/</a>
-                </div>
+                <div class="contact-icon">📧</div>
+                <h4>Email</h4>
+                <a href="mailto:info@abigaileduaccess.org">info@abigaileduaccess.org</a>
             </div>
-            <p class="contact-tagline">Every child equipped. Every child included. Every child learning.</p>
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <h4>Phone</h4>
+                <a href="tel:+1234567890">+1 (234) 567-890</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h4>Location</h4>
+                <p>Your City, Your Country</p>
+            </div>
         </div>
     </section>
 
-    <section id="cta">
-        <h2>Join Us in Making a Difference</h2>
-        <p>Together, we can ensure every child has the education they deserve.</p>
-        <a href="#contact-info" class="btn btn-white">Get Involved</a>
-    </section>
-
+    <!-- Footer -->
     <footer>
         <p>© 2026 Abigail Eduaccess Shule Foundation. All rights reserved.</p>
+        <p style="margin-top:8px;">Empowering Children Through Education</p>
     </footer>
+
     <script>
-        document.getElementById('menu-toggle').addEventListener('click',function(){
-            var menu=document.getElementById('nav-menu');
-            var btn=document.getElementById('menu-toggle');
-            if(menu.style.display==='block'){
-                menu.style.display='none';
-                btn.innerHTML='☰';
-            }else{
-                menu.style.display='block';
-                menu.style.position='absolute';
-                menu.style.top='100%';
-                menu.style.left='0';
-                menu.style.right='0';
-                menu.style.background='white';
-                menu.style.padding='1rem';
-                menu.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';
-                menu.style.zIndex='1001';
-                menu.style.listStyle='none';
-                btn.innerHTML='✕';
-            }
-        });
-        document.querySelectorAll('#nav-menu a').forEach(function(link){
-            link.addEventListener('click',function(){
-                document.getElementById('nav-menu').style.display='none';
-                document.getElementById('menu-toggle').innerHTML='☰';
-            });
-        });
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
     </script>
 </body>
 </html>
