@@ -1214,7 +1214,167 @@
             opacity: 1;
             transform: translateY(0);
         }
-    </style>
+    
+        /* ============================================
+           3D FLOATING EFFECTS - ADDED ONLY
+           ============================================ */
+
+        /* 3D Perspective for entire page */
+        body {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+        }
+
+        /* Floating animations */
+        @keyframes floatGentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(0.5deg); }
+            75% { transform: translateY(-4px) rotate(-0.5deg); }
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes floatMedium {
+            0%, 100% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-10px) rotateX(2deg); }
+        }
+
+        /* Hero items floating */
+        .hero-item {
+            animation: floatGentle 4s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        .hero-item:nth-child(1) { animation-delay: 0s; }
+        .hero-item:nth-child(2) { animation-delay: 0.5s; }
+        .hero-item:nth-child(3) { animation-delay: 1s; }
+        .hero-item:nth-child(4) { animation-delay: 1.5s; }
+        .hero-item:nth-child(5) { animation-delay: 2s; }
+        .hero-item:nth-child(6) { animation-delay: 2.5s; }
+        .hero-item:hover { animation-play-state: paused; }
+
+        /* Pillars floating */
+        .pillar {
+            animation: floatSlow 5s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        .pillar:nth-child(1) { animation-delay: 0s; }
+        .pillar:nth-child(2) { animation-delay: 1.2s; }
+        .pillar:nth-child(3) { animation-delay: 0.6s; }
+        .pillar:nth-child(4) { animation-delay: 1.8s; }
+        .pillar:hover { animation-play-state: paused; }
+
+        /* Cards 3D tilt on hover */
+        .value-card, .service-card, .impact-card, .contact-card {
+            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .value-card:hover, .service-card:hover, .impact-card:hover, .contact-card:hover {
+            transform: translateZ(30px) rotateX(5deg) rotateY(-5deg) scale(1.02);
+        }
+
+        /* Service cards floating */
+        .service-card:nth-child(1) { animation: floatMedium 6s ease-in-out infinite; }
+        .service-card:nth-child(2) { animation: floatMedium 6s ease-in-out infinite 1s; }
+        .service-card:nth-child(3) { animation: floatMedium 6s ease-in-out infinite 2s; }
+        .service-card:hover { animation-play-state: paused; }
+
+        /* Value cards floating */
+        .value-card:nth-child(1) { animation: floatGentle 5s ease-in-out infinite 0.3s; }
+        .value-card:nth-child(2) { animation: floatGentle 5s ease-in-out infinite 1s; }
+        .value-card:nth-child(3) { animation: floatGentle 5s ease-in-out infinite 1.7s; }
+        .value-card:hover { animation-play-state: paused; }
+
+        /* Impact cards floating */
+        .impact-card:nth-child(1) { animation: floatMedium 7s ease-in-out infinite; }
+        .impact-card:nth-child(2) { animation: floatMedium 7s ease-in-out infinite 0.8s; }
+        .impact-card:nth-child(3) { animation: floatMedium 7s ease-in-out infinite 1.6s; }
+        .impact-card:nth-child(4) { animation: floatMedium 7s ease-in-out infinite 2.4s; }
+        .impact-card:hover { animation-play-state: paused; }
+
+        /* Contact cards floating */
+        .contact-card:nth-child(1) { animation: floatGentle 5.5s ease-in-out infinite; }
+        .contact-card:nth-child(2) { animation: floatGentle 5.5s ease-in-out infinite 0.7s; }
+        .contact-card:nth-child(3) { animation: floatGentle 5.5s ease-in-out infinite 1.4s; }
+        .contact-card:hover { animation-play-state: paused; }
+
+        /* Gallery items floating */
+        .gallery-item {
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .gallery-item:nth-child(1) { animation: floatSlow 8s ease-in-out infinite; }
+        .gallery-item:nth-child(2) { animation: floatSlow 8s ease-in-out infinite 1s; }
+        .gallery-item:nth-child(3) { animation: floatSlow 8s ease-in-out infinite 2s; }
+        .gallery-item:nth-child(4) { animation: floatSlow 8s ease-in-out infinite 3s; }
+        .gallery-item:hover {
+            animation-play-state: paused;
+            transform: translateZ(50px) rotateX(3deg) rotateY(3deg) scale(1.05);
+        }
+
+        /* E-book cover floating */
+        .ebook-cover {
+            animation: floatSlow 6s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        .ebook-cover:hover {
+            animation-play-state: paused;
+            transform: rotateY(-10deg) rotateX(5deg) scale(1.05);
+        }
+
+        /* Nav logo 3D */
+        .nav-logo-icon {
+            transform-style: preserve-3d;
+        }
+        .nav-logo:hover .nav-logo-icon {
+            transform: rotateY(15deg) rotateX(-10deg) scale(1.1);
+        }
+
+        /* Enhanced particles with 3D depth */
+        .particle {
+            transform-style: preserve-3d;
+        }
+        @keyframes floatParticle3D {
+            0% { transform: translateY(100vh) translateZ(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            50% { transform: translateY(50vh) translateZ(50px) rotate(360deg); }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) translateZ(-30px) rotate(720deg); opacity: 0; }
+        }
+        .particle:nth-child(1) { animation: floatParticle3D 15s linear infinite; }
+        .particle:nth-child(2) { animation: floatParticle3D 18s linear infinite 2s; }
+        .particle:nth-child(3) { animation: floatParticle3D 12s linear infinite 4s; }
+        .particle:nth-child(4) { animation: floatParticle3D 20s linear infinite 1s; }
+        .particle:nth-child(5) { animation: floatParticle3D 16s linear infinite 3s; }
+        .particle:nth-child(6) { animation: floatParticle3D 14s linear infinite 5s; }
+        .particle:nth-child(7) { animation: floatParticle3D 19s linear infinite 2s; }
+        .particle:nth-child(8) { animation: floatParticle3D 17s linear infinite 6s; }
+
+        /* 3D Button effects */
+        .ebook-btn {
+            transform-style: preserve-3d;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .ebook-btn:hover {
+            transform: translateY(-4px) translateZ(20px) scale(1.02);
+        }
+
+        /* Section labels 3D pop */
+        .section-label {
+            transform-style: preserve-3d;
+            transition: transform 0.3s;
+        }
+        .section-label:hover {
+            transform: translateZ(20px) scale(1.05);
+        }
+
+        /* Scroll indicator enhanced */
+        .scroll-indicator {
+            animation: bounce 2s infinite, floatGentle 3s ease-in-out infinite;
+        }
+</style>
 </head>
 <body>
     <!-- Navigation -->
@@ -1466,12 +1626,12 @@
                 <div class="contact-icon">📱</div>
                 <h4>Phone</h4>
                 <a href="tel:+255788698126">+255 788 698 126</a><br>
-                <a href="tel:+255619891985">+255 619 891 985</a><br>
+                <a href="tel:+255619801985">+255 619 801 985</a><br>
                 <a href="tel:+255754692521">+255 754 692 521</a>
             </div>
             <div class="contact-card reveal">
                 <div class="contact-icon">📍</div>
-                <h4>Address</h4>
+                <h4>Location</h4>
                 <p>Tetex House, Pamba Road<br>Posta, Dar es Salaam<br>Tanzania 🇹🇿</p>
             </div>
         </div>
