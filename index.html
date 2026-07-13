@@ -21,18 +21,13 @@
             --white: #ffffff;
             --shadow-soft: 0 10px 40px rgba(0,0,0,0.08);
             --shadow-glow: 0 0 60px rgba(244,162,97,0.15);
+            --airtel: #E4002B;
+            --mpesa: #00A650;
+            --crdb: #0055A4;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Outfit', sans-serif;
             line-height: 1.6;
@@ -41,37 +36,23 @@
             overflow-x: hidden;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--cream);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--terracotta);
-            border-radius: 4px;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb { background: var(--terracotta); border-radius: 4px; }
 
-        /* Navigation - Glassmorphism */
+        /* Navigation */
         nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 1000;
-            background: rgba(254,250,224,0.85);
+            background: rgba(254,250,224,0.9);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(199,91,57,0.1);
             padding: 0 5%;
             transition: all 0.4s ease;
         }
-
-        nav.scrolled {
-            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
-        }
-
+        nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -80,17 +61,14 @@
             justify-content: space-between;
             height: 75px;
         }
-
         .nav-logo {
             display: flex;
             align-items: center;
             gap: 14px;
             text-decoration: none;
         }
-
         .nav-logo-icon {
-            width: 46px;
-            height: 46px;
+            width: 46px; height: 46px;
             background: linear-gradient(135deg, var(--terracotta), var(--amber));
             border-radius: 14px;
             display: flex;
@@ -100,60 +78,55 @@
             box-shadow: 0 4px 15px rgba(199,91,57,0.3);
             transition: transform 0.3s;
         }
-
-        .nav-logo:hover .nav-logo-icon {
-            transform: rotate(-5deg) scale(1.05);
-        }
-
+        .nav-logo:hover .nav-logo-icon { transform: rotate(-5deg) scale(1.05); }
         .nav-logo span {
             color: var(--forest);
             font-weight: 700;
             font-size: 1.15rem;
             letter-spacing: -0.3px;
         }
-
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 36px;
+            gap: 28px;
         }
-
         .nav-links a {
             text-decoration: none;
             color: var(--charcoal);
             font-weight: 500;
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             transition: all 0.3s;
             position: relative;
             padding: 6px 0;
         }
-
         .nav-links a::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2.5px;
+            bottom: 0; left: 0;
+            width: 0; height: 2.5px;
             background: linear-gradient(90deg, var(--terracotta), var(--amber));
             border-radius: 2px;
             transition: width 0.3s ease;
         }
-
-        .nav-links a:hover {
-            color: var(--terracotta);
+        .nav-links a:hover { color: var(--terracotta); }
+        .nav-links a:hover::before { width: 100%; }
+        .nav-links a.donate-link {
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
         }
-
-        .nav-links a:hover::before {
-            width: 100%;
+        .nav-links a.donate-link::before { display: none; }
+        .nav-links a.donate-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(199,91,57,0.3);
         }
-
         .mobile-menu-btn {
             display: none;
             background: linear-gradient(135deg, var(--terracotta), var(--amber));
             border: none;
-            width: 44px;
-            height: 44px;
+            width: 44px; height: 44px;
             border-radius: 12px;
             font-size: 1.3rem;
             cursor: pointer;
@@ -161,9 +134,7 @@
             box-shadow: 0 4px 15px rgba(199,91,57,0.3);
         }
 
-        /* ============================================
-           HERO SECTION - MOUNT KILIMANJARO BACKGROUND
-           ============================================ */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -173,82 +144,54 @@
             padding: 140px 5% 100px;
             position: relative;
             overflow: hidden;
-            /* Mount Kilimanjaro background with parallax */
             background: 
-                linear-gradient(180deg, 
-                    rgba(27,67,50,0.4) 0%, 
-                    rgba(27,67,50,0.6) 40%,
-                    rgba(15,46,31,0.85) 100%),
+                linear-gradient(180deg, rgba(27,67,50,0.4) 0%, rgba(27,67,50,0.6) 40%, rgba(15,46,31,0.85) 100%),
                 url('https://images.unsplash.com/photo-1589553416260-f586c8f1514f?w=1920&q=80');
             background-size: cover;
             background-position: center 30%;
-            background-attachment: fixed; /* 3D parallax effect */
+            background-attachment: fixed;
             background-repeat: no-repeat;
         }
-
-        /* Animated overlay for depth */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: 
                 radial-gradient(ellipse at 50% 0%, rgba(244,162,97,0.15) 0%, transparent 60%),
                 radial-gradient(ellipse at 80% 100%, rgba(199,91,57,0.1) 0%, transparent 50%);
             pointer-events: none;
             animation: heroPulse 6s ease-in-out infinite;
         }
+        @keyframes heroPulse { 0%,100%{opacity:0.8;} 50%{opacity:1;} }
 
-        @keyframes heroPulse {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-
-        /* Floating particles - snow/dust effect */
         .hero-particles {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             pointer-events: none;
             overflow: hidden;
         }
-
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 4px; height: 4px;
             background: rgba(255,255,255,0.4);
             border-radius: 50%;
             animation: floatParticle linear infinite;
         }
-
-        .particle:nth-child(1) { left: 10%; animation-duration: 15s; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 20%; animation-duration: 18s; animation-delay: 2s; width: 6px; height: 6px; }
-        .particle:nth-child(3) { left: 35%; animation-duration: 12s; animation-delay: 4s; }
-        .particle:nth-child(4) { left: 50%; animation-duration: 20s; animation-delay: 1s; width: 3px; height: 3px; }
-        .particle:nth-child(5) { left: 65%; animation-duration: 16s; animation-delay: 3s; }
-        .particle:nth-child(6) { left: 80%; animation-duration: 14s; animation-delay: 5s; width: 5px; height: 5px; }
-        .particle:nth-child(7) { left: 90%; animation-duration: 19s; animation-delay: 2s; }
-        .particle:nth-child(8) { left: 5%; animation-duration: 17s; animation-delay: 6s; width: 4px; height: 4px; }
-
+        .particle:nth-child(1){left:10%;animation-duration:15s;animation-delay:0s;}
+        .particle:nth-child(2){left:20%;animation-duration:18s;animation-delay:2s;width:6px;height:6px;}
+        .particle:nth-child(3){left:35%;animation-duration:12s;animation-delay:4s;}
+        .particle:nth-child(4){left:50%;animation-duration:20s;animation-delay:1s;width:3px;height:3px;}
+        .particle:nth-child(5){left:65%;animation-duration:16s;animation-delay:3s;}
+        .particle:nth-child(6){left:80%;animation-duration:14s;animation-delay:5s;width:5px;height:5px;}
+        .particle:nth-child(7){left:90%;animation-duration:19s;animation-delay:2s;}
+        .particle:nth-child(8){left:5%;animation-duration:17s;animation-delay:6s;width:4px;height:4px;}
         @keyframes floatParticle {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+            0%{transform:translateY(100vh) rotate(0deg);opacity:0;}
+            10%{opacity:1;} 90%{opacity:1;}
+            100%{transform:translateY(-100px) rotate(720deg);opacity:0;}
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 850px;
-        }
-
-        /* Tanzania badge */
+        .hero-content { position: relative; z-index: 2; max-width: 900px; }
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -264,12 +207,7 @@
             backdrop-filter: blur(10px);
             animation: fadeInUp 0.8s ease forwards;
         }
-
-        .hero-badge::before {
-            content: '🇹🇿';
-            font-size: 1.2rem;
-        }
-
+        .hero-badge::before { content: '🇹🇿'; font-size: 1.2rem; }
         .hero h1 {
             font-size: clamp(2.8rem, 7vw, 5rem);
             font-weight: 800;
@@ -279,24 +217,29 @@
             letter-spacing: -1px;
             text-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
-
         .hero h1 span {
             background: linear-gradient(135deg, var(--amber), var(--terracotta-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .hero-subtitle {
             font-family: 'Caveat', cursive;
             font-size: clamp(1.3rem, 3vw, 1.8rem);
             color: rgba(255,255,255,0.85);
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             font-weight: 500;
             text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
-
-        /* Animated Pillars */
+        .hero-description {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            animation: fadeInUp 0.9s ease 0.3s forwards;
+            opacity: 0;
+        }
         .hero-pillars {
             display: flex;
             flex-wrap: wrap;
@@ -304,7 +247,6 @@
             gap: 14px;
             margin-bottom: 48px;
         }
-
         .pillar {
             padding: 12px 28px;
             border: 1.5px solid rgba(244,162,97,0.35);
@@ -317,8 +259,12 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: default;
             text-shadow: 0 1px 5px rgba(0,0,0,0.2);
+            animation: floatSlow 5s ease-in-out infinite;
         }
-
+        .pillar:nth-child(1){animation-delay:0s;}
+        .pillar:nth-child(2){animation-delay:1.2s;}
+        .pillar:nth-child(3){animation-delay:0.6s;}
+        .pillar:nth-child(4){animation-delay:1.8s;}
         .pillar:hover {
             background: linear-gradient(135deg, var(--terracotta), var(--amber));
             border-color: transparent;
@@ -326,94 +272,26 @@
             transform: translateY(-4px) scale(1.05);
             box-shadow: 0 10px 30px rgba(199,91,57,0.3);
         }
-
-        /* Hero Items - Bouncy & Interactive */
-        .hero-items {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 14px;
-            margin-top: 48px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .hero-item {
+        .hero-cta {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 14px 26px;
-            border: 1.5px solid rgba(255,255,255,0.2);
-            border-radius: 50px;
-            background: rgba(255,255,255,0.08);
+            gap: 12px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
             color: var(--white);
             text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 600;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            pointer-events: auto;
-            position: relative;
-            z-index: 20;
-            -webkit-tap-highlight-color: rgba(244,162,97,0.2);
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(199,91,57,0.3);
+            animation: fadeInUp 1s ease 0.5s forwards;
+            opacity: 0;
         }
-
-        .hero-item::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(244,162,97,0.35) 0%, transparent 70%);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+        .hero-cta:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(199,91,57,0.4);
         }
-
-        .hero-item:hover::before,
-        .hero-item:active::before {
-            width: 200px;
-            height: 200px;
-        }
-
-        .hero-item:hover,
-        .hero-item:active {
-            background: rgba(255,255,255,0.15);
-            border-color: var(--amber);
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.25), 0 0 20px rgba(244,162,97,0.15);
-        }
-
-        .hero-item:active {
-            transform: translateY(-2px) scale(0.98);
-        }
-
-        .hero-icon {
-            font-size: 1.4rem;
-            line-height: 1;
-            pointer-events: none;
-            position: relative;
-            z-index: 1;
-            transition: transform 0.3s;
-        }
-
-        .hero-item:hover .hero-icon {
-            transform: scale(1.2) rotate(-5deg);
-        }
-
-        .hero-item span:last-child {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Scroll Indicator */
         .scroll-indicator {
             position: absolute;
             bottom: 30px;
@@ -428,141 +306,20 @@
             animation: bounce 2s infinite;
             z-index: 2;
         }
-
-        .scroll-indicator::after {
-            content: '↓';
-            font-size: 1.2rem;
-        }
-
+        .scroll-indicator::after { content: '↓'; font-size: 1.2rem; }
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        /* ============================================
-           KILIMANJARO GALLERY SECTION
-           ============================================ */
-        #gallery {
-            background: linear-gradient(180deg, var(--forest) 0%, #0f2e1f 100%);
-            padding: 80px 5%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #gallery::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--amber), transparent);
-        }
-
-        .gallery-header {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .gallery-header h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 800;
-            color: var(--white);
-            margin-bottom: 12px;
-        }
-
-        .gallery-header p {
-            color: rgba(255,255,255,0.6);
-            font-size: 1rem;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-            z-index: 2;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 60%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.6));
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 16px;
-            left: 16px;
-            right: 16px;
-            color: var(--white);
-            font-weight: 600;
-            font-size: 0.95rem;
-            z-index: 2;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.4s;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .gallery-item:hover .gallery-caption {
-            opacity: 1;
-            transform: translateY(0);
+            0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0);}
+            40%{transform:translateX(-50%) translateY(-10px);}
+            60%{transform:translateX(-50%) translateY(-5px);}
         }
 
         /* Section Styles */
-        section {
-            padding: 100px 5%;
-            position: relative;
-        }
-
+        section { padding: 100px 5%; position: relative; }
         .section-header {
             text-align: center;
-            max-width: 650px;
+            max-width: 700px;
             margin: 0 auto 70px;
         }
-
         .section-label {
             display: inline-flex;
             align-items: center;
@@ -578,7 +335,6 @@
             margin-bottom: 20px;
             border: 1px solid rgba(199,91,57,0.15);
         }
-
         .section-header h2 {
             font-size: clamp(2rem, 4.5vw, 3rem);
             font-weight: 800;
@@ -586,7 +342,6 @@
             margin-bottom: 16px;
             letter-spacing: -0.5px;
         }
-
         .section-header p {
             color: var(--charcoal);
             opacity: 0.7;
@@ -594,41 +349,35 @@
             line-height: 1.7;
         }
 
-        /* Mission Section */
-        #mission {
-            background: var(--cream);
-        }
-
-        .mission-content {
-            max-width: 900px;
-            margin: 0 auto;
+        /* Mission */
+        #mission { background: var(--cream); }
+        .mission-statement {
+            max-width: 800px;
+            margin: 0 auto 60px;
             text-align: center;
         }
-
-        .mission-quote {
-            font-family: 'Caveat', cursive;
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
-            font-weight: 700;
-            color: var(--terracotta);
-            margin-bottom: 28px;
-            line-height: 1.3;
-        }
-
-        .mission-text {
-            font-size: 1.05rem;
+        .mission-statement p {
+            font-size: 1.15rem;
             color: var(--charcoal);
-            opacity: 0.75;
-            margin-bottom: 20px;
+            opacity: 0.8;
             line-height: 1.9;
         }
-
+        .mission-quote {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 700;
+            color: var(--terracotta);
+            margin-bottom: 40px;
+            text-align: center;
+            line-height: 1.3;
+        }
         .mission-values {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 28px;
-            margin-top: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
-
         .value-card {
             background: var(--white);
             padding: 40px 32px;
@@ -640,29 +389,18 @@
             position: relative;
             overflow: hidden;
         }
-
         .value-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 4px;
             background: linear-gradient(90deg, var(--terracotta), var(--amber));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s ease;
         }
-
-        .value-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-glow), var(--shadow-soft);
-        }
-
-        .value-card:hover::before {
-            transform: scaleX(1);
-        }
-
+        .value-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-glow), var(--shadow-soft); }
+        .value-card:hover::before { transform: scaleX(1); }
         .value-card h4 {
             font-size: 1.15rem;
             color: var(--forest);
@@ -672,11 +410,7 @@
             gap: 12px;
             font-weight: 700;
         }
-
-        .value-card h4 span {
-            font-size: 1.6rem;
-        }
-
+        .value-card h4 span { font-size: 1.6rem; }
         .value-card p {
             color: var(--charcoal);
             opacity: 0.7;
@@ -684,11 +418,144 @@
             line-height: 1.7;
         }
 
-        /* Services Section */
+        /* Programme */
+        #programme {
+            background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+        }
+        .programme-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.8;
+            line-height: 1.9;
+        }
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto 60px;
+        }
+        .item-card {
+            background: var(--white);
+            padding: 28px 24px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.4s;
+            border: 1px solid rgba(199,91,57,0.06);
+        }
+        .item-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow), var(--shadow-soft);
+            border-color: rgba(199,91,57,0.15);
+        }
+        .item-icon {
+            width: 52px; height: 52px;
+            min-width: 52px;
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 6px 20px rgba(199,91,57,0.2);
+        }
+        .item-card h4 {
+            font-size: 1rem;
+            color: var(--forest);
+            font-weight: 700;
+        }
+        .item-card p {
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            opacity: 0.6;
+            margin-top: 2px;
+        }
+        .outreach-section {
+            background: linear-gradient(135deg, var(--forest) 0%, #0f2e1f 100%);
+            border-radius: 32px;
+            padding: 60px 50px;
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        .outreach-section::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(244,162,97,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .outreach-section h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--amber-light);
+            position: relative;
+            z-index: 1;
+        }
+        .outreach-section p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+        .ebook-model {
+            background: linear-gradient(135deg, rgba(199,91,57,0.05), rgba(244,162,97,0.05));
+            border: 2px solid rgba(199,91,57,0.15);
+            border-radius: 28px;
+            padding: 50px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .ebook-model::before {
+            content: '📚';
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+        .ebook-model h3 {
+            font-size: 1.4rem;
+            color: var(--forest);
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+        .ebook-model p {
+            font-size: 1.05rem;
+            color: var(--charcoal);
+            opacity: 0.75;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 24px;
+        }
+        .ebook-highlight {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        /* Services */
         #services {
             background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
         }
-
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -696,7 +563,6 @@
             max-width: 1150px;
             margin: 0 auto;
         }
-
         .service-card {
             background: var(--white);
             padding: 44px 36px;
@@ -706,30 +572,21 @@
             position: relative;
             overflow: hidden;
         }
-
         .service-card::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 0; left: 0; right: 0;
             height: 0;
             background: linear-gradient(180deg, transparent, rgba(199,91,57,0.03));
             transition: height 0.4s ease;
         }
-
-        .service-card:hover::after {
-            height: 100%;
-        }
-
+        .service-card:hover::after { height: 100%; }
         .service-card:hover {
             box-shadow: var(--shadow-glow), var(--shadow-soft);
-            transform: translateY(-10px) rotateX(2deg);
+            transform: translateY(-10px);
         }
-
         .service-icon {
-            width: 64px;
-            height: 64px;
+            width: 64px; height: 64px;
             background: linear-gradient(135deg, var(--terracotta), var(--amber));
             border-radius: 18px;
             display: flex;
@@ -738,20 +595,13 @@
             font-size: 1.8rem;
             margin-bottom: 24px;
             box-shadow: 0 8px 25px rgba(199,91,57,0.25);
-            transition: transform 0.4s;
         }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(-5deg);
-        }
-
         .service-card h3 {
             font-size: 1.25rem;
             margin-bottom: 14px;
             color: var(--forest);
             font-weight: 700;
         }
-
         .service-card > p {
             color: var(--charcoal);
             opacity: 0.7;
@@ -759,11 +609,7 @@
             margin-bottom: 20px;
             line-height: 1.7;
         }
-
-        .service-list {
-            list-style: none;
-        }
-
+        .service-list { list-style: none; }
         .service-list li {
             padding: 8px 0;
             color: var(--charcoal);
@@ -774,41 +620,105 @@
             gap: 10px;
             transition: all 0.3s;
         }
-
         .service-list li::before {
-            content: '';
-            width: 20px;
-            height: 20px;
+            content: '✓';
+            width: 22px; height: 22px;
             background: linear-gradient(135deg, var(--terracotta), var(--amber));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.7rem;
+            color: var(--white);
             flex-shrink: 0;
         }
+        .service-card:hover .service-list li { opacity: 0.9; transform: translateX(4px); }
 
-        .service-card:hover .service-list li {
-            opacity: 0.9;
-            transform: translateX(4px);
+        /* Gallery */
+        #gallery {
+            background: linear-gradient(180deg, var(--forest) 0%, #0f2e1f 100%);
+            padding: 80px 5%;
+            position: relative;
+            overflow: hidden;
         }
+        #gallery::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--amber), transparent);
+        }
+        .gallery-header { text-align: center; margin-bottom: 50px; position: relative; z-index: 1; }
+        .gallery-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+        .gallery-header p { color: rgba(255,255,255,0.6); font-size: 1rem; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .gallery-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            z-index: 2;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 60%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .gallery-item:hover::after { opacity: 1; }
+        .gallery-caption {
+            position: absolute;
+            bottom: 16px; left: 16px; right: 16px;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .gallery-item:hover .gallery-caption { opacity: 1; transform: translateY(0); }
 
-        /* Impact Section with Animated Counters */
+        /* Impact */
         #impact {
             background: linear-gradient(135deg, var(--forest) 0%, #0f2e1f 100%);
             color: var(--white);
         }
-
-        #impact .section-header h2 {
-            color: var(--white);
-        }
-
+        #impact .section-header h2 { color: var(--white); }
         #impact .section-label {
             background: rgba(255,255,255,0.1);
             color: var(--amber-light);
             border-color: rgba(244,162,97,0.2);
         }
-
         .impact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -816,7 +726,6 @@
             max-width: 1100px;
             margin: 0 auto;
         }
-
         .impact-card {
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(244,162,97,0.15);
@@ -826,14 +735,12 @@
             transition: all 0.4s;
             backdrop-filter: blur(10px);
         }
-
         .impact-card:hover {
             background: rgba(255,255,255,0.08);
             border-color: var(--amber);
             transform: translateY(-8px);
             box-shadow: 0 20px 60px rgba(0,0,0,0.2);
         }
-
         .impact-number {
             font-size: clamp(3rem, 6vw, 4.5rem);
             font-weight: 800;
@@ -844,141 +751,460 @@
             line-height: 1;
             margin-bottom: 12px;
         }
-
         .impact-label {
             font-size: 1.1rem;
             font-weight: 600;
             color: var(--white);
             margin-bottom: 8px;
         }
-
         .impact-desc {
             font-size: 0.9rem;
             color: rgba(255,255,255,0.6);
             line-height: 1.6;
         }
 
-        /* E-Book Section */
-        #ebook {
+        /* Books */
+        #books {
             background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+            padding: 100px 5%;
         }
-
-        .ebook-container {
+        .books-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            max-width: 1150px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
             margin: 0 auto;
-            align-items: center;
         }
-
-        .ebook-cover {
-            position: relative;
+        .book-card {
+            background: var(--white);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(199,91,57,0.08);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            position: relative;
         }
-
-        .ebook-cover::before {
+        .book-card::before {
             content: '';
             position: absolute;
-            top: 20px;
-            left: 20px;
-            right: -20px;
-            bottom: -20px;
-            background: linear-gradient(135deg, var(--terracotta), var(--amber));
-            border-radius: 20px;
-            z-index: -1;
-            opacity: 0.3;
-            transform: rotate(-3deg);
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--terracotta), var(--amber));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: 2;
+        }
+        .book-card:hover::before { transform: scaleX(1); }
+        .book-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-glow), 0 25px 60px rgba(0,0,0,0.12);
+        }
+        .book-cover-wrapper {
+            position: relative;
+            padding: 40px 40px 20px;
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(199,91,57,0.05), rgba(244,162,97,0.05));
+        }
+        .book-cover {
+            position: relative;
+            width: 200px; height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transition: all 0.4s;
+        }
+        .book-cover img {
+            width: 100%; height: 100%;
+            object-fit: cover;
             transition: transform 0.4s;
         }
-
-        .ebook-cover:hover::before {
-            transform: rotate(-5deg) translateY(-5px);
+        .book-card:hover .book-cover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
         }
-
-        .ebook-cover img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 16px;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .ebook-cover:hover img {
-            transform: scale(1.03) translateY(-5px);
-            box-shadow: var(--shadow-glow), var(--shadow-soft);
-        }
-
-        .ebook-tag {
-            display: inline-block;
-            padding: 6px 16px;
+        .book-card:hover .book-cover img { transform: scale(1.05); }
+        .book-badge {
+            position: absolute;
+            top: 20px; right: 20px;
+            padding: 6px 14px;
             background: linear-gradient(135deg, var(--terracotta), var(--amber));
             color: var(--white);
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 20px;
+            z-index: 3;
+            box-shadow: 0 4px 15px rgba(199,91,57,0.3);
         }
-
-        .ebook-info h3 {
-            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-            margin-bottom: 16px;
-            color: var(--forest);
-            font-weight: 800;
-            line-height: 1.2;
+        .book-info {
+            padding: 24px 32px 32px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
-
-        .ebook-info .subtitle {
-            font-family: 'Caveat', cursive;
-            font-size: 1.3rem;
+        .book-category {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(199,91,57,0.1);
             color: var(--terracotta);
-            margin-bottom: 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+        .book-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--forest);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        .book-author {
+            font-family: 'Caveat', cursive;
+            font-size: 1.1rem;
+            color: var(--terracotta);
+            margin-bottom: 12px;
             font-weight: 600;
         }
-
-        .ebook-info p {
+        .book-description {
             color: var(--charcoal);
-            opacity: 0.75;
+            opacity: 0.7;
+            font-size: 0.92rem;
+            line-height: 1.7;
             margin-bottom: 20px;
-            line-height: 1.8;
-            font-size: 1rem;
+            flex: 1;
         }
-
-        .ebook-btn {
+        .book-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            opacity: 0.6;
+        }
+        .book-meta span { display: flex; align-items: center; gap: 6px; }
+        .book-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 16px 36px;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
             background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));
             color: var(--white);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
+            font-size: 0.95rem;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: none;
             cursor: pointer;
+            box-shadow: 0 6px 20px rgba(199,91,57,0.25);
+            text-align: center;
+        }
+        .book-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(199,91,57,0.35);
+        }
+        .book-btn.secondary {
+            background: transparent;
+            color: var(--terracotta);
+            border: 2px solid var(--terracotta);
+            box-shadow: none;
+        }
+        .book-btn.secondary:hover { background: var(--terracotta); color: var(--white); }
+        .book-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+        .featured-book {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: center;
+            background: linear-gradient(135deg, var(--forest) 0%, #0f2e1f 100%);
+            color: var(--white);
+            padding: 60px;
+            border-radius: 32px;
+        }
+        .featured-book .book-cover-wrapper { background: transparent; padding: 0; }
+        .featured-book .book-cover {
+            width: 280px; height: 380px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+        }
+        .featured-book .book-info { padding: 0; }
+        .featured-book .section-label {
+            background: rgba(255,255,255,0.1);
+            color: var(--amber-light);
+            border-color: rgba(244,162,97,0.2);
+            margin-bottom: 20px;
+        }
+        .featured-book .book-title {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+        .featured-book .book-author {
+            color: var(--amber-light);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+        .featured-book .book-description {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
+            margin-bottom: 28px;
+        }
+        .featured-book .book-btn {
+            background: linear-gradient(135deg, var(--amber), var(--terracotta-light));
+            color: var(--forest);
+            font-weight: 800;
+            padding: 16px 40px;
             font-size: 1rem;
-            box-shadow: 0 8px 25px rgba(199,91,57,0.3);
-            margin-top: 10px;
+        }
+        .featured-book .book-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(244,162,97,0.3);
+        }
+        @media (max-width: 768px) {
+            .featured-book {
+                grid-template-columns: 1fr;
+                padding: 40px 30px;
+                gap: 40px;
+            }
+            .featured-book .book-cover {
+                width: 220px; height: 300px;
+                margin: 0 auto;
+            }
         }
 
-        .ebook-btn:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(199,91,57,0.4);
+        /* ============================================
+           MONEY PORTAL / DONATE SECTION
+           ============================================ */
+        #donate {
+            background: linear-gradient(135deg, var(--forest) 0%, #0f2e1f 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        #donate::before {
+            content: '';
+            position: absolute;
+            top: -30%; right: -20%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(244,162,97,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        #donate::after {
+            content: '';
+            position: absolute;
+            bottom: -20%; left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(199,91,57,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        #donate .section-header h2 { color: var(--white); }
+        #donate .section-header p { color: rgba(255,255,255,0.7); }
+        #donate .section-label {
+            background: rgba(255,255,255,0.1);
+            color: var(--amber-light);
+            border-color: rgba(244,162,97,0.2);
         }
 
-        .ebook-btn:active {
-            transform: translateY(-1px) scale(0.98);
+        .donate-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Contact Section */
-        #contact-info {
-            background: var(--white);
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
+        .payment-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 28px;
+            padding: 48px 36px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .payment-card.airtel::before { background: linear-gradient(90deg, var(--airtel), #ff1744); }
+        .payment-card.mpesa::before { background: linear-gradient(90deg, var(--mpesa), #00C853); }
+        .payment-card.crdb::before { background: linear-gradient(90deg, var(--crdb), #2979FF); }
+
+        .payment-card:hover::before { transform: scaleX(1); }
+
+        .payment-card:hover {
+            transform: translateY(-12px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        }
+
+        .payment-logo {
+            width: 80px; height: 80px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin: 0 auto 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.4s;
+        }
+        .payment-card:hover .payment-logo { transform: scale(1.1) rotate(-5deg); }
+
+        .payment-logo.airtel-logo {
+            background: linear-gradient(135deg, var(--airtel), #ff1744);
+            color: var(--white);
+        }
+        .payment-logo.mpesa-logo {
+            background: linear-gradient(135deg, var(--mpesa), #00C853);
+            color: var(--white);
+        }
+        .payment-logo.crdb-logo {
+            background: linear-gradient(135deg, var(--crdb), #2979FF);
+            color: var(--white);
+        }
+
+        .payment-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+        .payment-card .payment-tagline {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 24px;
+        }
+
+        .payment-detail {
+            background: rgba(0,0,0,0.2);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .payment-detail-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 8px;
+        }
+        .payment-detail-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+        .payment-detail-name {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 4px;
+        }
+
+        .payment-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            color: var(--white);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        .payment-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+        .payment-btn.airtel-btn { background: linear-gradient(135deg, var(--airtel), #ff1744); }
+        .payment-btn.mpesa-btn { background: linear-gradient(135deg, var(--mpesa), #00C853); }
+        .payment-btn.crdb-btn { background: linear-gradient(135deg, var(--crdb), #2979FF); }
+
+        .copy-hint {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 12px;
+        }
+
+        .donate-impact {
+            max-width: 800px;
+            margin: 60px auto 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .donate-impact h3 {
+            font-size: 1.3rem;
+            color: var(--amber-light);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .impact-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .impact-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 28px 20px;
+            transition: all 0.3s;
+        }
+        .impact-item:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-4px);
+        }
+        .impact-item .amount {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--amber-light);
+            margin-bottom: 8px;
+        }
+        .impact-item .what {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Contact */
+        #contact-info { background: var(--white); }
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -986,7 +1212,6 @@
             max-width: 1000px;
             margin: 0 auto;
         }
-
         .contact-card {
             background: var(--cream);
             padding: 40px;
@@ -997,32 +1222,23 @@
             position: relative;
             overflow: hidden;
         }
-
         .contact-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
             background: radial-gradient(circle, rgba(244,162,97,0.05) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.4s;
         }
-
-        .contact-card:hover::before {
-            opacity: 1;
-        }
-
+        .contact-card:hover::before { opacity: 1; }
         .contact-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-soft);
             border-color: rgba(199,91,57,0.15);
         }
-
         .contact-icon {
-            width: 68px;
-            height: 68px;
+            width: 68px; height: 68px;
             background: linear-gradient(135deg, var(--terracotta), var(--amber));
             border-radius: 20px;
             display: flex;
@@ -1034,18 +1250,13 @@
             box-shadow: 0 8px 25px rgba(199,91,57,0.25);
             transition: transform 0.4s;
         }
-
-        .contact-card:hover .contact-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
+        .contact-card:hover .contact-icon { transform: scale(1.1) rotate(5deg); }
         .contact-card h4 {
             margin-bottom: 10px;
             color: var(--forest);
             font-size: 1.15rem;
             font-weight: 700;
         }
-
         .contact-card p,
         .contact-card a {
             color: var(--charcoal);
@@ -1057,11 +1268,7 @@
             z-index: 1;
             line-height: 1.8;
         }
-
-        .contact-card a:hover {
-            color: var(--terracotta);
-            opacity: 1;
-        }
+        .contact-card a:hover { color: var(--terracotta); opacity: 1; }
 
         /* Footer */
         footer {
@@ -1073,35 +1280,34 @@
             position: relative;
             overflow: hidden;
         }
-
         footer::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--terracotta), var(--amber), var(--terracotta));
         }
-
-        footer a {
+        footer a { color: var(--amber-light); text-decoration: none; transition: color 0.3s; }
+        footer a:hover { color: var(--white); }
+        .footer-tagline {
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
             color: var(--amber-light);
-            text-decoration: none;
-            transition: color 0.3s;
+            margin: 16px 0 8px;
+        }
+        .footer-motto {
+            font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 1px;
+            margin-top: 12px;
         }
 
-        footer a:hover {
-            color: var(--white);
-        }
-
-        /* Mobile Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 75px;
-                left: 0;
-                right: 0;
+                top: 75px; left: 0; right: 0;
                 background: rgba(254,250,224,0.98);
                 flex-direction: column;
                 padding: 24px;
@@ -1109,272 +1315,49 @@
                 box-shadow: 0 10px 40px rgba(0,0,0,0.1);
                 backdrop-filter: blur(20px);
             }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
             .hero {
                 padding: 120px 5% 80px;
-                background-attachment: scroll; /* Disable parallax on mobile */
+                background-attachment: scroll;
             }
-
-            .hero-pillars {
-                gap: 10px;
-            }
-
-            .pillar {
-                padding: 10px 18px;
-                font-size: 0.72rem;
-            }
-
-            .hero-items {
-                gap: 10px;
-            }
-
-            .hero-item {
-                padding: 12px 20px;
-                font-size: 0.85rem;
-                min-height: 48px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .ebook-container {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .ebook-cover {
-                order: -1;
-            }
-
-            .ebook-cover::before {
-                top: 15px;
-                left: 15px;
-                right: -15px;
-                bottom: -15px;
-            }
-
-            section {
-                padding: 70px 5%;
-            }
-
-            .services-grid,
-            .mission-values,
-            .contact-grid,
-            .impact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .scroll-indicator {
-                display: none;
-            }
+            .hero-pillars { gap: 10px; }
+            .pillar { padding: 10px 18px; font-size: 0.72rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .books-grid { grid-template-columns: 1fr; gap: 30px; }
+            .payment-grid { grid-template-columns: 1fr; }
+            section { padding: 70px 5%; }
+            .services-grid, .mission-values, .contact-grid, .impact-grid, .items-grid { grid-template-columns: 1fr; }
+            .scroll-indicator { display: none; }
+            .outreach-section { padding: 40px 24px; }
+            .ebook-model { padding: 40px 24px; }
+            .impact-breakdown { grid-template-columns: 1fr; }
         }
 
         /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .fade-in {
-            opacity: 0;
-            animation: fadeInUp 0.9s ease forwards;
-        }
-
+        .fade-in { opacity: 0; animation: fadeInUp 0.9s ease forwards; }
         .delay-1 { animation-delay: 0.15s; }
         .delay-2 { animation-delay: 0.3s; }
         .delay-3 { animation-delay: 0.45s; }
         .delay-4 { animation-delay: 0.6s; }
         .delay-5 { animation-delay: 0.75s; }
 
-        /* Scroll Reveal */
+        @keyframes floatSlow {
+            0%,100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
         .reveal {
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    
-        /* ============================================
-           3D FLOATING EFFECTS - ADDED ONLY
-           ============================================ */
-
-        /* 3D Perspective for entire page */
-        body {
-            perspective: 1200px;
-            transform-style: preserve-3d;
-        }
-
-        /* Floating animations */
-        @keyframes floatGentle {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-8px) rotate(0.5deg); }
-            75% { transform: translateY(-4px) rotate(-0.5deg); }
-        }
-
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-        }
-
-        @keyframes floatMedium {
-            0%, 100% { transform: translateY(0px) rotateX(0deg); }
-            50% { transform: translateY(-10px) rotateX(2deg); }
-        }
-
-        /* Hero items floating */
-        .hero-item {
-            animation: floatGentle 4s ease-in-out infinite;
-            transform-style: preserve-3d;
-        }
-        .hero-item:nth-child(1) { animation-delay: 0s; }
-        .hero-item:nth-child(2) { animation-delay: 0.5s; }
-        .hero-item:nth-child(3) { animation-delay: 1s; }
-        .hero-item:nth-child(4) { animation-delay: 1.5s; }
-        .hero-item:nth-child(5) { animation-delay: 2s; }
-        .hero-item:nth-child(6) { animation-delay: 2.5s; }
-        .hero-item:hover { animation-play-state: paused; }
-
-        /* Pillars floating */
-        .pillar {
-            animation: floatSlow 5s ease-in-out infinite;
-            transform-style: preserve-3d;
-        }
-        .pillar:nth-child(1) { animation-delay: 0s; }
-        .pillar:nth-child(2) { animation-delay: 1.2s; }
-        .pillar:nth-child(3) { animation-delay: 0.6s; }
-        .pillar:nth-child(4) { animation-delay: 1.8s; }
-        .pillar:hover { animation-play-state: paused; }
-
-        /* Cards 3D tilt on hover */
-        .value-card, .service-card, .impact-card, .contact-card {
-            transform-style: preserve-3d;
-            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .value-card:hover, .service-card:hover, .impact-card:hover, .contact-card:hover {
-            transform: translateZ(30px) rotateX(5deg) rotateY(-5deg) scale(1.02);
-        }
-
-        /* Service cards floating */
-        .service-card:nth-child(1) { animation: floatMedium 6s ease-in-out infinite; }
-        .service-card:nth-child(2) { animation: floatMedium 6s ease-in-out infinite 1s; }
-        .service-card:nth-child(3) { animation: floatMedium 6s ease-in-out infinite 2s; }
-        .service-card:hover { animation-play-state: paused; }
-
-        /* Value cards floating */
-        .value-card:nth-child(1) { animation: floatGentle 5s ease-in-out infinite 0.3s; }
-        .value-card:nth-child(2) { animation: floatGentle 5s ease-in-out infinite 1s; }
-        .value-card:nth-child(3) { animation: floatGentle 5s ease-in-out infinite 1.7s; }
-        .value-card:hover { animation-play-state: paused; }
-
-        /* Impact cards floating */
-        .impact-card:nth-child(1) { animation: floatMedium 7s ease-in-out infinite; }
-        .impact-card:nth-child(2) { animation: floatMedium 7s ease-in-out infinite 0.8s; }
-        .impact-card:nth-child(3) { animation: floatMedium 7s ease-in-out infinite 1.6s; }
-        .impact-card:nth-child(4) { animation: floatMedium 7s ease-in-out infinite 2.4s; }
-        .impact-card:hover { animation-play-state: paused; }
-
-        /* Contact cards floating */
-        .contact-card:nth-child(1) { animation: floatGentle 5.5s ease-in-out infinite; }
-        .contact-card:nth-child(2) { animation: floatGentle 5.5s ease-in-out infinite 0.7s; }
-        .contact-card:nth-child(3) { animation: floatGentle 5.5s ease-in-out infinite 1.4s; }
-        .contact-card:hover { animation-play-state: paused; }
-
-        /* Gallery items floating */
-        .gallery-item {
-            transform-style: preserve-3d;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .gallery-item:nth-child(1) { animation: floatSlow 8s ease-in-out infinite; }
-        .gallery-item:nth-child(2) { animation: floatSlow 8s ease-in-out infinite 1s; }
-        .gallery-item:nth-child(3) { animation: floatSlow 8s ease-in-out infinite 2s; }
-        .gallery-item:nth-child(4) { animation: floatSlow 8s ease-in-out infinite 3s; }
-        .gallery-item:hover {
-            animation-play-state: paused;
-            transform: translateZ(50px) rotateX(3deg) rotateY(3deg) scale(1.05);
-        }
-
-        /* E-book cover floating */
-        .ebook-cover {
-            animation: floatSlow 6s ease-in-out infinite;
-            transform-style: preserve-3d;
-        }
-        .ebook-cover:hover {
-            animation-play-state: paused;
-            transform: rotateY(-10deg) rotateX(5deg) scale(1.05);
-        }
-
-        /* Nav logo 3D */
-        .nav-logo-icon {
-            transform-style: preserve-3d;
-        }
-        .nav-logo:hover .nav-logo-icon {
-            transform: rotateY(15deg) rotateX(-10deg) scale(1.1);
-        }
-
-        /* Enhanced particles with 3D depth */
-        .particle {
-            transform-style: preserve-3d;
-        }
-        @keyframes floatParticle3D {
-            0% { transform: translateY(100vh) translateZ(0px) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            50% { transform: translateY(50vh) translateZ(50px) rotate(360deg); }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) translateZ(-30px) rotate(720deg); opacity: 0; }
-        }
-        .particle:nth-child(1) { animation: floatParticle3D 15s linear infinite; }
-        .particle:nth-child(2) { animation: floatParticle3D 18s linear infinite 2s; }
-        .particle:nth-child(3) { animation: floatParticle3D 12s linear infinite 4s; }
-        .particle:nth-child(4) { animation: floatParticle3D 20s linear infinite 1s; }
-        .particle:nth-child(5) { animation: floatParticle3D 16s linear infinite 3s; }
-        .particle:nth-child(6) { animation: floatParticle3D 14s linear infinite 5s; }
-        .particle:nth-child(7) { animation: floatParticle3D 19s linear infinite 2s; }
-        .particle:nth-child(8) { animation: floatParticle3D 17s linear infinite 6s; }
-
-        /* 3D Button effects */
-        .ebook-btn {
-            transform-style: preserve-3d;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .ebook-btn:hover {
-            transform: translateY(-4px) translateZ(20px) scale(1.02);
-        }
-
-        /* Section labels 3D pop */
-        .section-label {
-            transform-style: preserve-3d;
-            transition: transform 0.3s;
-        }
-        .section-label:hover {
-            transform: translateZ(20px) scale(1.05);
-        }
-
-        /* Scroll indicator enhanced */
-        .scroll-indicator {
-            animation: bounce 2s infinite, floatGentle 3s ease-in-out infinite;
-        }
-</style>
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -1386,21 +1369,20 @@
             </a>
             <ul class="nav-links" id="nav-menu">
                 <li><a href="#mission">Mission</a></li>
+                <li><a href="#programme">Programme</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#impact">Impact</a></li>
-                <li><a href="#ebook">E-Book</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#donate" class="donate-link">❤️ Donate</a></li>
                 <li><a href="#contact-info">Contact</a></li>
             </ul>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         </div>
     </nav>
 
-    <!-- ============================================
-         HERO SECTION - MOUNT KILIMANJARO BACKGROUND
-         ============================================ -->
+    <!-- Hero -->
     <section class="hero">
-        <!-- Floating particles for 3D atmosphere -->
         <div class="hero-particles">
             <div class="particle"></div>
             <div class="particle"></div>
@@ -1411,17 +1393,12 @@
             <div class="particle"></div>
             <div class="particle"></div>
         </div>
-
         <div class="hero-content">
-            <div class="hero-badge fade-in">
-                Education Access Advisory Program
-            </div>
-            <h1 class="fade-in delay-1">
-                Abigail <span>Eduaccess</span><br>
-                Shule Foundation
-            </h1>
-            <p class="hero-subtitle fade-in delay-2">
-                Empowering Children Through Education
+            <div class="hero-badge fade-in">Education Access Advisory Program</div>
+            <h1 class="fade-in delay-1">Abigail <span>Eduaccess</span><br>Shule Foundation</h1>
+            <p class="hero-subtitle fade-in delay-2">Empowering Children Through Education</p>
+            <p class="hero-description">
+                We bridge educational access gaps by providing practical school support that ensures every child walks into school with dignity, confidence, and hope for a brighter future.
             </p>
             <div class="hero-pillars fade-in delay-3">
                 <span class="pillar">EQUIP</span>
@@ -1429,105 +1406,195 @@
                 <span class="pillar">EDUCATE</span>
                 <span class="pillar">ELEVATE</span>
             </div>
-            <div class="hero-items fade-in delay-4">
-                <a href="#services" class="hero-item">
-                    <span class="hero-icon">👟</span> School Shoes
-                </a>
-                <a href="#services" class="hero-item">
-                    <span class="hero-icon">🧦</span> School Socks
-                </a>
-                <a href="#services" class="hero-item">
-                    <span class="hero-icon">👕</span> Uniforms
-                </a>
-                <a href="#services" class="hero-item">
-                    <span class="hero-icon">✏️</span> Stationery
-                </a>
-                <a href="#services" class="hero-item">
-                    <span class="hero-icon">🎒</span> School Bags
-                </a>
-                <a href="#services" class="hero-item">
-                    <span class="hero-icon">🩸</span> Sanitary Pads
-                </a>
-            </div>
+            <a href="#donate" class="hero-cta">❤️ Support a Child Today</a>
         </div>
         <div class="scroll-indicator">Scroll to explore</div>
     </section>
 
-    <!-- Mission Section -->
+    <!-- Mission -->
+        <!-- Mission -->
     <section id="mission">
         <div class="section-header reveal">
             <span class="section-label">✨ Our Purpose</span>
             <h2>Our Mission</h2>
-            <p>Dedicated to breaking down barriers and creating pathways to education for every child.</p>
         </div>
-        <div class="mission-content">
-            <p class="mission-quote reveal">"Every Child Deserves a Chance to Learn"</p>
-            <p class="mission-text reveal">We believe every child has the right to quality education, regardless of their background or circumstances. Our foundation works tirelessly to remove barriers that prevent children from accessing education.</p>
-            <p class="mission-text reveal">AESF is committed to providing essential educational resources, mentorship, and support to underserved communities, ensuring no child is left behind.</p>
-            <div class="mission-values">
-                <div class="value-card reveal">
-                    <h4><span>🤝</span> Child Dignity</h4>
-                    <p>Every child is a person of worth and dignity, deserving of respect, care, and equal opportunity to thrive and reach their full potential.</p>
+
+        <div class="mission-content" style="max-width: 900px; margin: 0 auto;">
+            <div class="mission-statement reveal" style="text-align: left; margin-bottom: 50px;">
+                <p style="font-size: 1.15rem; color: var(--charcoal); opacity: 0.85; line-height: 1.9; margin-bottom: 24px;">
+                    At <strong>Abigail Education Access Foundation (AESF)</strong>, our mission is to eliminate the barriers that prevent children from accessing quality education by providing essential school supplies, educational resources, and life-changing support to vulnerable and underserved communities.
+                </p>
+                <p style="font-size: 1.15rem; color: var(--charcoal); opacity: 0.85; line-height: 1.9; margin-bottom: 24px;">
+                    We believe that no child should be denied the opportunity to learn because they lack a pair of shoes, a school uniform, textbooks, stationery, or other basic educational necessities. Every child deserves to enter the classroom with <strong>dignity, confidence, and hope</strong>.
+                </p>
+                <p style="font-size: 1.15rem; color: var(--charcoal); opacity: 0.85; line-height: 1.9; margin-bottom: 24px;">
+                    AESF identifies children most in need and works with schools, communities, volunteers, and partners to provide practical solutions that keep children in school and help them succeed. Beyond supplying educational materials, we strive to inspire children to dream, achieve, and become future leaders who will positively transform their communities.
+                </p>
+                <p style="font-size: 1.15rem; color: var(--charcoal); opacity: 0.85; line-height: 1.9; margin-bottom: 24px;">
+                    Our work is driven by the belief that <strong>education is one of the most powerful tools for breaking the cycle of poverty</strong>.
+                </p>
+            </div>
+
+            <div style="background: linear-gradient(135deg, var(--forest) 0%, #0f2e1f 100%); border-radius: 28px; padding: 50px 40px; margin-bottom: 50px; color: var(--white); position: relative; overflow: hidden;" class="reveal">
+                <div style="position: absolute; top: -30%; right: -20%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(244,162,97,0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+                <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 20px; color: var(--amber-light); position: relative; z-index: 1;">📚 Support a Child Through Knowledge</h3>
+                <p style="font-size: 1.05rem; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 20px; position: relative; z-index: 1;">
+                    Every purchase of an Education Access Advisory Program e-book directly supports the mission of AESF. Revenue generated from e-book sales is invested in running AESF programs, including providing school shoes, uniforms, learning materials, educational support, and other essential resources for children facing financial barriers.
+                </p>
+                <p style="font-size: 1.05rem; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 20px; position: relative; z-index: 1;">
+                    When you purchase an e-book, you are not simply buying educational content—you are helping a child gain access to education, restoring hope, and creating opportunities for a brighter future. Your purchase becomes an investment in children, families, and communities.
+                </p>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(199,91,57,0.05), rgba(244,162,97,0.05)); border: 2px solid rgba(199,91,57,0.15); border-radius: 28px; padding: 40px; text-align: center; margin-bottom: 50px;" class="reveal">
+                <h3 style="font-size: 1.3rem; color: var(--forest); margin-bottom: 16px; font-weight: 800;">Our Commitment</h3>
+                <p style="font-size: 1.05rem; color: var(--charcoal); opacity: 0.75; line-height: 1.8; max-width: 700px; margin: 0 auto 20px;">
+                    AESF is committed to <strong>transparency, accountability, and measurable impact</strong>. Every e-book purchased helps sustain our programs and expands our ability to reach more children in need.
+                </p>
+                <div style="display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, var(--terracotta), var(--amber)); color: var(--white); border-radius: 50px; font-weight: 800; font-size: 1.05rem; letter-spacing: 1px;">
+                    One E-Book Purchased. One Child Supported. One Future Changed.
                 </div>
-                <div class="value-card reveal">
-                    <h4><span>📚</span> Education as a Right</h4>
-                    <p>Education is not a privilege but a fundamental right that empowers children to build better futures for themselves and their communities.</p>
-                </div>
-                <div class="value-card reveal">
-                    <h4><span>🔍</span> Early Identification</h4>
-                    <p>We identify barriers before they become roadblocks, intervening early to keep children in school and on track to success.</p>
-                </div>
+            </div>
+        </div>
+
+        <div class="mission-values">
+            <div class="value-card reveal">
+                <h4><span>🤝</span> Child Dignity</h4>
+                <p>Every child is a person of worth and dignity, deserving of respect, care, and equal opportunity to thrive and reach their full potential.</p>
+            </div>
+            <div class="value-card reveal">
+                <h4><span>📚</span> Education as a Right</h4>
+                <p>Education is not a privilege but a fundamental right that empowers children to build better futures for themselves and their communities.</p>
+            </div>
+            <div class="value-card reveal">
+                <h4><span>🔍</span> Early Identification</h4>
+                <p>We identify barriers before they become roadblocks, intervening early to keep children in school and on track to success.</p>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+<section id="programme">
+        <div class="section-header reveal">
+            <span class="section-label">📋 Programme Overview</span>
+            <h2>Abigail Education Access Foundation (AESF)</h2>
+            <p>This programme distributes essential school materials to vulnerable children identified through structured community outreach mechanisms.</p>
+        </div>
+        <p class="programme-intro reveal">
+            We bridge educational access gaps by providing practical school support that ensures every child walks into school with dignity, confidence, and hope for a brighter future.
+        </p>
+        <div class="items-grid">
+            <div class="item-card reveal">
+                <div class="item-icon">👟</div>
+                <div><h4>School Shoes</h4><p>Durable & comfortable</p></div>
+            </div>
+            <div class="item-card reveal">
+                <div class="item-icon">🧦</div>
+                <div><h4>School Socks</h4><p>Essential daily wear</p></div>
+            </div>
+            <div class="item-card reveal">
+                <div class="item-icon">👕</div>
+                <div><h4>Uniform Items</h4><p>Promoting inclusion</p></div>
+            </div>
+            <div class="item-card reveal">
+                <div class="item-icon">📓</div>
+                <div><h4>Exercise Books</h4><p>Tools for learning</p></div>
+            </div>
+            <div class="item-card reveal">
+                <div class="item-icon">✏️</div>
+                <div><h4>Pens & Pencils</h4><p>Writing essentials</p></div>
+            </div>
+            <div class="item-card reveal">
+                <div class="item-icon">🎒</div>
+                <div><h4>School Bags</h4><p>Supporting daily participation</p></div>
+            </div>
+            <div class="item-card reveal" style="grid-column: 1 / -1; max-width: 500px; margin: 0 auto;">
+                <div class="item-icon">🩸</div>
+                <div><h4>Sanitary Pads</h4><p>Supporting menstrual hygiene management and reducing absenteeism among adolescent girls</p></div>
+            </div>
+        </div>
+        <div class="outreach-section reveal">
+            <h3>🤲 Street Outreach Educational Support</h3>
+            <p>The Foundation adopts a direct engagement model, identifying children encountered on the streets or walking to school who lack basic school supplies. Immediate support is provided where resources permit, ensuring rapid response to urgent need.</p>
+        </div>
+        <div class="ebook-model reveal">
+            <h3>E-Book Support Model — Innovation for Sustainability</h3>
+            <p>The Abigail Education Access Advisory Program operates an e-book support window. When you purchase an e-book through our platform, you directly contribute to equipping a school-going child with shoes, socks, uniforms, a school bag, and essential learning materials — restoring dignity, confidence, and the child's full participation in education.</p>
+            <div class="ebook-highlight">📚 Buy a Book → Support a Child</div>
+        </div>
+    </section>
+
+    <!-- Core Services -->
     <section id="services">
         <div class="section-header reveal">
-            <span class="section-label">🎯 What We Do</span>
-            <h2>What We Provide</h2>
+            <span class="section-label">🎯 Core Services</span>
+            <h2>What We Deliver</h2>
             <p>Comprehensive support to ensure every child has what they need to succeed in school.</p>
         </div>
         <div class="services-grid">
             <div class="service-card reveal">
-                <div class="service-icon">📚</div>
-                <h3>Educational Resources</h3>
-                <p>Essential learning materials to support academic success and foster a love for learning.</p>
+                <div class="service-icon">👟</div>
+                <h3>Durable School Shoes</h3>
+                <p>Comfort and protection for every step a child takes toward their education.</p>
                 <ul class="service-list">
-                    <li>Quality school shoes</li>
-                    <li>School socks</li>
-                    <li>School uniforms</li>
-                    <li>Books and stationery</li>
+                    <li>Quality, long-lasting materials</li>
+                    <li>Proper fitting for growing feet</li>
+                    <li>Weather-appropriate designs</li>
+                </ul>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">👕</div>
+                <h3>Complete School Uniforms</h3>
+                <p>Promoting dignity, inclusion, and a sense of belonging in the classroom.</p>
+                <ul class="service-list">
+                    <li>Full uniform sets</li>
+                    <li>Proper sizing for all ages</li>
+                    <li>School-specific requirements</li>
+                </ul>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">✏️</div>
+                <h3>Exercise Books & Writing Materials</h3>
+                <p>Essential tools that enable active participation in every lesson.</p>
+                <ul class="service-list">
+                    <li>Exercise books & textbooks</li>
+                    <li>Pens, pencils, and erasers</li>
+                    <li>Rulers and mathematical sets</li>
                 </ul>
             </div>
             <div class="service-card reveal">
                 <div class="service-icon">🎒</div>
-                <h3>School Supplies</h3>
-                <p>Complete kits to prepare children for the classroom and boost their confidence.</p>
+                <h3>School Bags & Learning Essentials</h3>
+                <p>Supporting daily participation by carrying resources safely to and from school.</p>
                 <ul class="service-list">
-                    <li>School bags</li>
-                    <li>Writing materials</li>
-                    <li>Exercise books</li>
-                    <li>Art supplies</li>
+                    <li>Durable backpacks</li>
+                    <li>Water bottles & lunch boxes</li>
+                    <li>Organizational supplies</li>
+                </ul>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🎓</div>
+                <h3>Academic Guidance & Learner Support</h3>
+                <p>Mentorship for long-term success beyond material provision.</p>
+                <ul class="service-list">
+                    <li>Study skills workshops</li>
+                    <li>Peer mentoring programs</li>
+                    <li>Career guidance sessions</li>
                 </ul>
             </div>
             <div class="service-card reveal">
                 <div class="service-icon">🩸</div>
-                <h3>Health & Hygiene</h3>
-                <p>Supporting dignity and health for continued attendance and academic performance.</p>
+                <h3>Hygiene Standards & Sanitary Support</h3>
+                <p>Maintaining hygiene standards by providing sanitary pads among adolescent girls in schools.</p>
                 <ul class="service-list">
-                    <li>Sanitary pads</li>
-                    <li>Hygiene kits</li>
-                    <li>Health education</li>
-                    <li>Counseling support</li>
+                    <li>Monthly sanitary pad supply</li>
+                    <li>Hygiene education sessions</li>
+                    <li>Reducing school absenteeism</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         KILIMANJARO GALLERY SECTION
-         ============================================ -->
+    <!-- Gallery -->
     <section id="gallery">
         <div class="gallery-header reveal">
             <span class="section-label" style="background:rgba(255,255,255,0.1);color:var(--amber-light);border-color:rgba(244,162,97,0.2);">🏔️ Explore Tanzania</span>
@@ -1554,7 +1621,7 @@
         </div>
     </section>
 
-    <!-- Impact Section with Animated Counters -->
+    <!-- Impact -->
     <section id="impact">
         <div class="section-header reveal">
             <span class="section-label">📊 Our Reach</span>
@@ -1585,36 +1652,244 @@
         </div>
     </section>
 
-    <!-- E-Book Section -->
-    <section id="ebook">
+    <!-- Books -->
+    <section id="books">
         <div class="section-header reveal">
-            <span class="section-label">📖 Resources</span>
-            <h2>Featured Publication</h2>
-            <p>A powerful resource for children and families navigating loss and legacy.</p>
+            <span class="section-label">📖 Our Publications</span>
+            <h2>Books & Resources</h2>
+            <p>Publications designed to inspire, educate, and empower children and families. Every purchase supports a child in need.</p>
         </div>
-        <div class="ebook-container">
-            <div class="ebook-cover reveal">
-                <img src="https://placehold.co/400x520/1b4332/f4a261?text=The+Legacy+That+Lives+On" alt="The Legacy That Lives On - Book Cover">
+        <div class="books-grid">
+            <div class="featured-book reveal">
+                <div class="book-cover-wrapper">
+                    <div class="book-cover">
+                        <img src="https://placehold.co/400x520/1b4332/f4a261?text=The+Legacy+That+Lives+On" alt="The Legacy That Lives On">
+                    </div>
+                </div>
+                <div class="book-info">
+                    <span class="section-label">⭐ Featured Publication</span>
+                    <h3 class="book-title">The Legacy That Lives On</h3>
+                    <p class="book-author">A Child's Guide to Honoring Living and Departed Parents and Guardians</p>
+                    <p class="book-description">A profound and compassionate guide that helps children understand, value, and honor the enduring influence of their parents or guardians. Drawing from history, linguistics, theology, and ethical reflection, this book speaks to the heart of every young reader. It teaches children how to build strong relationships, cherish memories, and carry forward values that shape character and destiny.</p>
+                    <div class="book-actions">
+                        <a href="https://wa.me/255788698126" target="_blank" class="book-btn">
+                            <span>📖</span> Get Your Copy
+                        </a>
+                        <a href="#" class="book-btn secondary" onclick="alert('Preview coming soon!'); return false;">
+                            <span>👁️</span> Preview
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="ebook-info reveal">
-                <span class="ebook-tag">New Release</span>
-                <h3>The Legacy That Lives On</h3>
-                <p class="subtitle">A Child's Guide to Honoring Living and Departed Parents and Guardians</p>
-                <p>A profound and compassionate guide that helps children understand, value, and honor the enduring influence of their parents or guardians. Drawing from history, linguistics, theology, and ethical reflection, this book speaks to the heart of every young reader.</p>
-                <p>It teaches children how to build strong relationships, cherish memories, and carry forward values that shape character and destiny.</p>
-                <a href="#contact-info" class="ebook-btn">
-                    <span>📖</span> Get Your Copy
-                </a>
+            <div class="book-card reveal">
+                <span class="book-badge">Coming Soon</span>
+                <div class="book-cover-wrapper">
+                    <div class="book-cover">
+                        <img src="https://placehold.co/400x520/c75b39/ffffff?text=My+First+Steps+to+School" alt="My First Steps to School">
+                    </div>
+                </div>
+                <div class="book-info">
+                    <span class="book-category">Early Childhood</span>
+                    <h3 class="book-title">My First Steps to School</h3>
+                    <p class="book-author">A Guide for Young Learners</p>
+                    <p class="book-description">An engaging and colorful guide that prepares young children for their first day of school. Filled with practical tips, fun activities, and reassuring stories to build confidence and excitement.</p>
+                    <div class="book-meta">
+                        <span>📄 48 pages</span>
+                        <span>🎨 Illustrated</span>
+                    </div>
+                    <div class="book-actions">
+                        <a href="https://wa.me/255788698126" target="_blank" class="book-btn">
+                            <span>🔔</span> Notify Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="book-card reveal">
+                <span class="book-badge">New</span>
+                <div class="book-cover-wrapper">
+                    <div class="book-cover">
+                        <img src="https://placehold.co/400x520/2d6a4f/ffffff?text=The+Power+of+Education" alt="The Power of Education">
+                    </div>
+                </div>
+                <div class="book-info">
+                    <span class="book-category">Youth Empowerment</span>
+                    <h3 class="book-title">The Power of Education</h3>
+                    <p class="book-author">Stories of Transformation</p>
+                    <p class="book-description">Inspiring true stories of Tanzanian children who overcame adversity through education. A motivational resource for students, parents, and educators showcasing the life-changing power of learning.</p>
+                    <div class="book-meta">
+                        <span>📄 120 pages</span>
+                        <span>🇹🇿 Local Stories</span>
+                    </div>
+                    <div class="book-actions">
+                        <a href="https://wa.me/255788698126" target="_blank" class="book-btn">
+                            <span>📖</span> Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="book-card reveal">
+                <div class="book-cover-wrapper">
+                    <div class="book-cover">
+                        <img src="https://placehold.co/400x520/f4a261/1b4332?text=Healthy+Habits+for+Kids" alt="Healthy Habits for Kids">
+                    </div>
+                </div>
+                <div class="book-info">
+                    <span class="book-category">Health & Wellness</span>
+                    <h3 class="book-title">Healthy Habits for Kids</h3>
+                    <p class="book-author">A Practical Health Guide</p>
+                    <p class="book-description">A comprehensive guide covering hygiene, nutrition, mental health, and physical wellness tailored for Tanzanian children. Includes interactive checklists and family activity ideas.</p>
+                    <div class="book-meta">
+                        <span>📄 96 pages</span>
+                        <span>✅ Interactive</span>
+                    </div>
+                    <div class="book-actions">
+                        <a href="https://wa.me/255788698126" target="_blank" class="book-btn">
+                            <span>📖</span> Get Your Copy
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="book-card reveal">
+                <span class="book-badge">Bestseller</span>
+                <div class="book-cover-wrapper">
+                    <div class="book-cover">
+                        <img src="https://placehold.co/400x520/1b4332/f9c74f?text=Understanding+Puberty" alt="Understanding Puberty">
+                    </div>
+                </div>
+                <div class="book-info">
+                    <span class="book-category">Adolescent Health</span>
+                    <h3 class="book-title">Understanding Puberty</h3>
+                    <p class="book-author">A Guide for Young Teens</p>
+                    <p class="book-description">A sensitive, age-appropriate resource that helps adolescents navigate physical and emotional changes. Addresses common questions with cultural sensitivity and scientific accuracy.</p>
+                    <div class="book-meta">
+                        <span>📄 80 pages</span>
+                        <span>🔒 Age 10-16</span>
+                    </div>
+                    <div class="book-actions">
+                        <a href="https://wa.me/255788698126" target="_blank" class="book-btn">
+                            <span>📖</span> Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="book-card reveal">
+                <div class="book-cover-wrapper">
+                    <div class="book-cover">
+                        <img src="https://placehold.co/400x520/a04020/ffffff?text=Career+Paths+for+You" alt="Career Paths for You">
+                    </div>
+                </div>
+                <div class="book-info">
+                    <span class="book-category">Career Guidance</span>
+                    <h3 class="book-title">Career Paths for You</h3>
+                    <p class="book-author">Discovering Your Future</p>
+                    <p class="book-description">An exploration of diverse career opportunities available to Tanzanian youth. Features interviews with professionals, skill-building exercises, and guidance on choosing the right educational path.</p>
+                    <div class="book-meta">
+                        <span>📄 140 pages</span>
+                        <span>💼 Career Guide</span>
+                    </div>
+                    <div class="book-actions">
+                        <a href="https://wa.me/255788698126" target="_blank" class="book-btn">
+                            <span>📖</span> Get Your Copy
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ============================================
+         MONEY PORTAL / DONATE SECTION
+         ============================================ -->
+    <section id="donate">
+        <div class="section-header reveal">
+            <span class="section-label">❤️ Support Our Cause</span>
+            <h2>Donate & Make an Impact</h2>
+            <p>Your contribution directly equips a school-going child with essential learning materials. Every donation counts.</p>
+        </div>
+
+        <p class="donate-intro reveal">
+            When you donate through our platform, you directly contribute to equipping a school-going child with shoes, socks, uniforms, a school bag, and essential learning materials — restoring dignity, confidence, and the child's full participation in education.
+        </p>
+
+        <div class="payment-grid">
+            <!-- Airtel Money -->
+            <div class="payment-card airtel reveal">
+                <div class="payment-logo airtel-logo">📱</div>
+                <h3>Airtel Money</h3>
+                <p class="payment-tagline">Fast & Secure Mobile Transfer</p>
+                <div class="payment-detail">
+                    <div class="payment-detail-label">Phone Number</div>
+                    <div class="payment-detail-value" id="airtel-number">+255 788 698 126</div>
+                    <div class="payment-detail-name">Abigail Eduaccess Shule Foundation</div>
+                </div>
+                <button class="payment-btn airtel-btn" onclick="copyToClipboard('airtel-number', 'Airtel Money number copied!')">
+                    📋 Copy Number
+                </button>
+                <p class="copy-hint">Tap to copy the number to your clipboard</p>
+            </div>
+
+            <!-- M-Pesa -->
+            <div class="payment-card mpesa reveal">
+                <div class="payment-logo mpesa-logo">💳</div>
+                <h3>M-Pesa</h3>
+                <p class="payment-tagline">Send Money Instantly</p>
+                <div class="payment-detail">
+                    <div class="payment-detail-label">Phone Number</div>
+                    <div class="payment-detail-value" id="mpesa-number">+255 764 692 521</div>
+                    <div class="payment-detail-name">Abigail Eduaccess Shule Foundation</div>
+                </div>
+                <button class="payment-btn mpesa-btn" onclick="copyToClipboard('mpesa-number', 'M-Pesa number copied!')">
+                    📋 Copy Number
+                </button>
+                <p class="copy-hint">Tap to copy the number to your clipboard</p>
+            </div>
+
+            <!-- CRDB SimBanking -->
+            <div class="payment-card crdb reveal">
+                <div class="payment-logo crdb-logo">🏦</div>
+                <h3>CRDB SimBanking</h3>
+                <p class="payment-tagline">Bank Transfer & SimBanking</p>
+                <div class="payment-detail">
+                    <div class="payment-detail-label">Account Number</div>
+                    <div class="payment-detail-value" id="crdb-account">0152001GH22M00</div>
+                    <div class="payment-detail-name">Abigail Eduaccess Shule Foundation</div>
+                </div>
+                <button class="payment-btn crdb-btn" onclick="copyToClipboard('crdb-account', 'CRDB account number copied!')">
+                    📋 Copy Account
+                </button>
+                <p class="copy-hint">Tap to copy the account number to your clipboard</p>
+            </div>
+        </div>
+
+        <div class="donate-impact reveal">
+            <h3>What Your Donation Provides</h3>
+            <div class="impact-breakdown">
+                <div class="impact-item">
+                    <div class="amount">20,000 TZS</div>
+                    <div class="what">School shoes & socks for one child</div>
+                </div>
+                <div class="impact-item">
+                    <div class="amount">35,000 TZS</div>
+                    <div class="what">Complete school uniform set</div>
+                </div>
+                <div class="impact-item">
+                    <div class="amount">50,000 TZS</div>
+                    <div class="what">Full kit: shoes, uniform & bag</div>
+                </div>
+                <div class="impact-item">
+                    <div class="amount">75,000 TZS</div>
+                    <div class="what">Full kit + books & stationery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
     <section id="contact-info">
         <div class="section-header reveal">
             <span class="section-label">💬 Get In Touch</span>
             <h2>Contact Us</h2>
-            <p>We'd love to hear from you. Reach out and let's make a difference together.</p>
+            <p>We would love to hear from you. Reach out and let us make a difference together.</p>
         </div>
         <div class="contact-grid">
             <div class="contact-card reveal">
@@ -1640,8 +1915,12 @@
     <!-- Footer -->
     <footer>
         <p>© 2026 Abigail Eduaccess Shule Foundation. All rights reserved.</p>
-        <p style="margin-top:10px; font-family: 'Caveat', cursive; font-size: 1.2rem;">Empowering Children Through Education 🌟</p>
-        <p style="margin-top:8px; font-size: 0.8rem; opacity: 0.6;">Proudly based in Dar es Salaam, Tanzania</p>
+        <p class="footer-tagline">Empowering Children Through Education 🌟</p>
+        <p style="font-size: 0.8rem; opacity: 0.6;">Proudly based in Dar es Salaam, Tanzania</p>
+        <p class="footer-motto">Every child is equipped. Every child included. Every child is learning.</p>
+        <p style="margin-top: 16px; font-size: 0.8rem;">
+            <a href="https://educationaccessconsultancy-cpu.github.io/abigail-education-foundation/" target="_blank">www.educationaccess.org.tz</a>
+        </p>
     </footer>
 
     <script>
@@ -1663,7 +1942,6 @@
 
         // Scroll Reveal Animation
         const revealElements = document.querySelectorAll('.reveal');
-
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1674,13 +1952,11 @@
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         });
-
         revealElements.forEach(el => revealObserver.observe(el));
 
         // Animated Counter
         const counters = document.querySelectorAll('.impact-number');
         let counted = false;
-
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !counted) {
@@ -1690,7 +1966,6 @@
                         const duration = 2000;
                         const increment = target / (duration / 16);
                         let current = 0;
-
                         const updateCounter = () => {
                             current += increment;
                             if (current < target) {
@@ -1700,13 +1975,11 @@
                                 counter.textContent = target.toLocaleString() + (target === 95 ? '%' : '+');
                             }
                         };
-
                         updateCounter();
                     });
                 }
             });
         }, { threshold: 0.5 });
-
         const impactSection = document.getElementById('impact');
         if (impactSection) {
             counterObserver.observe(impactSection);
@@ -1727,6 +2000,46 @@
                 hero.style.backgroundPositionY = (30 + scrolled * 0.05) + '%';
             }
         });
+
+        // Copy to Clipboard Function
+        function copyToClipboard(elementId, message) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                // Create toast notification
+                const toast = document.createElement('div');
+                toast.textContent = message;
+                toast.style.cssText = `
+                    position: fixed;
+                    bottom: 30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: linear-gradient(135deg, var(--terracotta), var(--amber));
+                    color: white;
+                    padding: 14px 28px;
+                    border-radius: 50px;
+                    font-weight: 700;
+                    font-size: 0.95rem;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                    z-index: 9999;
+                    animation: fadeInUp 0.4s ease;
+                `;
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transition = 'opacity 0.4s';
+                    setTimeout(() => toast.remove(), 400);
+                }, 2500);
+            }).catch(err => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert(message);
+            });
+        }
     </script>
 </body>
 </html>
