@@ -1348,7 +1348,29 @@
             opacity: 1;
             transform: translateY(0);
         }
-    </style>
+    /* AESF E-Book Library Styles */
+.aesf-header { text-align: center; margin-bottom: 40px; padding-top: 20px; }
+.aesf-header h2 { font-size: 2rem; background: linear-gradient(90deg, #FFD700, #FFA500, #FF6B6B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+.aesf-header p { color: #8b949e; font-size: 0.9rem; margin: 4px 0; }
+.aesf-hint { color: #FFD700 !important; font-size: 0.85rem !important; margin-top: 12px !important; }
+.aesf-shelf-section { margin-bottom: 35px; }
+.aesf-shelf-label { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding: 0 8px; }
+.aesf-shelf-label span { background: var(--badge-color); color: white; padding: 5px 16px; border-radius: 18px; font-weight: 600; font-size: 0.85rem; box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
+.aesf-shelf-label small { color: #8b949e; font-size: 0.75rem; }
+.aesf-shelf { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding: 15px 8px; perspective: 1000px; }
+.aesf-book-card { position: relative; width: 50px; height: 170px; transform-style: preserve-3d; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; text-decoration: none; flex-shrink: 0; }
+.aesf-book-card:hover { transform: translateY(-18px) translateZ(25px) rotateY(-18deg); z-index: 10; }
+.aesf-book-spine { position: absolute; width: 100%; height: 100%; background: linear-gradient(180deg, var(--book-color), var(--spine-color)); border-radius: 3px 0 0 3px; display: flex; align-items: center; justify-content: center; padding: 8px 3px; box-shadow: inset -2px 0 5px rgba(0,0,0,0.3), 2px 2px 6px rgba(0,0,0,0.4); }
+.aesf-spine-title { writing-mode: vertical-rl; text-orientation: mixed; font-size: 9px; font-weight: 600; color: rgba(255,255,255,0.95); letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.5); line-height: 1.2; }
+.aesf-book-front { position: absolute; width: 130px; height: 170px; background: linear-gradient(135deg, var(--book-color), var(--spine-color)); transform: translateX(50px) rotateY(90deg); transform-origin: left; border-radius: 0 5px 5px 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px; box-shadow: 3px 3px 12px rgba(0,0,0,0.4); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+.aesf-book-card:hover .aesf-book-front { opacity: 1; pointer-events: auto; }
+.aesf-front-title { font-size: 12px; font-weight: 700; color: #fff; text-align: center; line-height: 1.3; text-shadow: 0 2px 4px rgba(0,0,0,0.4); margin-bottom: 5px; }
+.aesf-front-sub { font-size: 8px; color: rgba(255,255,255,0.8); text-align: center; margin-bottom: 6px; }
+.aesf-front-author { font-size: 7px; color: rgba(255,255,255,0.6); text-align: center; margin-bottom: 8px; font-style: italic; }
+.aesf-front-badge { font-size: 8px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 8px; color: #FFD700; border: 1px solid rgba(255,215,0,0.4); }
+.aesf-shelf-wood { width: 92%; max-width: 850px; height: 8px; background: linear-gradient(180deg, #8B6914, #5C4033); margin: 0 auto; border-radius: 0 0 4px 4px; box-shadow: 0 5px 12px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.1); }
+@media (max-width: 768px) { .aesf-book-card { width: 42px; height: 140px; } .aesf-book-front { width: 110px; height: 140px; transform: translateX(42px) rotateY(90deg); } .aesf-front-title { font-size: 10px; } .aesf-shelf { gap: 6px; } }
+</style>
 </head>
 <body>
     <nav id="navbar">
