@@ -25,19 +25,110 @@
             --shadow-warm: 0 15px 50px rgba(199,91,57,0.12);
            }                                   /* line 26 */
     
-    /* === WHATSAPP BUTTON CSS === */
-    .whatsapp-float {
+        /* === AS-LEVEL CAMBRIDGE HOMESCHOOLING WHATSAPP BUTTON === */
+    .whatsapp-float-aslevel {
         position: fixed;
-        bottom: 25px;
-        left: 25px;
+        bottom: 140px;
+        right: 25px;
         z-index: 1000;
     }
-    .whatsapp-float a {
+
+    .whatsapp-float-aslevel a {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 65px;
-        height: 65px;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #012169 0%, #012169 40%, #ffffff 40%, #ffffff 60%, #C8102E 60%, #C8102E 100%);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        box-shadow: 0 6px 20px rgba(1, 33, 105, 0.4);
+        border: 3px solid #ffffff;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        animation: float-bounce-aslevel 2.5s infinite ease-in-out;
+    }
+
+    .whatsapp-float-aslevel a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+        border-radius: 50% 50% 0 0;
+        pointer-events: none;
+    }
+
+    .whatsapp-float-aslevel a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2px solid #C8102E;
+        animation: pulse-ring-aslevel 2s infinite;
+        z-index: -1;
+    }
+
+    .whatsapp-float-aslevel svg {
+        width: 30px;
+        height: 30px;
+        fill: #ffffff;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        position: relative;
+        z-index: 2;
+    }
+
+    .whatsapp-float-aslevel a:hover {
+        transform: scale(1.15) rotate(5deg);
+        box-shadow: 0 8px 25px rgba(1, 33, 105, 0.6);
+        border-color: #C8102E;
+    }
+
+    .whatsapp-label-aslevel {
+        position: absolute;
+        right: 70px;
+        background: linear-gradient(135deg, #012169, #C8102E);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateX(15px);
+        transition: all 0.4s ease;
+        pointer-events: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        letter-spacing: 0.5px;
+    }
+
+    .whatsapp-float-aslevel a:hover .whatsapp-label-aslevel {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    @keyframes float-bounce-aslevel {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse-ring-aslevel {
+        0% { transform: scale(1); opacity: 0.6; }
+        100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+        .whatsapp-float-aslevel { bottom: 120px; right: 15px; }
+        .whatsapp-float-aslevel a { width: 50px; height: 50px; }
+        .whatsapp-float-aslevel svg { width: 24px; height: 24px; }
+        .whatsapp-label-aslevel { display: none; }
+    }
+
         background: linear-gradient(135deg, #012169 0%, #012169 40%, #ffffff 40%, #ffffff 60%, #C8102E 60%, #C8102E 100%);
         color: white;
         border-radius: 50%;
