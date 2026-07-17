@@ -3574,163 +3574,67 @@
 
 
 
+
 <!-- Payment Ball Buttons -->
 <style>
-  .payment-balls {
-    position: fixed;
-    bocenter100px;
-    ritext-40px;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-  }
-  .pay-ball {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    border: 2px solid white;
-    font-size: 11px;
-    font-weight: bold;
-    color: white;
-    font-family: sans-serif;
-    text-align: center;
-    line-height: 1.1;
-    padding: 4px;
-  }
-  .pay-ball:hover {
-    transform: scale(1.1);
-  }
-  .crdb-ball {
-    background: #0066b3;
-  }
-  .airtel-ball {
-    background: #e31e24;
-  }
-  .payment-popup {
-    display: none;
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    background: white;
-    padding: 18px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    z-index: 10000;
-    max-width: 280px;
-    font-family: sans-serif;
-  }
-  .payment-popup.active {
-    display: block;
-  }
-  .payment-popup h3 {
-    margin: 0 0 12px 0;
-    font-size: 15px;
-  }
-  .payment-popup p {
-    margin: 6px 0;
-    font-size: 13px;
-    line-height: 1.4;
-  }
-  .payment-popup .close-btn {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: #666;
-  }
-  .payment-popup .steps {
-    background: #f0f8ff;
-    padding: 10px;
-    border-radius: 8px;
-    margin-top: 8px;
-  }
-  .crdb-popup h3, .crdb-popup .steps strong { color: #0066b3; }
-  .airtel-popup h3, .airtel-popup .steps strong { color: #e31e24; }
-</style>
-
-<div class="payment-balls">
-  <button class="pay-ball crdb-ball" onclick="document.getElementById('crdb-popup').classList.add('active'); document.getElementById('airtel-popup').classList.remove('active');">
-    CRDB
-  </button>
-  <button class="pay-ball airtel-ball" onclick="document.getElementById('airtel-popup').classList.add('active'); document.getElementById('crdb-popup').classList.remove('active');">
-    Airtel
-  </button>
-</div>
-
-<div id="crdb-popup" class="payment-popup crdb-popup">
-  <button class="close-btn" onclick="this.parentElement.classList.remove('active')">&times;</button>
-  <h3>🏦 CRDB Bank Deposit </h3>
-  <p><strong>Account:</strong> 0152001GH2M00</p>
-  <p><strong>Name:</strong> Abigail Eduaccess</p>
-
-
-  <div class="steps">
-    <p><strong>How to deposit:</strong></p>
-    <p>Use SimBanking: Dial <strong>*150*03#</strong></p>
-    <p>Select "Send Money" → "To Bank Account"</p>
-    <p>Enter account: <strong>0152001GH2M00</strong></p>
-  </div>
-</div>
-
-<div id="airtel-popup" class="payment-popup airtel-popup">
-  <button class="close-btn" onclick="this.parentElement.classList.remove('active')">&times;</button>
-  <h3>📱 Airtel Money Payment </h3>
-  <p><strong>Name:</strong> Abigail Eduaccess</p>
-
-  <p><strong>Name:</strong> Read James Mushi</p>
-
-  <div class="steps">
-    <p><strong>How to send:</strong></p>
-    <p>Dial <strong>*150*60#</strong> on your Airtel line</p>
-    <p>Select "Send Money"</p>
-    <p>Enter number: <strong>+255 788 698 126</strong></p>
-    <p>Enter amount and confirm with PIN</p>
-  </div>
-</div>
-
-
-    <!-- === AS-LEVEL CAMBRIDGE HOMESCHOOLING WHATSAPP BUTTON === -->
-    <div class="whatsapp-float-aslevel">
-        <a href="https://wa.me/255619801985?text=Hello%2C%20I%20am%20interested%20in%20the%20AS-Level%20Cambridge%20Homeschooling%20programme%20for%20Economics%2C%20English%20and%20Geography." 
-           target="_blank" 
-           aria-label="AS-Level Homeschooling Enquiry">
-            <span class="whatsapp-label-aslevel">AS-Level Enquiry</span>
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-        </a>
-    </div>
-    <!-- === AS-LEVEL CAMBRIDGE HOMESCHOOLING SECTION === -->
-    <section id="aslevel-programme" style="padding: 4rem 1rem; background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%); text-align: center;">
-        <h2 style="color: #2ecc71; font-size: 2rem; margin-bottom: 0.5rem;">AS-Level Cambridge Homeschooling</h2>
-        <p style="color: #a0c4e8; font-size: 1.1rem; margin-bottom: 2rem;">2-hour online sessions in Economics, English & Geography</p>
-        
-        <div style="max-width: 600px; margin: 0 auto;">
-            <img src="AS_Level_Flyer_Clean.png" alt="AS-Level Cambridge Homeschooling Programme" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
-        </div>
-        
-        <a href="https://wa.me/255619801985?text=Hello%2C%20I%20am%20interested%20in%20the%20AS-Level%20Cambridge%20Homeschooling%20programme" 
-           target="_blank" 
-           style="display: inline-block; margin-top: 2rem; padding: 1rem 2rem; background: #C8102E; color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem;">
-            Enquire on WhatsApp
-        </a>
-    </section>
-<!-- WhatsApp Floating Button -->
-<style>
-          .wa-float {
+        .payment-balls {
             position: fixed;
-            top: 50%;
+            bottom: 100px;
+            right: 100px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+        .payment-ball {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .payment-ball:hover {
+            transform: scale(1.1);
+        }
+        .payment-ball img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Menu Button (Top Right) */
+        .menu-btn {
+            position: fixed;
+            top: 100px;
+            right: 100px;
+            z-index: 9999;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4caf7c, #2e8b5e);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .menu-btn:hover {
+            transform: scale(1.1);
+        }
+        .menu-btn i {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        /* WhatsApp Floating Button */
+        .wa-float {
+            position: fixed;
+            bottom: 100px;
             left: 100px;
             z-index: 9999;
             width: 60px;
@@ -3743,10 +3647,9 @@
             transition: transform 0.3s ease;
             text-decoration: none;
             overflow: hidden;
-            transform: translateY(-50%);
         }
         .wa-float:hover {
-            transform: translateY(-50%) scale(1.1);
+            transform: scale(1.1);
         }
         .wa-float img {
             width: 100%;
@@ -3754,34 +3657,8 @@
             object-fit: cover;
             border-radius: 50%;
         }
-;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-    text-decoration: none;
-    overflow: hidden;
-    transform: translateY(-50%);
-  }
-  .wa-float:hover {
-    transform: translateY(-50%) scale(1.1);
-  }
-  .wa-float img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-  @keyframes wa-pulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-  }
-  .wa-float.pulse {
-    animation: wa-pulse 2s infinite;
-  }
+
+        /* Service Cards CSS */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
