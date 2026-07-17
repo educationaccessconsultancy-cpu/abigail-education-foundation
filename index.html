@@ -3578,7 +3578,7 @@
 <style>
   .payment-balls {
     position: fixed;
-    bocenter40px;
+    bocenter100px;
     ritext-40px;
     z-index: 9999;
     display: flex;
@@ -3728,13 +3728,33 @@
     </section>
 <!-- WhatsApp Floating Button -->
 <style>
-  .wa-float {
-    position: fixed;
-    text-50%;
-    ltext-40px;
-    z-index: 9999;
-    width: 60px;
-    heitext-60px;
+          .wa-float {
+            position: fixed;
+            top: 50%;
+            left: 100px;
+            z-index: 9999;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            overflow: hidden;
+            transform: translateY(-50%);
+        }
+        .wa-float:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+        .wa-float img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+;
     border-radius: 50%;
     display: flex;
     align-items: center;
