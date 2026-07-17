@@ -3319,6 +3319,80 @@
     border: none;
     font-size: 22px;
     cursor: pointer;
+<!-- Payment Ball Buttons -->
+<style>
+  .payment-balls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  .pay-ball {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid white;
+    font-size: 28px;
+    text-decoration: none;
+  }
+  .pay-ball:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+  .pay-ball:active {
+    transform: scale(0.95);
+  }
+  .crdb-ball {
+    background: #0066b3;
+  }
+  .airtel-ball {
+    background: #e31e24;
+  }
+  .payment-popup {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    z-index: 10000;
+    max-width: 300px;
+    font-family: sans-serif;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  .payment-popup.active {
+    display: block;
+  }
+  .payment-popup h3 {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+  }
+  .payment-popup p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .payment-popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
     color: #666;
   }
   .payment-popup .steps {
@@ -3327,10 +3401,47 @@
     border-radius: 8px;
     margin-top: 10px;
   }
-  .payment-popup .steps strong {
-    color: #0066b3;
-  }
+  .crdb-popup h3, .crdb-popup .steps strong { color: #0066b3; }
+  .airtel-popup h3, .airtel-popup .steps strong { color: #e31e24; }
 </style>
+
+<div class="payment-balls">
+  <button class="pay-ball crdb-ball" onclick="document.getElementById('crdb-popup').classList.add('active'); document.getElementById('airtel-popup').classList.remove('active');" title="CRDB Bank Deposit">
+    🏦
+  </button>
+  <button class="pay-ball airtel-ball" onclick="document.getElementById('airtel-popup').classList.add('active'); document.getElementById('crdb-popup').classList.remove('active');" title="Airtel Money Payment">
+    📱
+  </button>
+</div>
+
+<div id="crdb-popup" class="payment-popup crdb-popup">
+  <button class="close-btn" onclick="this.parentElement.classList.remove('active')">&times;</button>
+  <h3>🏦 CRDB Bank Deposit</h3>
+  <p><strong>Account Name:</strong> Abigail Eduaccess</p>
+  <p><strong>Account Number:</strong> 0152001GH2M00</p>
+  <p><strong>Bank:</strong> CRDB Bank Tanzania</p>
+  <div class="steps">
+    <p><strong>How to deposit:</strong></p>
+    <p>Use SimBanking: Dial <strong>*150*03#</strong></p>
+    <p>Select "Send Money" → "To Bank Account"</p>
+    <p>Enter account number: <strong>0152001GH2M00</strong></p>
+  </div>
+</div>
+
+<div id="airtel-popup" class="payment-popup airtel-popup">
+  <button class="close-btn" onclick="this.parentElement.classList.remove('active')">&times;</button>
+  <h3>📱 Airtel Money Payment</h3>
+  <p><strong>Recipient Name:</strong> Abigail Eduaccess</p>
+  <p><strong>Airtel Number:</strong> +255 788 698 126</p>
+  <div class="steps">
+    <p><strong>How to send:</strong></p>
+    <p>Dial <strong>*150*60#</strong> on your Airtel line</p>
+    <p>Select "Send Money"</p>
+    <p>Enter number: <strong>+255 788 698 126</strong></p>
+    <p>Enter amount and confirm with PIN</p>
+  </div>
+</div>
+
 
 <div class="payment-float">
   <button class="payment-btn" onclick="document.getElementById('crdb-popup').classList.add('active'); document.getElementById('airtel-popup').classList.remove('active');">
