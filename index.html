@@ -3330,7 +3330,7 @@
 <style>
   .wa-float {
     position: fixed;
-    bottom: 20px;
+    top: 50%;
     left: 20px;
     z-index: 9999;
     width: 60px;
@@ -3343,9 +3343,10 @@
     transition: transform 0.3s ease;
     text-decoration: none;
     overflow: hidden;
+    transform: translateY(-50%);
   }
   .wa-float:hover {
-    transform: scale(1.1);
+    transform: translateY(-50%) scale(1.1);
   }
   .wa-float img {
     width: 100%;
