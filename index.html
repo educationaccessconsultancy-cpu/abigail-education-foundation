@@ -3107,52 +3107,55 @@
                 <h2>Our Services</h2>
                 <p>Comprehensive education consultancy tailored to your needs</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Education Consulting</h3>
-                    <p>Strategic guidance for educational institutions, curriculum development, and policy formulation to enhance learning outcomes.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <h3>Institutional Advisory</h3>
-                    <p>Expert advice on institutional accreditation, quality assurance, and operational excellence for schools and universities.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Access Programs</h3>
-                    <p>Designing and implementing programs that improve access to quality education for underserved communities.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Research & Analysis</h3>
-                    <p>Data-driven research and analytical services to inform education policy and strategic decision-making.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <h3>Training & Development</h3>
-                    <p>Professional development workshops and training programs for educators and administrators.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>International Education</h3>
-                    <p>Guidance on international partnerships, student exchange programs, and global education standards.</p>
-                </div>
+                    <div class="services-grid">
+            <div class="service-card" onclick="openService(0)">
+                <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Education Consulting</h3>
+                <p>Strategic guidance for educational institutions, curriculum development, and policy formulation to enhance learning outcomes.</p>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-card" onclick="openService(1)">
+                <div class="service-icon"><i class="fas fa-university"></i></div>
+                <h3>Institutional Advisory</h3>
+                <p>Expert advice on school management, accreditation processes, governance structures, and operational excellence.</p>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-card" onclick="openService(2)">
+                <div class="service-icon"><i class="fas fa-door-open"></i></div>
+                <h3>Access Programs</h3>
+                <p>Bridging educational gaps by designing inclusive access pathways for underserved and marginalized learners.</p>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-card" onclick="openService(3)">
+                <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+                <h3>Research Analysis</h3>
+                <p>Data-driven educational research, impact assessments, and evidence-based policy recommendations for stakeholders.</p>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-card" onclick="openService(4)">
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Training & Development</h3>
+                <p>Professional development workshops and capacity-building programs for educators and school administrators.</p>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-card" onclick="openService(5)">
+                <div class="service-icon"><i class="fas fa-globe"></i></div>
+                <h3>International Education</h3>
+                <p>Guidance on global education standards, cross-border partnerships, and international curriculum integration.</p>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-card" onclick="openService(6)">
+                <div class="service-icon"><i class="fas fa-comments"></i></div>
+                <h3>Youth Counselling Services</h3>
+                <p>Holistic counselling and mentorship programs supporting young people's academic, emotional, and career growth.</p>
+                <span class="service-arrow">→</span>
             </div>
         </div>
-    </section>
+        <div class="service-detail" id="serviceDetail">
+            <button class="service-close" onclick="closeService()">&times;</button>
+            <div class="service-detail-inner" id="serviceDetailInner"></div>
+        </div>
+
 
     <!-- About Section -->
     <section class="about" id="about">
