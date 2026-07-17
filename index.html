@@ -3921,4 +3921,32 @@
 <a href="#services" class="wa-float pulse" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'}); return false;">
 
   <img src="Screenshot_20260717_121556_Gallery.jpg" alt="WhatsApp">
+
+<script>
+const serviceData = [
+    { icon: 'fa-graduation-cap', title: 'Education Consulting', text: 'Our Education Consulting service provides end-to-end strategic support for schools, colleges, and training centers. We help institutions refine their vision, redesign curricula to meet modern standards, and develop policies that drive measurable learning outcomes.', features: ['Curriculum Design', 'Policy Formulation', 'Strategic Planning', 'Quality Assurance'] },
+    { icon: 'fa-university', title: 'Institutional Advisory', text: 'We offer specialized advisory services to strengthen institutional capacity. This includes governance restructuring, financial sustainability planning, accreditation readiness, and leadership coaching.', features: ['Governance Review', 'Accreditation Support', 'Financial Planning', 'Leadership Coaching'] },
+    { icon: 'fa-door-open', title: 'Access Programs', text: 'Education should be for everyone. Our Access Programs identify and dismantle barriers preventing marginalized groups from accessing quality education. We design scholarships, community outreach initiatives, and flexible learning models.', features: ['Scholarship Design', 'Community Outreach', 'Flexible Learning', 'Inclusion Strategy'] },
+    { icon: 'fa-chart-bar', title: 'Research Analysis', text: 'Decisions should be backed by evidence. Our research team conducts rigorous educational studies, program evaluations, and data analytics to inform policy and practice.', features: ['Impact Assessment', 'Policy Research', 'Data Analytics', 'Program Evaluation'] },
+    { icon: 'fa-chart-line', title: 'Training & Development', text: 'Great schools need great teachers. We deliver tailored training programs that build educator competencies in pedagogy, classroom management, technology integration, and leadership.', features: ['Teacher Training', 'Leadership Workshops', 'Tech Integration', 'Coaching Programs'] },
+    { icon: 'fa-globe', title: 'International Education', text: 'In a globalized world, education must transcend borders. We help institutions adopt international standards, forge global partnerships, and integrate best practices from around the world.', features: ['Curriculum Alignment', 'Global Partnerships', 'Student Exchange', 'IB / Cambridge Support'] },
+    { icon: 'fa-comments', title: 'Youth Counselling Services', text: 'Young people face unique challenges that can derail their education. Our counselling services provide safe, confidential spaces for academic guidance, career planning, emotional support, and mentorship.', features: ['Career Guidance', 'Emotional Support', 'Academic Mentoring', 'Life Skills Training'] }
+];
+function openService(index) {
+    const detail = document.getElementById('serviceDetail');
+    const inner = document.getElementById('serviceDetailInner');
+    const data = serviceData[index];
+    document.querySelectorAll('.service-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.service-card')[index].classList.add('active');
+    inner.innerHTML = '<div class="service-detail-icon"><i class="fas ' + data.icon + '"></i></div><div class="service-detail-text"><h4>' + data.title + '</h4><p>' + data.text + '</p><div class="service-features">' + data.features.map(f => '<span class="service-tag">' + f + '</span>').join('') + '</div></div>';
+    detail.classList.add('open');
+    detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+function closeService() {
+    document.getElementById('serviceDetail').classList.remove('open');
+    document.querySelectorAll('.service-card').forEach(c => c.classList.remove('active'));
+}
+</script>
+</body>
+</html>
 </a>
