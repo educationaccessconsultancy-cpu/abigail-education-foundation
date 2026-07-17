@@ -3449,62 +3449,77 @@
     font-size: 22px;
     cursor: pointer;
 <!-- Payment Ball Buttons -->
-<style>
-  .payment-balls {
-    position: fixed;
-    bottom: 100px;
-    right: 100px;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-  }
-  .pay-ball {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 3px solid white;
-    font-size: 28px;
-    text-decoration: none;
-  }
-  .pay-ball:hover {
-    transform: scale(1.15);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-  }
-  .pay-ball:active {
-    transform: scale(0.95);
-  }
-  .crdb-ball {
-    background: #0066b3;
-  }
-  .airtel-ball {
-    background: #e31e24;
-  }
-  .payment-popup {
-    display: none;
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    z-index: 10000;
-    max-width: 300px;
-    font-family: sans-serif;
-    max-height: 80vh;
-    overflow-y: auto;
-  }
-  .payment-popup.active {
-    display: block;
-  }
+        /* Payment Balls - CRDB & Airtel */
+        .payment-balls {
+            position: fixed;
+            bottom: 100px;
+            right: 100px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        .pay-ball {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid white;
+            font-size: 28px;
+            text-decoration: none;
+        }
+        .pay-ball:hover {
+            transform: scale(1.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .pay-ball:active {
+            transform: scale(0.95);
+        }
+        .crdb-ball {
+            background: #0066b3;
+        }
+        .airtel-ball {
+            background: #e31e24;
+        }
+        .payment-popup {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 100px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            z-index: 10000;
+            max-width: 300px;
+            font-family: sans-serif;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .payment-popup.active {
+            display: block;
+        }
+        .payment-popup p {
+            margin: 8px 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .payment-popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
   .payment-popup h3 {
     margin: 0 0 15px 0;
     font-size: 16px;
