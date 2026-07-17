@@ -3248,58 +3248,55 @@
         <i class="fab fa-whatsapp"></i>
     </a>
     <!-- WhatsApp Business Star Button -->
-    <style>
-      .whatsapp-business {
-        position: fixed;
-        bottom: 100px;
-        right: 24px;
-        z-index: 9999;
-        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.3);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        animation: float 3s ease-in-out infinite;
-      }
+    <!-- Payment Buttons -->
+<style>
+  .payment-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  .payment-float a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 30px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    text-decoration: none;
+    color: #333;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+  .payment-float a:hover {
+    transform: scale(1.05);
+  }
+  .payment-float img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+</style>
 
-      .whatsapp-business:hover {
-        transform: scale(1.15) translateY(-4px);
-        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.7), 0 0 50px rgba(255, 215, 0, 0.5);
-      }
+<div class="payment-float">
+  <a href="https://www.crdbbank.co.tz" target="_blank" title="CRDB Bank A/c: 0152001GH2M00">
+    <img src="crdb-logo.jpg" alt="CRDB Bank">
+    <span>A/c: 0152001GH2M00</span>
+  </a>
+  <a href="https://www.airtel.co.tz/airtel-money" target="_blank" title="Airtel Money: +255788698126">
+    <img src="airtel-money-logo.jpg" alt="Airtel Money">
+    <span>+255788698126</span>
+  </a>
+</div>
 
-      .whatsapp-business svg {
-        width: 32px;
-        height: 32px;
-        fill: white;
-        filter: drop-shadow(0 0 4px rgba(255,255,255,0.8));
-        animation: twinkle 1.5s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-      }
-
-      @keyframes twinkle {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.7; transform: scale(1.1); }
-      }
-    </style>
-
-    <a href="https://wa.me/255788698126?text=Hello,%20I%20would%20like%20to%20make%20an%20enquiry" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       class="whatsapp-business"
-       aria-label="Chat on WhatsApp">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-      </svg>
-    </a>
     <!-- === AS-LEVEL CAMBRIDGE HOMESCHOOLING WHATSAPP BUTTON === -->
     <div class="whatsapp-float-aslevel">
         <a href="https://wa.me/255619801985?text=Hello%2C%20I%20am%20interested%20in%20the%20AS-Level%20Cambridge%20Homeschooling%20programme%20for%20Economics%2C%20English%20and%20Geography." 
