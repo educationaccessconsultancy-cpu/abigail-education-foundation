@@ -3247,7 +3247,6 @@
        aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
-    <!-- WhatsApp Business Star Button -->
     <!-- Payment Buttons -->
 <style>
   .payment-float {
@@ -3260,7 +3259,7 @@
     gap: 10px;
     align-items: flex-end;
   }
-  .payment-float a {
+  .payment-btn {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -3274,17 +3273,104 @@
     font-size: 13px;
     font-weight: bold;
     transition: transform 0.3s ease;
+    cursor: pointer;
+    border: none;
   }
-  .payment-float a:hover {
+  .payment-btn:hover {
     transform: scale(1.05);
   }
-  .payment-float img {
+  .payment-btn img {
     width: 32px;
     height: 32px;
     object-fit: contain;
     border-radius: 4px;
   }
+  .payment-popup {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    z-index: 10000;
+    max-width: 300px;
+    font-family: sans-serif;
+  }
+  .payment-popup.active {
+    display: block;
+  }
+  .payment-popup h3 {
+    margin: 0 0 15px 0;
+    color: #0066b3;
+    font-size: 16px;
+  }
+  .payment-popup p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .payment-popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #666;
+  }
+  .payment-popup .steps {
+    background: #f0f8ff;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  .payment-popup .steps strong {
+    color: #0066b3;
+  }
 </style>
+
+<div class="payment-float">
+  <button class="payment-btn" onclick="document.getElementById('crdb-popup').classList.add('active'); document.getElementById('airtel-popup').classList.remove('active');">
+    <img src="Screenshot_20260717_141639_Gallery.jpg" alt="CRDB Bank">
+    <span>Bank Deposit</span>
+  </button>
+  <button class="payment-btn" onclick="document.getElementById('airtel-popup').classList.add('active'); document.getElementById('crdb-popup').classList.remove('active');">
+    <img src="Screenshot_20260717_141624_Gallery.jpg" alt="Airtel Money">
+    <span>Airtel Money</span>
+  </button>
+</div>
+
+<div id="crdb-popup" class="payment-popup">
+  <button class="close-btn" onclick="this.parentElement.classList.remove('active')">&times;</button>
+  <h3>🏦 CRDB Bank Deposit</h3>
+  <p><strong>Account Name:</strong> Abigail Eduaccess</p>
+  <p><strong>Account Number:</strong> 0152001GH2M00</p>
+  <p><strong>Bank:</strong> CRDB Bank Tanzania</p>
+  <div class="steps">
+    <p><strong>How to deposit:</strong></p>
+    <p>Use SimBanking: Dial <strong>*150*03#</strong></p>
+    <p>Select "Send Money" → "To Bank Account"</p>
+    <p>Enter account number: <strong>0152001GH2M00</strong></p>
+  </div>
+</div>
+
+<div id="airtel-popup" class="payment-popup">
+  <button class="close-btn" onclick="this.parentElement.classList.remove('active')">&times;</button>
+  <h3>📱 Airtel Money Payment</h3>
+  <p><strong>Recipient Name:</strong> Abigail Eduaccess</p>
+  <p><strong>Airtel Number:</strong> +255 788 698 126</p>
+  <div class="steps">
+    <p><strong>How to send:</strong></p>
+    <p>Dial <strong>*150*60#</strong> on your Airtel line</p>
+    <p>Select "Send Money"</p>
+    <p>Enter number: <strong>+255 788 698 126</strong></p>
+    <p>Enter amount and confirm with PIN</p>
+  </div>
+</div>
+
 
 <div class="payment-float">
   <a href="https://www.crdbbank.co.tz" target="_blank" title="CRDB Bank A/c: 0152001GH2M00">
