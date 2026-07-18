@@ -7,7 +7,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
+ .aes-logo-container{position:relative;display:inline-block;padding:30px}
+.aes-logo-wrap{display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,0.15);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.25);border-radius:16px;width:fit-content;box-shadow:0 4px 30px rgba(0,0,0,0.1);position:relative;z-index:100}
+.aes-logo-icon{width:44px;height:44px;background:linear-gradient(135deg,#1a5c1a,#2e7d32);border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(46,125,50,0.3);flex-shrink:0}
+.aes-logo-icon svg{width:26px;height:26px}
+.aes-logo-text{color:#1a2e1a;font-size:16px;font-weight:700;letter-spacing:0.5px;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;white-space:nowrap}
+.aes-float{position:absolute;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,0.3);animation:aesFloat 5s ease-in-out infinite;cursor:pointer;text-decoration:none;z-index:101;transition:transform 0.3s}
+.aes-float:hover{transform:scale(1.15)}
+.aes-float svg{width:22px;height:22px;fill:white}
+.aes-float .aes-badge{position:absolute;top:-3px;right:-3px;background:#ff4444;color:white;font-size:9px;font-weight:bold;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;animation:aesPulse 2s infinite;font-family:sans-serif}
+.aes-float .aes-label{position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:white;font-size:9px;padding:3px 10px;border-radius:12px;white-space:nowrap;opacity:0;transition:opacity 0.3s;pointer-events:none}
+.aes-float:hover .aes-label{opacity:1}
+.aes-crdb{background:linear-gradient(135deg,#0056b3,#003d80)}
+.aes-airtel{background:linear-gradient(135deg,#e60000,#b30000)}
+.aes-easf{background:linear-gradient(135deg,#25D366,#128C7E)}
+.aes-cambridge{background:linear-gradient(135deg,#d4a017,#b8860b)}
+.aes-pos-1{top:-15px;left:-10px;animation-delay:0s}
+.aes-pos-2{top:-10px;right:-10px;animation-delay:-1.5s;animation-duration:6s}
+.aes-pos-3{bottom:-15px;left:10px;animation-delay:-3s;animation-duration:5.5s}
+.aes-pos-4{bottom:-10px;right:5px;animation-delay:-1s;animation-duration:6.5s}
+@keyframes aesFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes aesPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.aes-modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:1000;padding:20px}
+.aes-modal-overlay.active{display:flex}
+.aes-modal-card{background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:20px;padding:28px;max-width:340px;width:100%;text-align:center;box-shadow:0 25px 80px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1);position:relative}
+.aes-modal-card h3{color:white;font-size:20px;margin-bottom:6px}
+.aes-modal-card .aes-modal-sub{color:rgba(255,255,255,0.6);font-size:12px;margin-bottom:20px}
+.aes-modal-card .aes-detail{background:rgba(255,255,255,0.05);border-radius:12px;padding:12px;margin-bottom:10px;text-align:left;border:1px solid rgba(255,255,255,0.08)}
+.aes-modal-card .aes-detail label{color:rgba(255,255,255,0.5);font-size:10px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:3px}
+.aes-modal-card .aes-detail .aes-value{color:white;font-size:15px;font-weight:600;font-family:'Courier New',monospace}
+.aes-modal-card .aes-copy-btn{background:linear-gradient(135deg,#25D366,#128C7E);color:white;border:none;padding:10px 20px;border-radius:30px;font-weight:700;cursor:pointer;margin-top:6px;width:100%}
+.aes-modal-card .aes-close{position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.1);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:16px}
+       :root {
             --primary: #1a5c2e;
             --primary-light: #2d7a42;
             --accent: #2ecc71;
