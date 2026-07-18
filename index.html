@@ -29,7 +29,7 @@
         .whatsapp-float-aslevel {
         position: fixed;
         top: 50%;
-        right: 100px;
+        right: 25px;
         transform: translateY(-50%);
         z-index: 9999;
     }
@@ -1562,6 +1562,45 @@
 .aesf-front-badge { font-size: 8px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 8px; color: #FFD700; border: 1px solid rgba(255,215,0,0.4); }
 .aesf-shelf-wood { width: 92%; max-width: 850px; height: 8px; background: linear-gradient(180deg, #8B6914, #5C4033); margin: 0 auto; border-radius: 0 0 4px 4px; box-shadow: 0 5px 12px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.1); }
 @media (max-width: 768px) { .aesf-book-card { width: 42px; height: 140px; } .aesf-book-front { width: 110px; height: 140px; transform: translateX(42px) rotateY(90deg); } .aesf-front-title { font-size: 10px; } .aesf-shelf { gap: 6px; } }
+
+
+    /* WhatsApp Float Button with Profile Picture */
+<style>
+  .wa-float {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    overflow: hidden;
+    transform: translateY(-50%);
+  }
+  .wa-float:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+  .wa-float img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  @keyframes wa-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  }
+  .wa-float.pulse {
+    animation: wa-pulse 2s infinite;
+  }
+</style>
 </style>
 </head>
 <body>
@@ -2521,700 +2560,8 @@
             }
         });
     </script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>me</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #1a365d;
-            --primary-light: #1e8449;
-            --accent: #2ecc71;
-            --text: #2d3748;
-            --text-light: #27ae60;
-            --bg: #ffffff;
-            --bg-alt: #f7fafc;
-            --border: #e2e8f0;
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            background: var(--bg);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-light);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 70px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            padding: 120px 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 36px;
-            background: var(--accent);
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 2rem;
-            background: var(--bg-alt);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .service-icon i {
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 2rem;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 2rem;
-        }
-
-        .stat h3 {
-            font-size: 2.5rem;
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .stat p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        }
-
-        /* Founder Section */
-        .founder {
-            padding: 100px 2rem;
-            background: linear-gradient(180deg, var(--bg-alt) 0%, #edf2f7 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .founder::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(201,162,39,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .founder-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .founder-photo-wrapper {
-            position: relative;
-        }
-
-        .founder-photo {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-            display: block;
-            object-fit: cover;
-            aspect-ratio: 3/4;
-        }
-
-        .founder-badge {
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
-            background: var(--accent);
-            color: var(--primary);
-            padding: 16px 24px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 10px 30px rgba(201,162,39,0.3);
-        }
-
-        .founder-info {
-            padding: 20px 0;
-        }
-
-        .founder-label {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-
-        .founder-info h2 {
-            font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .founder-info .title {
-            font-size: 1.3rem;
-            color: var(--primary-light);
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .founder-info .org {
-            font-size: 1.1rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
-
-        .founder-bio {
-            color: var(--text-light);
-            line-height: 1.8;
-            font-size: 1.05rem;
-            margin-bottom: 30px;
-        }
-
-        .founder-credentials {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 30px;
-        }
-
-        .credential-tag {
-            background: white;
-            border: 1px solid var(--border);
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .credential-tag i {
-            color: var(--accent);
-        }
-
-        .founder-social {
-            display: flex;
-            gap: 12px;
-        }
-
-        .founder-social a {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .founder-social a:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 60px 2rem 30px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-brand h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-brand p {
-            opacity: 0.8;
-            line-height: 1.7;
-        }
-
-        .footer-links h4 {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 30px;
-            text-align: center;
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .founder-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .founder-photo-wrapper {
-                max-width: 320px;
-                margin: 0 auto;
-            }
-
-            .founder-badge {
-                right: 10px;
-            }
-
-            .founder-credentials {
-                justify-content: center;
-            }
-
-            .founder-social {
-                justify-content: center;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding: 80px 1.5rem;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .services, .about, .founder {
-                padding: 60px 1.5rem;
-            }
-
-            .founder-info h2 {
-                font-size: 2rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-        }
-        /* Floating WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            text-decoration: none;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            z-index: 9999;
-            transition: all 0.3s ease;
-            animation: whatsapp-pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
-        }
-
-        @keyframes whatsapp-pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        @media (max-width: 600px) {
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-
-    </style>
-</head>
-<body>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">Abigail <span>Eduaccess</span></a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#founder">Founder</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>me</h1>
-        <p>Empowering institutions and learners with expert education consultancy, strategic advisory, and access solutions for a brighter future.</p>
-        <a href="#services" class="btn">Explore Our Services</a>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Services</h2>
-                <p>Comprehensive education consultancy tailored to your needs</p>
-            </div>
-                                            <div class="services-grid">
-            <div class="service-card" onclick="openService(0)">
-                <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3>Education Consulting</h3>
-                <p>Strategic guidance for educational institutions, curriculum development, and policy formulation to enhance learning outcomes.</p>
-                <span class="service-arrow">→</span>
-            </div>
-            <div class="service-card" onclick="openService(1)">
-                <div class="service-icon"><i class="fas fa-university"></i></div>
-                <h3>Institutional Advisory</h3>
-                <p>Expert advice on school management, accreditation processes, governance structures, and operational excellence.</p>
-                <span class="service-arrow">→</span>
-            </div>
-            <div class="service-card" onclick="openService(2)">
-                <div class="service-icon"><i class="fas fa-door-open"></i></div>
-                <h3>Access Programs</h3>
-                <p>Bridging educational gaps by designing inclusive access pathways for underserved and marginalized learners.</p>
-                <span class="service-arrow">→</span>
-            </div>
-            <div class="service-card" onclick="openService(3)">
-                <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
-                <h3>Research Analysis</h3>
-                <p>Data-driven educational research, impact assessments, and evidence-based policy recommendations for stakeholders.</p>
-                <span class="service-arrow">→</span>
-            </div>
-            <div class="service-card" onclick="openService(4)">
-                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>Training & Development</h3>
-                <p>Professional development workshops and capacity-building programs for educators and school administrators.</p>
-                <span class="service-arrow">→</span>
-            </div>
-            <div class="service-card" onclick="openService(5)">
-                <div class="service-icon"><i class="fas fa-globe"></i></div>
-                <h3>International Education</h3>
-                <p>Guidance on global education standards, cross-border partnerships, and international curriculum integration.</p>
-                <span class="service-arrow">→</span>
-            </div>
-            <div class="service-card" onclick="openService(6)">
-                <div class="service-icon"><i class="fas fa-comments"></i></div>
-                <h3>Youth Counselling Services</h3>
-                <p>Holistic counselling and mentorship programs supporting young people's academic, emotional, and career growth.</p>
-                <span class="service-arrow">→</span>
-            </div>
-        </div>
-        <div class="service-detail" id="serviceDetail">
-            <button class="service-close" onclick="closeService()">&times;</button>
-            <div class="service-detail-inner" id="serviceDetailInner"></div>
-        </div>
-
-                <div class="service-icon"><i class="fas fa-comments"></i></div>
-                <h3>Youth Counselling Services</h3>
-                <p>Holistic counselling and mentorship programs supporting young people's academic, emotional, and career growth.</p>
-                <span class="service-arrow">→</span>
-            </div>
-        </div>
-        <div class="service-detail" id="serviceDetail">
-            <button class="service-close" onclick="closeService()">&times;</button>
-            <div class="service-detail-inner" id="serviceDetailInner"></div>
-        </div>
-
-                <div class="service-icon"><i class="fas fa-comments"></i></div>
-                <h3>Youth Counselling Services</h3>
-                <p>Holistic counselling and mentorship programs supporting young people's academic, emotional, and career growth.</p>
-                <span class="service-arrow">→</span>
-            </div>
-        </div>
-        <div class="service-detail" id="serviceDetail">
-            <button class="service-close" onclick="closeService()">&times;</button>
-            <div class="service-detail-inner" id="serviceDetailInner"></div>
-        </div>
-
-            <button class="service-close" onclick="closeService()">&times;</button>
-            <div class="service-detail-inner" id="serviceDetailInner"></div>
-        </div>
-
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About me</h2>
-                    <p>me is a leading consultancy firm dedicated to transforming the educational landscape. We work with institutions, governments, and organizations to create sustainable education solutions.</p>
-                    <p>Our mission is to ensure that quality education is accessible to all, regardless of geographical or socioeconomic barriers. Through innovative strategies and evidence-based approaches, we help our clients achieve excellence in education delivery.</p>
-                    <div class="stats">
-                        <div class="stat">
-                            <h3>15+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat">
-                            <h3>200+</h3>
-                            <p>Institutions Served</p>
-                        </div>
-                        <div class="stat">
-                            <h3>50+</h3>
-                            <p>Countries Reached</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=500&fit=crop" alt="me">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-</footer>
-   <!-- ====== FOUNDER SECTION ====== -->
+<!-- ====== FOUNDER SECTION ====== -->
     <section class="founder" id="founder">
         <div class="founder-container">
             <div class="founder-photo-wrapper">
@@ -3262,157 +2609,68 @@
             </div>
         </div>
     </section>
-    <!-- ====== END FOUNDER SECTION ====== -->
-
-
     
 
+<!-- === AS-LEVEL CAMBRIDGE HOMESCHOOLING SECTION === -->
+    <section id="aslevel-programme" style="padding: 4rem 1rem; background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%); text-align: center;">
+        <h2 style="color: #2ecc71; font-size: 2rem; margin-bottom: 0.5rem;">AS-Level Cambridge Homeschooling</h2>
+        <p style="color: #a0c4e8; font-size: 1.1rem; margin-bottom: 2rem;">2-hour online sessions in Economics, English & Geography</p>
+        
+        <div style="max-width: 600px; margin: 0 auto;">
+            <img src="AS_Level_Flyer_Clean.png" alt="AS-Level Cambridge Homeschooling Programme" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+        </div>
+        
+        <a href="https://wa.me/255619801985?text=Hello%2C%20I%20am%20interested%20in%20the%20AS-Level%20Cambridge%20Homeschooling%20programme" 
+           target="_blank" 
+           style="display: inline-block; margin-top: 2rem; padding: 1rem 2rem; background: #C8102E; color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem;">
+            Enquire on WhatsApp
+        </a>
+    </section>
 
 
-    <!-- WhatsApp Services Button -->
-<style>
-  .whatsapp-services-btn {
-    position: fixed;
-    top: 20%;
-    left: 20px;
-    z-index: 9999;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #25D366;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    border: 3px solid white;
-    color: white;
-    font-size: 28px;
-    text-decoration: none;
-    
-  }
-  .whatsapp-services-btn:hover {
-    transform: translateY(-50%) scale(1.1);
-  }
-  .services-popup-left {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 90px;
-    transform: translateY(-50%);
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    z-index: 10000;
-    max-width: 320px;
-    font-family: sans-serif;
-    max-height: 80vh;
-    overflow-y: auto;
-  }
-  .services-popup-left.active {
-    display: block;
-  }
-  .services-popup-left h3 {
-    margin: 0 0 15px 0;
-    color: #25D366;
-    font-size: 16px;
-    text-align: center;
-  }
-  .services-popup-left .service-item {
-    display: block;
-    padding: 12px 15px;
-    margin: 8px 0;
-    background: #f0fff4;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
-    transition: background 0.3s ease;
-    border: none;
-    width: 60%;
-    text-align: left;
-    cursor: pointer;
-  }
-  .services-popup-left .service-item:hover {
-    background: #25D366;
-    color: white;
-  }
-  .services-popup-left .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-    color: #666;
-  }
-  .services-popup-left .service-number {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background: #25D366;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 24px;
-    font-size: 12px;
-    margin-right: 10px;
-  }
-  .services-popup-left .service-item:hover .service-number {
-    background: white;
-    color: #25D366;
-  }
-</style>
+<a href="#services" class="wa-float pulse" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'}); return false;">
 
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/255788698126"
-   target="_blank"
-   class="whatsapp-float"
-   aria-label="Chat on WhatsApp">
-   <i class="fab fa-whatsapp"></i>
+  <img src="Screenshot_20260717_121556_Gallery.jpg" alt="WhatsApp">
 </a>
 
-
-    <!-- Payment Buttons -->
+<!-- Payment Ball Buttons -->
 <style>
-  .payment-float {
+  .payment-balls {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 9999;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    align-items: flex-end;
+    gap: 15px;
+    align-items: center;
   }
-  .payment-btn {
+  .pay-ball {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 18px;
-    border-radius: 30px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    text-decoration: none;
-    color: #333;
-    font-family: sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    transition: transform 0.3s ease;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     cursor: pointer;
-    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid white;
+    font-size: 28px;
+    text-decoration: none;
   }
-  .payment-btn:hover {
-    transform: scale(1.05);
+  .pay-ball:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
   }
-  .payment-btn img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    border-radius: 4px;
+  .pay-ball:active {
+    transform: scale(0.95);
+  }
+  .crdb-ball {
+    background: #0066b3;
+  }
+  .airtel-ball {
+    background: #e31e24;
   }
   .payment-popup {
     display: none;
@@ -3426,100 +2684,12 @@
     z-index: 10000;
     max-width: 300px;
     font-family: sans-serif;
+    max-height: 80vh;
+    overflow-y: auto;
   }
   .payment-popup.active {
     display: block;
   }
-  .payment-popup h3 {
-    margin: 0 0 15px 0;
-    color: #0066b3;
-    font-size: 16px;
-  }
-  .payment-popup p {
-    margin: 8px 0;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  .payment-popup .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-<!-- Payment Ball Buttons -->
-        /* Payment Balls - CRDB & Airtel */
-        .payment-balls {
-            position: fixed;
-            bottom: 100px;
-            right: 100px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-        .pay-ball {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 3px solid white;
-            font-size: 28px;
-            text-decoration: none;
-        }
-        .pay-ball:hover {
-            transform: scale(1.15);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        .pay-ball:active {
-            transform: scale(0.95);
-        }
-        .crdb-ball {
-            background: #0066b3;
-        }
-        .airtel-ball {
-            background: #e31e24;
-        }
-        .payment-popup {
-            display: none;
-            position: fixed;
-            bottom: 100px;
-            right: 100px;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            z-index: 10000;
-            max-width: 300px;
-            font-family: sans-serif;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-        .payment-popup.active {
-            display: block;
-        }
-        .payment-popup p {
-            margin: 8px 0;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        .payment-popup .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 22px;
-            cursor: pointer;
-        }
-
   .payment-popup h3 {
     margin: 0 0 15px 0;
     font-size: 16px;
@@ -3584,296 +2754,7 @@
     <p>Enter number: <strong>+255 788 698 126</strong></p>
     <p>Enter amount and confirm with PIN</p>
   </div>
-</div>
 
-
-
-
-
-<!-- Payment Ball Buttons -->
-<style>
-        .payment-balls {
-            position: fixed;
-            bottom: 100px;
-            right: 100px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: center;
-        }
-        .payment-ball {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        .payment-ball:hover {
-            transform: scale(1.1);
-        }
-        .payment-ball img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Menu Button (Top Right) */
-        .menu-btn {
-            position: fixed;
-            top: 100px;
-            right: 100px;
-            z-index: 9999;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #4caf7c, #2e8b5e);
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        .menu-btn:hover {
-            transform: scale(1.1);
-        }
-        .menu-btn i {
-            color: #fff;
-            font-size: 1.5rem;
-        }
-
-        /* WhatsApp Floating Button */
-        .wa-float {
-            position: fixed;
-            bottom: 100px;
-            left: 100px;
-            z-index: 9999;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            overflow: hidden;
-        }
-        .wa-float:hover {
-            transform: scale(1.1);
-        }
-        .wa-float img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        /* Service Cards CSS */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        .service-card {
-            position: relative;
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 1.8rem 1.5rem;
-            cursor: pointer;
-            transition: all 0.35s ease;
-            overflow: hidden;
-            border: 1px solid #e8f0eb;
-            box-shadow: 0 4px 20px rgba(26, 60, 90, 0.06);
-            display: flex;
-            flex-direction: column;
-            min-height: 240px;
-        }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #4caf7c, #2e8b5e);
-            border-radius: 24px 24px 0 0;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(26, 60, 90, 0.12);
-            border-color: #c8e6d5;
-        }
-        .service-card:hover::before { opacity: 1; }
-        .service-card.active {
-            border-color: #4caf7c;
-            box-shadow: 0 8px 30px rgba(76, 175, 124, 0.15);
-        }
-        .service-card.active::before { opacity: 1; }
-        .service-icon {
-            width: 60px; height: 60px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.2rem;
-            font-size: 1.6rem;
-            background: linear-gradient(135deg, #1a5c3a, #2e8b5e);
-            box-shadow: 0 6px 20px rgba(46, 139, 94, 0.25);
-            transition: transform 0.3s;
-        }
-        .service-card:hover .service-icon { transform: scale(1.08) rotate(-3deg); }
-        .service-icon i { color: #fff; }
-        .service-card h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #1a3c5a;
-            margin-bottom: 0.6rem;
-        }
-        .service-card p {
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: #5a7a6a;
-            flex-grow: 1;
-        }
-        .service-arrow {
-            margin-top: 1rem;
-            font-size: 1.2rem;
-            color: #4caf7c;
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.3s;
-            align-self: flex-end;
-        }
-        .service-card:hover .service-arrow { opacity: 1; transform: translateX(0); }
-        .service-detail {
-            margin-top: 1.5rem;
-            background: linear-gradient(135deg, #f8fdf9, #f0f7f3);
-            border-radius: 24px;
-            padding: 0;
-            border: 1px solid #e0efe6;
-            overflow: hidden;
-            max-height: 0;
-            opacity: 0;
-            transition: all 0.5s ease;
-            position: relative;
-        }
-        .service-detail.open {
-            max-height: 400px;
-            opacity: 1;
-            padding: 1.8rem 2rem;
-            margin-top: 1.5rem;
-        }
-        .service-detail-inner {
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-        }
-        .service-detail-icon {
-            width: 64px; height: 64px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            flex-shrink: 0;
-            background: linear-gradient(135deg, #1a5c3a, #2e8b5e);
-            box-shadow: 0 6px 20px rgba(46, 139, 94, 0.2);
-        }
-        .service-detail-icon i { color: #fff; }
-        .service-detail-text h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #1a3c5a;
-            margin-bottom: 0.5rem;
-        }
-        .service-detail-text p {
-            font-size: 0.9rem;
-            line-height: 1.7;
-            color: #4a6a5a;
-            margin-bottom: 0.8rem;
-        }
-        .service-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .service-tag {
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: #2e8b5e;
-            background: rgba(76, 175, 124, 0.1);
-            padding: 5px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(76, 175, 124, 0.2);
-        }
-        .service-close {
-            position: absolute;
-            top: 14px; right: 18px;
-            background: none;
-            border: none;
-            color: #8aaa9a;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.2s;
-            line-height: 1;
-        }
-        .service-close:hover { color: #1a3c5a; }
-        @media (max-width: 640px) {
-            .services-grid { grid-template-columns: 1fr; }
-            .service-detail-inner { flex-direction: column; align-items: center; text-align: center; }
-        }
-</style>
-
-<a href="#services" class="wa-float pulse" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'}); return false;">
-
-  <img src="Screenshot_20260717_121556_Gallery.jpg" alt="WhatsApp">
-
-<script>
-const serviceData = [
-    { icon: 'fa-graduation-cap', title: 'Education Consulting', text: 'Our Education Consulting service provides end-to-end strategic support for schools, colleges, and training centers. We help institutions refine their vision, redesign curricula to meet modern standards, and develop policies that drive measurable learning outcomes.', features: ['Curriculum Design', 'Policy Formulation', 'Strategic Planning', 'Quality Assurance'] },
-    { icon: 'fa-university', title: 'Institutional Advisory', text: 'We offer specialized advisory services to strengthen institutional capacity. This includes governance restructuring, financial sustainability planning, accreditation readiness, and leadership coaching.', features: ['Governance Review', 'Accreditation Support', 'Financial Planning', 'Leadership Coaching'] },
-    { icon: 'fa-door-open', title: 'Access Programs', text: 'Education should be for everyone. Our Access Programs identify and dismantle barriers preventing marginalized groups from accessing quality education. We design scholarships, community outreach initiatives, and flexible learning models.', features: ['Scholarship Design', 'Community Outreach', 'Flexible Learning', 'Inclusion Strategy'] },
-    { icon: 'fa-chart-bar', title: 'Research Analysis', text: 'Decisions should be backed by evidence. Our research team conducts rigorous educational studies, program evaluations, and data analytics to inform policy and practice.', features: ['Impact Assessment', 'Policy Research', 'Data Analytics', 'Program Evaluation'] },
-    { icon: 'fa-chart-line', title: 'Training & Development', text: 'Great schools need great teachers. We deliver tailored training programs that build educator competencies in pedagogy, classroom management, technology integration, and leadership.', features: ['Teacher Training', 'Leadership Workshops', 'Tech Integration', 'Coaching Programs'] },
-    { icon: 'fa-globe', title: 'International Education', text: 'In a globalized world, education must transcend borders. We help institutions adopt international standards, forge global partnerships, and integrate best practices from around the world.', features: ['Curriculum Alignment', 'Global Partnerships', 'Student Exchange', 'IB / Cambridge Support'] },
-    { icon: 'fa-comments', title: 'Youth Counselling Services', text: 'Young people face unique challenges that can derail their education. Our counselling services provide safe, confidential spaces for academic guidance, career planning, emotional support, and mentorship.', features: ['Career Guidance', 'Emotional Support', 'Academic Mentoring', 'Life Skills Training'] }
-];
-function openService(index) {
-    const detail = document.getElementById('serviceDetail');
-    const inner = document.getElementById('serviceDetailInner');
-    const data = serviceData[index];
-    document.querySelectorAll('.service-card').forEach(c => c.classList.remove('active'));
-    document.querySelectorAll('.service-card')[index].classList.add('active');
-    inner.innerHTML = '<div class="service-detail-icon"><i class="fas ' + data.icon + '"></i></div><div class="service-detail-text"><h4>' + data.title + '</h4><p>' + data.text + '</p><div class="service-features">' + data.features.map(f => '<span class="service-tag">' + f + '</span>').join('') + '</div></div>';
-    detail.classList.add('open');
-    detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-function closeService() {
-    document.getElementById('serviceDetail').classList.remove('open');
-    document.querySelectorAll('.service-card').forEach(c => c.classList.remove('active'));
-}
-</script>
-
-<!-- Payment Balls -->
-<div class="payment-balls">
-    <a href="https://www.crdbbank.co.tz" target="_blank" class="payment-ball">
-        <img src="crdb-logo.png" alt="CRDB Bank">
-    </a>
-    <a href="https://www.airtel.co.tz" target="_blank" class="payment-ball">
-        <img src="airtel-logo.png" alt="Airtel Money">
-    </a>
-</div>
-
-<!-- WhatsApp Floating Button -->
-<a href="#services" class="wa-float pulse">
-    <img src="Screenshot_20260717_121556_..." alt="WhatsApp">
-</a>
 
 </body>
 </html>
