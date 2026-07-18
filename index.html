@@ -1603,17 +1603,50 @@
 </style>
 </style>
 </head>
+
 <!-- MENU BUTTON -->
-<button onclick="toggleMenu()" style="position:fixed;top:16px;right:16px;z-index:9999;width:48px;height:48px;background:#2d5a3d;border:none;border-radius:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+<button onclick="toggleMenu()" style="position:fixed;top:16px;right:16px;z-index:100000;width:48px;height:48px;background:#2d5a3d;border:none;border-radius:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;box-shadow:0 4px 12px rgba(0,0,0,0.3);">
   <span style="display:block;width:20px;height:2.5px;background:white;border-radius:2px;"></span>
   <span style="display:block;width:20px;height:2.5px;background:white;border-radius:2px;"></span>
   <span style="display:block;width:20px;height:2.5px;background:white;border-radius:2px;"></span>
 </button>
 
 <!-- MENU OVERLAY -->
-<div id="menuOverlay" onclick="toggleMenu()" style="position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9998;opacity:0;pointer-events:none;transition:opacity 0.3s ease;"></div>
+<div id="menuOverlay" onclick="toggleMenu()" style="position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99998;opacity:0;pointer-events:none;transition:opacity 0.3s ease;"></div>
 
 <!-- MENU ITEMS -->
+<div id="menuItems" style="position:fixed;top:72px;right:16px;z-index:99999;background:white;border-radius:16px;padding:12px;box-shadow:0 8px 32px rgba(0,0,0,0.2);min-width:200px;transform:scale(0.9) translateY(-10px);opacity:0;pointer-events:none;transition:all 0.3s ease;">
+  <a href="#overview" onclick="toggleMenu()" style="display:block;padding:12px 16px;color:#2d5a3d;text-decoration:none;font-weight:600;border-radius:8px;transition:all 0.2s;">🏔️ Overview</a>
+  <a href="#outreach" onclick="toggleMenu()" style="display:block;padding:12px 16px;color:#2d5a3d;text-decoration:none;font-weight:600;border-radius:8px;transition:all 0.2s;">🌍 Outreach</a>
+  <a href="#how-it-works" onclick="toggleMenu()" style="display:block;padding:12px 16px;color:#2d5a3d;text-decoration:none;font-weight:600;border-radius:8px;transition:all 0.2s;">⚙️ How It Works</a>
+  <a href="#e-book" onclick="toggleMenu()" style="display:block;padding:12px 16px;color:#2d5a3d;text-decoration:none;font-weight:600;border-radius:8px;transition:all 0.2s;">📚 E-Book</a>
+  <a href="#services" onclick="toggleMenu()" style="display:block;padding:12px 16px;color:#2d5a3d;text-decoration:none;font-weight:600;border-radius:8px;transition:all 0.2s;">🎓 Services</a>
+  <a href="#mission" onclick="toggleMenu()" style="display:block;padding:12px 16px;color:#2d5a3d;text-decoration:none;font-weight:600;border-radius:8px;transition:all 0.2s;">💚 Mission</a>
+  <a href="#get-involved" onclick="toggleMenu()" style="display:block;padding:12px 16px;color:#2d5a3d;text-decoration:none;font-weight:600;border-radius:8px;transition:all 0.2s;">🤝 Get Involved</a>
+  <a href="#contact" onclick="toggleMenu()" style="display:block;padding:12px 16px;color:#2d5a3d;text-decoration:none;font-weight:600;border-radius:8px;transition:all 0.2s;">📞 Contact</a>
+</div>
+
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('menuItems');
+  var overlay = document.getElementById('menuOverlay');
+  if (menu.style.opacity === '1') {
+    menu.style.opacity = '0';
+    menu.style.pointerEvents = 'none';
+    menu.style.transform = 'scale(0.9) translateY(-10px)';
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+  } else {
+    menu.style.opacity = '1';
+    menu.style.pointerEvents = 'all';
+    menu.style.transform = 'scale(1) translateY(0)';
+    overlay.style.opacity = '1';
+    overlay.style.pointerEvents = 'all';
+  }
+}
+</script>
+
+
 <div id="menuItems" style="position:fixed;top:72px;right:16px;z-index:9999;background:white;border-radius:16px;padding:12px;box-shadow:0 8px 32px rgba(0,0,0,0.2);min-width:200px;transform:scale(0.9) translateY(-10px);opacity:0;pointer-events:none;transition:all 0.3s ease;">
   <a href="#overview" onclick="toggleMenu()" style="display:block;padding:12px 16px;color:#2d5a3d;text-decoration:none;font-weight:600;border-radius:8px;transition:all 0.2s;">🏔️ Overview</a>
   <a href="#outreach" onclick="toggleMenu()" style="display:block;padding:12px 16px;color:#2d5a3d;text-decoration:none;font-weight:600;border-radius:8px;transition:all 0.2s;">🌍 Outreach</a>
