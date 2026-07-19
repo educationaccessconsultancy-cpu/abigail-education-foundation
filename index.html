@@ -11,7 +11,8 @@
 .hero-section{position:relative;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 20% 50%,rgba(0,128,0,.12) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(0,100,200,.1) 0%,transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(255,215,0,.06) 0%,transparent 50%),linear-gradient(135deg,#0a1628 0%,#1a2f4a 50%,#0d1f1d 100%);animation:bgShift 20s ease-in-out infinite;}
 @keyframes bgShift{0%,100%{filter:hue-rotate(0deg);}50%{filter:hue-rotate(10deg);}}
-.hero-park{position:absolute;width:60px;height:42px;border-radius:6px;overflow:hidden;opacity:0.35;border:1px solid rgba(255,255,255,0.08);box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:1;animation:parkFloat 25s ease-in-out infinite;cursor:zoom-in;}
+..hero-park{...pointer-events:none;}
+ solid rgba(255,255,255,0.08);box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:1;animation:parkFloat 25s ease-in-out infinite;cursor:zoom-in;}
  solid rgba(255,255,255,0.08);box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:1;animation:parkFloat 25s ease-in-out infinite;pointer-events:none;}
 .hero-park img{width:100%;height:100%;object-fit:cover;}
 .park-1{top:8%;left:3%;animation-delay:0s;}
@@ -26,12 +27,6 @@
 .hero-3d-ring .ring{position:relative;width:350px;height:350px;transform-style:preserve-3d;animation:ringSpin 30s linear infinite;}
 .hero-3d-ring .ring span{position:absolute;top:0;left:0;font-size:16px;font-weight:700;color:#FFD700;text-transform:uppercase;letter-spacing:2px;transform:rotateY(calc(var(--i) * 10deg)) translateZ(150px);}
 @keyframes ringSpin{0%{transform:perspective(1000px) rotateY(0deg) rotateX(10deg);}100%{transform:perspective(1000px) rotateY(360deg) rotateX(10deg);}}
-.hero-flag{position:absolute;bottom:0;left:0;right:0;height:4px;display:flex;z-index:5;}
-.hero-flag .f-stripe{flex:1;height:100%;}
-.hero-flag .f-green{background:#1a5c3a;}
-.hero-flag .f-yellow{background:#FFD700;}
-.hero-flag .f-black{background:#1a1a1a;}
-.hero-flag .f-blue{background:#0066cc;}
 
 </style>
 
