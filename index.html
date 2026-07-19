@@ -6,7 +6,15 @@
     <title>Abigail Eduaccess Shule Foundation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
-    <style>
+    <style>/* Hide old oversized WhatsApp/Tanzania icon */
+img[src*="whatsapp"],
+img[src*="tanzania"],
+img[src*="flag"],
+[class*="whatsapp"]:not(.wa-fab-btn):not(.wa-fab-btn *),
+[class*="tz-"]:not(.wa-fab-btn):not(.wa-fab-btn *) {
+  display: none !important;
+}
+
         :root {
             --primary: #1a5c2e;
             --primary-light: #2d7a42;
@@ -2931,6 +2939,124 @@
   
 </div>
 <!-- End AESF WhatsApp Buttons v2 -->
+<!-- Sanitary Pads Support Badge - For Our Little Princesses -->
+<style>
+  .sanitary-float {
+    position: fixed;
+    bottom: 310px;
+    right: 20px;
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: gentleFloat 3s ease-in-out infinite;
+  }
+  
+  .sanitary-badge {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f9a8d4, #f472b6, #ec4899);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px rgba(236, 72, 153, 0.4);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: 3px solid rgba(255,255,255,0.5);
+    position: relative;
+  }
+  
+  .sanitary-badge:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 32px rgba(236, 72, 153, 0.6);
+  }
+  
+  .sanitary-badge svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+  }
+  
+  .sanitary-label {
+    background: rgba(255,255,255,0.95);
+    color: #be185d;
+    padding: 10px 14px;
+    border-radius: 20px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    max-width: 150px;
+    line-height: 1.5;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+    pointer-events: none;
+    border: 1px solid rgba(236, 72, 153, 0.2);
+  }
+  
+  .sanitary-float:hover .sanitary-label,
+  .sanitary-float:active .sanitary-label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  
+  .sanitary-badge::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(236, 72, 153, 0.3);
+    animation: pulseRing 2s infinite;
+  }
+  
+  @keyframes pulseRing {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+  
+  @media (max-width: 480px) {
+    .sanitary-float {
+      bottom: 290px;
+      right: 15px;
+    }
+    .sanitary-badge {
+      width: 56px;
+      height: 56px;
+    }
+    .sanitary-badge svg {
+      width: 28px;
+      height: 28px;
+    }
+    .sanitary-label {
+      font-size: 10px;
+      max-width: 130px;
+    }
+  }
+</style>
+
+<a href="https://wa.me/255788698126?text=Hello%2C%20I%27d%20like%20to%20request%20sanitary%20pads%20for%20a%20girl%20in%20need.%20Every%20princess%20deserves%20dignity." 
+   class="sanitary-float" target="_blank" rel="noopener">
+  <div class="sanitary-badge">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+  </div>
+  <div class="sanitary-label">
+    🩷 Her period. Her dignity.<br>
+    Our care.
+  </div>
+</a>
+<!-- End Sanitary Pads Support Badge -->
 
 
 </body>
