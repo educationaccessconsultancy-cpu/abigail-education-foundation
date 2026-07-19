@@ -2820,8 +2820,81 @@
   }
   
   @keyframes waPulse {
-    0%, 100% { box-shadow: 0 4px 15px rgba(0,0,0,0.25); }
-    50% { box-shadow: 0 4px 25px rgba(26, 92, 46, 0.5); }
+<!-- AESF WhatsApp Floating Buttons v2 -->
+<style>
+  .wa-fab-container {
+    position: fixed;
+    bottom: 25px;
+    right: 15px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+  }
+  
+  .wa-fab-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 20px;
+    border-radius: 50px;
+    border: 2px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+    transition: all 0.3s ease;
+    min-width: 160px;
+    backdrop-filter: blur(4px);
+  }
+  
+  .wa-fab-btn:hover,
+  .wa-fab-btn:active {
+    transform: translateX(-8px) scale(1.05);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+    border-color: rgba(255,255,255,0.6);
+  }
+  
+  .wa-fab-btn svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  
+  .wa-fab-btn span {
+    display: inline;
+  }
+  
+  .wa-ebook { background: linear-gradient(135deg, #1a5c2e, #2d7a42); }
+  .wa-pads { background: linear-gradient(135deg, #e11d48, #be123c); }
+  .wa-contact { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+  .wa-programme { background: linear-gradient(135deg, #7c3aed, #5b21b6); }
+  
+  @media (max-width: 480px) {
+    .wa-fab-container {
+      bottom: 20px;
+      right: 10px;
+      gap: 10px;
+    }
+    .wa-fab-btn {
+      padding: 12px 16px;
+      font-size: 13px;
+      min-width: 140px;
+    }
+    .wa-fab-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 6px 20px rgba(0,0,0,0.35); }
+    50% { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5); }
   }
   
   .wa-fab-btn:first-child {
@@ -2831,28 +2904,24 @@
 
 <div class="wa-fab-container">
   
-  <!-- 1. E-BOOK -->
   <a href="https://wa.me/255788698126?text=Hello%2C%20I%27d%20like%20to%20buy%20an%20e-book%20from%20the%20AESF%20E-Book%20Library%20to%20support%20a%20child." 
      class="wa-fab-btn wa-ebook" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
     <span>E-Book</span>
   </a>
   
-  <!-- 2. SANITARY PADS -->
   <a href="https://wa.me/255788698126?text=Hello%2C%20I%27d%20like%20to%20request%20a%20box%20of%20sanitary%20towels%20from%20AESF." 
      class="wa-fab-btn wa-pads" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg>
     <span>Sanitary Pads</span>
   </a>
   
-  <!-- 3. CONTACTS -->
   <a href="https://wa.me/255788698126?text=Hello%2C%20I%27d%20like%20to%20get%20in%20touch%20with%20the%20AESF%20team." 
      class="wa-fab-btn wa-contact" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 0H4v2h16V0zM4 24h16v-2H4v2zM20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 2.75c1.24 0 2.25 1.01 2.25 2.25S13.24 11.25 12 11.25 9.75 10.24 9.75 9s1.01-2.25 2.25-2.25zM17 17H7v-1.5c0-1.67 3.33-2.5 5-2.5s5 .83 5 2.5V17z"/></svg>
     <span>Contacts</span>
   </a>
   
-  <!-- 4. PROGRAMMES -->
   <a href="https://wa.me/255788698126?text=Hello%2C%20I%27d%20like%20to%20inquire%20about%20AESF%20Programmes%20and%20the%20AS-Level%20Cambridge%20Homeschooling%20Programme." 
      class="wa-fab-btn wa-programme" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
@@ -2860,7 +2929,8 @@
   </a>
   
 </div>
-<!-- End AESF WhatsApp Buttons -->
+<!-- End AESF WhatsApp Buttons v2 -->
+
 
 </body>
 </html>
