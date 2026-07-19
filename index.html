@@ -11,7 +11,8 @@
 .hero-section{position:relative;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 20% 50%,rgba(0,128,0,.12) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(0,100,200,.1) 0%,transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(255,215,0,.06) 0%,transparent 50%),linear-gradient(135deg,#0a1628 0%,#1a2f4a 50%,#0d1f1d 100%);animation:bgShift 20s ease-in-out infinite;}
 @keyframes bgShift{0%,100%{filter:hue-rotate(0deg);}50%{filter:hue-rotate(10deg);}}
-.hero-park{position:absolute;width:60px;height:42px;border-radius:6px;overflow:hidden;opacity:0.35;border:1px solid rgba(255,255,255,0.08);box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:1;animation:parkFloat 25s ease-in-out infinite;pointer-events:none;}
+.hero-park{position:absolute;width:60px;height:42px;border-radius:6px;overflow:hidden;opacity:0.35;border:1px solid rgba(255,255,255,0.08);box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:1;animation:parkFloat 25s ease-in-out infinite;cursor:zoom-in;}
+ solid rgba(255,255,255,0.08);box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:1;animation:parkFloat 25s ease-in-out infinite;pointer-events:none;}
 .hero-park img{width:100%;height:100%;object-fit:cover;}
 .park-1{top:8%;left:3%;animation-delay:0s;}
 .park-2{top:5%;right:5%;animation-delay:4s;}
@@ -2953,5 +2954,21 @@ body>
     <p>Enter amount and confirm with PIN</p>
   </div>
 
+<script>
+document.querySelectorAll('.hero-park').forEach(park => {
+    park.addEventListener('click', function() {
+        if (this.classList.contains('expanded')) return;
+        this.classList.remove('shrinking');
+        this.classList.add('expanded');
+        setTimeout(() => {
+            this.classList.remove('expanded');
+            this.classList.add('shrinking');
+            setTimeout(() => {
+                this.classList.remove('shrinking');
+            }, 500);
+        }, 5000);
+    });
+});
+</script>
 </body>
 </html>in 
