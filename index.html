@@ -11,27 +11,29 @@
 .hero-section{position:relative;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 20% 50%,rgba(0,128,0,.12) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(0,100,200,.1) 0%,transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(255,215,0,.06) 0%,transparent 50%),linear-gradient(135deg,#0a1628 0%,#1a2f4a 50%,#0d1f1d 100%);animation:bgShift 20s ease-in-out infinite;}
 @keyframes bgShift{0%,100%{filter:hue-rotate(0deg);}50%{filter:hue-rotate(10deg);}}
-.hero-park{position:absolute;width:70px;height:50px;border-radius:8px;overflow:hidden;opacity:.5;border:1.5px solid rgba(255,255,255,.1);box-shadow:0 2px 10px rgba(0,0,0,.3);z-index:1;animation:parkFloat 20s ease-in-out infinite;pointer-events:none;}
+.hero-park{position:absolute;width:60px;height:42px;border-radius:6px;overflow:hidden;opacity:0.35;border:1px solid rgba(255,255,255,0.08);box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:1;animation:parkFloat 25s ease-in-out infinite;pointer-events:none;}
 .hero-park img{width:100%;height:100%;object-fit:cover;}
-.hero-park:nth-child(1){top:10%;left:5%;animation-delay:0s;}
-.hero-park:nth-child(2){top:8%;right:8%;animation-delay:3s;}
-.hero-park:nth-child(3){top:60%;left:3%;animation-delay:5s;}
-.hero-park:nth-child(4){top:55%;right:5%;animation-delay:2s;}
-.hero-park:nth-child(5){top:30%;left:85%;animation-delay:7s;}
-.hero-park:nth-child(6){top:75%;left:15%;animation-delay:4s;}
-.hero-park:nth-child(7){top:20%;left:45%;animation-delay:6s;}
-@keyframes parkFloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-12px) rotate(2deg);}}
-.hero-3d-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1;opacity:.9;pointer-events:none;}
-.hero-3d-ring .ring{position:relative;width:400px;height:400px;transform-style:preserve-3d;animation:ringSpin 20s linear infinite;}
-.hero-3d-ring .ring span{position:absolute;top:0;left:0;font-size:22px;font-weight:900;color:#FFD700;text-transform:uppercase;letter-spacing:3px;text-shadow:0 0 10px rgba(255,215,0,.8),0 0 20px rgba(255,215,0,.5),0 0 40px rgba(255,215,0,.3);transform:rotateY(calc(var(--i) * 10deg)) translateZ(180px);}
-@keyframes ringSpin{0%{transform:perspective(1000px) rotateY(0deg) rotateX(15deg);}100%{transform:perspective(1000px) rotateY(360deg) rotateX(15deg);}}
-.hero-flag{position:absolute;bottom:0;left:0;right:0;height:5px;display:flex;z-index:5;}
+.park-1{top:8%;left:3%;animation-delay:0s;}
+.park-2{top:5%;right:5%;animation-delay:4s;}
+.park-3{bottom:15%;left:2%;animation-delay:8s;}
+.park-4{bottom:10%;right:3%;animation-delay:2s;}
+.park-5{top:35%;left:2%;animation-delay:6s;}
+.park-6{bottom:25%;left:8%;animation-delay:10s;}
+.park-7{top:15%;right:2%;animation-delay:5s;}
+@keyframes parkFloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-8px) rotate(1deg);}}
+.hero-3d-ring{position:absolute;top:5%;left:50%;transform:translateX(-50%);z-index:0;opacity:0.06;pointer-events:none;}
+.hero-3d-ring .ring{position:relative;width:350px;height:350px;transform-style:preserve-3d;animation:ringSpin 30s linear infinite;}
+.hero-3d-ring .ring span{position:absolute;top:0;left:0;font-size:16px;font-weight:700;color:#FFD700;text-transform:uppercase;letter-spacing:2px;transform:rotateY(calc(var(--i) * 10deg)) translateZ(150px);}
+@keyframes ringSpin{0%{transform:perspective(1000px) rotateY(0deg) rotateX(10deg);}100%{transform:perspective(1000px) rotateY(360deg) rotateX(10deg);}}
+.hero-flag{position:absolute;bottom:0;left:0;right:0;height:4px;display:flex;z-index:5;}
 .hero-flag .f-stripe{flex:1;height:100%;}
 .hero-flag .f-green{background:#1a5c3a;}
 .hero-flag .f-yellow{background:#FFD700;}
 .hero-flag .f-black{background:#1a1a1a;}
 .hero-flag .f-blue{background:#0066cc;}
-style>
+
+</style>
+
  .aes-logo-container{position:relative;display:inline-block;padding:30px}
 .aes-logo-wrap{display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,0.15);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.25);border-radius:16px;width:fit-content;box-shadow:0 4px 30px rgba(0,0,0,0.1);position:relative;z-index:100}
 .aes-logo-icon{width:44px;height:44px;background:linear-gradient(135deg,#1a5c1a,#2e7d32);border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(46,125,50,0.3);flex-shrink:0}
@@ -1752,16 +1754,17 @@ body>
         </div>
     </nav>
 <section class="hero hero-section"
-    <div class="hero-bg"></div>
-    <div class="hero-park"><img src="https://kimi-web-img.moonshot.cn/img/www.serengeti.com/b9fd432b587ffa7536fc96f7f5923781aab22bc4.jpg" alt="Serengeti"></div>
-    <div class="hero-park"><img src="https://kimi-web-img.moonshot.cn/img/safarisandexpeditions.com/ec215723fdf6f61a3c9f1aeeb0a5a3ff0d0c3434.jpg" alt="Ngorongoro"></div>
-    <div class="hero-park"><img src="https://kimi-web-img.moonshot.cn/img/www.andbeyond.com/5fffe36ec642342a080c91a4bddb097b902961cb.jpg" alt="Selous"></div>
-    <div class="hero-park"><img src="https://kimi-web-img.moonshot.cn/img/www.andbeyond.com/591aa4c17126114c4d81fc76cf68d5f0ca68358e.jpg" alt="Tarangire"></div>
-    <div class="hero-park"><img src="https://kimi-web-img.moonshot.cn/img/www.tanzaniatourism.com/5671d715fe504f09cd18d5510d1eb03695041d28.jpg" alt="Ruaha"></div>
-    <div class="hero-park"><img src="https://kimi-web-img.moonshot.cn/img/www.serengetiparktanzania.com/6de9439051f86d531882c3466f113a1a7f013878.jpg" alt="Serengeti Safari"></div>
-    <div class="hero-park"><img src="https://kimi-web-img.moonshot.cn/img/abundadiscoveriesuganda.com/fa991c0e76a4ec44449f3e2c8fe9f8b58ad885ea.jpg" alt="Ngorongoro Crater"></div>
+        <div class="hero-bg"></div>
+    <div class="hero-park park-1"><img src="https://kimi-web-img.moonshot.cn/img/www.serengeti.com/b9fd432b587ffa7536fc96f7f5923781aab22bc4.jpg" alt="Serengeti"></div>
+    <div class="hero-park park-2"><img src="https://kimi-web-img.moonshot.cn/img/safarisandexpeditions.com/ec215723fdf6f61a3c9f1aeeb0a5a3ff0d0c3434.jpg" alt="Ngorongoro"></div>
+    <div class="hero-park park-3"><img src="https://kimi-web-img.moonshot.cn/img/www.andbeyond.com/5fffe36ec642342a080c91a4bddb097b902961cb.jpg" alt="Selous"></div>
+    <div class="hero-park park-4"><img src="https://kimi-web-img.moonshot.cn/img/www.andbeyond.com/591aa4c17126114c4d81fc76cf68d5f0ca68358e.jpg" alt="Tarangire"></div>
+    <div class="hero-park park-5"><img src="https://kimi-web-img.moonshot.cn/img/www.tanzaniatourism.com/5671d715fe504f09cd18d5510d1eb03695041d28.jpg" alt="Ruaha"></div>
+    <div class="hero-park park-6"><img src="https://kimi-web-img.moonshot.cn/img/www.serengetiparktanzania.com/6de9439051f86d531882c3466f113a1a7f013878.jpg" alt="Serengeti Safari"></div>
+    <div class="hero-park park-7"><img src="https://kimi-web-img.moonshot.cn/img/abundadiscoveriesuganda.com/fa991c0e76a4ec44449f3e2c8fe9f8b58ad885ea.jpg" alt="Ngorongoro Crater"></div>
     <div class="hero-3d-ring"><div class="ring"><span style="--i:0;">A</span><span style="--i:1;">b</span><span style="--i:2;">i</span><span style="--i:3;">g</span><span style="--i:4;">a</span><span style="--i:5;">i</span><span style="--i:6;">l</span><span style="--i:7;">&nbsp;</span><span style="--i:8;">E</span><span style="--i:9;">d</span><span style="--i:10;">u</span><span style="--i:11;">a</span><span style="--i:12;">c</span><span style="--i:13;">c</span><span style="--i:14;">e</span><span style="--i:15;">s</span><span style="--i:16;">s</span><span style="--i:17;">&nbsp;</span><span style="--i:18;">S</span><span style="--i:19;">h</span><span style="--i:20;">u</span><span style="--i:21;">l</span><span style="--i:22;">e</span><span style="--i:23;">&nbsp;</span><span style="--i:24;">F</span><span style="--i:25;">o</span><span style="--i:26;">u</span><span style="--i:27;">n</span><span style="--i:28;">d</span><span style="--i:29;">a</span><span style="--i:30;">t</span><span style="--i:31;">i</span><span style="--i:32;">o</span><span style="--i:33;">n</span></div></div>
     <div class="hero-flag"><div class="f-stripe f-green"></div><div class="f-stripe f-yellow"></div><div class="f-stripe f-black"></div><div class="f-stripe f-blue"></div></div>
+
 
 
         <div class="side-menu-icon" onclick="toggleMenu()" title="Menu">☰</div>
