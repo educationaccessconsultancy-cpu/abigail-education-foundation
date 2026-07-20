@@ -3014,42 +3014,111 @@ img[src*="flag"],
   @keyframes gentleFloat {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
+<style>
+.sanitary-float {
+  position: fixed;
+  bottom: 180px;
+  right: 15px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.sanitary-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f9a8d4, #f472b6, #ec4899);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255,255,255,0.6);
+  position: relative;
+}
+
+.sanitary-badge:hover {
+  transform: scale(1.12);
+  box-shadow: 0 6px 24px rgba(236, 72, 153, 0.7);
+}
+
+.sanitary-badge svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+
+.sanitary-label {
+  background: rgba(255,255,255,0.95);
+  color: #be185d;
+  padding: 8px 12px;
+  border-radius: 16px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  max-width: 130px;
+  line-height: 1.4;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  border: 1px solid rgba(236, 72, 153, 0.2);
+}
+
+.sanitary-float:hover .sanitary-label,
+.sanitary-float:active .sanitary-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.sanitary-badge::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(236, 72, 153, 0.4);
+  animation: pulseRing 2s infinite;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@media (max-width: 480px) {
+  .sanitary-float {
+    bottom: 160px;
+    right: 12px;
   }
-  
-  .sanitary-badge::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 2px solid rgba(236, 72, 153, 0.3);
-    animation: pulseRing 2s infinite;
+  .sanitary-badge {
+    width: 50px;
+    height: 50px;
   }
-  
-  @keyframes pulseRing {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(1.6); opacity: 0; }
+  .sanitary-badge svg {
+    width: 24px;
+    height: 24px;
   }
-  
-  @media (max-width: 480px) {
-    .sanitary-float {
-      bottom: 290px;
-      right: 15px;
-    }
-    .sanitary-badge {
-      width: 56px;
-      height: 56px;
-    }
-    .sanitary-badge svg {
-      width: 28px;
-      height: 28px;
-    }
-    .sanitary-label {
-      font-size: 10px;
-      max-width: 130px;
-    }
+  .sanitary-label {
+    font-size: 9px;
+    max-width: 110px;
+    padding: 6px 10px;
   }
+}
 </style>
+
 
 <a href="https://wa.me/255788698126?text=Hello%2C%20I%27d%20like%20to%20request%20sanitary%20pads%20for%20a%20girl%20in%20need.%20Every%20princess%20deserves%20dignity." 
    class="sanitary-float" target="_blank" rel="noopener">
