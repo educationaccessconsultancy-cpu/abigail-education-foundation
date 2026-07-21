@@ -4603,6 +4603,138 @@ document.getElementById('cambridgeModal').addEventListener('click', function(e) 
     height: 26px;
   }
 }
+/* === CAMBRIDGE LOWER SECONDARY GRADE 7 === */
+.cambridge-library-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background: #fefcf3;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+.cambridge-header { text-align: center; margin-bottom: 6px; }
+.cambridge-header .cambridge-title {
+  color: #1a1a2e; font-size: 26px; font-weight: bold; letter-spacing: 1px;
+}
+.cambridge-header .cambridge-subtitle {
+  color: #666; font-size: 14px; margin-top: 4px;
+}
+.grade-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #f97316; color: #fff; font-size: 15px; font-weight: bold;
+  padding: 8px 20px; border-radius: 24px; margin: 20px 0 8px 0;
+  box-shadow: 0 2px 8px rgba(249,115,22,0.3);
+}
+.grade-count { color: #888; font-size: 14px; margin-bottom: 30px; }
+.shelf-row {
+  display: flex; align-items: flex-end; justify-content: center;
+  flex-wrap: wrap; gap: 3px; padding: 0 20px 18px 20px;
+  border-bottom: 10px solid #8B5E3C; border-radius: 0 0 6px 6px;
+  max-width: 1100px; position: relative; margin-bottom: 40px;
+}
+.shelf-row::after {
+  content: ''; position: absolute; bottom: -10px; left: -8px; right: -8px;
+  height: 6px; background: #5C3A1E; border-radius: 3px;
+}
+.book-spine {
+  width: 48px; min-height: 180px; max-height: 250px;
+  border-radius: 3px 3px 0 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: space-between;
+  padding: 14px 4px; cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  box-shadow: inset 2px 0 4px rgba(0,0,0,0.15), 2px 2px 6px rgba(0,0,0,0.2);
+  border-left: 1px solid rgba(255,255,255,0.15);
+  border-right: 1px solid rgba(0,0,0,0.25);
+}
+.book-spine:hover {
+  transform: translateY(-18px) scale(1.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35), inset 2px 0 4px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+.spine-brand {
+  font-size: 10px; font-weight: bold; color: rgba(255,255,255,0.95);
+  letter-spacing: 1.5px; margin-bottom: 6px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  writing-mode: vertical-rl; text-orientation: mixed;
+}
+.spine-subject {
+  font-size: 12px; font-weight: bold; color: #fff;
+  letter-spacing: 0.5px; text-align: center; flex-grow: 1;
+  display: flex; align-items: center; justify-content: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  writing-mode: vertical-rl; text-orientation: mixed;
+  line-height: 1.3; word-break: keep-all; white-space: nowrap;
+}
+.spine-signature {
+  font-size: 8px; color: rgba(255,255,255,0.7); margin-top: 6px;
+  font-family: 'Georgia', serif; font-style: italic;
+  writing-mode: vertical-rl; text-orientation: mixed;
+  letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.spine-code {
+  font-size: 10px; color: rgba(255,255,255,0.8); margin-top: 4px;
+  font-family: 'Courier New', monospace;
+  writing-mode: vertical-rl; text-orientation: mixed;
+}
+.c-green  { background: linear-gradient(90deg, #1a9f4c, #22c55e); }
+.c-red    { background: linear-gradient(90deg, #c41e3a, #ef4444); }
+.c-blue   { background: linear-gradient(90deg, #1e40af, #3b82f6); }
+.c-cyan   { background: linear-gradient(90deg, #0e7490, #06b6d4); }
+.c-purple { background: linear-gradient(90deg, #7c3aed, #a855f7); }
+.c-orange { background: linear-gradient(90deg, #c2410c, #f97316); }
+.c-teal   { background: linear-gradient(90deg, #0f766e, #14b8a6); }
+.c-pink   { background: linear-gradient(90deg, #be185d, #ec4899); }
+.c-indigo { background: linear-gradient(90deg, #3730a3, #6366f1); }
+.c-amber  { background: linear-gradient(90deg, #b45309, #f59e0b); }
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7); display: flex;
+  align-items: center; justify-content: center;
+  z-index: 1000; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.active { opacity: 1; pointer-events: all; }
+.modal-box {
+  background: #fff; border-radius: 16px; padding: 28px;
+  max-width: 460px; width: 90%;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  transform: scale(0.92); transition: transform 0.3s ease;
+  position: relative;
+}
+.modal-overlay.active .modal-box { transform: scale(1); }
+.modal-close {
+  position: absolute; top: 12px; right: 16px;
+  background: none; border: none; color: #999;
+  font-size: 24px; cursor: pointer; transition: color 0.2s;
+}
+.modal-close:hover { color: #333; }
+.modal-header {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 18px; padding-bottom: 14px;
+  border-bottom: 1px solid #eee;
+}
+.modal-icon {
+  width: 50px; height: 50px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; color: #fff;
+}
+.modal-title { color: #1a1a2e; font-size: 20px; font-weight: bold; }
+.modal-code { color: #888; font-size: 13px; font-family: 'Courier New', monospace; }
+.modal-badge {
+  display: inline-block; background: #fef3c7; color: #92400e;
+  font-size: 11px; padding: 3px 10px; border-radius: 12px; margin-top: 4px;
+}
+.resource-list { display: flex; flex-direction: column; gap: 8px; }
+.resource-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; background: #f8fafc;
+  border-radius: 10px; color: #334155; font-size: 14px;
+  cursor: pointer; transition: background 0.2s, transform 0.2s;
+  border: 1px solid #e2e8f0;
+}
+.resource-item:hover { background: #f1f5f9; transform: translateX(4px); }
+.resource-icon { font-size: 18px; width: 26px; text-align: center; }
 </style>
 
 <!-- Sanitary Button -->
@@ -4810,7 +4942,110 @@ function submitCambridgeInquiry(event) {
   document.getElementById('cambridgeForm').reset();
   closeCambridgeInquiry();
 }
+// === CAMBRIDGE LOWER SECONDARY GRADE 7 ===
+const cambridgeSubjectsG7 = [
+  { name: "English", code: "1111", theme: "c-green", icon: "✍️" },
+  { name: "English as a Second Language", code: "1110", theme: "c-red", icon: "🌐" },
+  { name: "Mathematics", code: "1112", theme: "c-blue", icon: "📐" },
+  { name: "Science", code: "1113", theme: "c-cyan", icon: "🔬" },
+  { name: "Global Perspectives", code: "1129", theme: "c-purple", icon: "🌍" },
+  { name: "Digital Literacy", code: "DL7", theme: "c-orange", icon: "💻" },
+  { name: "Art & Design", code: "AD7", theme: "c-pink", icon: "🎨" },
+  { name: "Music", code: "MU7", theme: "c-teal", icon: "🎵" },
+  { name: "Physical Education", code: "PE7", theme: "c-amber", icon: "⚽" },
+  { name: "Computing", code: "CO7", theme: "c-indigo", icon: "🖥️" }
+];
+
+const cambridgeResourcesG7 = [
+  { label: "Official Cambridge-endorsed Textbook", icon: "📘" },
+  { label: "EASF Lesson Notes", icon: "📝" },
+  { label: "EASF Revision Notes", icon: "📋" },
+  { label: "EASF Worksheets", icon: "📄" },
+  { label: "EASF Past Papers", icon: "📑" },
+  { label: "EASF Mark Schemes", icon: "✅" },
+  { label: "EASF Video Lessons", icon: "🎬" },
+  { label: "EASF Mock Examinations", icon: "📝" }
+];
+
+const cambridgeShelfG7 = document.getElementById('cambridgeShelfG7');
+if (cambridgeShelfG7) {
+  cambridgeSubjectsG7.forEach(function(subj) {
+    const book = document.createElement('div');
+    book.className = 'book-spine ' + subj.theme;
+    book.style.height = (180 + Math.random() * 70) + 'px';
+    book.innerHTML = '<div class="spine-brand">EASF</div><div class="spine-subject">' + subj.name + '</div><div class="spine-signature">By Dr. J.K. Mushi</div><div class="spine-code">' + subj.code + '</div>';
+    book.onclick = function() { openCambridgeModalG7(subj); };
+    cambridgeShelfG7.appendChild(book);
+  });
+}
+
+function openCambridgeModalG7(subj) {
+  document.getElementById('cambridgeModalTitleG7').textContent = subj.name;
+  document.getElementById('cambridgeModalCodeG7').textContent = 'Syllabus Code: ' + subj.code;
+  var iconBox = document.getElementById('cambridgeModalIconG7');
+  iconBox.textContent = subj.icon;
+  var spine = document.querySelector('.' + subj.theme);
+  if (spine) iconBox.style.background = getComputedStyle(spine).background;
+
+  var list = document.getElementById('cambridgeModalResourcesG7');
+  list.innerHTML = '';
+  cambridgeResourcesG7.forEach(function(res) {
+    var item = document.createElement('div');
+    item.className = 'resource-item';
+    item.innerHTML = '<span class="resource-icon">' + res.icon + '</span><span>' + res.label + '</span>';
+    item.onclick = function() {
+      alert('Open ' + res.label + ' for ' + subj.name);
+    };
+    list.appendChild(item);
+  });
+
+  document.getElementById('cambridgeModalG7').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCambridgeModalG7() {
+  document.getElementById('cambridgeModalG7').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+var cambridgeModalG7 = document.getElementById('cambridgeModalG7');
+if (cambridgeModalG7) {
+  cambridgeModalG7.addEventListener('click', function(e) {
+    if (e.target === cambridgeModalG7) closeCambridgeModalG7();
+  });
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeCambridgeModalG7();
+});
+
 </script>
+<!-- === CAMBRIDGE LOWER SECONDARY GRADE 7 BOOKSHELF === -->
+<div class="cambridge-library-section" id="cambridgeLowerSecondary">
+  <div class="cambridge-header">
+    <div class="cambridge-title">Cambridge Lower Secondary</div>
+    <div class="cambridge-subtitle">Cambridge Assessment International Education</div>
+  </div>
+  <div class="grade-badge">Grade Seven</div>
+  <div class="grade-count">10 Books — Cambridge Lower Secondary Stage 7</div>
+  <div class="shelf-row" id="cambridgeShelfG7"></div>
+</div>
+
+<div class="modal-overlay" id="cambridgeModalG7">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeCambridgeModalG7()">&times;</button>
+    <div class="modal-header">
+      <div class="modal-icon" id="cambridgeModalIconG7">📗</div>
+      <div>
+        <div class="modal-title" id="cambridgeModalTitleG7">Subject</div>
+        <div class="modal-code" id="cambridgeModalCodeG7">Code</div>
+        <div class="modal-badge">Cambridge Lower Secondary — Stage 7</div>
+      </div>
+    </div>
+    <div class="resource-list" id="cambridgeModalResourcesG7"></div>
+  </div>
+</div>
+
+
 
 </body>
 </html>
