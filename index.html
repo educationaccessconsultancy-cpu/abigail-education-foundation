@@ -5076,27 +5076,8 @@ function openCambridgeModalG7(subj) {
       alert('Open ' + res.label + ' for ' + subj.name);
     };
     list.appendChild(item);
-  });
 
-  document.getElementById('cambridgeModalG7').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
 
-function closeCambridgeModalG7() {
-  document.getElementById('cambridgeModalG7').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-var cambridgeModalG7 = document.getElementById('cambridgeModalG7');
-if (cambridgeModalG7) {
-  cambridgeModalG7.addEventListener('click', function(e) {
-    if (e.target === cambridgeModalG7) closeCambridgeModalG7();
-  });
-}
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeCambridgeModalG7();
-});
-</script>
 
 <!-- === CAMBRIDGE LOWER SECONDARY GRADE 7 HTML === -->
 <div class="cambridge-library-section">
@@ -5124,6 +5105,32 @@ document.addEventListener('keydown', function(e) {
   </div>
 </div>
 
+
+<div class="modal-overlay" id="cambridgeModalG7">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeCambridgeModalG7()">&times;</button>
+    <div class="modal-header">
+      <div class="modal-icon" id="cambridgeModalIconG7">📗</div>
+      <div>
+        <div class="modal-title" id="cambridgeModalTitleG7">Subject</div>
+        <div class="modal-code" id="cambridgeModalCodeG7">Code</div>
+        <div class="modal-badge">Cambridge Lower Secondary — Stage 7</div>
+      </div>
+    </div>
+    <div class="resource-list" id="cambridgeModalResourcesG7"></div>
+  </div>
+</div>
+
+<<!-- === CAMBRIDGE LOWER SECONDARY GRADE 7 HTML === -->
+<div class="cambridge-library-section">
+  <div class="cambridge-header">
+    <div class="cambridge-title">Cambridge Lower Secondary</div>
+    <div class="cambridge-subtitle">Cambridge Assessment International Education</div>
+  </div>
+  <div class="grade-badge">Grade Seven</div>
+  <div class="grade-count">10 Books — Cambridge Lower Secondary Stage 7</div>
+  <div class="shelf-row" id="cambridgeShelfG7"></div>
+</div>
 
 <div class="modal-overlay" id="cambridgeModalG7">
   <div class="modal-box">
