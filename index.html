@@ -3392,6 +3392,196 @@ img[src*="flag"],
     padding: 6px 10px;
   }
 }
+/* ===== SANITARY INQUIRY MODAL ===== */
+.sanitary-modal {
+  display: none; /* ← THIS IS CRITICAL - hides the modal by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  backdrop-filter: blur(4px);
+}
+
+.sanitary-modal.active {
+  display: flex; /* ← Shows modal when active class is added */
+}
+
+.sanitary-modal-content {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px 24px;
+  position: relative;
+  animation: sanitarySlideUp 0.35s ease;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+@keyframes sanitarySlideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.sanitary-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #bbb;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.sanitary-modal-close:hover {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.sanitary-modal-header {
+  text-align: center;
+  margin-bottom: 22px;
+  padding-top: 5px;
+}
+
+.sanitary-modal-header h3 {
+  color: #e91e63;
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.sanitary-modal-header p {
+  color: #777;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.sanitary-form-group {
+  margin-bottom: 14px;
+}
+
+.sanitary-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #444;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.sanitary-form-group input,
+.sanitary-form-group select,
+.sanitary-form-group textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 2px solid #e8e8e8;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  transition: all 0.25s;
+  font-family: inherit;
+  background: #fafafa;
+  box-sizing: border-box;
+}
+
+.sanitary-form-group input:focus,
+.sanitary-form-group select:focus,
+.sanitary-form-group textarea:focus {
+  outline: none;
+  border-color: #e91e63;
+  background: #fff;
+}
+
+.sanitary-form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.sanitary-submit-btn {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #e91e63, #f06292);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s;
+  margin-top: 5px;
+}
+
+.sanitary-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 30, 99, 0.35);
+}
+
+.sanitary-whatsapp-alt {
+  text-align: center;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.sanitary-whatsapp-alt p {
+  color: #888;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.sanitary-whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.sanitary-whatsapp-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+/* Update sanitary-float button styles */
+.sanitary-float {
+  background: none;
+  border: none;
+  cursor: pointer;
+  /* keep your existing .sanitary-float positioning styles */
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .sanitary-modal-content {
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+  .sanitary-modal-header h3 {
+    font-size: 1.05rem;
+  }
+}
 </style>
 
 
