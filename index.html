@@ -4942,7 +4942,9 @@ function submitCambridgeInquiry(event) {
   document.getElementById('cambridgeForm').reset();
   closeCambridgeInquiry();
 }
-// === CAMBRIDGE LOWER SECONDARY GRADE 7 ===
+document.addEventListener('DOMContentLoaded', function() {
+
+
 const cambridgeSubjectsG7 = [
   { name: "English", code: "1111", theme: "c-green", icon: "✍️" },
   { name: "English as a Second Language", code: "1110", theme: "c-red", icon: "🌐" },
@@ -5016,11 +5018,14 @@ if (cambridgeModalG7) {
 }
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeCambridgeModalG7();
-});
+});});
 
-</script>
-<!-- === CAMBRIDGE LOWER SECONDARY GRADE 7 BOOKSHELF === -->
-<div class="cambridge-library-section" id="cambridgeLowerSecondary">
+Line 5020: <!-- === CAMBRIDGE LOWER SECONDARY GRADE...
+Line 5021: (empty)
+Line 5022: </script>          ← DON'T copy this, it's the closing script tag
+Line 5023: <div class="cambridge-library-section">
+...
+
   <div class="cambridge-header">
     <div class="cambridge-title">Cambridge Lower Secondary</div>
     <div class="cambridge-subtitle">Cambridge Assessment International Education</div>
