@@ -5018,14 +5018,12 @@ if (cambridgeModalG7) {
 }
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeCambridgeModalG7();
-});});
+});  // closes keydown listener
 
-Line 5020: <!-- === CAMBRIDGE LOWER SECONDARY GRADE...
-Line 5021: (empty)
-Line 5022: </script>          ← DON'T copy this, it's the closing script tag
-Line 5023: <div class="cambridge-library-section">
-...
+// === CAMBRIDGE LOWER SECONDARY GRADE 7 HTML ===
+</script>
 
+<div class="cambridge-library-section">
   <div class="cambridge-header">
     <div class="cambridge-title">Cambridge Lower Secondary</div>
     <div class="cambridge-subtitle">Cambridge Assessment International Education</div>
@@ -5050,7 +5048,83 @@ Line 5023: <div class="cambridge-library-section">
   </div>
 </div>
 
+<script>
+// === CAMBRIDGE LOWER SECONDARY GRADE 7 JS ===
+const cambridgeSubjectsG7 = [
+  { name: "English", code: "1111", theme: "c-green", icon: "✍️" },
+  { name: "English as a Second Language", code: "1110", theme: "c-red", icon: "🌐" },
+  { name: "Mathematics", code: "1112", theme: "c-blue", icon: "📐" },
+  { name: "Science", code: "1113", theme: "c-cyan", icon: "🔬" },
+  { name: "Global Perspectives", code: "1129", theme: "c-purple", icon: "🌍" },
+  { name: "Digital Literacy", code: "DL7", theme: "c-orange", icon: "💻" },
+  { name: "Art & Design", code: "AD7", theme: "c-pink", icon: "🎨" },
+  { name: "Music", code: "MU7", theme: "c-teal", icon: "🎵" },
+  { name: "Physical Education", code: "PE7", theme: "c-amber", icon: "⚽" },
+  { name: "Computing", code: "CO7", theme: "c-indigo", icon: "🖥️" }
+];
 
+const cambridgeResourcesG7 = [
+  { label: "Official Cambridge-endorsed Textbook", icon: "📘" },
+  { label: "EASF Lesson Notes", icon: "📝" },
+  { label: "EASF Revision Notes", icon: "📋" },
+  { label: "EASF Worksheets", icon: "📄" },
+  { label: "EASF Past Papers", icon: "📑" },
+  { label: "EASF Mark Schemes", icon: "✅" },
+  { label: "EASF Video Lessons", icon: "🎬" },
+  { label: "EASF Mock Examinations", icon: "📝" }
+];
+
+const cambridgeShelfG7 = document.getElementById('cambridgeShelfG7');
+if (cambridgeShelfG7) {
+  cambridgeSubjectsG7.forEach(function(subj) {
+    var book = document.createElement('div');
+    book.className = 'book-spine ' + subj.theme;
+    book.style.height = (180 + Math.random() * 70) + 'px';
+    book.innerHTML = '<div class="spine-brand">EASF</div><div class="spine-subject">' + subj.name + '</div><div class="spine-signature">By Dr. J.K. Mushi</div><div class="spine-code">' + subj.code + '</div>';
+    book.onclick = function() { openCambridgeModalG7(subj); };
+    cambridgeShelfG7.appendChild(book);
+  });
+}
+
+function openCambridgeModalG7(subj) {
+  document.getElementById('cambridgeModalTitleG7').textContent = subj.name;
+  document.getElementById('cambridgeModalCodeG7').textContent = 'Syllabus Code: ' + subj.code;
+  var iconBox = document.getElementById('cambridgeModalIconG7');
+  iconBox.textContent = subj.icon;
+  var spine = document.querySelector('.' + subj.theme);
+  if (spine) iconBox.style.background = getComputedStyle(spine).background;
+
+  var list = document.getElementById('cambridgeModalResourcesG7');
+  list.innerHTML = '';
+  cambridgeResourcesG7.forEach(function(res) {
+    var item = document.createElement('div');
+    item.className = 'resource-item';
+    item.innerHTML = '<span class="resource-icon">' + res.icon + '</span><span>' + res.label + '</span>';
+    item.onclick = function() {
+      alert('Open ' + res.label + ' for ' + subj.name);
+    };
+    list.appendChild(item);
+  });
+
+  document.getElementById('cambridgeModalG7').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCambridgeModalG7() {
+  document.getElementById('cambridgeModalG7').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+var cambridgeModalG7 = document.getElementById('cambridgeModalG7');
+if (cambridgeModalG7) {
+  cambridgeModalG7.addEventListener('click', function(e) {
+    if (e.target === cambridgeModalG7) closeCambridgeModalG7();
+  });
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeCambridgeModalG7();
+});
+</script>
 
 </body>
 </html>
