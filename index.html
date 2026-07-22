@@ -1672,7 +1672,540 @@ img[src*="flag"],
         </div>
         <div class="scroll-indicator">Scroll to explore</div>
     </section>
+<!-- ====== E-BOOK REQUEST SECTION WITH FULL PAYMENT & BULK ORDER ====== -->
+<section id="ebooks">
+    <div class="section-header reveal">
+        <span class="section-label">📚 Digital Learning</span>
+        <h2>Request E-Books</h2>
+        <p>TIE Middle Class Creative Arts e-books by Dr. James K. Mushi, PhD</p>
+    </div>
+    <div class="outreach-content">
+        <div class="outreach-text reveal">
+            <h3>Quality Education at Your Fingertips</h3>
+            <p>Our e-books cover the full TIE curriculum from Baby Class through Grade 7. Each book is designed to engage young minds through creative arts, making learning both fun and effective.</p>
+            <p>After submitting your request, complete payment instantly using your preferred mobile money or bank transfer. Books are delivered digitally within 24 hours of payment confirmation.</p>
+            <div class="outreach-highlight">
+                <p>"Every book purchased helps equip a vulnerable child with school materials."</p>
+            </div>
+            <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px;">
+                <span style="background: rgba(26,95,42,0.1); color: #1a5f2a; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;">Baby Class – Grade 4: 4,000 TZS</span>
+                <span style="background: rgba(26,95,42,0.1); color: #1a5f2a; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;">Grade 5 – Grade 7: 6,000 TZS</span>
+                <span style="background: linear-gradient(135deg, #FFD700, #FFA500); color: #1a5f2a; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;">🎉 Buy 3+ Books = 10% OFF!</span>
+                <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;">🏫 Schools: 15% OFF 10+ copies!</span>
+            </div>
+        </div>
+        <div class="outreach-image reveal">
+            <div style="font-family: 'Segoe UI', system-ui, sans-serif; max-width: 520px; margin: 0 auto; background: linear-gradient(135deg, #1a5f2a 0%, #2d8a3e 50%, #4CAF50 100%); border-radius: 24px; padding: 32px; color: white; box-shadow: 0 20px 60px rgba(26, 95, 42, 0.35); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                <div style="position: absolute; bottom: -20px; left: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.06); border-radius: 50%;"></div>
+                <div style="text-align: center; margin-bottom: 28px; position: relative; z-index: 1;">
+                    <div style="width: 72px; height: 72px; background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 32px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">📚</div>
+                    <h2 style="margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">Request E-Books</h2>
+                    <p style="margin: 8px 0 0; opacity: 0.9; font-size: 14px;">Abigail Education Support Foundation</p>
+                    <p style="margin: 4px 0 0; opacity: 0.75; font-size: 12px;">TIE Middle Class Creative Arts | Dr. James K. Mushi, PhD</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.12); border-radius: 16px; padding: 16px; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(10px);">
+                    <p style="margin: 0 0 10px; font-size: 13px; font-weight: 700; text-align: center; opacity: 0.95;">📋 Pricing Guide</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 12px;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; text-align: center;">
+                            <div style="font-size: 18px; font-weight: 800;">4,000 TZS</div>
+                            <div style="opacity: 0.8; margin-top: 2px;">Baby Class – Grade 4</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; text-align: center;">
+                            <div style="font-size: 18px; font-weight: 800;">6,000 TZS</div>
+                            <div style="opacity: 0.8; margin-top: 2px;">Grade 5 – Grade 7</div>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,165,0,0.15)); border: 1px solid rgba(255,215,0,0.3); border-radius: 10px; padding: 10px; margin-top: 10px; text-align: center;">
+                        <span style="font-size: 13px; font-weight: 700; color: #FFD700;">🎉 Individual: Buy 3+ books = 10% OFF</span>
+                    </div>
+                    <div style="background: linear-gradient(135deg, rgba(102,126,234,0.2), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; padding: 10px; margin-top: 8px; text-align: center;">
+                        <span style="font-size: 13px; font-weight: 700; color: #c7d2fe;">🏫 Schools: Buy 10+ copies = 15% OFF</span>
+                    </div>
+                </div>
 
+                <!-- ORDER TYPE SELECTOR -->
+                <div style="display: flex; gap: 10px; margin-bottom: 20px; position: relative; z-index: 1;">
+                    <button type="button" onclick="showIndividualForm()" id="individualTab" style="flex: 1; padding: 12px; border: 2px solid rgba(255,255,255,0.3); border-radius: 12px; background: rgba(255,255,255,0.15); color: white; font-size: 13px; font-weight: 700; cursor: pointer;">👤 Individual</button>
+                    <button type="button" onclick="showBulkForm()" id="bulkTab" style="flex: 1; padding: 12px; border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; background: transparent; color: white; font-size: 13px; font-weight: 600; cursor: pointer; opacity: 0.7;">🏫 School/Institution</button>
+                </div>
+
+                <!-- INDIVIDUAL FORM -->
+                <form id="ebookForm" onsubmit="handleEbookSubmit(event)" style="display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 1;">
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Student's Full Name *</label>
+                        <input type="text" id="ebookStudentName" required placeholder="Enter student's full name" style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Parent / Guardian Email *</label>
+                        <input type="email" id="ebookParentEmail" required placeholder="parent@email.com" style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Phone Number (WhatsApp) *</label>
+                        <input type="tel" id="ebookPhone" required placeholder="e.g. 0788698126" style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Grade Level *</label>
+                        <select id="ebookGrade" required onchange="updatePrice()" style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; cursor: pointer; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                            <option value="" disabled selected style="color: #333;">Select grade level</option>
+                            <option value="baby" style="color: #333;">Baby Class</option>
+                            <option value="middle" style="color: #333;">Middle Class</option>
+                            <option value="grade1" style="color: #333;">Grade 1</option>
+                            <option value="grade2" style="color: #333;">Grade 2</option>
+                            <option value="grade3" style="color: #333;">Grade 3</option>
+                            <option value="grade4" style="color: #333;">Grade 4</option>
+                            <option value="grade5" style="color: #333;">Grade 5</option>
+                            <option value="grade6" style="color: #333;">Grade 6</option>
+                            <option value="grade7" style="color: #333;">Grade 7</option>
+                        </select>
+                    </div>
+                    <div id="priceDisplay" style="display: none; background: rgba(255,215,0,0.15); border: 1px solid rgba(255,215,0,0.3); border-radius: 12px; padding: 12px 16px; text-align: center;">
+                        <span style="font-size: 12px; opacity: 0.9;">Price per book:</span>
+                        <span id="priceAmount" style="font-size: 20px; font-weight: 800; color: #FFD700; margin-left: 8px;">—</span>
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 10px; opacity: 0.95;">Book Titles to Purchase * (Select all that apply)</label>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="ebookTitles" value="Creative Arts - English" onchange="calculateTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span>Creative Arts — English</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="ebookTitles" value="Creative Arts - Swahili" onchange="calculateTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span>Creative Arts — Swahili</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="ebookTitles" value="Creative Arts - Mathematics" onchange="calculateTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span>Creative Arts — Mathematics</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="ebookTitles" value="Creative Arts - Science" onchange="calculateTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span>Creative Arts — Science &amp; Technology</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="ebookTitles" value="Creative Arts - Social Studies" onchange="calculateTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span>Creative Arts — Social Studies</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="ebookTitles" value="Creative Arts - Civic &amp; Moral" onchange="calculateTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span>Creative Arts — Civic &amp; Moral Education</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="ebookTitles" value="All Subjects Bundle" onchange="calculateTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span style="font-weight: 700;">📦 All Subjects Bundle (Recommended)</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="totalCalculator" style="display: none; background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,165,0,0.1)); border: 1px solid rgba(255,215,0,0.3); border-radius: 14px; padding: 16px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 13px; opacity: 0.9;">Books selected:</span>
+                            <span id="bookCount" style="font-size: 16px; font-weight: 700;">0</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 13px; opacity: 0.9;">Subtotal:</span>
+                            <span id="subtotalAmount" style="font-size: 16px; font-weight: 700;">0 TZS</span>
+                        </div>
+                        <div id="discountRow" style="display: none; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 13px; color: #FFD700;">🎉 Bulk Discount (10%):</span>
+                            <span id="discountAmount" style="font-size: 14px; font-weight: 700; color: #FFD700;">-0 TZS</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 15px; font-weight: 700;">Total to Pay:</span>
+                            <span id="totalAmount" style="font-size: 22px; font-weight: 800; color: #FFD700;">0 TZS</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Quantity</label>
+                        <select id="ebookQuantity" onchange="calculateTotal()" style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; cursor: pointer; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                            <option value="1" style="color: #333;">1 Student</option>
+                            <option value="2" style="color: #333;">2 Students</option>
+                            <option value="3" style="color: #333;">3 Students</option>
+                            <option value="more" style="color: #333;">More (we'll contact you)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Additional Information (Optional)</label>
+                        <textarea id="ebookMessage" rows="3" placeholder="Any special requests, school name, or additional info..." style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; resize: vertical; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);"></textarea>
+                    </div>
+                    <button type="submit" id="ebookSubmitBtn" style="width: 100%; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #1a5f2a; font-size: 16px; font-weight: 800; cursor: pointer; margin-top: 4px; letter-spacing: 0.5px;">
+                        📚 Submit E-Book Request
+                    </button>
+                </form>
+
+                <!-- BULK ORDER FORM (School/Institution) -->
+                <form id="bulkForm" onsubmit="handleBulkSubmit(event)" style="display: none; flex-direction: column; gap: 16px; position: relative; z-index: 1;">
+                    <div style="background: linear-gradient(135deg, rgba(102,126,234,0.2), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 12px; padding: 14px; margin-bottom: 4px;">
+                        <p style="margin: 0; font-size: 13px; font-weight: 700; text-align: center; color: #c7d2fe;">🏫 School / Institution Bulk Order</p>
+                        <p style="margin: 4px 0 0; font-size: 11px; text-align: center; opacity: 0.8;">Minimum 10 copies | 15% discount automatically applied</p>
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">School / Institution Name *</label>
+                        <input type="text" id="bulkSchoolName" required placeholder="Enter school or institution name" style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Contact Person Name *</label>
+                        <input type="text" id="bulkContactName" required placeholder="Enter contact person's full name" style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Contact Email *</label>
+                        <input type="email" id="bulkContactEmail" required placeholder="school@email.com" style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Phone Number (WhatsApp) *</label>
+                        <input type="tel" id="bulkPhone" required placeholder="e.g. 0788698126" style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Region in Tanzania *</label>
+                        <select id="bulkRegion" required style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; cursor: pointer; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                            <option value="" disabled selected style="color: #333;">Select region</option>
+                            <option value="Arusha" style="color: #333;">Arusha</option>
+                            <option value="Dar es Salaam" style="color: #333;">Dar es Salaam</option>
+                            <option value="Dodoma" style="color: #333;">Dodoma</option>
+                            <option value="Geita" style="color: #333;">Geita</option>
+                            <option value="Iringa" style="color: #333;">Iringa</option>
+                            <option value="Kagera" style="color: #333;">Kagera</option>
+                            <option value="Katavi" style="color: #333;">Katavi</option>
+                            <option value="Kigoma" style="color: #333;">Kigoma</option>
+                            <option value="Kilimanjaro" style="color: #333;">Kilimanjaro</option>
+                            <option value="Lindi" style="color: #333;">Lindi</option>
+                            <option value="Manyara" style="color: #333;">Manyara</option>
+                            <option value="Mara" style="color: #333;">Mara</option>
+                            <option value="Mbeya" style="color: #333;">Mbeya</option>
+                            <option value="Morogoro" style="color: #333;">Morogoro</option>
+                            <option value="Moshi" style="color: #333;">Moshi</option>
+                            <option value="Mtwara" style="color: #333;">Mtwara</option>
+                            <option value="Mwanza" style="color: #333;">Mwanza</option>
+                            <option value="Njombe" style="color: #333;">Njombe</option>
+                            <option value="Pwani" style="color: #333;">Pwani (Coast)</option>
+                            <option value="Rukwa" style="color: #333;">Rukwa</option>
+                            <option value="Ruvuma" style="color: #333;">Ruvuma</option>
+                            <option value="Shinyanga" style="color: #333;">Shinyanga</option>
+                            <option value="Simiyu" style="color: #333;">Simiyu</option>
+                            <option value="Singida" style="color: #333;">Singida</option>
+                            <option value="Songwe" style="color: #333;">Songwe</option>
+                            <option value="Tabora" style="color: #333;">Tabora</option>
+                            <option value="Tanga" style="color: #333;">Tanga</option>
+                            <option value="Zanzibar" style="color: #333;">Zanzibar</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Grade Level(s) *</label>
+                        <select id="bulkGrade" required onchange="updateBulkPrice()" style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; cursor: pointer; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                            <option value="" disabled selected style="color: #333;">Select grade level</option>
+                            <option value="baby" style="color: #333;">Baby Class</option>
+                            <option value="middle" style="color: #333;">Middle Class</option>
+                            <option value="grade1" style="color: #333;">Grade 1</option>
+                            <option value="grade2" style="color: #333;">Grade 2</option>
+                            <option value="grade3" style="color: #333;">Grade 3</option>
+                            <option value="grade4" style="color: #333;">Grade 4</option>
+                            <option value="grade5" style="color: #333;">Grade 5</option>
+                            <option value="grade6" style="color: #333;">Grade 6</option>
+                            <option value="grade7" style="color: #333;">Grade 7</option>
+                            <option value="mixed" style="color: #333;">Mixed Grades (specify below)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Number of Copies * (Minimum 10)</label>
+                        <input type="number" id="bulkCopies" required min="10" placeholder="e.g. 25" onchange="calculateBulkTotal()" style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 10px; opacity: 0.95;">Book Titles Needed *</label>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="bulkTitles" value="Creative Arts - English" onchange="calculateBulkTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span>Creative Arts — English</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="bulkTitles" value="Creative Arts - Swahili" onchange="calculateBulkTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span>Creative Arts — Swahili</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="bulkTitles" value="Creative Arts - Mathematics" onchange="calculateBulkTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span>Creative Arts — Mathematics</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="bulkTitles" value="Creative Arts - Science" onchange="calculateBulkTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span>Creative Arts — Science &amp; Technology</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="bulkTitles" value="Creative Arts - Social Studies" onchange="calculateBulkTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span>Creative Arts — Social Studies</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="bulkTitles" value="Creative Arts - Civic &amp; Moral" onchange="calculateBulkTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span>Creative Arts — Civic &amp; Moral Education</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; background: rgba(255,255,255,0.08); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <input type="checkbox" name="bulkTitles" value="All Subjects Bundle" onchange="calculateBulkTotal()" style="width: 18px; height: 18px; accent-color: #4CAF50;">
+                                <span style="font-weight: 700;">📦 Complete Bundle (All Subjects)</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="bulkTotalCalculator" style="display: none; background: linear-gradient(135deg, rgba(102,126,234,0.2), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 14px; padding: 16px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 13px; opacity: 0.9;">Copies:</span>
+                            <span id="bulkCopyCount" style="font-size: 16px; font-weight: 700;">0</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 13px; opacity: 0.9;">Price per copy:</span>
+                            <span id="bulkPricePerCopy" style="font-size: 14px; font-weight: 700;">0 TZS</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 13px; opacity: 0.9;">Subtotal:</span>
+                            <span id="bulkSubtotal" style="font-size: 16px; font-weight: 700;">0 TZS</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 13px; color: #c7d2fe;">🏫 School Discount (15%):</span>
+                            <span id="bulkDiscount" style="font-size: 14px; font-weight: 700; color: #c7d2fe;">-0 TZS</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 15px; font-weight: 700;">Total to Pay:</span>
+                            <span id="bulkTotal" style="font-size: 22px; font-weight: 800; color: #c7d2fe;">0 TZS</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; opacity: 0.95;">Additional Information</label>
+                        <textarea id="bulkMessage" rows="3" placeholder="Mixed grade details, delivery preferences, or any special requirements..." style="width: 100%; padding: 14px 16px; border: none; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,0.12); color: white; outline: none; box-sizing: border-box; resize: vertical; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);"></textarea>
+                    </div>
+                    <button type="submit" id="bulkSubmitBtn" style="width: 100%; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-size: 16px; font-weight: 800; cursor: pointer; margin-top: 4px; letter-spacing: 0.5px;">
+                        🏫 Submit Bulk Order
+                    </button>
+                </form>
+
+                <!-- PAYMENT SECTION (shared for both forms) -->
+                <div id="ebookPayment" style="display: none; position: relative; z-index: 1;">
+                    <div style="text-align: center; padding: 30px 20px 20px;">
+                        <div style="font-size: 48px; margin-bottom: 12px;">🎉</div>
+                        <h3 style="margin: 0 0 10px; font-size: 20px;">Request Received!</h3>
+                        <p style="margin: 0 0 16px; opacity: 0.9; font-size: 13px; line-height: 1.6;">Thank you for choosing AESF!<br>Complete payment using your preferred method below.</p>
+                        <div id="paymentTotalDisplay" style="background: rgba(255,215,0,0.15); border: 1px solid rgba(255,215,0,0.3); border-radius: 12px; padding: 12px 20px; margin-bottom: 16px; display: inline-block;">
+                            <span style="font-size: 13px; opacity: 0.9;">Amount to Pay:</span>
+                            <span id="finalPaymentAmount" style="font-size: 24px; font-weight: 800; color: #FFD700; margin-left: 8px;">0 TZS</span>
+                        </div>
+                    </div>
+
+                    <!-- Pay Now Buttons -->
+                    <div style="margin-bottom: 16px;">
+                        <a id="airtelPayBtn" href="tel:*150*60#" style="display: block; width: 100%; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%); color: white; font-size: 16px; font-weight: 800; text-align: center; text-decoration: none; cursor: pointer; margin-bottom: 10px;">
+                            📱 Pay Now with Airtel Money
+                        </a>
+                        <a id="mpesaPayBtn" href="tel:*150*00#" style="display: block; width: 100%; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(135deg, #00A650 0%, #008C44 100%); color: white; font-size: 16px; font-weight: 800; text-align: center; text-decoration: none; cursor: pointer; margin-bottom: 10px;">
+                            💚 Pay Now with M-Pesa
+                        </a>
+                        <p style="margin: 0; font-size: 11px; opacity: 0.7; text-align: center;">Tapping opens mobile money menu automatically</p>
+                    </div>
+
+                    <!-- Payment Methods Details -->
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.15);">
+                        <p style="margin: 0 0 14px; font-size: 14px; font-weight: 700; text-align: center;">💳 All Payment Methods</p>
+
+                        <!-- Airtel Money -->
+                        <div style="background: rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #FF0000, #CC0000); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;">📱</div>
+                                <div>
+                                    <div style="font-size: 14px; font-weight: 700;">Airtel Money</div>
+                                    <div style="font-size: 11px; opacity: 0.7;">Mobile Money Transfer</div>
+                                </div>
+                            </div>
+                            <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 10px; font-size: 13px; font-family: monospace;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span>Number:</span> <strong>+255 788 698 126</strong></div>
+                                <div style="display: flex; justify-content: space-between;"><span>Name:</span> <strong>Abigail Eduaccess</strong></div>
+                            </div>
+                        </div>
+
+                        <!-- M-Pesa -->
+                        <div style="background: rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #00A650, #008C44); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;">💚</div>
+                                <div>
+                                    <div style="font-size: 14px; font-weight: 700;">M-Pesa</div>
+                                    <div style="font-size: 11px; opacity: 0.7;">Vodacom Mobile Money</div>
+                                </div>
+                            </div>
+                            <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 10px; font-size: 13px; font-family: monospace;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span>Number:</span> <strong>+255 754 692 521</strong></div>
+                                <div style="display: flex; justify-content: space-between;"><span>Name:</span> <strong>Abigail Eduaccess</strong></div>
+                            </div>
+                        </div>
+
+                        <!-- CRDB SimBanking -->
+                        <div style="background: rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #0066CC, #004499); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;">🏦</div>
+                                <div>
+                                    <div style="font-size: 14px; font-weight: 700;">CRDB SimBanking</div>
+                                    <div style="font-size: 11px; opacity: 0.7;">Bank Transfer</div>
+                                </div>
+                            </div>
+                            <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 10px; font-size: 13px; font-family: monospace;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span>Account:</span> <strong>0152001GH2M00</strong></div>
+                                <div style="display: flex; justify-content: space-between;"><span>Name:</span> <strong>Abigail Eduaccess</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instructions -->
+                    <div style="background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.2); border-radius: 12px; padding: 14px; margin-bottom: 16px;">
+                        <p style="margin: 0; font-size: 12px; line-height: 1.6; text-align: center;">
+                            ⚠️ <strong>After payment:</strong> Please send your payment confirmation screenshot to our WhatsApp <strong>+255 788 698 126</strong> or email <strong>educationaccessconsultancy@gmail.com</strong>. Your e-books will be sent within 24 hours.
+                        </p>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <button onclick="resetEbookForm()" style="padding: 12px 28px; border: 2px solid rgba(255,255,255,0.4); border-radius: 12px; background: transparent; color: white; font-size: 13px; cursor: pointer; font-weight: 600;">Submit Another Request</button>
+                    </div>
+                </div>
+
+                <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.15); text-align: center; position: relative; z-index: 1;">
+                    <p style="margin: 0; font-size: 11px; opacity: 0.7;">📧 educationaccessconsultancy@gmail.com | 📱 +255 788 698 126</p>
+                    <p style="margin: 4px 0 0; font-size: 10px; opacity: 0.6;">Serving all regions of Tanzania 🇹🇿</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ====== END E-BOOK REQUEST SECTION ====== -->
+
+<script>
+// Tab switching
+function showIndividualForm() {
+    document.getElementById('ebookForm').style.display = 'flex';
+    document.getElementById('bulkForm').style.display = 'none';
+    document.getElementById('individualTab').style.background = 'rgba(255,255,255,0.15)';
+    document.getElementById('individualTab').style.borderColor = 'rgba(255,255,255,0.3)';
+    document.getElementById('individualTab').style.opacity = '1';
+    document.getElementById('bulkTab').style.background = 'transparent';
+    document.getElementById('bulkTab').style.borderColor = 'rgba(255,255,255,0.1)';
+    document.getElementById('bulkTab').style.opacity = '0.7';
+}
+function showBulkForm() {
+    document.getElementById('ebookForm').style.display = 'none';
+    document.getElementById('bulkForm').style.display = 'flex';
+    document.getElementById('bulkTab').style.background = 'rgba(255,255,255,0.15)';
+    document.getElementById('bulkTab').style.borderColor = 'rgba(255,255,255,0.3)';
+    document.getElementById('bulkTab').style.opacity = '1';
+    document.getElementById('individualTab').style.background = 'transparent';
+    document.getElementById('individualTab').style.borderColor = 'rgba(255,255,255,0.1)';
+    document.getElementById('individualTab').style.opacity = '0.7';
+}
+
+// Individual form functions
+function updatePrice() {
+    const grade = document.getElementById('ebookGrade').value;
+    const priceDisplay = document.getElementById('priceDisplay');
+    const priceAmount = document.getElementById('priceAmount');
+    const prices = { 'baby': 4000, 'middle': 4000, 'grade1': 4000, 'grade2': 4000, 'grade3': 4000, 'grade4': 4000, 'grade5': 6000, 'grade6': 6000, 'grade7': 6000 };
+    if (prices[grade]) {
+        priceAmount.textContent = prices[grade].toLocaleString() + ' TZS';
+        priceDisplay.style.display = 'block';
+        calculateTotal();
+    }
+}
+function calculateTotal() {
+    const grade = document.getElementById('ebookGrade').value;
+    const prices = { 'baby': 4000, 'middle': 4000, 'grade1': 4000, 'grade2': 4000, 'grade3': 4000, 'grade4': 4000, 'grade5': 6000, 'grade6': 6000, 'grade7': 6000 };
+    const pricePerBook = prices[grade] || 0;
+    const selectedBooks = Array.from(document.querySelectorAll('input[name="ebookTitles"]:checked')).map(cb => cb.value);
+    const bookCount = selectedBooks.length;
+    const quantity = parseInt(document.getElementById('ebookQuantity').value) || 1;
+    if (bookCount === 0 || pricePerBook === 0) { document.getElementById('totalCalculator').style.display = 'none'; return; }
+    let subtotal = bookCount * pricePerBook * quantity;
+    let discount = bookCount >= 3 ? Math.round(subtotal * 0.10) : 0;
+    const total = subtotal - discount;
+    document.getElementById('bookCount').textContent = bookCount;
+    document.getElementById('subtotalAmount').textContent = subtotal.toLocaleString() + ' TZS';
+    document.getElementById('totalAmount').textContent = total.toLocaleString() + ' TZS';
+    if (discount > 0) {
+        document.getElementById('discountRow').style.display = 'flex';
+        document.getElementById('discountAmount').textContent = '-' + discount.toLocaleString() + ' TZS';
+    } else { document.getElementById('discountRow').style.display = 'none'; }
+    document.getElementById('totalCalculator').style.display = 'block';
+}
+function handleEbookSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('ebookSubmitBtn');
+    const form = document.getElementById('ebookForm');
+    const payment = document.getElementById('ebookPayment');
+    const selectedBooks = Array.from(document.querySelectorAll('input[name="ebookTitles"]:checked')).map(cb => cb.value);
+    if (selectedBooks.length === 0) { alert('Please select at least one book title.'); return; }
+    const grade = document.getElementById('ebookGrade').value;
+    const prices = { 'baby': 4000, 'middle': 4000, 'grade1': 4000, 'grade2': 4000, 'grade3': 4000, 'grade4': 4000, 'grade5': 6000, 'grade6': 6000, 'grade7': 6000 };
+    const pricePerBook = prices[grade] || 0;
+    const quantity = parseInt(document.getElementById('ebookQuantity').value) || 1;
+    let subtotal = selectedBooks.length * pricePerBook * quantity;
+    let discount = selectedBooks.length >= 3 ? Math.round(subtotal * 0.10) : 0;
+    const total = subtotal - discount;
+    document.getElementById('finalPaymentAmount').textContent = total.toLocaleString() + ' TZS';
+    const data = { studentName: document.getElementById('ebookStudentName').value, parentEmail: document.getElementById('ebookParentEmail').value, phone: document.getElementById('ebookPhone').value, grade: grade, books: selectedBooks, quantity: quantity, subtotal: subtotal, discount: discount, total: total, message: document.getElementById('ebookMessage').value, timestamp: new Date().toLocaleString() };
+    btn.innerHTML = '⏳ Sending...'; btn.style.opacity = '0.7'; btn.disabled = true;
+    setTimeout(() => { console.log('E-book request:', data); form.style.display = 'none'; payment.style.display = 'block'; btn.innerHTML = '📚 Submit E-Book Request'; btn.style.opacity = '1'; btn.disabled = false; }, 1500);
+}
+
+// Bulk form functions
+function updateBulkPrice() {
+    calculateBulkTotal();
+}
+function calculateBulkTotal() {
+    const grade = document.getElementById('bulkGrade').value;
+    const prices = { 'baby': 4000, 'middle': 4000, 'grade1': 4000, 'grade2': 4000, 'grade3': 4000, 'grade4': 4000, 'grade5': 6000, 'grade6': 6000, 'grade7': 6000, 'mixed': 5000 };
+    const pricePerBook = prices[grade] || 0;
+    const copies = parseInt(document.getElementById('bulkCopies').value) || 0;
+    const selectedBooks = Array.from(document.querySelectorAll('input[name="bulkTitles"]:checked')).map(cb => cb.value);
+    const bookCount = selectedBooks.length;
+    if (copies < 10 || bookCount === 0 || pricePerBook === 0) { document.getElementById('bulkTotalCalculator').style.display = 'none'; return; }
+    const subtotal = copies * pricePerBook * bookCount;
+    const discount = Math.round(subtotal * 0.15);
+    const total = subtotal - discount;
+    document.getElementById('bulkCopyCount').textContent = copies;
+    document.getElementById('bulkPricePerCopy').textContent = pricePerBook.toLocaleString() + ' TZS';
+    document.getElementById('bulkSubtotal').textContent = subtotal.toLocaleString() + ' TZS';
+    document.getElementById('bulkDiscount').textContent = '-' + discount.toLocaleString() + ' TZS';
+    document.getElementById('bulkTotal').textContent = total.toLocaleString() + ' TZS';
+    document.getElementById('bulkTotalCalculator').style.display = 'block';
+}
+function handleBulkSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('bulkSubmitBtn');
+    const form = document.getElementById('bulkForm');
+    const payment = document.getElementById('ebookPayment');
+    const selectedBooks = Array.from(document.querySelectorAll('input[name="bulkTitles"]:checked')).map(cb => cb.value);
+    if (selectedBooks.length === 0) { alert('Please select at least one book title.'); return; }
+    const copies = parseInt(document.getElementById('bulkCopies').value) || 0;
+    if (copies < 10) { alert('Minimum order is 10 copies for bulk orders.'); return; }
+    const grade = document.getElementById('bulkGrade').value;
+    const prices = { 'baby': 4000, 'middle': 4000, 'grade1': 4000, 'grade2': 4000, 'grade3': 4000, 'grade4': 4000, 'grade5': 6000, 'grade6': 6000, 'grade7': 6000, 'mixed': 5000 };
+    const pricePerBook = prices[grade] || 0;
+    const subtotal = copies * pricePerBook * selectedBooks.length;
+    const discount = Math.round(subtotal * 0.15);
+    const total = subtotal - discount;
+    document.getElementById('finalPaymentAmount').textContent = total.toLocaleString() + ' TZS';
+    const data = { schoolName: document.getElementById('bulkSchoolName').value, contactName: document.getElementById('bulkContactName').value, contactEmail: document.getElementById('bulkContactEmail').value, phone: document.getElementById('bulkPhone').value, region: document.getElementById('bulkRegion').value, grade: grade, copies: copies, books: selectedBooks, subtotal: subtotal, discount: discount, total: total, message: document.getElementById('bulkMessage').value, timestamp: new Date().toLocaleString() };
+    btn.innerHTML = '⏳ Sending...'; btn.style.opacity = '0.7'; btn.disabled = true;
+    setTimeout(() => { console.log('Bulk order:', data); form.style.display = 'none'; payment.style.display = 'block'; btn.innerHTML = '🏫 Submit Bulk Order'; btn.style.opacity = '1'; btn.disabled = false; }, 1500);
+}
+function resetEbookForm() {
+    document.getElementById('ebookForm').reset();
+    document.getElementById('bulkForm').reset();
+    document.getElementById('priceDisplay').style.display = 'none';
+    document.getElementById('totalCalculator').style.display = 'none';
+    document.getElementById('bulkTotalCalculator').style.display = 'none';
+    document.getElementById('ebookForm').style.display = 'flex';
+    document.getElementById('bulkForm').style.display = 'none';
+    document.getElementById('ebookPayment').style.display = 'none';
+    showIndividualForm();
+}
+</script>
+
+<style>
+#ebookForm input::placeholder, #ebookForm textarea::placeholder, #bulkForm input::placeholder, #bulkForm textarea::placeholder { color: rgba(255,255,255,0.45); }
+#ebookForm input:focus, #ebookForm textarea:focus, #ebookForm select:focus, #bulkForm input:focus, #bulkForm textarea:focus, #bulkForm select:focus { background: rgba(255,255,255,0.2) !important; border-color: rgba(255,255,255,0.3) !important; }
+#ebookSubmitBtn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3); }
+#bulkSubmitBtn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3); }
+#ebookForm label:hover, #bulkForm label:hover { background: rgba(255,255,255,0.15) !important; }
+#airtelPayBtn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3); }
+#mpesaPayBtn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 166, 80, 0.3); }
+                                                                                                      </style>
     <section id="overview">
         <div class="section-header reveal">
             <span class="section-label">📋 Programme Overview</span>
