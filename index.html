@@ -1578,6 +1578,323 @@ img[src*="flag"],
 .aesf-shelf-wood { width: 92%; max-width: 850px; height: 8px; background: linear-gradient(180deg, #8B6914, #5C4033); margin: 0 auto; border-radius: 0 0 4px 4px; box-shadow: 0 5px 12px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.1); }
 @media (max-width: 768px) { .aesf-book-card { width: 42px; height: 140px; } .aesf-book-front { width: 110px; height: 140px; transform: translateX(42px) rotateY(90deg); } .aesf-front-title { font-size: 10px; } .aesf-shelf { gap: 6px; } }
 
+/* ====== AESF SAMPLE CHAPTERS DOWNLOAD SECTION ====== */
+/* Paste this entire block at line 1580 */
+
+#ebook {
+    background: linear-gradient(180deg, #f5f9f0 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#ebook::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2d8f3e, #ff9800, #2d8f3e);
+}
+
+.ebook-hero-banner {
+    background: linear-gradient(135deg, #2d8f3e 0%, #1b5e20 100%);
+    border-radius: 28px;
+    padding: 50px 40px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 20px 60px rgba(45, 143, 62, 0.3);
+    position: relative;
+}
+
+.ebook-hero-icon { font-size: 48px; margin-bottom: 16px; }
+.ebook-hero-title { font-size: 28px; font-weight: 700; margin: 0 0 10px 0; }
+.ebook-hero-subtitle { font-size: 14px; opacity: 0.9; margin: 0; }
+
+.ebook-controls {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.ebook-search {
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    border-radius: 14px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+}
+
+.search-icon { font-size: 18px; margin-right: 10px; color: #888; }
+
+.ebook-search input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 15px;
+    color: #333;
+    background: transparent;
+}
+
+.ebook-stats { display: flex; gap: 12px; margin-bottom: 12px; }
+
+.stat-item {
+    flex: 1;
+    background: #f5f9f0;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+}
+
+.stat-number { display: block; font-size: 22px; font-weight: 700; color: #2d8f3e; }
+.stat-label { font-size: 11px; color: #888; }
+
+.ebook-progress-bar {
+    background: #e0e0e0;
+    border-radius: 8px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #2d8f3e, #4caf50);
+    height: 100%;
+    width: 0%;
+    border-radius: 8px;
+    transition: width 0.5s ease;
+}
+
+.ebook-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.ebook-tab {
+    flex: 1;
+    min-width: 80px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #e8f5e9;
+    color: #555;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.ebook-tab.active {
+    background: #2d8f3e;
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(45, 143, 62, 0.3);
+}
+
+.ebook-tab:hover:not(.active) { background: #c8e6c9; }
+
+.ebook-chapters { display: flex; flex-direction: column; gap: 12px; }
+
+.ebook-class-header {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2d8f3e;
+    margin: 16px 4px 10px 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ebook-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #e8e5e5;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ebook-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+}
+
+.ebook-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.ebook-card-info { flex: 1; }
+
+.ebook-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 4px 0;
+}
+
+.ebook-card-class { font-size: 12px; color: #888; margin: 0 0 6px 0; }
+.ebook-card-desc { font-size: 12px; color: #2d8f3e; margin: 0; }
+
+.ebook-card-status {
+    font-size: 11px;
+    color: #2d8f3e;
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+.ebook-download-btn {
+    background: #ff9800;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+.ebook-download-btn:hover { background: #f57c00; transform: scale(1.05); }
+
+.ebook-download-btn.saved {
+    background: #e8f5e9;
+    color: #2d8f3e;
+    border: 2px solid #2d8f3e;
+    box-shadow: none;
+}
+
+.ebook-download-btn.saved:hover { background: #c8e6c9; }
+
+.ebook-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.ebook-modal.active { display: flex; }
+
+.ebook-modal-content {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 32px;
+    max-width: 360px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-icon { font-size: 56px; margin-bottom: 16px; }
+
+.modal-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.modal-desc {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+.modal-progress-container {
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.modal-progress-bar {
+    background: #e0e0e0;
+    border-radius: 8px;
+    height: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.modal-progress-fill {
+    background: linear-gradient(90deg, #ff9800, #ffc107);
+    height: 100%;
+    width: 0%;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+}
+
+.modal-progress-fill.complete {
+    background: linear-gradient(90deg, #2d8f3e, #4caf50);
+}
+
+.modal-progress-text { font-size: 13px; color: #2d8f3e; font-weight: 600; }
+
+.modal-info {
+    background: #f5f9f0;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 20px;
+}
+
+.modal-info p { font-size: 12px; color: #666; margin: 4px 0; }
+
+.modal-close-btn {
+    background: #2d8f3e;
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.modal-close-btn:hover { background: #1b5e20; transform: scale(1.02); }
+
+.ebook-empty { text-align: center; padding: 60px 20px; color: #888; }
+.ebook-empty-icon { font-size: 48px; margin-bottom: 16px; }
+.ebook-empty-title { font-size: 16px; font-weight: 600; margin: 0 0 6px 0; }
+.ebook-empty-desc { font-size: 13px; margin: 0; }
+
+@media (max-width: 600px) {
+    .ebook-hero-banner { padding: 32px 20px; border-radius: 20px; }
+    .ebook-hero-title { font-size: 22px; }
+    .ebook-tabs { gap: 6px; }
+    .ebook-tab { padding: 10px 12px; font-size: 12px; min-width: 70px; }
+    .ebook-card-content { flex-direction: column; }
+    .ebook-download-btn { width: 100%; justify-content: center; margin-top: 10px; }
+}
+
 
     /* WhatsApp Float Button with Profile Picture */
 <style>
@@ -5822,5 +6139,72 @@ a[aria-label="Chat with AESF on WhatsApp"] {
 }
 </style>
 <!-- ====== END FLOATING WHATSAPP BUTTON ====== -->/body>
+<!-- ====== E-BOOK SECTION (SAMPLE CHAPTERS) ====== -->
+<section id="ebook">
+    <div class="ebook-hero-banner">
+        <div class="ebook-hero-icon">📚</div>
+        <h2 class="ebook-hero-title">AESF Sample Chapters</h2>
+        <p class="ebook-hero-subtitle">TIE 2023 Syllabus Aligned • Competence-Based • By Dr. James K Mushi, PhD</p>
+    </div>
+
+    <!-- Search & Stats Bar -->
+    <div class="ebook-controls">
+        <div class="ebook-search">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="chapter-search" placeholder="Search subjects, classes, or topics..." oninput="filterChapters()">
+        </div>
+        <div class="ebook-stats">
+            <div class="stat-item">
+                <span class="stat-number" id="stat-downloaded">0</span>
+                <span class="stat-label">Downloaded</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="stat-total">27</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="stat-progress">0%</span>
+                <span class="stat-label">Progress</span>
+            </div>
+        </div>
+        <div class="ebook-progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+    </div>
+
+    <!-- Class Filter Tabs -->
+    <div class="ebook-tabs">
+        <button class="ebook-tab active" onclick="showClass('all')" data-tab="all">All</button>
+        <button class="ebook-tab" onclick="showClass('preprimary')" data-tab="preprimary">Pre-Primary</button>
+        <button class="ebook-tab" onclick="showClass('std1_2')" data-tab="std1_2">Std I–II</button>
+        <button class="ebook-tab" onclick="showClass('std3_4')" data-tab="std3_4">Std III–IV</button>
+        <button class="ebook-tab" onclick="showClass('std5_6')" data-tab="std5_6">Std V–VI</button>
+    </div>
+
+    <!-- Chapters List -->
+    <div class="ebook-chapters" id="ebook-chapters">
+        <!-- Rendered by JavaScript -->
+    </div>
+</section>
+
+<!-- Download Modal -->
+<div class="ebook-modal" id="ebook-modal">
+    <div class="ebook-modal-content">
+        <div class="modal-icon">📄</div>
+        <h3 class="modal-title" id="modal-title">Downloading...</h3>
+        <p class="modal-desc" id="modal-desc">Your sample chapter is being prepared.</p>
+        <div class="modal-progress-container">
+            <div class="modal-progress-bar">
+                <div class="modal-progress-fill" id="modal-progress-fill"></div>
+            </div>
+            <span class="modal-progress-text" id="modal-progress-text">0%</span>
+        </div>
+        <div class="modal-info">
+            <p>📋 TIE 2023 Syllabus | Competence-Based</p>
+            <p>By Dr. James K Mushi, PhD</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
 </body> 
 </html>
