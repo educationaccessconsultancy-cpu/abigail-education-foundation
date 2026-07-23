@@ -6206,5 +6206,150 @@ a[aria-label="Chat with AESF on WhatsApp"] {
         <button class="modal-close-btn" onclick="closeModal()">Close</button>
     </div>
 </div>
+<script>
+// ====== E-BOOK SECTION DATA & LOGIC ======
+
+const chapters = [
+    { id: 'reading_preprimary', name: 'Reading & Storytelling', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'reading stories phonics letters', desc: 'Letter sounds, Picture books, Rhymes', icon: '📖' },
+    { id: 'writing_preprimary', name: 'Writing & Early Literacy', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'writing tracing letters drawing', desc: 'Tracing, Pattern drawing, Name writing', icon: '✏️' },
+    { id: 'math_preprimary', name: 'Early Mathematics (3Rs)', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'math numbers counting shapes', desc: 'Counting, Shapes, Simple operations', icon: '🔢' },
+    { id: 'english_preprimary', name: 'Basic English Language', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'english greetings colors animals', desc: 'Greetings, Colors, Animals, Songs', icon: '🌍' },
+    { id: 'arts_preprimary', name: 'Culture, Arts & Sports', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'arts culture games music dance', desc: 'Traditional games, Drawing, Music', icon: '🎨' },
+    { id: 'health_preprimary', name: 'Health & Environment', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'health hygiene plants water safety', desc: 'Hygiene, Plants, Clean water, Safety', icon: '🌿' },
+    { id: 'reading_std1', name: 'Reading', class: 'std1_2', classLabel: 'Std I–II', tags: 'reading phonics fluency comprehension', desc: 'Phonics, Fluency, Comprehension', icon: '📖' },
+    { id: 'writing_std1', name: 'Writing', class: 'std1_2', classLabel: 'Std I–II', tags: 'writing sentences paragraphs creative', desc: 'Sentences, Paragraphs, Creative writing', icon: '✏️' },
+    { id: 'arithmetic_std1', name: 'Arithmetic', class: 'std1_2', classLabel: 'Std I–II', tags: 'math arithmetic numbers operations', desc: 'Numbers, Operations, Word problems', icon: '🔢' },
+    { id: 'english_std1', name: 'Basic English Language Skills', class: 'std1_2', classLabel: 'Std I–II', tags: 'english listening speaking literacy', desc: 'Listening, Speaking, Early literacy', icon: '🌍' },
+    { id: 'culture_std1', name: 'Culture, Arts & Sports', class: 'std1_2', classLabel: 'Std I–II', tags: 'culture tanzanian games art', desc: 'Tanzanian culture, Games, Art', icon: '🎭' },
+    { id: 'health_std1', name: 'Health & Environment', class: 'std1_2', classLabel: 'Std I–II', tags: 'health environment personal safety', desc: 'Personal health, Environment care, Safety', icon: '🌿' },
+    { id: 'kiswahili_std3', name: 'Kiswahili', class: 'std3_4', classLabel: 'Std III–IV', tags: 'kiswahili fasihi sarufi insha', desc: 'Fasihi, Sarufi, Insha, Mawasiliano', icon: '🇹🇿' },
+    { id: 'english_std3', name: 'English Language', class: 'std3_4', classLabel: 'Std III–IV', tags: 'english grammar reading writing', desc: 'Grammar, Reading, Writing, Speaking', icon: '🌍' },
+    { id: 'math_std3', name: 'Mathematics', class: 'std3_4', classLabel: 'Std III–IV', tags: 'math numbers geometry measurement', desc: 'Numbers, Geometry, Measurement, Data', icon: '🔢' },
+    { id: 'science_std3', name: 'Science & Technology', class: 'std3_4', classLabel: 'Std III–IV', tags: 'science living things matter energy', desc: 'Living things, Matter, Energy, Environment', icon: '🔬' },
+    { id: 'social_std3', name: 'Social Studies', class: 'std3_4', classLabel: 'Std III–IV', tags: 'social studies family community map', desc: 'Family, Community, Map skills, Resources', icon: '🗺️' },
+    { id: 'civic_std3', name: 'Civic & Moral Education', class: 'std3_4', classLabel: 'Std III–IV', tags: 'civic rights responsibilities ethics', desc: 'Rights, Responsibilities, Ethics, Citizenship', icon: '⚖️' },
+    { id: 're_std3', name: 'Religious Education', class: 'std3_4', classLabel: 'Std III–IV', tags: 'religion bible islamic studies', desc: 'Bible Knowledge / Islamic Studies', icon: '🙏' },
+    { id: 'kiswahili_std5', name: 'Kiswahili', class: 'std5_6', classLabel: 'Std V–VI', tags: 'kiswahili fasihi sarufi insha uchanganuzi', desc: 'Fasihi, Sarufi, Insha, Uchanganuzi', icon: '🇹🇿' },
+    { id: 'english_std5', name: 'English Language', class: 'std5_6', classLabel: 'Std V–VI', tags: 'english advanced grammar comprehension', desc: 'Advanced grammar, Comprehension, Composition', icon: '🌍' },
+    { id: 'math_std5', name: 'Mathematics', class: 'std5_6', classLabel: 'Std V–VI', tags: 'math algebra fractions geometry statistics', desc: 'Algebra, Fractions, Geometry, Statistics', icon: '🔢' },
+    { id: 'science_std5', name: 'Science & Technology', class: 'std5_6', classLabel: 'Std V–VI', tags: 'science human body ecosystem forces ict', desc: 'Human body, Ecosystem, Forces, ICT basics', icon: '🔬' },
+    { id: 'social_std5', name: 'Social Studies', class: 'std5_6', classLabel: 'Std V–VI', tags: 'social tanzania history geography economics', desc: 'Tanzania history, Geography, Economics', icon: '🗺️' },
+    { id: 'civic_std5', name: 'Civic & Moral Education', class: 'std5_6', classLabel: 'Std V–VI', tags: 'civic democracy leadership anti-corruption', desc: 'Democracy, Leadership, Anti-corruption, Rights', icon: '⚖️' },
+    { id: 're_std5', name: 'Religious Education', class: 'std5_6', classLabel: 'Std V–VI', tags: 'religion bible islamic studies', desc: 'Bible Knowledge / Islamic Studies', icon: '🙏' },
+    { id: 'vocational_std5', name: 'Vocational Skills', class: 'std5_6', classLabel: 'Std V–VI', tags: 'vocational entrepreneurship agriculture crafts', desc: 'Entrepreneurship, Agriculture, Crafts, ICT', icon: '🛠️' },
+];
+
+let downloadedChapters = new Set(JSON.parse(localStorage.getItem('aesf_downloaded') || '[]'));
+let currentFilter = 'all';
+let currentSearch = '';
+
+function getClassEmoji(label) {
+    if (label.includes('Pre')) return '🧸';
+    if (label.includes('I–II')) return '📗';
+    if (label.includes('III–IV')) return '📘';
+    if (label.includes('V–VI')) return '📕';
+    return '📚';
+}
+
+function saveDownloads() {
+    localStorage.setItem('aesf_downloaded', JSON.stringify([...downloadedChapters]));
+}
+
+function updateStats() {
+    const total = chapters.length;
+    const downloaded = downloadedChapters.size;
+    const pct = total > 0 ? Math.round((downloaded / total) * 100) : 0;
+    document.getElementById('stat-downloaded').textContent = downloaded;
+    document.getElementById('stat-total').textContent = total;
+    document.getElementById('stat-progress').textContent = pct + '%';
+    document.getElementById('progress-fill').style.width = pct + '%';
+}
+
+function renderChapters() {
+    const container = document.getElementById('ebook-chapters');
+    container.innerHTML = '';
+    let filtered = chapters;
+    if (currentFilter !== 'all') filtered = filtered.filter(c => c.class === currentFilter);
+    if (currentSearch) {
+        const searchLower = currentSearch.toLowerCase();
+        filtered = filtered.filter(c => c.name.toLowerCase().includes(searchLower) || c.tags.toLowerCase().includes(searchLower) || c.classLabel.toLowerCase().includes(searchLower));
+    }
+    const grouped = {};
+    filtered.forEach(c => { if (!grouped[c.classLabel]) grouped[c.classLabel] = []; grouped[c.classLabel].push(c); });
+    Object.keys(grouped).forEach(classLabel => {
+        const header = document.createElement('div');
+        header.className = 'ebook-class-header';
+        header.innerHTML = `<span>${getClassEmoji(classLabel)}</span> ${classLabel} Subjects`;
+        container.appendChild(header);
+        grouped[classLabel].forEach(chapter => {
+            const isDownloaded = downloadedChapters.has(chapter.id);
+            const card = document.createElement('div');
+            card.className = 'ebook-card';
+            card.innerHTML = `<div class="ebook-card-content"><div class="ebook-card-info"><h3 class="ebook-card-title">${chapter.icon} ${chapter.name}</h3><p class="ebook-card-class">${chapter.classLabel}</p><p class="ebook-card-desc">✓ ${chapter.desc}</p>${isDownloaded ? '<p class="ebook-card-status">✓ Downloaded • Available offline</p>' : ''}</div><button class="ebook-download-btn ${isDownloaded ? 'saved' : ''}" onclick="downloadChapter('${chapter.id}')">${isDownloaded ? '✓ Saved' : '⬇ PDF'}</button></div>`;
+            container.appendChild(card);
+        });
+    });
+    if (filtered.length === 0) container.innerHTML = `<div class="ebook-empty"><div class="ebook-empty-icon">🔍</div><h3 class="ebook-empty-title">No chapters found</h3><p class="ebook-empty-desc">Try a different search term</p></div>`;
+    updateStats();
+}
+
+function showClass(className) {
+    currentFilter = className;
+    document.querySelectorAll('.ebook-tab').forEach(el => el.classList.remove('active'));
+    document.querySelector(`.ebook-tab[data-tab="${className}"]`).classList.add('active');
+    renderChapters();
+}
+
+function filterChapters() {
+    currentSearch = document.getElementById('chapter-search').value;
+    renderChapters();
+}
+
+function downloadChapter(chapterId) {
+    const chapter = chapters.find(c => c.id === chapterId);
+    const modal = document.getElementById('ebook-modal');
+    const progressFill = document.getElementById('modal-progress-fill');
+    const progressText = document.getElementById('modal-progress-text');
+    const title = document.getElementById('modal-title');
+    const desc = document.getElementById('modal-desc');
+    modal.classList.add('active');
+    title.textContent = chapter.name;
+    if (downloadedChapters.has(chapterId)) {
+        desc.textContent = 'This chapter is already downloaded and available offline.';
+        progressFill.style.width = '100%';
+        progressFill.classList.add('complete');
+        progressText.textContent = '100% • Saved';
+        return;
+    }
+    desc.textContent = 'Downloading your sample chapter...';
+    progressFill.style.width = '0%';
+    progressFill.classList.remove('complete');
+    progressText.textContent = '0%';
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.random() * 25;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            downloadedChapters.add(chapterId);
+            saveDownloads();
+            progressFill.style.width = '100%';
+            progressFill.classList.add('complete');
+            progressText.textContent = '100% • Complete!';
+            desc.textContent = 'Download complete! Your chapter is now available offline.';
+            renderChapters();
+        } else {
+            progressFill.style.width = progress + '%';
+            progressText.textContent = Math.round(progress) + '%';
+        }
+    }, 300);
+}
+
+function closeModal() {
+    document.getElementById('ebook-modal').classList.remove('active');
+}
+
+document.addEventListener('DOMContentLoaded', () => { renderChapters(); });
+</script>
 </body> 
 </html>
