@@ -7301,5 +7301,40 @@ updateReadStatus();
 </script>
 
 
+<script>
+  (function() {
+    // Clean up old duplicates
+    var oldCrdb = document.getElementById('crdbFloatBtn');
+    if (oldCrdb) oldCrdb.remove();
+    var oldAirtel = document.getElementById('airtelFloatBtn');
+    if (oldAirtel) oldAirtel.remove();
+
+    // CRDB floating button
+    var crdb = document.createElement('a');
+    crdb.id = 'crdbFloatBtn';
+    crdb.className = 'payment-float-crdb';
+    crdb.href = 'javascript:void(0)';
+    crdb.innerHTML = '<span style="font-size:20px;">🏦</span><span style="font-size:10px;">CRDB</span>';
+    crdb.onclick = function(e) {
+      e.preventDefault();
+      // Replace this with your CRDB modal open code
+      alert('CRDB Payment - Connect your modal here');
+    };
+    document.body.appendChild(crdb);
+
+    // Airtel floating button
+    var airtel = document.createElement('a');
+    airtel.id = 'airtelFloatBtn';
+    airtel.className = 'payment-float-airtel';
+    airtel.href = 'javascript:void(0)';
+    airtel.innerHTML = '<span style="font-size:20px;">📱</span><span style="font-size:10px;">Airtel</span>';
+    airtel.onclick = function(e) {
+      e.preventDefault();
+      // Replace this with your Airtel modal open code
+      alert('Airtel Payment - Connect your modal here');
+    };
+    document.body.appendChild(airtel);
+  })();
+</script>
 </body>
 </html>
