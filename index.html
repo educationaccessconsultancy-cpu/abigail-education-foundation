@@ -7361,10 +7361,10 @@ updateReadStatus();
     crdb.href = 'javascript:void(0)';
     crdb.innerHTML = '<span style="font-size:20px;">🏦</span><span style="font-size:10px;">CRDB</span>';
     crdb.onclick = function(e) {
-      e.preventDefault();
-      // Replace this with your CRDB modal open code
-      
-    };
+  e.preventDefault();
+  document.getElementById('crdb-modal-overlay').style.display = 'flex';
+};
+
     document.body.appendChild(crdb);
 
     // Airtel floating button
@@ -7374,10 +7374,10 @@ updateReadStatus();
     airtel.href = 'javascript:void(0)';
     airtel.innerHTML = '<span style="font-size:20px;">📱</span><span style="font-size:10px;">Airtel</span>';
     airtel.onclick = function(e) {
-      e.preventDefault();
-      // Replace this with your Airtel modal open code
-      
-    };
+  e.preventDefault();
+  document.getElementById('airtel-modal-overlay').style.display = 'flex';
+};
+
     document.body.appendChild(airtel);
   })();
 </script>
