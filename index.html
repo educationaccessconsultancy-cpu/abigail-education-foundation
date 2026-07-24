@@ -2302,34 +2302,40 @@ img[src*="flag"],
                     </div>
 
                     <!-- Pay Now Buttons -->
-                    <div style="margin-bottom: 16px;">
-                        <a id="airtelPayBtn" href="tel:*150*60#" style="display: block; width: 100%; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%); color: white; font-size: 16px; font-weight: 800; text-align: center; text-decoration: none; cursor: pointer; margin-bottom: 10px;">
-                            📱 Pay Now with Airtel Money
-                        </a>
-                        <a id="mpesaPayBtn" href="tel:*150*00#" style="display: block; width: 100%; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(135deg, #00A650 0%, #008C44 100%); color: white; font-size: 16px; font-weight: 800; text-align: center; text-decoration: none; cursor: pointer; margin-bottom: 10px;">
-                            💚 Pay Now with M-Pesa
-                        </a>
-                        <p style="margin: 0; font-size: 11px; opacity: 0.7; text-align: center;">Tapping opens mobile money menu automatically</p>
-                    </div>
+<div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 20px;">
+    
+    <!-- Bank Button -->
+    <a href="YOUR_BANK_LINK_HERE" style="
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: #0056b3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    ">
+        <img src="bank-icon.png" alt="Bank" style="width: 22px; height: 22px;">
+    </a>
+    
+    <!-- Airtel Money Button -->
+    <a href="YOUR_AIRTEL_LINK_HERE" style="
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: #e31e24;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    ">
+        <img src="airtel-icon.png" alt="Airtel Money" style="width: 22px; height: 22px;">
+    </a>
+    
+</div>
 
-                    <!-- Payment Methods Details -->
-                    <div style="background: rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.15);">
-                        <p style="margin: 0 0 14px; font-size: 14px; font-weight: 700; text-align: center;">💳 All Payment Methods</p>
-
-                        <!-- Airtel Money -->
-                        <div style="background: rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.1);">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #FF0000, #CC0000); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;">📱</div>
-                                <div>
-                                    <div style="font-size: 14px; font-weight: 700;">Airtel Money</div>
-                                    <div style="font-size: 11px; opacity: 0.7;">Mobile Money Transfer</div>
-                                </div>
-                            </div>
-                            <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 10px; font-size: 13px; font-family: monospace;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span>Number:</span> <strong>+255 788 698 126</strong></div>
-                                <div style="display: flex; justify-content: space-between;"><span>Name:</span> <strong>Abigail Eduaccess</strong></div>
-                            </div>
-                        </div>
 
                         <!-- M-Pesa -->
                         <div style="background: rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.1);">
