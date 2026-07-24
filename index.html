@@ -4247,6 +4247,142 @@ function resetEbookForm() {
     gap: 8px;
     animation: gentleFloat 3s ease-in-out infinite;
   }
+/* ===== FLOATING TOGGLE BUTTON ===== */
+.sanitary-float-toggle {
+  position: fixed;
+  left: 20px;
+  bottom: 180px;
+  width: 56px;
+  height: 56px;
+  background: #e07a5f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 9990;
+  box-shadow: 0 4px 16px rgba(224, 122, 95, 0.4);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.sanitary-float-toggle:hover {
+  transform: scale(1.1);
+  background: #c45c3e;
+}
+
+/* ===== POPUP CARD ===== */
+.sanitary-popup-card {
+  position: fixed;
+  left: 20px;
+  bottom: 250px;
+  width: 280px;
+  background: #fff0f3;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  z-index: 9989;
+  display: none;
+  border-left: 4px solid #e07a5f;
+}
+
+.sanitary-popup-card.active {
+  display: block;
+  animation: popupSlide 0.3s ease;
+}
+
+@keyframes popupSlide {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sanitary-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+}
+
+.sanitary-popup-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.sanitary-popup-heart {
+  width: 48px;
+  height: 48px;
+  background: #e07a5f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.sanitary-popup-header h4 {
+  margin: 0;
+  color: #c45c3e;
+  font-size: 16px;
+}
+
+.sanitary-popup-tagline {
+  margin: 2px 0 0;
+  color: #e07a5f;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sanitary-popup-text {
+  color: #666;
+  font-size: 13px;
+  margin: 0 0 14px;
+}
+
+.sanitary-popup-form input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.sanitary-popup-form button {
+  width: 100%;
+  padding: 12px;
+  background: #e07a5f;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.sanitary-popup-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
  /* ===== EMBEDDED PINK SUPPORT CARD ===== */
 .sanitary-embed-card {
   background: #fff0f3;
