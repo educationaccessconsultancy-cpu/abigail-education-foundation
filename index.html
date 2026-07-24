@@ -6965,5 +6965,60 @@ updateReadStatus();
     }
   });
 </script>
+<script>
+  function submitEmbedForm(e) {
+    e.preventDefault();
+    alert('Thank you! Your inquiry has been sent. We will respond within 24–48 hours.');
+    e.target.reset();
+    return false;
+  }
+
+  (function() {
+    function injectPinkCard() {
+      var headings = document.querySelectorAll('h2, h3, h4, p');
+      var targetSection = null;
+      
+      for (var i = 0; i < headings.length; i++) {
+        var text = headings[i].textContent || '';
+        if (text.includes('Menstrual Hygiene') || text.includes('Reducing absenteeism')) {
+          targetSection = headings[i].closest('div, section, article') || headings[i].parentElement;
+          break;
+        }
+      }
+      
+      if (!targetSection) return;
+      
+      var card = document.createElement('div');
+      card.className = 'sanitary-embed-card';
+      card.innerHTML = 
+        '<div class="sanitary-embed-header">' +
+          '<div class="sanitary-embed-heart">❤️</div>' +
+          '<div>' +
+            '<h4>Her period. Her dignity.</h4>' +
+            '<p class="sanitary-embed-tagline">We care.</p>' +
+          '</div>' +
+        '</div>' +
+        '<p class="sanitary-embed-text">Inquire about Menstrual Health Support</p>' +
+        '<form class="sanitary-embed-form" onsubmit="return submitEmbedForm(event)">' +
+          '<input type="text" placeholder="Your Name" required>' +
+          '<input type="email" placeholder="Email Address" required>' +
+          '<button type="submit">Send Inquiry</button>' +
+        '</form>';
+      
+      var list = targetSection.querySelector('ul');
+      if (list) {
+        list.parentNode.insertBefore(card, list.nextSibling);
+      } else {
+        targetSection.appendChild(card);
+      }
+    }
+    
+    if (document.readyState === 'complete') {
+      injectPinkCard();
+    } else {
+      window.addEventListener('load', injectPinkCard);
+    }
+  })();
+</script>
 </body>
 </html>
