@@ -6834,5 +6834,52 @@ updateReadStatus();
 
 </script>
 </div>
+<!-- Pink Float Widget -->
+<div class="sanitary-float-widget" id="sanitaryFloatWidget">
+  <button class="sanitary-float-tab" onclick="toggleSanitaryFloat()" aria-label="Menstrual Health Support">❤️</button>
+  <div class="sanitary-float-panel">
+    <div class="heart-icon">❤️</div>
+    <h4>Her period. Her dignity.</h4>
+    <p class="tagline">We care.</p>
+    <p class="subtext">Inquire about Menstrual Health Support</p>
+    <form class="mini-form" onsubmit="submitMiniForm(event)">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <button type="submit">Send Inquiry</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  /* ---- Inline button opens YOUR existing modal ---- */
+  function openSanitaryModal() {
+    var modal = document.getElementById('sanitaryInquiryModal');
+    if (modal) {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    document.getElementById('sanitaryFloatWidget').classList.remove('active');
+  }
+
+  /* ---- Pink Float Widget ---- */
+  function toggleSanitaryFloat() {
+    document.getElementById('sanitaryFloatWidget').classList.toggle('active');
+  }
+
+  function submitMiniForm(e) {
+    e.preventDefault();
+    alert('Thank you! Your inquiry has been sent. We will respond within 24–48 hours.');
+    e.target.reset();
+    document.getElementById('sanitaryFloatWidget').classList.remove('active');
+  }
+
+  /* Close float when clicking outside */
+  document.addEventListener('click', function(e) {
+    var widget = document.getElementById('sanitaryFloatWidget');
+    if (widget && !widget.contains(e.target)) {
+      widget.classList.remove('active');
+    }
+  });
+</script>
 </body>
 </html>
