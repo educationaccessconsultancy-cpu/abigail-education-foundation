@@ -7540,7 +7540,31 @@ function openAirtelModal(){document.getElementById('airtel-modal-overlay').style
     bottom: 62px !important;
   }
 }
-<!-- NEW PAYMENT BUTTONS -->
-<button onclick="var m=document.createElement('div');m.style='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:999999;display:flex;align-items:center;justify-content:center;padding:16px;';m.innerHTML='<div style=\'background:#fff;border-radius:16px;padding:20px;max-width:340px;width:100%;position:relative;\'><span onclick=\'this.parentElement.parentElement.remove()\' style=\'position:absolute;top:8px;right:14px;font-size:28px;cursor:pointer;\'>&times;</span><h3>CRDB Bank Deposit</h3><p><b>Account Name:</b> Abigail Eduaccess Shule Foundation</p><p><b>Account Number:</b> 0152001GH22M00</p><p><b>Bank:</b> CRDB Bank Tanzania</p></div>';m.onclick=function(e){if(e.target===m)m.remove()};document.body.appendChild(m);" style="position:fixed;bottom:15px;right:15px;width:50px;height:50px;border-radius:50%;background:#006747;color:#fff;border:3px solid #fff;z-index:9999;font-size:10px;font-weight:bold;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);">CRDB</button>
-
-<button onclick="var m=document.createElement('div');m.style='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:999999;display:flex;align-items:center;justify-content:center;padding:16px;';m.innerHTML='<div style=\'background:#fff;border-radius:16px;padding:20px;max-width:340px;width:100%;position:relative;\'><span onclick=\'this.parentElement.parentElement.remove()\' style=\'position:absolute;top:8px;right:14px;font-size:28px;cursor:pointer;\'>&times;</span><h3>Airtel Payment</h3><p><b>Account Name:</b> Abigail Eduaccess Shule Foundation</p><p><b>Airtel Money:</b> +255788698126</p></div>';m.onclick=function(e){if(e.target===m)m.remove()};document.body.appendChild(m);" style="position:fixed;bottom:72px;right:15px;width:50px;height:50px;border-radius:50%;background:#e4002b;color:#fff;border:3px solid #fff;z-index:9999;font-size:10px;font-weight:bold;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);">Airtel</button>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var crdbBtn = document.querySelector('.crdb-ball');
+  var crdbPopup = document.getElementById('crdb-popup');
+  if(crdbBtn && crdbPopup){
+    crdbBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      crdbPopup.classList.add('active');
+    });
+  }
+  
+  var airtelBtn = document.querySelector('.airtel-ball');
+  var airtelPopup = document.getElementById('airtel-popup');
+  if(airtelBtn && airtelPopup){
+    airtelBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      airtelPopup.classList.add('active');
+    });
+  }
+  
+  var closeBtns = document.querySelectorAll('.close-btn');
+  for(var i=0; i<closeBtns.length; i++){
+    closeBtns[i].addEventListener('click', function(){
+      this.parentElement.classList.remove('active');
+    });
+  }
+});
+</script>
