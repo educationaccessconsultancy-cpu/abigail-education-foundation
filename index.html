@@ -7487,30 +7487,25 @@ updateReadStatus();
 function openCrdbModal(){document.getElementById('crdb-modal-overlay').style.display='flex';}
 function openAirtelModal(){document.getElementById('airtel-modal-overlay').style.display='flex';}
 </script>
-<style>
-/* ===== MOBILE ONLY: Fix floating buttons on small screens ===== */
-@media (max-width: 768px) {
-  .payment-float-crdb,
-  .payment-float-airtel,
-  .whatsapp-float,
-  .sanitary-float-toggle,
-  .floating-action-btn,
-  #crdbFloatBtn,
-  #airtelFloatBtn,
-  [id*="Float"],
-  [class*="float"] {
-/* HIDE OLD PAYMENT BUTTONS */
+/* NUCLEAR OPTION - Hide all payment buttons */
+.payment-float-crdb,
+.payment-float-airtel,
 .crdb-ball,
 .airtel-ball,
-.payment-balls {
+.payment-balls,
+.pay-ball,
+[id*="crdb"],
+[id*="airtel"],
+[class*="crdb"],
+[class*="airtel"],
+[class*="payment-ball"],
+[class*="pay-ball"] {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
 }
-  } <!-- PAYMENT INFORMATION -->
-<div style="position:fixed;bottom:0;right:0;background:#fff;border-top:3px solid #006747;border-left:3px solid #006747;border-radius:12px 0 0 0;padding:12px 16px;z-index:999;font-size:13px;font-family:sans-serif;box-shadow:0 -2px 10px rgba(0,0,0,0.1);max-width:280px;">
-  <p style="margin:0 0 6px 0;font-weight:bold;color:#006747;">💳 CRDB Bank</p>
-  <p style="margin:0 0 2px 0;color:#333;">Abigail Eduaccess Shule Foundation</p>
-  <p style="margin:0 0 8px 0;color:#333;font-weight:bold;">0152001GH22M00</p>
-  <p style="margin:0 0 6px 0;font-weight:bold;color:#e4002b;">📱 Airtel Money</p>
-  <p style="margin:0 0 2px 0;color:#333;">Abigail Eduaccess Shule Foundation</p>
-  <p style="margin:0;color:#333;font-weight:bold;">+255788698126</p>
-</div>
