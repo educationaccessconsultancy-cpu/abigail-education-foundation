@@ -7499,72 +7499,12 @@ function openAirtelModal(){document.getElementById('airtel-modal-overlay').style
   #airtelFloatBtn,
   [id*="Float"],
   [class*="float"] {
-    position: fixed !important;
-    width: 44px !important;
-    height: 44px !important;
-    z-index: 999 !important;
-    top: auto !important;
-  }
-
-  /* RIGHT side - CRDB & Airtel */
-  .payment-float-crdb,
-  #crdbFloatBtn,
-  [class*="crdb"] {
-    right: 12px !important;
-    left: auto !important;
-    bottom: 12px !important;
-  }
-
-  .payment-float-airtel,
-  #airtelFloatBtn,
-  [class*="airtel"] {
-    right: 12px !important;
-    left: auto !important;
-    bottom: 62px !important;
-  }
-
-  /* LEFT side - WhatsApp, Phone, Heart */
-  .whatsapp-float,
-  [class*="whatsapp"] {
-    left: 12px !important;
-    right: auto !important;
-    bottom: 12px !important;
-  }
-
-  .sanitary-float-toggle,
-  [class*="sanitary"],
-  [class*="phone"],
-  [class*="heart"] {
-    left: 12px !important;
-    right: auto !important;
-    bottom: 62px !important;
-  }
-}
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  var crdbBtn = document.querySelector('.crdb-ball');
-  var crdbPopup = document.getElementById('crdb-popup');
-  if(crdbBtn && crdbPopup){
-    crdbBtn.addEventListener('click', function(e){
-      e.preventDefault();
-      crdbPopup.classList.add('active');
-    });
-  }
-  
-  var airtelBtn = document.querySelector('.airtel-ball');
-  var airtelPopup = document.getElementById('airtel-popup');
-  if(airtelBtn && airtelPopup){
-    airtelBtn.addEventListener('click', function(e){
-      e.preventDefault();
-      airtelPopup.classList.add('active');
-    });
-  }
-  
-  var closeBtns = document.querySelectorAll('.close-btn');
-  for(var i=0; i<closeBtns.length; i++){
-    closeBtns[i].addEventListener('click', function(){
-      this.parentElement.classList.remove('active');
-    });
-  }
-});
-</script>
+    <!-- PAYMENT INFORMATION -->
+<div style="position:fixed;bottom:0;right:0;background:#fff;border-top:3px solid #006747;border-left:3px solid #006747;border-radius:12px 0 0 0;padding:12px 16px;z-index:999;font-size:13px;font-family:sans-serif;box-shadow:0 -2px 10px rgba(0,0,0,0.1);max-width:280px;">
+  <p style="margin:0 0 6px 0;font-weight:bold;color:#006747;">💳 CRDB Bank</p>
+  <p style="margin:0 0 2px 0;color:#333;">Abigail Eduaccess Shule Foundation</p>
+  <p style="margin:0 0 8px 0;color:#333;font-weight:bold;">0152001GH22M00</p>
+  <p style="margin:0 0 6px 0;font-weight:bold;color:#e4002b;">📱 Airtel Money</p>
+  <p style="margin:0 0 2px 0;color:#333;">Abigail Eduaccess Shule Foundation</p>
+  <p style="margin:0;color:#333;font-weight:bold;">+255788698126</p>
+</div>
