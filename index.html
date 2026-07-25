@@ -7499,22 +7499,45 @@ function openAirtelModal(){document.getElementById('airtel-modal-overlay').style
     bottom: 62px !important;
   }
 }
-</style>
 <script>
-(function(){
-  function initPaymentButtons(){
-    var body = document.body;
+document.addEventListener('DOMContentLoaded', function(){
+  setTimeout(function(){
+    var crdbBtn = document.querySelector('.payment-float-crdb');
+    var airtelBtn = document.querySelector('.payment-float-airtel');
     
-    // Create CRDB modal if missing
-    var cm = document.getElementById('crdb-modal-overlay');
-    if(!cm){
-      cm = document.createElement('div');
-      cm.id = 'crdb-modal-overlay';
-      cm.style.cssText = 'display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;justify-content:center;align-items:center;padding:20px;';
-      cm.innerHTML = '<div style="background:#fff;border-radius:16px;padding:24px;width:90%;max-width:380px;position:relative;"><span style="position:absolute;top:12px;right:16px;font-size:24px;cursor:pointer;" onclick="document.getElementById(\'crdb-modal-overlay\').style.display=\'none\'">&times;</span><h3>CRDB Bank Deposit</h3><p><b>Account Name:</b> Abigail Eduaccess Foundation</p><p><b>Account Number:</b> 0152001GH22M00</p><p><b>Bank:</b> CRDB Bank Tanzania</p></div>';
-      cm.onclick = function(e){if(e.target===cm)cm.style.display='none';};
-      body.appendChild(cm);
+    function showModal(title, html){
+      var m = document.createElement('div');
+      m.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;';
+      m.innerHTML = '<div style="background:#fff;border-radius:16px;padding:24px;max-width:360px;width:100%;position:relative;">' +
+        '<span style="position:absolute;top:10px;right:14px;font-size:28px;cursor:pointer;">&times;</span>' +
+        '<h3 style="margin-top:0;color:#333;">' + title + '</h3>' + html + '</div>';
+      m.querySelector('span').onclick = function(){m.remove();};
+      m.onclick = function(e){if(e.target===m)m.remove();};
+      document.body.appendChild(m);
     }
+    
+    if(crdbBtn){
+      crdbBtn.onclick = function(e){
+        e.preventDefault(); e.stopPropagation();
+        showModal('CRDB Bank Deposit', 
+          '<p><b>Account Name:</b> Abigail Eduaccess Foundation</p>' +
+          '<p><b>Account Number:</b> 0152001GH22M00</p>' +
+          '<p><b>Bank:</b> CRDB Bank Tanzania</p>');
+      };
+    }
+    
+    if(airtelBtn){
+      airtelBtn.onclick = function(e){
+        e.preventDefault(); e.stopPropagation();
+        showModal('Airtel Payment', 
+          '<p><b>Account Name:</b> Abigail Eduaccess Foundation</p>' +
+          '<p><b>Airtel Money:</b> +255788698126</p>');
+      };
+    }
+  }, 1500);
+});
+</script>
+
     
     // Create Airtel modal if missing
     var am = document.getElementById('airtel-modal-overlay');
