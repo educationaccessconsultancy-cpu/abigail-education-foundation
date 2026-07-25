@@ -7446,5 +7446,57 @@ updateReadStatus();
 function openCrdbModal(){document.getElementById('crdb-modal-overlay').style.display='flex';}
 function openAirtelModal(){document.getElementById('airtel-modal-overlay').style.display='flex';}
 </script>
-</body>
-</html>
+<style>
+/* ===== MOBILE ONLY: Fix floating buttons on small screens ===== */
+@media (max-width: 768px) {
+  .payment-float-crdb,
+  .payment-float-airtel,
+  .whatsapp-float,
+  .sanitary-float-toggle,
+  .floating-action-btn,
+  #crdbFloatBtn,
+  #airtelFloatBtn,
+  [id*="Float"],
+  [class*="float"] {
+    position: fixed !important;
+    width: 44px !important;
+    height: 44px !important;
+    z-index: 999 !important;
+    top: auto !important;
+  }
+
+  /* RIGHT side - CRDB & Airtel */
+  .payment-float-crdb,
+  #crdbFloatBtn,
+  [class*="crdb"] {
+    right: 12px !important;
+    left: auto !important;
+    bottom: 12px !important;
+  }
+
+  .payment-float-airtel,
+  #airtelFloatBtn,
+  [class*="airtel"] {
+    right: 12px !important;
+    left: auto !important;
+    bottom: 62px !important;
+  }
+
+  /* LEFT side - WhatsApp, Phone, Heart */
+  .whatsapp-float,
+  [class*="whatsapp"] {
+    left: 12px !important;
+    right: auto !important;
+    bottom: 12px !important;
+  }
+
+  .sanitary-float-toggle,
+  [class*="sanitary"],
+  [class*="phone"],
+  [class*="heart"] {
+    left: 12px !important;
+    right: auto !important;
+    bottom: 62px !important;
+  }
+}
+</style>
