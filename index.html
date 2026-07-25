@@ -4399,7 +4399,7 @@ function resetEbookForm() {
   font-size: 11px;
   font-weight: 700;
   cursor: pointer;
-  z-index: 9990;
+    z-index: 9990;
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
   border: 3px solid #fff;
   text-decoration: none;
@@ -4409,6 +4409,55 @@ function resetEbookForm() {
   gap: 2px;
   transition: all 0.3s ease;
 }
+
+/* ===== FIX FLOATING BUTTON SIZES & POSITIONS ===== */
+.payment-float-crdb,
+.payment-float-airtel,
+.sanitary-float-toggle {
+  width: 48px !important;
+  height: 48px !important;
+  font-size: 10px !important;
+}
+
+.payment-float-crdb {
+  bottom: 20px !important;
+  right: 15px !important;
+}
+
+.payment-float-airtel {
+  bottom: 75px !important;
+  right: 15px !important;
+}
+
+.whatsapp-float {
+  width: 50px !important;
+  height: 50px !important;
+  bottom: 140px !important;
+  left: 15px !important;
+  z-index: 100 !important;
+}
+
+.floating-action-btn,
+[class*="float"] {
+  max-width: 56px !important;
+  max-height: 56px !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+section, div {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
 
 .payment-float-crdb {
   bottom: 400px;
