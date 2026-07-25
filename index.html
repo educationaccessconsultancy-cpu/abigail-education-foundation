@@ -7500,21 +7500,70 @@ function openAirtelModal(){document.getElementById('airtel-modal-overlay').style
   }
 }
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-  setTimeout(function(){
-    var crdbBtn = document.querySelector('.payment-float-crdb');
-    var airtelBtn = document.querySelector('.payment-float-airtel');
+(function(){
+  // Create modal popup function
+  function showPopup(title, content){
+    var overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:999999;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;';
     
-    function showModal(title, html){
-      var m = document.createElement('div');
-      m.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;';
-      m.innerHTML = '<div style="background:#fff;border-radius:16px;padding:24px;max-width:360px;width:100%;position:relative;">' +
-        '<span style="position:absolute;top:10px;right:14px;font-size:28px;cursor:pointer;">&times;</span>' +
-        '<h3 style="margin-top:0;color:#333;">' + title + '</h3>' + html + '</div>';
-      m.querySelector('span').onclick = function(){m.remove();};
-      m.onclick = function(e){if(e.target===m)m.remove();};
-      document.body.appendChild(m);
+    var box = document.createElement('div');
+    box.style.cssText = 'background:#fff;border-radius:16px;padding:20px;width:100%;max-width:340px;position:relative;font-family:sans-serif;';
+    
+    var close = document.createElement('span');
+    close.innerHTML = '&times;';
+    close.style.cssText = 'position:absolute;top:8px;right:12px;font-size:26px;cursor:pointer;color:#666;';
+    close.onclick = function(){document.body.removeChild(overlay);};
+    
+    var h3 = document.createElement('h3');
+    h3.innerText = title;
+    h3.style.cssText = 'margin:0 0 12px 0;color:#222;font-size:18px;';
+    
+    var body = document.createElement('div');
+    body.innerHTML = content;
+    body.style.cssText = 'color:#444;line-height:1.6;font-size:14px;';
+    
+    box.appendChild(close);
+    box.appendChild(h3);
+    box.appendChild(body);
+    overlay.appendChild(box);
+    
+    overlay.onclick = function(e){if(e.target===overlay)document.body.removeChild(overlay);};
+    document.body.appendChild(overlay);
+  }
+  
+  // Event delegation — catches ALL clicks on payment buttons
+  document.addEventListener('click', function(e){
+    var el = e.target;
+    
+    // Walk up the DOM to find if a payment button was clicked
+    while(el && el !== document.body){
+      var cls = el.className || '';
+      
+      if(cls.indexOf('payment-float-crdb') !== -1 || cls.indexOf('crdb') !== -1){
+        e.preventDefault();
+        e.stopPropagation();
+        showPopup('CRDB Bank Deposit', 
+          '<p><b>Account Name:</b> Abigail Eduaccess Foundation</p>' +
+          '<p><b>Account Number:</b> 0152001GH22M00</p>' +
+          '<p><b>Bank:</b> CRDB Bank Tanzania</p>');
+        return false;
+      }
+      
+      if(cls.indexOf('payment-float-airtel') !== -1 || cls.indexOf('airtel') !== -1){
+        e.preventDefault();
+        e.stopPropagation();
+        showPopup('Airtel Payment', 
+          '<p><b>Account Name:</b> Abigail Eduaccess Foundation</p>' +
+          '<p><b>Airtel Money:</b> +255788698126</p>');
+        return false;
+      }
+      
+      el = el.parentElement;
     }
+  }, true); // true = capture phase, runs BEFORE other handlers
+})();
+</script>
+
     
     if(crdbBtn){
       crdbBtn.onclick = function(e){
