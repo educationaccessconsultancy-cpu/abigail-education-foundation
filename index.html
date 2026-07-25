@@ -7500,3 +7500,51 @@ function openAirtelModal(){document.getElementById('airtel-modal-overlay').style
   }
 }
 </style>
+<script>
+(function() {
+  // Only run on mobile phones
+  if (window.innerWidth > 768) return;
+  
+  function fixButtons() {
+    // Find ALL small fixed-position elements (buttons, not modals)
+    var all = document.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      var rect = el.getBoundingClientRect();
+      var style = window.getComputedStyle(el);
+      
+      // Only target small circular buttons (not modals/overlays)
+      if (style.position === 'fixed' && 
+          rect.width > 30 && rect.width < 100 && 
+          rect.height > 30 && rect.height < 100 &&
+          !el.className.includes('modal') &&
+          !el.id.includes('modal') &&
+          !el.className.includes('overlay')) {
+        
+        // Force to bottom
+        el.style.setProperty('position', 'fixed', 'important');
+        el.style.setProperty('width', '44px', 'important');
+        el.style.setProperty('height', '44px', 'important');
+        el.style.setProperty('top', 'auto', 'important');
+        
+        // Left side buttons
+        if (rect.left < window.innerWidth / 2) {
+          el.style.setProperty('left', '12px', 'important');
+          el.style.setProperty('right', 'auto', 'important');
+          el.style.setProperty('bottom', '62px', 'important');
+        } 
+        // Right side buttons (already fixed, but ensure)
+        else {
+          el.style.setProperty('right', '12px', 'important');
+          el.style.setProperty('left', 'auto', 'important');
+          el.style.setProperty('bottom', '62px', 'important');
+        }
+      }
+    }
+  }
+  
+  // Run after page loads
+  setTimeout(fixButtons, 500);
+  setTimeout(fixButtons, 2000);
+})();
+</script>
