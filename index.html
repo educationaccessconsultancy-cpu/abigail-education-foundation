@@ -3974,7 +3974,91 @@ function resetEbookForm() {
         <p style="color: #a0c4e8; font-size: 1.1rem; margin-bottom: 2rem;">2-hour online sessions in Economics, English & Geography</p>
         
         <div style="max-width: 600px; margin: 0 auto;">
-            <img src="Screenshot_20260721_171348_Photos.jpg" style="max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 12px;"
+<!-- Live Pink Clock -->
+<div class="live-pink-clock">
+  <svg viewBox="0 0 200 200" class="clock-face">
+    <!-- Clock circle -->
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#ff6b9d" stroke-width="6"/>
+    <!-- Hour marks -->
+    <g id="hourMarks"></g>
+    <!-- Hour hand -->
+    <line id="hourHand" x1="100" y1="100" x2="100" y2="55" stroke="#c44569" stroke-width="5" stroke-linecap="round"/>
+    <!-- Minute hand -->
+    <line id="minuteHand" x1="100" y1="100" x2="100" y2="35" stroke="#ff6b9d" stroke-width="4" stroke-linecap="round"/>
+    <!-- Second hand -->
+    <line id="secondHand" x1="100" y1="100" x2="100" y2="30" stroke="#ff1744" stroke-width="2" stroke-linecap="round"/>
+    <!-- Center dot -->
+    <circle cx="100" cy="100" r="6" fill="#c44569"/>
+  </svg>
+</div>
+
+<style>
+.live-pink-clock {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  display: block;
+}
+.clock-face {
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+<script>
+(function() {
+  var hourMarks = document.getElementById('hourMarks');
+  if (hourMarks) {
+    for (var i = 0; i < 12; i++) {
+      var angle = (i * 30 - 90) * Math.PI / 180;
+      var x1 = 100 + 75 * Math.cos(angle);
+      var y1 = 100 + 75 * Math.sin(angle);
+      var x2 = 100 + 85 * Math.cos(angle);
+      var y2 = 100 + 85 * Math.sin(angle);
+      var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', x1);
+      line.setAttribute('y1', y1);
+      line.setAttribute('x2', x2);
+      line.setAttribute('y2', y2);
+      line.setAttribute('stroke', '#ff6b9d');
+      line.setAttribute('stroke-width', '3');
+      hourMarks.appendChild(line);
+    }
+  }
+  
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours() % 12;
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    
+    var hourAngle = (hours * 30 + minutes * 0.5 - 90) * Math.PI / 180;
+    var minuteAngle = (minutes * 6 + seconds * 0.1 - 90) * Math.PI / 180;
+    var secondAngle = (seconds * 6 - 90) * Math.PI / 180;
+    
+    var hourHand = document.getElementById('hourHand');
+    var minuteHand = document.getElementById('minuteHand');
+    var secondHand = document.getElementById('secondHand');
+    
+    if (hourHand) {
+      hourHand.setAttribute('x2', 100 + 45 * Math.cos(hourAngle));
+      hourHand.setAttribute('y2', 100 + 45 * Math.sin(hourAngle));
+    }
+    if (minuteHand) {
+      minuteHand.setAttribute('x2', 100 + 65 * Math.cos(minuteAngle));
+      minuteHand.setAttribute('y2', 100 + 65 * Math.sin(minuteAngle));
+    }
+    if (secondHand) {
+      secondHand.setAttribute('x2', 100 + 70 * Math.cos(secondAngle));
+      secondHand.setAttribute('y2', 100 + 70 * Math.sin(secondAngle));
+    }
+  }
+  
+  updateClock();
+  setInterval(updateClock, 1000);
+})();
+</script>
+
 
 
 
