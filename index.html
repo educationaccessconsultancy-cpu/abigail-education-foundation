@@ -7545,170 +7545,340 @@ document.addEventListener('click',function(){
   if(a)a.style.display='none';
 });
 </script>
-<!-- Pink Sanitary Floating Button -->
-<div class="sanitary-float-btn" onclick="toggleSanitaryForm()">🩸</div>
+<!-- Pink Heart Floating Button -->
+<button class="pink-heart-btn" onclick="openPinkModal()">💗</button>
 
-<!-- Sanitary Form Modal -->
-<div class="sanitary-form-overlay" id="sanitaryOverlay" onclick="if(event.target===this)toggleSanitaryForm()">
-  <div class="sanitary-form-modal">
-    <button class="sanitary-close" onclick="toggleSanitaryForm()">×</button>
-    <div class="sanitary-form-inner">
-      <div class="sanitary-sidebar">
-        <button class="sanitary-nav-btn green" onclick="showForm('ebook')">📚 E-Book</button>
-        <button class="sanitary-nav-btn pink" onclick="showForm('pads')">🩸 Sanitary</button>
-        <button class="sanitary-nav-btn blue" onclick="showForm('contacts')">📞 Contacts</button>
-        <button class="sanitary-nav-btn purple" onclick="showForm('programmes')">🎓 Programmes</button>
+<!-- Pink Modal -->
+<div id="pinkModal" onclick="if(event.target===this)closePinkModal()">
+  <div class="pink-modal-box">
+    <button class="pink-close" onclick="closePinkModal()">×</button>
+    
+    <!-- Header Message -->
+    <div class="pink-header">
+      <span class="pink-heart-icon">💗</span>
+      <p>Her period. Her dignity. We care.</p>
+    </div>
+    
+    <div class="pink-inner">
+      <!-- Left 4 Buttons -->
+      <div class="pink-sidebar">
+        <button class="pink-nav green" onclick="switchPinkTab('ebook')">📚 E-Book</button>
+        <button class="pink-nav pink-active" onclick="switchPinkTab('pads')">🩸 Sanitary</button>
+        <button class="pink-nav blue" onclick="switchPinkTab('contacts')">📞 Contacts</button>
+        <button class="pink-nav purple" onclick="switchPinkTab('programmes')">🎓 Programmes</button>
       </div>
-      <div class="sanitary-content" id="sanitaryContent">
-        <h3>💜 Request Sanitary Pads</h3>
-        <p>Every girl deserves dignity, health, and uninterrupted education.</p>
-        <form onsubmit="event.preventDefault(); alert('Request sent!'); toggleSanitaryForm();">
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Email Address" required>
-          <input type="tel" placeholder="Phone Number">
-          <textarea placeholder="Message (optional)"></textarea>
-          <button type="submit" class="sanitary-submit">Submit Request</button>
-        </form>
+      
+      <!-- Right Content Area -->
+      <div class="pink-content" id="pinkContent">
+        
+        <!-- E-BOOK TAB -->
+        <div id="tab-ebook" class="pink-tab" style="display:none;">
+          <h3>📚 Request E-Books</h3>
+          <p>Quality TIE curriculum e-books from Baby Class to Grade 7.</p>
+          <form onsubmit="event.preventDefault();alert('E-book request sent! We will contact you shortly.');closePinkModal();">
+            <input type="text" placeholder="Student Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="tel" placeholder="Phone Number">
+            <select required>
+              <option value="">Select Grade</option>
+              <option>Baby Class</option>
+              <option>Middle Class</option>
+              <option>Top Class</option>
+              <option>Grade 1</option>
+              <option>Grade 2</option>
+              <option>Grade 3</option>
+              <option>Grade 4</option>
+              <option>Grade 5</option>
+              <option>Grade 6</option>
+              <option>Grade 7</option>
+            </select>
+            <button type="submit" class="pink-submit green-bg">Request E-Book</button>
+          </form>
+        </div>
+        
+        <!-- SANITARY PADS TAB -->
+        <div id="tab-pads" class="pink-tab">
+          <h3>💜 Request Sanitary Pads</h3>
+          <p>Free sanitary pad distribution for girls across all regions of Tanzania.</p>
+          <form onsubmit="event.preventDefault();alert('Sanitary pad request sent! We will respond within 24-48 hours.');closePinkModal();">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Email Address">
+            <input type="tel" placeholder="Phone Number" required>
+            <input type="text" placeholder="School / Region">
+            <textarea placeholder="Message (optional)"></textarea>
+            <button type="submit" class="pink-submit pink-bg">Submit Request</button>
+          </form>
+        </div>
+        
+        <!-- CONTACTS TAB -->
+        <div id="tab-contacts" class="pink-tab" style="display:none;">
+          <h3>📞 Contact Us</h3>
+          <p>Reach out for any inquiries or support.</p>
+          <form onsubmit="event.preventDefault();alert('Message sent! We will get back to you soon.');closePinkModal();">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="tel" placeholder="Phone Number">
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="pink-submit blue-bg">Send Message</button>
+          </form>
+          <div class="pink-contact-info">
+            <p>📧 educationaccessconsultancy@gmail.com</p>
+            <p>📱 +255 788 698 126</p>
+          </div>
+        </div>
+        
+        <!-- PROGRAMMES TAB -->
+        <div id="tab-programmes" class="pink-tab" style="display:none;">
+          <h3>🎓 Our Programmes</h3>
+          <p>Explore our educational support programmes.</p>
+          <form onsubmit="event.preventDefault();alert('Enquiry sent! We will contact you shortly.');closePinkModal();">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <select required>
+              <option value="">Select Programme</option>
+              <option>AS-Level Cambridge Homeschooling</option>
+              <option>School Support (Shoes, Uniforms, Bags)</option>
+              <option>Mentorship & Academic Guidance</option>
+              <option>Sanitary Pad Distribution</option>
+            </select>
+            <textarea placeholder="Tell us more about your interest"></textarea>
+            <button type="submit" class="pink-submit purple-bg">Enquire</button>
+          </form>
+        </div>
+        
+        <!-- PAYMENT INFO (shown in all tabs at bottom) -->
+        <div class="pink-payment">
+          <h4>💳 Make a Payment</h4>
+          <div class="pink-pay-row">
+            <span class="pink-pay-label">SimBanking CRDB:</span>
+            <span class="pink-pay-value">0152001GH2M00</span>
+          </div>
+          <div class="pink-pay-row">
+            <span class="pink-pay-label">Airtel Money:</span>
+            <span class="pink-pay-value">+255 788 698 126</span>
+          </div>
+          <div class="pink-pay-name">Abigail Eduaccess Shule Foundation</div>
+        </div>
+        
       </div>
     </div>
   </div>
 </div>
 
 <style>
-.sanitary-float-btn {
+.pink-heart-btn {
   position: fixed;
   bottom: 100px;
   right: 15px;
-  width: 55px;
-  height: 55px;
+  width: 56px;
+  height: 56px;
   background: linear-gradient(135deg, #ff6b9d, #c44569);
   border-radius: 50%;
+  border: 3px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  color: white;
+  font-size: 26px;
   cursor: pointer;
   z-index: 9998;
-  box-shadow: 0 4px 15px rgba(196, 69, 105, 0.4);
-  animation: sanitaryBounce 2s infinite;
+  box-shadow: 0 4px 20px rgba(196, 69, 105, 0.5);
+  animation: pinkBounce 2s infinite;
+  -webkit-tap-highlight-color: transparent;
 }
-@keyframes sanitaryBounce {
+@keyframes pinkBounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-12px); }
 }
-.sanitary-form-overlay {
+#pinkModal {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   z-index: 10000;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 12px;
 }
-.sanitary-form-overlay.active { display: flex; }
-.sanitary-form-modal {
+#pinkModal.active { display: flex; }
+.pink-modal-box {
   background: white;
   border-radius: 20px;
   width: 100%;
-  max-width: 600px;
-  max-height: 90vh;
+  max-width: 520px;
+  max-height: 92vh;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
-.sanitary-close {
+.pink-close {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 6px;
+  right: 12px;
   background: none;
   border: none;
   font-size: 28px;
   cursor: pointer;
   z-index: 10;
+  color: #666;
 }
-.sanitary-form-inner {
+.pink-header {
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  color: white;
+  text-align: center;
+  padding: 14px 20px 10px;
+  flex-shrink: 0;
+}
+.pink-header .pink-heart-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 4px;
+}
+.pink-header p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+.pink-inner {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  overflow: hidden;
+  flex: 1;
 }
-.sanitary-sidebar {
+.pink-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 20px 10px;
-  background: #f8f9fa;
-  min-width: 140px;
-}
-.sanitary-nav-btn {
-  border: none;
-  border-radius: 12px;
-  padding: 12px 8px;
-  font-size: 12px;
-  font-weight: 600;
-  color: white;
-  cursor: pointer;
-}
-.sanitary-nav-btn.green { background: #2e7d32; }
-.sanitary-nav-btn.pink { background: #c44569; }
-.sanitary-nav-btn.blue { background: #1976d2; }
-.sanitary-nav-btn.purple { background: #7b1fa2; }
-.sanitary-content {
-  flex: 1;
-  padding: 24px;
+  gap: 8px;
+  padding: 14px 10px;
+  background: #f8f8f8;
+  min-width: 130px;
   overflow-y: auto;
 }
-.sanitary-content h3 { margin: 0 0 8px 0; color: #c44569; }
-.sanitary-content p { margin: 0 0 16px 0; color: #666; font-size: 14px; }
-.sanitary-content input,
-.sanitary-content textarea,
-.sanitary-content select {
+.pink-nav {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
+.pink-nav.green { background: #2e7d32; }
+.pink-nav.pink-active { background: #c44569; box-shadow: 0 0 0 2px white, 0 0 0 4px #c44569; }
+.pink-nav.blue { background: #1976d2; }
+.pink-nav.purple { background: #7b1fa2; }
+.pink-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+.pink-tab h3 {
+  margin: 0 0 6px 0;
+  color: #333;
+  font-size: 16px;
+}
+.pink-tab p {
+  margin: 0 0 12px 0;
+  color: #666;
+  font-size: 13px;
+}
+.pink-tab input,
+.pink-tab select,
+.pink-tab textarea {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 10px;
   font-size: 14px;
   box-sizing: border-box;
+  font-family: inherit;
 }
-.sanitary-content textarea { min-height: 80px; resize: vertical; }
-.sanitary-submit {
+.pink-tab textarea { min-height: 60px; resize: vertical; }
+.pink-submit {
   width: 100%;
-  padding: 14px;
-  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  padding: 12px;
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   cursor: pointer;
+  margin-bottom: 14px;
 }
-@media (max-width: 600px) {
-  .sanitary-form-inner { flex-direction: column; }
-  .sanitary-sidebar {
+.green-bg { background: #2e7d32; }
+.pink-bg { background: linear-gradient(135deg, #ff6b9d, #c44569); }
+.blue-bg { background: #1976d2; }
+.purple-bg { background: #7b1fa2; }
+.pink-contact-info {
+  background: #e3f2fd;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+}
+.pink-contact-info p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #333;
+}
+.pink-payment {
+  border-top: 2px dashed #ddd;
+  padding-top: 12px;
+  margin-top: 4px;
+}
+.pink-payment h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 14px;
+}
+.pink-pay-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+.pink-pay-label { color: #666; font-weight: 600; }
+.pink-pay-value { color: #c44569; font-weight: 700; }
+.pink-pay-name {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  margin-top: 8px;
+  font-style: italic;
+}
+@media (max-width: 480px) {
+  .pink-inner { flex-direction: column; }
+  .pink-sidebar {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 12px;
+    padding: 10px;
     min-width: unset;
   }
-  .sanitary-nav-btn { flex: 1; min-width: 100px; }
+  .pink-nav { flex: 1; min-width: 70px; font-size: 10px; padding: 8px 4px; }
 }
 </style>
 
 <script>
-function toggleSanitaryForm() {
-  document.getElementById('sanitaryOverlay').classList.toggle('active');
+function openPinkModal() {
+  document.getElementById('pinkModal').classList.add('active');
+  document.getElementById('pinkModal').style.display = 'flex';
 }
-function showForm(type) {
-  var content = document.getElementById('sanitaryContent');
-  var forms = {
-    ebook: '<h3>📚 Request E-Books</h3><p>Quality education at your fingertips.</p><form onsubmit="event.preventDefault(); alert(\\'Request sent!\\'); toggleSanitaryForm();"><input type=\\'text\\' placeholder=\\'Your Name\\' required><input type=\\'email\\' placeholder=\\'Email\\' required><input type=\\'tel\\' placeholder=\\'Phone\\'><button type=\\'submit\\' class=\\'sanitary-submit\\'>Request E-Book</button></form>',
-    pads: '<h3>💜 Request Sanitary Pads</h3><p>Every girl deserves dignity, health, and uninterrupted education.</p><form onsubmit="event.preventDefault(); alert(\\'Request sent!\\'); toggleSanitaryForm();"><input type=\\'text\\' placeholder=\\'Your Name\\' required><input type=\\'email\\' placeholder=\\'Email Address\\' required><input type=\\'tel\\' placeholder=\\'Phone Number\\'><textarea placeholder=\\'Message (optional)\\'></textarea><button type=\\'submit\\' class=\\'sanitary-submit\\'>Submit Request</button></form>',
-    contacts: '<h3>📞 Contact Us</h3><p>Reach out for any inquiries.</p><form onsubmit="event.preventDefault(); alert(\\'Message sent!\\'); toggleSanitaryForm();"><input type=\\'text\\' placeholder=\\'Your Name\\' required><input type=\\'email\\' placeholder=\\'Email\\' required><textarea placeholder=\\'Your Message\\'></textarea><button type=\\'submit\\' class=\\'sanitary-submit\\'>Send Message</button></form>',
-    programmes: '<h3>🎓 Our Programmes</h3><p>Explore our educational support programmes.</p><form onsubmit=\\'event.preventDefault(); alert(\\'Enquiry sent!\\'); toggleSanitaryForm();\\'><input type=\\'text\\' placeholder=\\'Your Name\\' required><input type=\\'email\\' placeholder=\\'Email\\' required><select style=\\'width:100%;padding:12px;margin-bottom:12px;border:1px solid #ddd;border-radius:10px;\\'><option>AS-Level Cambridge</option><option>School Support</option><option>Mentorship</option></select><button type=\\'submit\\' class=\\'sanitary-submit\\'>Enquire</button></form>'
-  };
-  content.innerHTML = forms[type] || forms.pads;
+function closePinkModal() {
+  document.getElementById('pinkModal').classList.remove('active');
+  document.getElementById('pinkModal').style.display = 'none';
+}
+function switchPinkTab(tabName) {
+  document.querySelectorAll('.pink-tab').forEach(function(el) {
+    el.style.display = 'none';
+  });
+  document.querySelectorAll('.pink-nav').forEach(function(el) {
+    el.classList.remove('pink-active');
+  });
+  var tab = document.getElementById('tab-' + tabName);
+  if(tab) tab.style.display = 'block';
+  event.target.classList.add('pink-active');
 }
 </script>
 </body>
