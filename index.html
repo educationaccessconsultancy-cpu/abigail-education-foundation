@@ -1,5 +1,66 @@
 <!DOCTYPE html>
 <html>
+<style>
+/* === EMERGENCY MOBILE FIX === */
+html {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+* {
+    box-sizing: border-box !important;
+}
+img, video, iframe, svg {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Hide floating buttons on mobile so they don't overlap content */
+@media (max-width: 768px) {
+    a[href*="wa.me"][style*="position:fixed"],
+    a[href*="tel:"][style*="position:fixed"] {
+        display: none !important;
+    }
+}
+
+/* Fix hero buttons from being too wide */
+.hero-pillars {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 0 10px !important;
+}
+.pillar {
+    padding: 8px 16px !important;
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+}
+.hero-items {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 0 10px !important;
+}
+.hero-item {
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    min-width: unset !important;
+}
+
+/* Fix the background-attachment that causes mobile lag */
+.hero {
+    background-attachment: scroll !important;
+}
+</style>
 <head>
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
