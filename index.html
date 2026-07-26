@@ -7680,50 +7680,65 @@ document.addEventListener('click',function(){
           </form>
         </div>
         
-        <!-- PAYMENT INFO (shown in all tabs at bottom) -->
-        <div class="pink-payment">
-          <h4>💳 Make a Payment</h4>
-          <div class="pink-pay-row">
-            <span class="pink-pay-label">SimBanking CRDB:</span>
-            <span class="pink-pay-value">0152001GH2M00</span>
-          </div>
-          <div class="pink-pay-row">
-            <span class="pink-pay-label">Airtel Money:</span>
-            <span class="pink-pay-value">+255 788 698 126</span>
-          </div>
-          <div class="pink-pay-name">Abigail Eduaccess Shule Foundation</div>
+        <!-- Payment Floating Button -->
+<button class="pay-float-btn" onclick="openPayModal()">💳</button>
+
+<!-- Payment Modal -->
+<div id="payModal" onclick="if(event.target===this)closePayModal()">
+  <div class="pay-modal-box">
+    <button class="pay-close" onclick="closePayModal()">×</button>
+    <div class="pay-header">
+      <span class="pay-icon">💳</span>
+      <h3>Make a Payment</h3>
+      <p>Support our mission directly</p>
+    </div>
+    <div class="pay-content">
+      <div class="pay-method">
+        <div class="pay-method-icon">🏦</div>
+        <div class="pay-method-info">
+          <h4>SimBanking CRDB</h4>
+          <p class="pay-number">0152001GH2M00</p>
+          <p class="pay-user">Abigail Eduaccess Shule Foundation</p>
         </div>
-        
       </div>
+      <div class="pay-method">
+        <div class="pay-method-icon">📱</div>
+        <div class="pay-method-info">
+          <h4>Airtel Money</h4>
+          <p class="pay-number">+255 788 698 126</p>
+          <p class="pay-user">Abigail Eduaccess Shule Foundation</p>
+        </div>
+      </div>
+      <p class="pay-thanks">🙏 Thank you for supporting our mission!</p>
     </div>
   </div>
 </div>
 
 <style>
-.pink-heart-btn {
+.pay-float-btn {
   position: fixed;
-  bottom: 100px;
+  bottom: 160px;
   right: 15px;
-  width: 56px;
-  height: 56px;
-  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
   border-radius: 50%;
   border: 3px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
+  font-size: 22px;
   cursor: pointer;
-  z-index: 9998;
-  box-shadow: 0 4px 20px rgba(196, 69, 105, 0.5);
-  animation: pinkBounce 2s infinite;
+  z-index: 9997;
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
+  animation: payPulse 2.5s infinite;
   -webkit-tap-highlight-color: transparent;
 }
-@keyframes pinkBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+@keyframes payPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
 }
-#pinkModal {
+#payModal {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -7731,189 +7746,103 @@ document.addEventListener('click',function(){
   z-index: 10000;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  padding: 16px;
 }
-#pinkModal.active { display: flex; }
-.pink-modal-box {
+#payModal.active { display: flex; }
+.pay-modal-box {
   background: white;
   border-radius: 20px;
   width: 100%;
-  max-width: 520px;
-  max-height: 92vh;
+  max-width: 380px;
   overflow: hidden;
   position: relative;
-  display: flex;
-  flex-direction: column;
 }
-.pink-close {
+.pay-close {
   position: absolute;
-  top: 6px;
-  right: 12px;
+  top: 10px;
+  right: 14px;
   background: none;
   border: none;
-  font-size: 28px;
+  font-size: 26px;
   cursor: pointer;
   z-index: 10;
   color: #666;
 }
-.pink-header {
-  background: linear-gradient(135deg, #ff6b9d, #c44569);
+.pay-header {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
   color: white;
   text-align: center;
-  padding: 14px 20px 10px;
+  padding: 24px 20px 16px;
+}
+.pay-icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 6px;
+}
+.pay-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+.pay-header p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  opacity: 0.9;
+}
+.pay-content {
+  padding: 20px;
+}
+.pay-method {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: #f8faf8;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  border: 1px solid #e8f5e9;
+}
+.pay-method-icon {
+  font-size: 28px;
   flex-shrink: 0;
 }
-.pink-header .pink-heart-icon {
-  font-size: 32px;
-  display: block;
-  margin-bottom: 4px;
-}
-.pink-header p {
-  margin: 0;
+.pay-method-info h4 {
+  margin: 0 0 4px 0;
+  color: #1a5c2e;
   font-size: 15px;
-  font-weight: 600;
 }
-.pink-inner {
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  flex: 1;
-}
-.pink-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 14px 10px;
-  background: #f8f8f8;
-  min-width: 130px;
-  overflow-y: auto;
-}
-.pink-nav {
-  border: none;
-  border-radius: 10px;
-  padding: 10px 6px;
-  font-size: 11px;
-  font-weight: 700;
-  color: white;
-  cursor: pointer;
-  text-align: center;
-}
-.pink-nav.green { background: #2e7d32; }
-.pink-nav.pink-active { background: #c44569; box-shadow: 0 0 0 2px white, 0 0 0 4px #c44569; }
-.pink-nav.blue { background: #1976d2; }
-.pink-nav.purple { background: #7b1fa2; }
-.pink-content {
-  flex: 1;
-  padding: 16px;
-  overflow-y: auto;
-}
-.pink-tab h3 {
-  margin: 0 0 6px 0;
-  color: #333;
+.pay-number {
+  margin: 0;
   font-size: 16px;
-}
-.pink-tab p {
-  margin: 0 0 12px 0;
-  color: #666;
-  font-size: 13px;
-}
-.pink-tab input,
-.pink-tab select,
-.pink-tab textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 14px;
-  box-sizing: border-box;
-  font-family: inherit;
-}
-.pink-tab textarea { min-height: 60px; resize: vertical; }
-.pink-submit {
-  width: 100%;
-  padding: 12px;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 14px;
   font-weight: 700;
-  cursor: pointer;
-  margin-bottom: 14px;
+  color: #c44569;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.5px;
 }
-.green-bg { background: #2e7d32; }
-.pink-bg { background: linear-gradient(135deg, #ff6b9d, #c44569); }
-.blue-bg { background: #1976d2; }
-.purple-bg { background: #7b1fa2; }
-.pink-contact-info {
-  background: #e3f2fd;
-  border-radius: 10px;
-  padding: 10px 14px;
-  margin-bottom: 14px;
-}
-.pink-contact-info p {
-  margin: 4px 0;
-  font-size: 13px;
-  color: #333;
-}
-.pink-payment {
-  border-top: 2px dashed #ddd;
-  padding-top: 12px;
-  margin-top: 4px;
-}
-.pink-payment h4 {
-  margin: 0 0 10px 0;
-  color: #333;
-  font-size: 14px;
-}
-.pink-pay-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
-  font-size: 13px;
-}
-.pink-pay-label { color: #666; font-weight: 600; }
-.pink-pay-value { color: #c44569; font-weight: 700; }
-.pink-pay-name {
-  text-align: center;
+.pay-user {
+  margin: 2px 0 0;
   font-size: 12px;
   color: #888;
-  margin-top: 8px;
-  font-style: italic;
 }
-@media (max-width: 480px) {
-  .pink-inner { flex-direction: column; }
-  .pink-sidebar {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
-    min-width: unset;
-  }
-  .pink-nav { flex: 1; min-width: 70px; font-size: 10px; padding: 8px 4px; }
+.pay-thanks {
+  text-align: center;
+  margin: 16px 0 0;
+  font-size: 14px;
+  color: #2e7d32;
+  font-weight: 600;
 }
 </style>
 
 <script>
-function openPinkModal() {
-  document.getElementById('pinkModal').classList.add('active');
-  document.getElementById('pinkModal').style.display = 'flex';
+function openPayModal() {
+  document.getElementById('payModal').classList.add('active');
+  document.getElementById('payModal').style.display = 'flex';
 }
-function closePinkModal() {
-  document.getElementById('pinkModal').classList.remove('active');
-  document.getElementById('pinkModal').style.display = 'none';
+function closePayModal() {
+  document.getElementById('payModal').classList.remove('active');
+  document.getElementById('payModal').style.display = 'none';
 }
-function switchPinkTab(tabName) {
-  document.querySelectorAll('.pink-tab').forEach(function(el) {
-    el.style.display = 'none';
-  });
-  document.querySelectorAll('.pink-nav').forEach(function(el) {
-    el.classList.remove('pink-active');
-  });
-  var tab = document.getElementById('tab-' + tabName);
-  if(tab) tab.style.display = 'block';
-  event.target.classList.add('pink-active');
-}
+</script>
+
 </script>
 </body>
 </html>
