@@ -7545,5 +7545,171 @@ document.addEventListener('click',function(){
   if(a)a.style.display='none';
 });
 </script>
+<!-- Pink Sanitary Floating Button -->
+<div class="sanitary-float-btn" onclick="toggleSanitaryForm()">🩸</div>
+
+<!-- Sanitary Form Modal -->
+<div class="sanitary-form-overlay" id="sanitaryOverlay" onclick="if(event.target===this)toggleSanitaryForm()">
+  <div class="sanitary-form-modal">
+    <button class="sanitary-close" onclick="toggleSanitaryForm()">×</button>
+    <div class="sanitary-form-inner">
+      <div class="sanitary-sidebar">
+        <button class="sanitary-nav-btn green" onclick="showForm('ebook')">📚 E-Book</button>
+        <button class="sanitary-nav-btn pink" onclick="showForm('pads')">🩸 Sanitary</button>
+        <button class="sanitary-nav-btn blue" onclick="showForm('contacts')">📞 Contacts</button>
+        <button class="sanitary-nav-btn purple" onclick="showForm('programmes')">🎓 Programmes</button>
+      </div>
+      <div class="sanitary-content" id="sanitaryContent">
+        <h3>💜 Request Sanitary Pads</h3>
+        <p>Every girl deserves dignity, health, and uninterrupted education.</p>
+        <form onsubmit="event.preventDefault(); alert('Request sent!'); toggleSanitaryForm();">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <input type="tel" placeholder="Phone Number">
+          <textarea placeholder="Message (optional)"></textarea>
+          <button type="submit" class="sanitary-submit">Submit Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.sanitary-float-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 15px;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  z-index: 9998;
+  box-shadow: 0 4px 15px rgba(196, 69, 105, 0.4);
+  animation: sanitaryBounce 2s infinite;
+}
+@keyframes sanitaryBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.sanitary-form-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.sanitary-form-overlay.active { display: flex; }
+.sanitary-form-modal {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+}
+.sanitary-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+}
+.sanitary-form-inner {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.sanitary-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 10px;
+  background: #f8f9fa;
+  min-width: 140px;
+}
+.sanitary-nav-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+}
+.sanitary-nav-btn.green { background: #2e7d32; }
+.sanitary-nav-btn.pink { background: #c44569; }
+.sanitary-nav-btn.blue { background: #1976d2; }
+.sanitary-nav-btn.purple { background: #7b1fa2; }
+.sanitary-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+.sanitary-content h3 { margin: 0 0 8px 0; color: #c44569; }
+.sanitary-content p { margin: 0 0 16px 0; color: #666; font-size: 14px; }
+.sanitary-content input,
+.sanitary-content textarea,
+.sanitary-content select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.sanitary-content textarea { min-height: 80px; resize: vertical; }
+.sanitary-submit {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .sanitary-form-inner { flex-direction: column; }
+  .sanitary-sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 12px;
+    min-width: unset;
+  }
+  .sanitary-nav-btn { flex: 1; min-width: 100px; }
+}
+</style>
+
+<script>
+function toggleSanitaryForm() {
+  document.getElementById('sanitaryOverlay').classList.toggle('active');
+}
+function showForm(type) {
+  var content = document.getElementById('sanitaryContent');
+  var forms = {
+    ebook: '<h3>📚 Request E-Books</h3><p>Quality education at your fingertips.</p><form onsubmit="event.preventDefault(); alert(\\'Request sent!\\'); toggleSanitaryForm();"><input type=\\'text\\' placeholder=\\'Your Name\\' required><input type=\\'email\\' placeholder=\\'Email\\' required><input type=\\'tel\\' placeholder=\\'Phone\\'><button type=\\'submit\\' class=\\'sanitary-submit\\'>Request E-Book</button></form>',
+    pads: '<h3>💜 Request Sanitary Pads</h3><p>Every girl deserves dignity, health, and uninterrupted education.</p><form onsubmit="event.preventDefault(); alert(\\'Request sent!\\'); toggleSanitaryForm();"><input type=\\'text\\' placeholder=\\'Your Name\\' required><input type=\\'email\\' placeholder=\\'Email Address\\' required><input type=\\'tel\\' placeholder=\\'Phone Number\\'><textarea placeholder=\\'Message (optional)\\'></textarea><button type=\\'submit\\' class=\\'sanitary-submit\\'>Submit Request</button></form>',
+    contacts: '<h3>📞 Contact Us</h3><p>Reach out for any inquiries.</p><form onsubmit="event.preventDefault(); alert(\\'Message sent!\\'); toggleSanitaryForm();"><input type=\\'text\\' placeholder=\\'Your Name\\' required><input type=\\'email\\' placeholder=\\'Email\\' required><textarea placeholder=\\'Your Message\\'></textarea><button type=\\'submit\\' class=\\'sanitary-submit\\'>Send Message</button></form>',
+    programmes: '<h3>🎓 Our Programmes</h3><p>Explore our educational support programmes.</p><form onsubmit=\\'event.preventDefault(); alert(\\'Enquiry sent!\\'); toggleSanitaryForm();\\'><input type=\\'text\\' placeholder=\\'Your Name\\' required><input type=\\'email\\' placeholder=\\'Email\\' required><select style=\\'width:100%;padding:12px;margin-bottom:12px;border:1px solid #ddd;border-radius:10px;\\'><option>AS-Level Cambridge</option><option>School Support</option><option>Mentorship</option></select><button type=\\'submit\\' class=\\'sanitary-submit\\'>Enquire</button></form>'
+  };
+  content.innerHTML = forms[type] || forms.pads;
+}
+</script>
 </body>
 </html>
