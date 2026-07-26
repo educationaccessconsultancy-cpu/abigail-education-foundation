@@ -7,7 +7,15 @@
     <title>Abigail Eduaccess Shule Foundation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
-    <style>
+    * {
+    box-sizing: border-box;
+}
+
+img, video, iframe, svg {
+    max-width: 100%;
+    height: auto;
+}
+<style>
 /* Hide old oversized WhatsApp/Tanzania icon */
 img[src*="whatsapp"],
 img[src*="tanzania"],
@@ -224,14 +232,15 @@ img[src*="flag"],
     }
     @media (max-width: 768px) {
         .whatsapp-float { bottom: 15px; left: 15px; }
-        .whatsapp-float a { width: 55px; height: 55px; }
-        .whatsapp-float svg { width: 28px; height: 28px; }
-        .whatsapp-label { display: none; }
-    }
-    /* === END WHATSAPP CSS === */
-    
-    * { margin: 0; padding: 0; bo...   /* line 27 continues */
- }
+        html { scroll-behavior: smooth; }
+body {
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--cream);
+    overflow-x: hidden;
+}
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
@@ -803,7 +812,8 @@ img[src*="flag"],
         .impact-visual {
             background: linear-gradient(135deg, var(--primary) 0%, var(--forest) 100%);
             border-radius: 28px;
-            padding: 60px 40px;
+            width: 200%; height: 200%;
+
             text-align: center;
             color: var(--white);
             position: relative;
@@ -2428,7 +2438,8 @@ function updatePrice() {
     }
 }
 function calculateTotal() {
-    const grade = document.getElementById('ebookGrade').value;
+    max-width: 100vw !important;
+
     const prices = { 'baby': 4000, 'middle': 4000, 'grade1': 4000, 'grade2': 4000, 'grade3': 4000, 'grade4': 4000, 'grade5': 6000, 'grade6': 6000, 'grade7': 6000 };
     const pricePerBook = prices[grade] || 0;
     const selectedBooks = Array.from(document.querySelectorAll('input[name="ebookTitles"]:checked')).map(cb => cb.value);
@@ -4215,8 +4226,8 @@ function resetEbookForm() {
       gap: 10px;
     }
     .wa-fab-btn {
-      padding: 12px 16px;
-      font-size: 13px;
+      max-width: 100vw !important;
+
       min-width: 140px;
     }
     .wa-fab-btn svg {
