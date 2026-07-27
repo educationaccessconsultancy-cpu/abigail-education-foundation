@@ -7685,6 +7685,52 @@ document.addEventListener('click',function(){
         <div id="tab-pads" class="pink-tab">
           <h3>💜 Request Sanitary Pads</h3>
           <p>Free sanitary pad distribution for girls across all regions of Tanzania.</p>
+
+<!-- Tanzania Regions Map (Inline SVG) -->
+<div style="text-align:center; margin-bottom:12px;">
+  <svg viewBox="0 0 400 420" style="max-width:100%; height:auto; border-radius:10px; border:2px solid #ff6b9d; background:#e8f5e9;">
+    <!-- Tanzania mainland shape -->
+    <path d="M80,60 L120,55 L160,50 L200,48 L240,52 L280,58 L320,70 L340,90 L345,120 L340,150 L335,180 L330,210 L325,240 L320,270 L315,300 L310,330 L305,360 L300,390 L280,400 L260,405 L240,400 L220,395 L200,390 L180,385 L160,380 L140,375 L120,370 L100,365 L85,350 L75,320 L70,280 L68,240 L70,200 L72,160 L75,120 L78,90 Z" fill="#81c784" stroke="#2e7d32" stroke-width="2"/>
+    
+    <!-- Zanzibar -->
+    <ellipse cx="310" cy="95" rx="18" ry="10" fill="#aed581" stroke="#2e7d32" stroke-width="1.5"/>
+    <ellipse cx="335" cy="105" rx="12" ry="7" fill="#aed581" stroke="#2e7d32" stroke-width="1.5"/>
+    
+    <!-- Region labels - Mainland -->
+    <text x="100" y="100" font-size="9" fill="#1b5e20" font-weight="bold">Kagera</text>
+    <text x="140" y="85" font-size="9" fill="#1b5e20" font-weight="bold">Mwanza</text>
+    <text x="190" y="75" font-size="9" fill="#1b5e20" font-weight="bold">Mara</text>
+    <text x="230" y="80" font-size="9" fill="#1b5e20" font-weight="bold">Arusha</text>
+    <text x="270" y="90" font-size="9" fill="#1b5e20" font-weight="bold">Kilimanjaro</text>
+    <text x="120" y="140" font-size="9" fill="#1b5e20" font-weight="bold">Kigoma</text>
+    <text x="160" y="130" font-size="9" fill="#1b5e20" font-weight="bold">Shinyanga</text>
+    <text x="200" y="125" font-size="9" fill="#1b5e20" font-weight="bold">Manyara</text>
+    <text x="250" y="130" font-size="9" fill="#1b5e20" font-weight="bold">Tanga</text>
+    <text x="100" y="180" font-size="9" fill="#1b5e20" font-weight="bold">Rukwa</text>
+    <text x="150" y="170" font-size="9" fill="#1b5e20" font-weight="bold">Tabora</text>
+    <text x="200" y="165" font-size="9" fill="#1b5e20" font-weight="bold">Singida</text>
+    <text x="250" y="170" font-size="9" fill="#1b5e20" font-weight="bold">Dodoma</text>
+    <text x="290" y="185" font-size="9" fill="#1b5e20" font-weight="bold">Morogoro</text>
+    <text x="110" y="230" font-size="9" fill="#1b5e20" font-weight="bold">Mbeya</text>
+    <text x="170" y="220" font-size="9" fill="#1b5e20" font-weight="bold">Iringa</text>
+    <text x="230" y="225" font-size="9" fill="#1b5e20" font-weight="bold">Njombe</text>
+    <text x="280" y="240" font-size="9" fill="#1b5e20" font-weight="bold">Pwani</text>
+    <text x="140" y="280" font-size="9" fill="#1b5e20" font-weight="bold">Songwe</font-weight="bold"></text>
+    <text x="200" y="275" font-size="9" fill="#1b5e20" font-weight="bold">Ruvuma</text>
+    <text x="260" y="290" font-size="9" fill="#1b5e20" font-weight="bold">Lindi</text>
+    <text x="230" y="340" font-size="9" fill="#1b5e20" font-weight="bold">Mtwara</text>
+    
+    <!-- Zanzibar labels -->
+    <text x="300" y="85" font-size="7" fill="#1b5e20">Zanzibar</text>
+    <text x="330" y="95" font-size="7" fill="#1b5e20">Pemba</text>
+    
+    <!-- Title -->
+    <text x="200" y="30" font-size="14" fill="#c44569" font-weight="bold" text-anchor="middle">🇹🇿 TANZANIA REGIONS</text>
+    <text x="200" y="415" font-size="10" fill="#666" text-anchor="middle">All 31 regions covered</text>
+  </svg>
+  <p style="font-size:11px; color:#888; margin-top:4px;">🗺️ Select your region from the dropdown below</p>
+</div>
+
           <form onsubmit="event.preventDefault();alert('Sanitary pad request sent! We will respond within 24-48 hours.');closePinkModal();">
             <input type="text" placeholder="Student Name" required>
             <input type="text" placeholder="School Name" required>
