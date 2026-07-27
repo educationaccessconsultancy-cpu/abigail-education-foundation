@@ -110,187 +110,33 @@ img[src*="flag"],
             --shadow-warm: 0 15px 50px rgba(199,91,57,0.12);
            }                                   /* line 26 */
     
-    /* === AS-LEVEL CAMBRIDGE HOMESCHOOLING WHATSAPP BUTTON === */
-        .whatsapp-float-aslevel {
-        position: fixed;
-        top: 50%;
-        right: 25px;
-        transform: translateY(-50%);
-        z-index: 9999;
-    }
+    /* === CAMBRIDGE AS-LEVEL HOMESCHOOLING FORM === */
+.cambridge-section{font-family:Poppins,sans-serif;max-width:480px;margin:0 auto;padding:20px;position:relative}
+.cambridge-section *{box-sizing:border-box}
+.cambridge-badge{text-align:center;margin-bottom:20px}
+.cambridge-badge img{max-width:260px;width:100%;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 8px 20px rgba(212,175,55,0.3))}
+.cambridge-card{background:#fff;border-radius:24px;border:2px solid #D4AF37;box-shadow:0 20px 60px rgba(0,0,0,0.1),0 0 0 4px rgba(212,175,55,0.08);padding:28px 24px;position:relative}
+.cambridge-close{position:absolute;top:16px;right:16px;width:32px;height:32px;background:#D4AF37;border:none;border-radius:50%;color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;padding:0 0 4px 0}
+.cambridge-card h2{color:#1a237e;font-size:20px;font-weight:700;text-align:center;margin:0 0 4px;line-height:1.3}
+.cambridge-line{display:flex;align-items:center;gap:10px;margin:18px 0 24px;color:#1a237e;font-size:14px;font-weight:600}
+.cambridge-line::before,.cambridge-line::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,#D4AF37,transparent)}
+.cambridge-group{margin-bottom:16px}
+.cambridge-label{display:flex;align-items:center;gap:8px;color:#333;font-size:14px;font-weight:600;margin-bottom:6px}
+.cambridge-input,.cambridge-select{width:100%;padding:12px 16px;border:1.5px solid #E0E0E0;border-radius:10px;font-family:Poppins,sans-serif;font-size:14px;color:#333;background:#FAFAFA}
+.cambridge-input:focus,.cambridge-select:focus{outline:none;border-color:#D4AF37;background:#fff;box-shadow:0 0 0 3px rgba(212,175,55,0.1)}
+.cambridge-subjects{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.cambridge-check{display:flex;align-items:center;gap:8px}
+.cambridge-check input{width:18px;height:18px;accent-color:#2E7D32;cursor:pointer;margin:0}
+.cambridge-check label{font-size:13px;color:#444;cursor:pointer;margin:0;font-weight:400}
+.cambridge-other{margin-top:10px}
+.cambridge-btn{width:100%;padding:14px;background:linear-gradient(135deg,#1a237e 0%,#283593 100%);color:#FFD700;border:none;border-radius:10px;font-family:Poppins,sans-serif;font-size:16px;font-weight:600;cursor:pointer;margin-top:10px;box-shadow:0 4px 15px rgba(26,35,126,0.3)}
+.cambridge-fabs{position:fixed;right:16px;bottom:100px;display:flex;flex-direction:column;gap:12px;z-index:999}
+.cambridge-fab{width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,0.2);padding:0}
+.cambridge-fab-phone{background:#E53935}
+.cambridge-fab-whatsapp{background:#25D366}
+.cambridge-fab-heart{background:linear-gradient(135deg,#FF4081 0%,#E91E63 100%)}
+@media(max-width:480px){.cambridge-section{padding:15px}.cambridge-card{padding:24px 16px}.cambridge-card h2{font-size:18px}}
 
-    .whatsapp-float-aslevel a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, #012169 0%, #012169 40%, #ffffff 40%, #ffffff 60%, #C8102E 60%, #C8102E 100%);
-        color: white;
-        border-radius: 50%;
-        text-decoration: none;
-        box-shadow: 0 6px 20px rgba(1, 33, 105, 0.4);
-        border: 3px solid #ffffff;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        animation: float-bounce-aslevel 2.5s infinite ease-in-out;
-    }
-
-    .whatsapp-float-aslevel a::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 50%;
-        background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
-        border-radius: 50% 50% 0 0;
-        pointer-events: none;
-    }
-
-    .whatsapp-float-aslevel a::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 2px solid #C8102E;
-        animation: pulse-ring-aslevel 2s infinite;
-        z-index: -1;
-    }
-
-    .whatsapp-float-aslevel svg {
-        width: 30px;
-        height: 30px;
-        fill: #ffffff;
-        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-        position: relative;
-        z-index: 2;
-    }
-
-    .whatsapp-float-aslevel a:hover {
-        transform: scale(1.15) rotate(5deg);
-        box-shadow: 0 8px 25px rgba(1, 33, 105, 0.6);
-        border-color: #C8102E;
-    }
-
-    .whatsapp-label-aslevel {
-        position: absolute;
-        right: 70px;
-        background: linear-gradient(135deg, #012169, #C8102E);
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 25px;
-        font-size: 0.8rem;
-        font-weight: 700;
-        white-space: nowrap;
-        opacity: 0;
-        transform: translateX(15px);
-        transition: all 0.4s ease;
-        pointer-events: none;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        letter-spacing: 0.5px;
-    }
-
-    .whatsapp-float-aslevel a:hover .whatsapp-label-aslevel {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    @keyframes float-bounce-aslevel {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-    }
-
-    @keyframes pulse-ring-aslevel {
-        0% { transform: scale(1); opacity: 0.6; }
-        100% { transform: scale(1.6); opacity: 0; }
-    }
-
-    @media (max-width: 768px) {
-                .whatsapp-float-aslevel { top: 50%; right: 15px; transform: translateY(-50%); }
-
-        .whatsapp-float-aslevel a { width: 50px; height: 50px; }
-        .whatsapp-float-aslevel svg { width: 24px; height: 24px; }
-        .whatsapp-label-aslevel { display: none; }
-    }
-
-        background: linear-gradient(135deg, #012169 0%, #012169 40%, #ffffff 40%, #ffffff 60%, #C8102E 60%, #C8102E 100%);
-        color: white;
-        border-radius: 50%;
-        text-decoration: none;
-        box-shadow: 0 6px 20px rgba(1, 33, 105, 0.4);
-        border: 3px solid #ffffff;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        animation: float-bounce 2.5s infinite ease-in-out;
-    }
-    .whatsapp-float a::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 50%;
-        background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
-        border-radius: 50% 50% 0 0;
-        pointer-events: none;
-    }
-    .whatsapp-float a::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 2px solid #C8102E;
-        animation: pulse-ring 2s infinite;
-        z-index: -1;
-    }
-    .whatsapp-float svg {
-        width: 32px;
-        height: 32px;
-        fill: #ffffff;
-        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-        position: relative;
-        z-index: 2;
-    }
-    .whatsapp-float a:hover {
-        transform: scale(1.15) rotate(-5deg);
-        box-shadow: 0 8px 25px rgba(1, 33, 105, 0.6);
-        border-color: #C8102E;
-    }
-    .whatsapp-label {
-        position: absolute;
-        left: 75px;
-        right: auto;
-        background: linear-gradient(135deg, #012169, #C8102E);
-        color: white;
-        padding: 0.6rem 1.2rem;
-        border-radius: 25px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        white-space: nowrap;
-        opacity: 0;
-        transform: translateX(-15px);
-        transition: all 0.4s ease;
-        pointer-events: none;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        letter-spacing: 0.5px;
-    }
-    .whatsapp-float a:hover .whatsapp-label {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    @keyframes float-bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-12px); }
-    }
-    @keyframes pulse-ring {
-        0% { transform: scale(1); opacity: 0.6; }
-        100% { transform: scale(1.6); opacity: 0; }
-    }
     @media (max-width: 768px) {
         .whatsapp-float { bottom: 15px; left: 15px; }
         html { scroll-behavior: smooth; }
