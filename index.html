@@ -5643,97 +5643,112 @@ section, div {
 <!-- ===== CAMBRIDGE AS-LEVEL FLOATING BADGE ===== -->
 <button class="cambridge-float" onclick="openCambridgeInquiry()" aria-label="Cambridge AS-Level Inquiry">
   <div class="cambridge-badge-icon" style="background-image: url(Screenshot_20260721_171348_Photos.jpg.jpg); background-size: cover; background-position: center; border: none; box-shadow: 0 6px 20px rgba(26, 42, 92, 0.4);"></div>
+<!-- ====== CAMBRIDGE AS-LEVEL HOMESCHOOLING FORM ====== -->
 
-    <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-      <path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/>
-      <path d="M12 22V12"/>
-    </svg>
-  </div>
-  <div class="cambridge-badge-label">AS-Level</div>
-</button>
+<div class="cambridge-section">
 
-<!-- Cambridge Inquiry Modal -->
-<div id="cambridgeModal" class="cambridge-modal">
-  <div class="cambridge-modal-content">
-    <button class="cambridge-modal-close" onclick="closeCambridgeInquiry()">&times;</button>
-    
-    <div class="cambridge-modal-header">
-      <div class="cambridge-header-icon" style="background-image: url('Screenshot_20260721_171348_Photos.jpg'); background-size: cover; background-position: center; border: none;"></div>
-
-        <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-          <path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/>
-          <path d="M12 22V12"/>
-        </svg>
-      </div>
-      <h3>Cambridge AS-Level</h3>
-      <p>Education Access Foundation</p>
-      <div class="cambridge-2hr-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        Strictly 2-Hour Sessions
-      </div>
+    <!-- Your Exact Badge from Screenshot -->
+    <div class="cambridge-badge">
+        <img src="cambridge_badge.png" alt="Cambridge International AS Level Preparation 2026">
     </div>
-    
-    <form id="cambridgeForm" onsubmit="submitCambridgeInquiry(event)">
-      <div class="cambridge-form-group">
-        <label for="camName">Student's Full Name</label>
-        <input type="text" id="camName" name="student_name" required placeholder="Enter student's full name">
-      </div>
-      
-      <div class="cambridge-form-group">
-        <label for="camEmail">Parent/Guardian Email</label>
-        <input type="email" id="camEmail" name="email" required placeholder="Enter email address">
-      </div>
-      
-      <div class="cambridge-form-group">
-        <label for="camPhone">Phone Number</label>
-        <input type="tel" id="camPhone" name="phone" placeholder="Enter phone number">
-      </div>
-      
-      <div class="cambridge-form-group">
-        <label for="camLevel">Current Level / Grade</label>
-        <select id="camLevel" name="current_level" required>
-          <option value="">Select current level</option>
-          <option value="O-Level Completed">O-Level Completed</option>
-          <option value="Form 4 (Preparing for AS)">Form 4 (Preparing for AS)</option>
-          <option value="Form 3">Form 3</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      
-      <div class="cambridge-form-group">
-        <label>Subjects Interested In <span>(Select all that apply)</span></label>
-        <div class="cambridge-subjects-grid">
-          <label class="cambridge-subject-item"><input type="checkbox" class="cam-subject" value="Economics"> Economics</label>
-          <label class="cambridge-subject-item"><input type="checkbox" class="cam-subject" value="English"> English</label>
-          <label class="cambridge-subject-item"><input type="checkbox" class="cam-subject" value="Geography"> Geography</label>
-          <label class="cambridge-subject-item"><input type="checkbox" class="cam-subject" value="Mathematics"> Mathematics</label>
-          <label class="cambridge-subject-item"><input type="checkbox" class="cam-subject" value="Physics"> Physics</label>
-          <label class="cambridge-subject-item"><input type="checkbox" class="cam-subject" value="Chemistry"> Chemistry</label>
-          <label class="cambridge-subject-item"><input type="checkbox" class="cam-subject" value="Biology"> Biology</label>
-          <label class="cambridge-subject-item"><input type="checkbox" class="cam-subject" value="Other"> Other</label>
+
+    <!-- Form Card -->
+    <div class="cambridge-card">
+        <button type="button" class="cambridge-close" onclick="this.closest('.cambridge-card').style.display='none'">&times;</button>
+        
+        <h2>Cambridge AS-Level<br>Homeschooling Programme</h2>
+        
+        <div class="cambridge-line">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            Strictly 2-Hour Sessions
         </div>
-      </div>
-      
-      <div class="cambridge-form-group">
-        <label for="camMessage">Additional Message</label>
-        <textarea id="camMessage" name="message" rows="3" placeholder="Any specific requirements or questions..."></textarea>
-      </div>
-      
-      <button type="submit" class="cambridge-submit-btn">Send Inquiry</button>
-      
-      <div class="cambridge-whatsapp-alt">
-        <p>Or contact us directly:</p>
-        <a href="https://wa.me/255788698126" target="_blank" class="cambridge-whatsapp-link">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Chat on WhatsApp
-        </a>
-      </div>
-    </form>
-  </div>
+
+        <form onsubmit="event.preventDefault(); alert('Registration submitted successfully!'); this.reset();">
+            
+            <div class="cambridge-group">
+                <label class="cambridge-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    Student's Full Name
+                </label>
+                <input type="text" class="cambridge-input" placeholder="Enter student's full name" required>
+            </div>
+
+            <div class="cambridge-group">
+                <label class="cambridge-label">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    Parent/Guardian Email
+                </label>
+                <input type="email" class="cambridge-input" placeholder="Enter email address" required>
+            </div>
+
+            <div class="cambridge-group">
+                <label class="cambridge-label">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    Phone Number
+                </label>
+                <input type="tel" class="cambridge-input" placeholder="Enter phone number" required>
+            </div>
+
+            <div class="cambridge-group">
+                <label class="cambridge-label">
+                    <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                    Current Level / Grade
+                </label>
+                <select class="cambridge-select" required>
+                    <option value="" disabled selected>Select current level</option>
+                    <option>O-Level</option>
+                    <option>IGCSE</option>
+                    <option>GCSE</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="cambridge-group">
+                <label class="cambridge-label">
+                    <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+                    Subjects Interested In (Select all that apply)
+                </label>
+                <div class="cambridge-subjects">
+                    <div class="cambridge-check">
+                        <input type="checkbox" id="sub-econ" value="economics">
+                        <label for="sub-econ">Economics</label>
+                    </div>
+                    <div class="cambridge-check">
+                        <input type="checkbox" id="sub-eng" value="english">
+                        <label for="sub-eng">English</label>
+                    </div>
+                    <div class="cambridge-check">
+                        <input type="checkbox" id="sub-geo" value="geography">
+                        <label for="sub-geo">Geography</label>
+                    </div>
+                    <div class="cambridge-check">
+                        <input type="checkbox" id="sub-other" value="other">
+                        <label for="sub-other">Other</label>
+                    </div>
+                </div>
+                <input type="text" class="cambridge-input cambridge-other" placeholder="Enter other subjects">
+            </div>
+
+            <button type="submit" class="cambridge-btn">Register Now</button>
+        </form>
+    </div>
 </div>
-<!-- End Cambridge AS-Level Badge & Modal -->
+
+<!-- Floating Action Buttons -->
+<div class="cambridge-fabs">
+    <button class="cambridge-fab cambridge-fab-phone" aria-label="Call" onclick="window.location.href='tel:+255788698126'">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    </button>
+    <button class="cambridge-fab cambridge-fab-whatsapp" aria-label="WhatsApp" onclick="window.open('https://wa.me/255619801985','_blank')">
+        <svg viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.2.46.3.05.11.04.61-.21 1.18-.45.92-1.87 1.65-3.15 1.93-1.17.25-2.63.16-3.93-.63-.79-.47-1.54-1.23-2.07-2.22-1.04-1.95-1.06-4.08.05-5.35.62-.72 1.63-1.15 2.66-1.15.29 0 .58.03.86.09.55.11 1.04.34 1.42.66.24.2.38.44.43.71.04.26-.02.52-.17.75l-.36.53c-.15.22-.33.43-.52.62-.17.17-.33.31-.47.42-.11.09-.21.17-.28.24-.06.06-.09.12-.09.18 0 .06.02.13.07.22.1.18.28.44.56.78.42.5.92.98 1.46 1.39.26.2.49.35.68.45.09.05.17.08.23.08.07 0 .13-.03.19-.09.06-.06.14-.15.24-.28.15-.2.34-.47.57-.81.17-.24.36-.5.57-.78.21-.28.39-.5.54-.67l.21-.22c.12-.13.25-.2.39-.2.14 0 .29.07.44.2l1.08.87c.25.2.43.39.54.56.11.17.16.33.16.48 0 .2-.08.4-.25.6zM12 2C6.48 2 2 6.48 2 12c0 1.82.38 3.55 1.07 5.11L2 22l4.97-1.07C8.45 21.62 10.18 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+    </button>
+    <button class="cambridge-fab cambridge-fab-heart" aria-label="Like">
+        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </button>
+</div>
+
+<!-- ====== END CAMBRIDGE AS-LEVEL HOMESCHOOLING FORM ====== -->
+
 
 <script>
 // ===== CAMBRIDGE AS-LEVEL MODAL FUNCTIONS =====
