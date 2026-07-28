@@ -6923,7 +6923,252 @@ document.addEventListener('DOMContentLoaded', () => { renderChapters(); });
   <p style="margin:0 0 1px 0;color:#333;"><b>Name:</b> Abigail Eduaccess Shule Foundation</p>
   <p style="margin:0;color:#333;"><b>No:</b> +255788698126</p>
 </div>
-,,,</body> 
+<style>
+/* ===== Floating Action Button ===== */
+.payment-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: #16a34a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+  animation: fab-bounce 2.2s ease-in-out infinite;
+  transition: background 0.2s ease;
+}
+.payment-fab:hover { background: #15803d; }
+.payment-fab:active { transform: scale(0.92); }
+.payment-fab svg { width: 26px; height: 26px; }
+
+@keyframes fab-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ===== Payment Panel ===== */
+.payment-panel {
+  position: fixed;
+  bottom: 92px;
+  right: 24px;
+  width: 300px;
+  max-width: calc(100vw - 48px);
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  display: none;
+  z-index: 998;
+  animation: panel-slide 0.25s ease-out forwards;
+}
+.payment-panel.open { display: block; }
+
+@keyframes panel-slide {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.panel-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+}
+.panel-close {
+  width: 28px; height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.panel-close:hover { background: #f3f4f6; color: #111; }
+
+/* ===== Payment Cards ===== */
+.pay-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+.pay-card:last-child { margin-bottom: 0; }
+.pay-card:hover {
+  border-color: #16a34a;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.10);
+  background: #f6fdf8;
+}
+.pay-card:active { transform: scale(0.98); }
+
+.pay-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.pay-label .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-bank { background: #16a34a; }
+.dot-airtel { background: #ef4444; }
+
+.pay-detail {
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+.pay-detail strong { color: #111; font-weight: 500; }
+
+.copy-hint {
+  position: absolute;
+  top: 10px; right: 10px;
+  font-size: 11px;
+  color: #9ca3af;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.pay-card:hover .copy-hint { opacity: 1; }
+
+/* ===== Toast ===== */
+.pay-toast {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  color: #fff;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+  white-space: nowrap;
+}
+.pay-toast.show { opacity: 1; }
+</style>
+
+<!-- Payment Panel -->
+<div class="payment-panel" id="paymentPanel">
+  <div class="panel-header">
+    <span class="panel-title">Support the foundation</span>
+    <button class="panel-close" id="closePanel" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M17.9542 4.77253C18.3056 4.42106 18.8761 4.42106 19.2276 4.77253C19.579 5.12401 19.579 5.69452 19.2276 6.04597L13.2735 12.0001L19.2276 17.9542C19.5791 18.3056 19.5791 18.8761 19.2276 19.2276C18.8761 19.5791 18.3056 19.5791 17.9542 19.2276L12.0001 13.2735L6.04595 19.2276C5.69451 19.5791 5.12399 19.579 4.77252 19.2276C4.42104 18.8761 4.42104 18.3056 4.77252 17.9542L10.7266 12.0001L4.77252 6.04597C4.42104 5.6945 4.42104 5.124 4.77252 4.77253C5.12399 4.42107 5.69448 4.42106 6.04595 4.77253L12.0001 10.7266L17.9542 4.77253Z" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="pay-card" id="cardBank" title="Click to copy bank details">
+    <span class="copy-hint">Click to copy</span>
+    <div class="pay-label">
+      <span class="dot dot-bank"></span>
+      CRDB Bank Deposit
+    </div>
+    <div class="pay-detail">
+      <strong>Name:</strong> Abigail Eduaccess Shule Foundation<br>
+      <strong>A/C:</strong> 0152001GH22M00
+    </div>
+  </div>
+
+  <div class="pay-card" id="cardAirtel" title="Click to copy Airtel Money number">
+    <span class="copy-hint">Click to copy</span>
+    <div class="pay-label">
+      <span class="dot dot-airtel"></span>
+      Airtel Money
+    </div>
+    <div class="pay-detail">
+      <strong>Name:</strong> Abigail Eduaccess Shule Foundation<br>
+      <strong>No:</strong> +255788698126
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="pay-toast" id="payToast">Copied to clipboard!</div>
+
+<!-- Floating Action Button -->
+<button class="payment-fab" id="paymentFab" aria-label="Open payment options">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  const fab = document.getElementById('paymentFab');
+  const panel = document.getElementById('paymentPanel');
+  const closeBtn = document.getElementById('closePanel');
+  const toast = document.getElementById('payToast');
+  const cardBank = document.getElementById('cardBank');
+  const cardAirtel = document.getElementById('cardAirtel');
+
+  let isOpen = false;
+
+  function togglePanel() {
+    isOpen = !isOpen;
+    panel.classList.toggle('open', isOpen);
+  }
+
+  fab.addEventListener('click', togglePanel);
+  closeBtn.addEventListener('click', togglePanel);
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 1800);
+  }
+
+  function copyText(text, label) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => showToast(label + ' copied!'));
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); showToast(label + ' copied!'); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+  }
+
+  cardBank.addEventListener('click', () => {
+    copyText('Abigail Eduaccess Shule Foundation\nA/C: 0152001GH22M00', 'Bank details');
+  });
+
+  cardAirtel.addEventListener('click', () => {
+    copyText('+255788698126', 'Airtel Money number');
+  });
+})();
+</script>
+</body> 
 </html>
 
                    
