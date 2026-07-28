@@ -6688,90 +6688,462 @@ a[aria-label="Chat with AESF on WhatsApp"] {
     animation: whatsapp-pulse 2s infinite;
 }
 </style>
-<!-- ====== END FLOATING WHATSAPP BUTTON ====== -->/body>
-<!-- ====== E-BOOK SECTION (SAMPLE CHAPTERS) ====== -->
-<section id="ebook">
-    <div class="ebook-hero-banner">
-        <div class="ebook-hero-icon">📚</div>
-        <h2 class="ebook-hero-title">AESF Sample Chapters</h2>
-        <p class="ebook-hero-subtitle">TIE 2023 Syllabus Aligned • Competence-Based • By Dr. James K Mushi, PhD</p>
+
+<!-- ==================== E-BOOK SAMPLE CHAPTERS SECTION ==================== -->
+<style>
+/* ===== E-BOOK SECTION STYLES ===== */
+.ebook-section {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+    padding: 0 0 40px 0;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Header Banner */
+.ebook-banner {
+    background: linear-gradient(135deg, #166534 0%, #15803d 50%, #166534 100%);
+    border-radius: 0 0 24px 24px;
+    padding: 30px 20px 40px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(22, 101, 52, 0.3);
+}
+.ebook-banner::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+}
+.ebook-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+}
+.ebook-banner-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    display: block;
+}
+.ebook-banner h2 {
+    margin: 0 0 8px 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+.ebook-banner p {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Search Bar */
+.ebook-search-wrap {
+    padding: 0 16px;
+    margin-top: -20px;
+    position: relative;
+    z-index: 10;
+}
+.ebook-search-box {
+    background: white;
+    border-radius: 16px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+}
+.ebook-search-icon {
+    font-size: 18px;
+    color: #9ca3af;
+}
+.ebook-search-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    color: #374151;
+    background: transparent;
+}
+.ebook-search-box input::placeholder {
+    color: #9ca3af;
+}
+
+/* Stats Bar */
+.ebook-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 16px;
+    gap: 10px;
+}
+.ebook-stat {
+    background: white;
+    border-radius: 16px;
+    padding: 14px 10px;
+    text-align: center;
+    flex: 1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: 1px solid #f0fdf4;
+}
+.ebook-stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #166534;
+    display: block;
+}
+.ebook-stat-label {
+    font-size: 11px;
+    color: #6b7280;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Progress Bar */
+.ebook-progress-outer {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+.ebook-progress-track {
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.ebook-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+/* Tabs */
+.ebook-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.ebook-tabs::-webkit-scrollbar {
+    display: none;
+}
+.ebook-tab {
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid #dcfce7;
+    background: white;
+    color: #166534;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    user-select: none;
+}
+.ebook-tab.active {
+    background: #166534;
+    color: white;
+    border-color: #166534;
+    box-shadow: 0 2px 8px rgba(22, 101, 52, 0.3);
+}
+
+/* Chapter List */
+.ebook-chapters {
+    padding: 0 16px;
+}
+
+/* Class Header */
+.ebook-class-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #166534;
+    margin: 20px 0 12px 0;
+    padding-left: 4px;
+}
+.ebook-class-header span {
+    font-size: 18px;
+}
+
+/* Cards */
+.ebook-card {
+    background: white;
+    border-radius: 16px;
+    padding: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: 1px solid #f3f4f6;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.ebook-card:active {
+    transform: scale(0.98);
+}
+.ebook-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+.ebook-card-info {
+    flex: 1;
+    min-width: 0;
+}
+.ebook-card-title {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.3;
+}
+.ebook-card-class {
+    margin: 0 0 6px 0;
+    font-size: 11px;
+    color: #16a34a;
+    font-weight: 600;
+    background: #f0fdf4;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+.ebook-card-desc {
+    margin: 0;
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.4;
+}
+.ebook-card-status {
+    margin: 6px 0 0 0;
+    font-size: 11px;
+    color: #16a34a;
+    font-weight: 600;
+}
+.ebook-download-btn {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    background: #dcfce7;
+    color: #166534;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+.ebook-download-btn.saved {
+    background: #166534;
+    color: white;
+}
+
+/* Empty State */
+.ebook-empty {
+    text-align: center;
+    padding: 40px 20px;
+}
+.ebook-empty-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+.ebook-empty-title {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    color: #374151;
+}
+.ebook-empty-desc {
+    margin: 0;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* Modal */
+.ebook-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+.ebook-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.ebook-modal-inner {
+    background: white;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 24px 24px 0 0;
+    padding: 24px 20px 30px;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+}
+.ebook-modal.active .ebook-modal-inner {
+    transform: translateY(0);
+}
+.ebook-modal-close {
+    text-align: right;
+    margin-bottom: 10px;
+}
+.ebook-modal-close-btn {
+    background: #f3f4f6;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    color: #6b7280;
+}
+.ebook-modal h3 {
+    margin: 0 0 6px 0;
+    font-size: 18px;
+    color: #111827;
+}
+.ebook-modal p {
+    margin: 0 0 20px 0;
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+.ebook-modal-progress-track {
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+.ebook-modal-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.3s;
+}
+.ebook-modal-progress-fill.complete {
+    background: #166534;
+}
+.ebook-modal-progress-text {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #166534;
+}
+</style>
+
+<!-- E-BOOK SECTION -->
+<div class="ebook-section" id="ebook-section">
+
+    <!-- Banner -->
+    <div class="ebook-banner">
+        <span class="ebook-banner-icon">📚</span>
+        <h2>AESF Sample Chapters</h2>
+        <p>TIE 2023 Syllabus Aligned • Competence-Based<br>By Dr. James K Mushi, PhD</p>
     </div>
 
-    <!-- Search & Stats Bar -->
-    <div class="ebook-controls">
-        <div class="ebook-search">
-            <span class="search-icon">🔍</span>
+    <!-- Search -->
+    <div class="ebook-search-wrap">
+        <div class="ebook-search-box">
+            <span class="ebook-search-icon">🔍</span>
             <input type="text" id="chapter-search" placeholder="Search subjects, classes, or topics..." oninput="filterChapters()">
         </div>
-        <div class="ebook-stats">
-            <div class="stat-item">
-                <span class="stat-number" id="stat-downloaded">0</span>
-                <span class="stat-label">Downloaded</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" id="stat-total">27</span>
-                <span class="stat-label">Total</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" id="stat-progress">0%</span>
-                <span class="stat-label">Progress</span>
-            </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="ebook-stats">
+        <div class="ebook-stat">
+            <span class="ebook-stat-value" id="stat-downloaded">0</span>
+            <span class="ebook-stat-label">Downloaded</span>
         </div>
-        <div class="ebook-progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
+        <div class="ebook-stat">
+            <span class="ebook-stat-value" id="stat-total">27</span>
+            <span class="ebook-stat-label">Total</span>
+        </div>
+        <div class="ebook-stat">
+            <span class="ebook-stat-value" id="stat-progress">0%</span>
+            <span class="ebook-stat-label">Progress</span>
         </div>
     </div>
 
-    <!-- Class Filter Tabs -->
+    <!-- Progress Bar -->
+    <div class="ebook-progress-outer">
+        <div class="ebook-progress-track">
+            <div class="ebook-progress-fill" id="progress-fill"></div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
     <div class="ebook-tabs">
-        <button class="ebook-tab active" onclick="showClass('all')" data-tab="all">All</button>
-        <button class="ebook-tab" onclick="showClass('preprimary')" data-tab="preprimary">Pre-Primary</button>
-        <button class="ebook-tab" onclick="showClass('std1_2')" data-tab="std1_2">Std I–II</button>
-        <button class="ebook-tab" onclick="showClass('std3_4')" data-tab="std3_4">Std III–IV</button>
-        <button class="ebook-tab" onclick="showClass('std5_6')" data-tab="std5_6">Std V–VI</button>
+        <button class="ebook-tab active" data-tab="all" onclick="showClass('all')">All</button>
+        <button class="ebook-tab" data-tab="preprimary" onclick="showClass('preprimary')">Pre-Primary</button>
+        <button class="ebook-tab" data-tab="std1_2" onclick="showClass('std1_2')">Std I–II</button>
+        <button class="ebook-tab" data-tab="std3_4" onclick="showClass('std3_4')">Std III–IV</button>
+        <button class="ebook-tab" data-tab="std5_6" onclick="showClass('std5_6')">Std V–VI</button>
     </div>
 
-    <!-- Chapters List -->
-    <div class="ebook-chapters" id="ebook-chapters">
-        <!-- Rendered by JavaScript -->
-    </div>
-</section>
+    <!-- Chapters Container -->
+    <div class="ebook-chapters" id="ebook-chapters"></div>
+
+</div>
 
 <!-- Download Modal -->
 <div class="ebook-modal" id="ebook-modal">
-    <div class="ebook-modal-content">
-        <div class="modal-icon">📄</div>
-        <h3 class="modal-title" id="modal-title">Downloading...</h3>
-        <p class="modal-desc" id="modal-desc">Your sample chapter is being prepared.</p>
-        <div class="modal-progress-container">
-            <div class="modal-progress-bar">
-                <div class="modal-progress-fill" id="modal-progress-fill"></div>
-            </div>
-            <span class="modal-progress-text" id="modal-progress-text">0%</span>
+    <div class="ebook-modal-inner">
+        <div class="ebook-modal-close">
+            <button class="ebook-modal-close-btn" onclick="closeModal()">✕</button>
         </div>
-        <div class="modal-info">
-            <p>📋 TIE 2023 Syllabus | Competence-Based</p>
-            <p>By Dr. James K Mushi, PhD</p>
+        <h3 id="modal-title">Chapter Title</h3>
+        <p id="modal-desc">Downloading your sample chapter...</p>
+        <div class="ebook-modal-progress-track">
+            <div class="ebook-modal-progress-fill" id="modal-progress-fill"></div>
         </div>
-        <button class="modal-close-btn" onclick="closeModal()">Close</button>
+        <div class="ebook-modal-progress-text" id="modal-progress-text">0%</div>
     </div>
 </div>
+
 <script>
 // ====== E-BOOK SECTION DATA & LOGIC ======
 
 const chapters = [
+    // PRE-PRIMARY
     { id: 'reading_preprimary', name: 'Reading & Storytelling', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'reading stories phonics letters', desc: 'Letter sounds, Picture books, Rhymes', icon: '📖' },
     { id: 'writing_preprimary', name: 'Writing & Early Literacy', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'writing tracing letters drawing', desc: 'Tracing, Pattern drawing, Name writing', icon: '✏️' },
     { id: 'math_preprimary', name: 'Early Mathematics (3Rs)', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'math numbers counting shapes', desc: 'Counting, Shapes, Simple operations', icon: '🔢' },
     { id: 'english_preprimary', name: 'Basic English Language', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'english greetings colors animals', desc: 'Greetings, Colors, Animals, Songs', icon: '🌍' },
     { id: 'arts_preprimary', name: 'Culture, Arts & Sports', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'arts culture games music dance', desc: 'Traditional games, Drawing, Music', icon: '🎨' },
     { id: 'health_preprimary', name: 'Health & Environment', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'health hygiene plants water safety', desc: 'Hygiene, Plants, Clean water, Safety', icon: '🌿' },
+    
+    // STD I–II
     { id: 'reading_std1', name: 'Reading', class: 'std1_2', classLabel: 'Std I–II', tags: 'reading phonics fluency comprehension', desc: 'Phonics, Fluency, Comprehension', icon: '📖' },
     { id: 'writing_std1', name: 'Writing', class: 'std1_2', classLabel: 'Std I–II', tags: 'writing sentences paragraphs creative', desc: 'Sentences, Paragraphs, Creative writing', icon: '✏️' },
     { id: 'arithmetic_std1', name: 'Arithmetic', class: 'std1_2', classLabel: 'Std I–II', tags: 'math arithmetic numbers operations', desc: 'Numbers, Operations, Word problems', icon: '🔢' },
     { id: 'english_std1', name: 'Basic English Language Skills', class: 'std1_2', classLabel: 'Std I–II', tags: 'english listening speaking literacy', desc: 'Listening, Speaking, Early literacy', icon: '🌍' },
     { id: 'culture_std1', name: 'Culture, Arts & Sports', class: 'std1_2', classLabel: 'Std I–II', tags: 'culture tanzanian games art', desc: 'Tanzanian culture, Games, Art', icon: '🎭' },
     { id: 'health_std1', name: 'Health & Environment', class: 'std1_2', classLabel: 'Std I–II', tags: 'health environment personal safety', desc: 'Personal health, Environment care, Safety', icon: '🌿' },
+    
+    // STD III–IV
     { id: 'kiswahili_std3', name: 'Kiswahili', class: 'std3_4', classLabel: 'Std III–IV', tags: 'kiswahili fasihi sarufi insha', desc: 'Fasihi, Sarufi, Insha, Mawasiliano', icon: '🇹🇿' },
     { id: 'english_std3', name: 'English Language', class: 'std3_4', classLabel: 'Std III–IV', tags: 'english grammar reading writing', desc: 'Grammar, Reading, Writing, Speaking', icon: '🌍' },
     { id: 'math_std3', name: 'Mathematics', class: 'std3_4', classLabel: 'Std III–IV', tags: 'math numbers geometry measurement', desc: 'Numbers, Geometry, Measurement, Data', icon: '🔢' },
@@ -6779,6 +7151,8 @@ const chapters = [
     { id: 'social_std3', name: 'Social Studies', class: 'std3_4', classLabel: 'Std III–IV', tags: 'social studies family community map', desc: 'Family, Community, Map skills, Resources', icon: '🗺️' },
     { id: 'civic_std3', name: 'Civic & Moral Education', class: 'std3_4', classLabel: 'Std III–IV', tags: 'civic rights responsibilities ethics', desc: 'Rights, Responsibilities, Ethics, Citizenship', icon: '⚖️' },
     { id: 're_std3', name: 'Religious Education', class: 'std3_4', classLabel: 'Std III–IV', tags: 'religion bible islamic studies', desc: 'Bible Knowledge / Islamic Studies', icon: '🙏' },
+    
+    // STD V–VI
     { id: 'kiswahili_std5', name: 'Kiswahili', class: 'std5_6', classLabel: 'Std V–VI', tags: 'kiswahili fasihi sarufi insha uchanganuzi', desc: 'Fasihi, Sarufi, Insha, Uchanganuzi', icon: '🇹🇿' },
     { id: 'english_std5', name: 'English Language', class: 'std5_6', classLabel: 'Std V–VI', tags: 'english advanced grammar comprehension', desc: 'Advanced grammar, Comprehension, Composition', icon: '🌍' },
     { id: 'math_std5', name: 'Mathematics', class: 'std5_6', classLabel: 'Std V–VI', tags: 'math algebra fractions geometry statistics', desc: 'Algebra, Fractions, Geometry, Statistics', icon: '🔢' },
@@ -6818,28 +7192,62 @@ function updateStats() {
 function renderChapters() {
     const container = document.getElementById('ebook-chapters');
     container.innerHTML = '';
+    
     let filtered = chapters;
-    if (currentFilter !== 'all') filtered = filtered.filter(c => c.class === currentFilter);
+    if (currentFilter !== 'all') {
+        filtered = filtered.filter(c => c.class === currentFilter);
+    }
     if (currentSearch) {
         const searchLower = currentSearch.toLowerCase();
-        filtered = filtered.filter(c => c.name.toLowerCase().includes(searchLower) || c.tags.toLowerCase().includes(searchLower) || c.classLabel.toLowerCase().includes(searchLower));
+        filtered = filtered.filter(c => 
+            c.name.toLowerCase().includes(searchLower) || 
+            c.tags.toLowerCase().includes(searchLower) || 
+            c.classLabel.toLowerCase().includes(searchLower)
+        );
     }
+    
     const grouped = {};
-    filtered.forEach(c => { if (!grouped[c.classLabel]) grouped[c.classLabel] = []; grouped[c.classLabel].push(c); });
+    filtered.forEach(c => {
+        if (!grouped[c.classLabel]) grouped[c.classLabel] = [];
+        grouped[c.classLabel].push(c);
+    });
+    
     Object.keys(grouped).forEach(classLabel => {
         const header = document.createElement('div');
         header.className = 'ebook-class-header';
         header.innerHTML = `<span>${getClassEmoji(classLabel)}</span> ${classLabel} Subjects`;
         container.appendChild(header);
+        
         grouped[classLabel].forEach(chapter => {
             const isDownloaded = downloadedChapters.has(chapter.id);
             const card = document.createElement('div');
             card.className = 'ebook-card';
-            card.innerHTML = `<div class="ebook-card-content"><div class="ebook-card-info"><h3 class="ebook-card-title">${chapter.icon} ${chapter.name}</h3><p class="ebook-card-class">${chapter.classLabel}</p><p class="ebook-card-desc">✓ ${chapter.desc}</p>${isDownloaded ? '<p class="ebook-card-status">✓ Downloaded • Available offline</p>' : ''}</div><button class="ebook-download-btn ${isDownloaded ? 'saved' : ''}" onclick="downloadChapter('${chapter.id}')">${isDownloaded ? '✓ Saved' : '⬇ PDF'}</button></div>`;
+            card.innerHTML = `
+                <div class="ebook-card-content">
+                    <div class="ebook-card-info">
+                        <h3 class="ebook-card-title">${chapter.icon} ${chapter.name}</h3>
+                        <p class="ebook-card-class">${chapter.classLabel}</p>
+                        <p class="ebook-card-desc">✓ ${chapter.desc}</p>
+                        ${isDownloaded ? '<p class="ebook-card-status">✓ Downloaded • Available offline</p>' : ''}
+                    </div>
+                    <button class="ebook-download-btn ${isDownloaded ? 'saved' : ''}" onclick="downloadChapter('${chapter.id}')">
+                        ${isDownloaded ? '✓ Saved' : '⬇ PDF'}
+                    </button>
+                </div>
+            `;
             container.appendChild(card);
         });
     });
-    if (filtered.length === 0) container.innerHTML = `<div class="ebook-empty"><div class="ebook-empty-icon">🔍</div><h3 class="ebook-empty-title">No chapters found</h3><p class="ebook-empty-desc">Try a different search term</p></div>`;
+    
+    if (filtered.length === 0) {
+        container.innerHTML = `
+            <div class="ebook-empty">
+                <div class="ebook-empty-icon">🔍</div>
+                <h3 class="ebook-empty-title">No chapters found</h3>
+                <p class="ebook-empty-desc">Try a different search term</p>
+            </div>
+        `;
+    }
     updateStats();
 }
 
@@ -6862,8 +7270,10 @@ function downloadChapter(chapterId) {
     const progressText = document.getElementById('modal-progress-text');
     const title = document.getElementById('modal-title');
     const desc = document.getElementById('modal-desc');
+    
     modal.classList.add('active');
     title.textContent = chapter.name;
+    
     if (downloadedChapters.has(chapterId)) {
         desc.textContent = 'This chapter is already downloaded and available offline.';
         progressFill.style.width = '100%';
@@ -6871,10 +7281,12 @@ function downloadChapter(chapterId) {
         progressText.textContent = '100% • Saved';
         return;
     }
+    
     desc.textContent = 'Downloading your sample chapter...';
     progressFill.style.width = '0%';
     progressFill.classList.remove('complete');
     progressText.textContent = '0%';
+    
     let progress = 0;
     const interval = setInterval(() => {
         progress += Math.random() * 25;
@@ -6899,30 +7311,19 @@ function closeModal() {
     document.getElementById('ebook-modal').classList.remove('active');
 }
 
-document.addEventListener('DOMContentLoaded', () => { renderChapters(); });
-<style>
-.sanitary-float,
-.sanitary-badge {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-.payment-balls,
-.payment-balls * {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-</style>
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    renderChapters();
+});
 </script>
-
+<!-- ==================== END E-BOOK SECTION ==================== -->
 <style>
 /* ===== Floating Action Button ===== */
 .payment-fab {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  z-index: 999;
+  z-index: 999;.
   width: 56px;
   height: 56px;
   border-radius: 50%;
