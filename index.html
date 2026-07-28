@@ -7379,6 +7379,27 @@ document.addEventListener('DOMContentLoaded', () => { renderChapters(); });
 })();
 </script>
 <!-- ===== MENSTRUAL HEALTH PRIVACY HEART END ===== -->
+/* === FIX: Swap positions — pink bottom, green + mid-right === */
+
+/* Pink button: stays at bottom right */
+.floating-heart, .heart-btn, .popup-btn, .promo-btn, .support-btn, .menstrual-btn, .dismiss-btn, .float-btn {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  top: auto !important;
+  transform: none !important;
+  z-index: 999 !important;
+}
+
+/* Green + button: moves to middle right */
+.payment-fab {
+  position: fixed !important;
+  right: 24px !important;
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
+  z-index: 998 !important;
+}
 </body> 
 </html>
 
