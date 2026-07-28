@@ -7215,6 +7215,170 @@ document.addEventListener('DOMContentLoaded', () => { renderChapters(); });
     document.getElementById('sanitaryPopupCard').classList.remove('active');
   }
 </script>
+<!-- ===== MENSTRUAL HEALTH PRIVACY HEART START ===== -->
+<style>
+  /* ── Floating heart button ── */
+  #mhs-privacy-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e91e63, #f06292);
+    border: none;
+    box-shadow: 0 6px 24px rgba(233,30,99,0.35);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    animation: mhs-pulse-glow 2.5s ease-in-out infinite;
+  }
+  #mhs-privacy-btn:hover { transform: scale(1.12); }
+  #mhs-privacy-btn:active { transform: scale(0.95); }
+
+  @keyframes mhs-pulse-glow {
+    0%, 100% { box-shadow: 0 6px 24px rgba(233,30,99,0.35); }
+    50%      { box-shadow: 0 6px 36px rgba(233,30,99,0.55); }
+  }
+
+  /* ── Privacy overlay ── */
+  #mhs-privacy-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    pointer-events: none;
+    background: rgba(255,255,255,0.05); /* barely there so it feels intimate */
+  }
+  #mhs-privacy-overlay.active { display: flex; }
+
+  #mhs-privacy-card {
+    background: #fff0f5;
+    border: 1px solid #f8bbd0;
+    border-radius: 20px;
+    padding: 32px 40px;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(233,30,99,0.18);
+    transform: scale(0.7);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
+                opacity 0.35s ease;
+  }
+  #mhs-privacy-card.show {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  /* ── Flying hearts ── */
+  @keyframes mhs-heart-fly {
+    0%   { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-200px) scale(0.2) rotate(25deg); opacity: 0; }
+  }
+  .mhs-floater {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9997;
+    color: #f48fb1;
+  }
+</style>
+
+<!-- The floating heart button -->
+<button id="mhs-privacy-btn" aria-label="Her period her dignity we care">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+
+<!-- The privacy message overlay -->
+<div id="mhs-privacy-overlay">
+  <div id="mhs-privacy-card">
+    <div style="font-size:42px;margin-bottom:14px;">🩷</div>
+    <p style="margin:0;font-size:20px;font-weight:500;color:#880e4f;line-height:1.5;font-family:system-ui,sans-serif;">
+      her period<br>her dignity<br>we care
+    </p>
+    <div style="margin-top:14px;font-size:12px;color:#ad1457;opacity:0.7;font-family:system-ui,sans-serif;">
+      Closing in <span id="mhs-count">3</span>s
+    </div>
+  </div>
+</div>
+
+<!-- Flying hearts container -->
+<div id="mhs-particles" style="position:fixed;inset:0;pointer-events:none;z-index:9996;overflow:hidden;"></div>
+
+<script>
+(function(){
+  const btn       = document.getElementById('mhs-privacy-btn');
+  const overlay   = document.getElementById('mhs-privacy-overlay');
+  const card      = document.getElementById('mhs-privacy-card');
+  const countSpan = document.getElementById('mhs-count');
+  const particles = document.getElementById('mhs-particles');
+  let hideTimer   = null;
+  let countTimer  = null;
+
+  function spawnHeart() {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('width','20');
+    svg.setAttribute('height','20');
+    svg.setAttribute('viewBox','0 0 24 24');
+    svg.setAttribute('fill','currentColor');
+    svg.innerHTML = '<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>';
+
+    const size = 14 + Math.random() * 18;
+    const rect = btn.getBoundingClientRect();
+    const startX = rect.left + rect.width/2 + (Math.random()-0.5)*50;
+    const startY = rect.top  + rect.height/2 + (Math.random()-0.5)*30;
+    const dur    = 1.2 + Math.random()*1.3;
+
+    svg.style.cssText = `
+      position:fixed;left:${startX}px;top:${startY}px;
+      width:${size}px;height:${size}px;
+      color: hsl(340,${70+Math.random()*20}%,${60+Math.random()*15}%);
+      animation: mhs-heart-fly ${dur}s ease-out forwards;
+    `;
+    particles.appendChild(svg);
+    setTimeout(() => svg.remove(), dur*1000 + 50);
+  }
+
+  btn.addEventListener('click', () => {
+    // Clear any previous timer
+    if (hideTimer)  clearTimeout(hideTimer);
+    if (countTimer) clearInterval(countTimer);
+
+    // Spawn 20 flying pink hearts
+    for (let i = 0; i < 20; i++) setTimeout(spawnHeart, i * 70);
+
+    // Show overlay
+    overlay.classList.add('active');
+    // Force reflow so transition plays
+    void card.offsetWidth;
+    card.classList.add('show');
+
+    // 3-second countdown
+    let sec = 3;
+    countSpan.textContent = sec;
+    countTimer = setInterval(() => {
+      sec--;
+      countSpan.textContent = sec;
+      if (sec <= 0) clearInterval(countTimer);
+    }, 1000);
+
+    // Auto-close after exactly 3 seconds
+    hideTimer = setTimeout(() => {
+      card.classList.remove('show');
+      setTimeout(() => {
+        overlay.classList.remove('active');
+        particles.innerHTML = '';
+      }, 350);
+    }, 3000);
+  });
+})();
+</script>
+<!-- ===== MENSTRUAL HEALTH PRIVACY HEART END ===== -->
 </body> 
 </html>
 
