@@ -7161,6 +7161,60 @@ document.addEventListener('DOMContentLoaded', () => { renderChapters(); });
   });
 })();
 </script>
+<script>
+  function submitEmbedForm(e) {
+    e.preventDefault();
+    alert('Thank you! Your inquiry has been sent. We will respond within 24–48 hours.');
+    e.target.reset();
+    return false;
+  }
+
+  (function() {
+    var btn = document.createElement('button');
+    btn.className = 'sanitary-float-toggle';
+    btn.innerHTML = '❤️';
+    btn.setAttribute('aria-label', 'Menstrual Health Support');
+    document.body.appendChild(btn);
+
+    var card = document.createElement('div');
+    card.className = 'sanitary-popup-card';
+    card.id = 'sanitaryPopupCard';
+    card.innerHTML = 
+      '<button class="sanitary-popup-close" onclick="closeSanitaryPopup()">&times;</button>' +
+      '<div class="sanitary-popup-header">' +
+        '<div class="sanitary-popup-heart">❤️</div>' +
+        '<div>' +
+          '<h4>Her period. Her dignity.</h4>' +
+          '<p class="sanitary-popup-tagline">We care.</p>' +
+        '</div>' +
+      '</div>' +
+      '<p class="sanitary-popup-text">Inquire about Menstrual Health Support</p>' +
+      '<form class="sanitary-popup-form" onsubmit="return submitEmbedForm(event)">' +
+        '<input type="text" placeholder="Your Name" required>' +
+        '<input type="email" placeholder="Email Address" required>' +
+        '<button type="submit">Send Inquiry</button>' +
+      '</form>' +
+      '<a href="https://wa.me/255788698126" target="_blank" class="sanitary-popup-whatsapp">' +
+        '💬 Chat on WhatsApp' +
+      '</a>';
+    document.body.appendChild(card);
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      card.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!card.contains(e.target) && e.target !== btn) {
+        card.classList.remove('active');
+      }
+    });
+  })();
+
+  function closeSanitaryPopup() {
+    document.getElementById('sanitaryPopupCard').classList.remove('active');
+  }
+</script>
 </body> 
 </html>
 
