@@ -6689,7 +6689,7 @@ a[aria-label="Chat with AESF on WhatsApp"] {
 }
 </style>
 
-<!-- ==================== E-BOOK SAMPLE CHAPTERS SECTION ==================== -->
+
 <style>
 /* ===== E-BOOK SECTION STYLES ===== */
 .ebook-section {
@@ -6934,21 +6934,134 @@ a[aria-label="Chat with AESF on WhatsApp"] {
     color: #16a34a;
     font-weight: 600;
 }
-.ebook-download-btn {
+.ebook-actions {
+    display: flex;
+    gap: 6px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.ebook-download-btn, .ebook-read-btn {
     padding: 8px 14px;
     border-radius: 10px;
     border: none;
-    background: #dcfce7;
-    color: #166534;
     font-size: 12px;
     font-weight: 700;
     cursor: pointer;
     white-space: nowrap;
     transition: all 0.2s;
 }
+.ebook-download-btn {
+    background: #dcfce7;
+    color: #166534;
+}
 .ebook-download-btn.saved {
     background: #166534;
     color: white;
+}
+.ebook-read-btn {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+/* Expanded Content */
+.ebook-content-expand {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #f3f4f6;
+    display: none;
+    animation: fadeSlideDown 0.3s ease;
+}
+.ebook-content-expand.open {
+    display: block;
+}
+@keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Page Tabs inside chapter */
+.ebook-page-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #f3f4f6;
+    padding-bottom: 8px;
+}
+.ebook-page-tab {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    background: #f9fafb;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.ebook-page-tab.active {
+    background: #166534;
+    color: white;
+}
+.ebook-page-content {
+    display: none;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #374151;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.ebook-page-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.ebook-page-content h4 {
+    color: #166534;
+    font-size: 13px;
+    margin: 12px 0 6px 0;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #dcfce7;
+}
+.ebook-page-content ul, .ebook-page-content ol {
+    margin: 6px 0;
+    padding-left: 18px;
+}
+.ebook-page-content li {
+    margin-bottom: 4px;
+}
+.ebook-page-content .highlight-box {
+    background: #f0fdf4;
+    border-left: 3px solid #22c55e;
+    padding: 10px 12px;
+    border-radius: 0 8px 8px 0;
+    margin: 10px 0;
+    font-size: 12px;
+}
+.ebook-page-content .activity-box {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 12px;
+}
+.ebook-page-content .activity-box strong {
+    color: #b45309;
+}
+.ebook-page-content .assess-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 12px;
+}
+.ebook-page-content .assess-box strong {
+    color: #1e40af;
 }
 
 /* Empty State */
@@ -6971,7 +7084,7 @@ a[aria-label="Chat with AESF on WhatsApp"] {
     color: #9ca3af;
 }
 
-/* Modal */
+/* Download Modal */
 .ebook-modal {
     position: fixed;
     top: 0;
@@ -7053,17 +7166,16 @@ a[aria-label="Chat with AESF on WhatsApp"] {
 }
 </style>
 
-<!-- E-BOOK SECTION -->
 <div class="ebook-section" id="ebook-section">
 
-    <!-- Banner -->
+
     <div class="ebook-banner">
         <span class="ebook-banner-icon">📚</span>
         <h2>AESF Sample Chapters</h2>
         <p>TIE 2023 Syllabus Aligned • Competence-Based<br>By Dr. James K Mushi, PhD</p>
     </div>
 
-    <!-- Search -->
+
     <div class="ebook-search-wrap">
         <div class="ebook-search-box">
             <span class="ebook-search-icon">🔍</span>
@@ -7071,7 +7183,7 @@ a[aria-label="Chat with AESF on WhatsApp"] {
         </div>
     </div>
 
-    <!-- Stats -->
+
     <div class="ebook-stats">
         <div class="ebook-stat">
             <span class="ebook-stat-value" id="stat-downloaded">0</span>
@@ -7087,14 +7199,14 @@ a[aria-label="Chat with AESF on WhatsApp"] {
         </div>
     </div>
 
-    <!-- Progress Bar -->
+
     <div class="ebook-progress-outer">
         <div class="ebook-progress-track">
             <div class="ebook-progress-fill" id="progress-fill"></div>
         </div>
     </div>
 
-    <!-- Tabs -->
+
     <div class="ebook-tabs">
         <button class="ebook-tab active" data-tab="all" onclick="showClass('all')">All</button>
         <button class="ebook-tab" data-tab="preprimary" onclick="showClass('preprimary')">Pre-Primary</button>
@@ -7103,12 +7215,11 @@ a[aria-label="Chat with AESF on WhatsApp"] {
         <button class="ebook-tab" data-tab="std5_6" onclick="showClass('std5_6')">Std V–VI</button>
     </div>
 
-    <!-- Chapters Container -->
+
     <div class="ebook-chapters" id="ebook-chapters"></div>
 
 </div>
 
-<!-- Download Modal -->
 <div class="ebook-modal" id="ebook-modal">
     <div class="ebook-modal-inner">
         <div class="ebook-modal-close">
@@ -7124,26 +7235,19 @@ a[aria-label="Chat with AESF on WhatsApp"] {
 </div>
 
 <script>
-// ====== E-BOOK SECTION DATA & LOGIC ======
-
 const chapters = [
-    // PRE-PRIMARY
     { id: 'reading_preprimary', name: 'Reading & Storytelling', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'reading stories phonics letters', desc: 'Letter sounds, Picture books, Rhymes', icon: '📖' },
     { id: 'writing_preprimary', name: 'Writing & Early Literacy', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'writing tracing letters drawing', desc: 'Tracing, Pattern drawing, Name writing', icon: '✏️' },
     { id: 'math_preprimary', name: 'Early Mathematics (3Rs)', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'math numbers counting shapes', desc: 'Counting, Shapes, Simple operations', icon: '🔢' },
     { id: 'english_preprimary', name: 'Basic English Language', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'english greetings colors animals', desc: 'Greetings, Colors, Animals, Songs', icon: '🌍' },
     { id: 'arts_preprimary', name: 'Culture, Arts & Sports', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'arts culture games music dance', desc: 'Traditional games, Drawing, Music', icon: '🎨' },
     { id: 'health_preprimary', name: 'Health & Environment', class: 'preprimary', classLabel: 'Pre-Primary', tags: 'health hygiene plants water safety', desc: 'Hygiene, Plants, Clean water, Safety', icon: '🌿' },
-    
-    // STD I–II
     { id: 'reading_std1', name: 'Reading', class: 'std1_2', classLabel: 'Std I–II', tags: 'reading phonics fluency comprehension', desc: 'Phonics, Fluency, Comprehension', icon: '📖' },
     { id: 'writing_std1', name: 'Writing', class: 'std1_2', classLabel: 'Std I–II', tags: 'writing sentences paragraphs creative', desc: 'Sentences, Paragraphs, Creative writing', icon: '✏️' },
     { id: 'arithmetic_std1', name: 'Arithmetic', class: 'std1_2', classLabel: 'Std I–II', tags: 'math arithmetic numbers operations', desc: 'Numbers, Operations, Word problems', icon: '🔢' },
     { id: 'english_std1', name: 'Basic English Language Skills', class: 'std1_2', classLabel: 'Std I–II', tags: 'english listening speaking literacy', desc: 'Listening, Speaking, Early literacy', icon: '🌍' },
     { id: 'culture_std1', name: 'Culture, Arts & Sports', class: 'std1_2', classLabel: 'Std I–II', tags: 'culture tanzanian games art', desc: 'Tanzanian culture, Games, Art', icon: '🎭' },
     { id: 'health_std1', name: 'Health & Environment', class: 'std1_2', classLabel: 'Std I–II', tags: 'health environment personal safety', desc: 'Personal health, Environment care, Safety', icon: '🌿' },
-    
-    // STD III–IV
     { id: 'kiswahili_std3', name: 'Kiswahili', class: 'std3_4', classLabel: 'Std III–IV', tags: 'kiswahili fasihi sarufi insha', desc: 'Fasihi, Sarufi, Insha, Mawasiliano', icon: '🇹🇿' },
     { id: 'english_std3', name: 'English Language', class: 'std3_4', classLabel: 'Std III–IV', tags: 'english grammar reading writing', desc: 'Grammar, Reading, Writing, Speaking', icon: '🌍' },
     { id: 'math_std3', name: 'Mathematics', class: 'std3_4', classLabel: 'Std III–IV', tags: 'math numbers geometry measurement', desc: 'Numbers, Geometry, Measurement, Data', icon: '🔢' },
@@ -7151,8 +7255,6 @@ const chapters = [
     { id: 'social_std3', name: 'Social Studies', class: 'std3_4', classLabel: 'Std III–IV', tags: 'social studies family community map', desc: 'Family, Community, Map skills, Resources', icon: '🗺️' },
     { id: 'civic_std3', name: 'Civic & Moral Education', class: 'std3_4', classLabel: 'Std III–IV', tags: 'civic rights responsibilities ethics', desc: 'Rights, Responsibilities, Ethics, Citizenship', icon: '⚖️' },
     { id: 're_std3', name: 'Religious Education', class: 'std3_4', classLabel: 'Std III–IV', tags: 'religion bible islamic studies', desc: 'Bible Knowledge / Islamic Studies', icon: '🙏' },
-    
-    // STD V–VI
     { id: 'kiswahili_std5', name: 'Kiswahili', class: 'std5_6', classLabel: 'Std V–VI', tags: 'kiswahili fasihi sarufi insha uchanganuzi', desc: 'Fasihi, Sarufi, Insha, Uchanganuzi', icon: '🇹🇿' },
     { id: 'english_std5', name: 'English Language', class: 'std5_6', classLabel: 'Std V–VI', tags: 'english advanced grammar comprehension', desc: 'Advanced grammar, Comprehension, Composition', icon: '🌍' },
     { id: 'math_std5', name: 'Mathematics', class: 'std5_6', classLabel: 'Std V–VI', tags: 'math algebra fractions geometry statistics', desc: 'Algebra, Fractions, Geometry, Statistics', icon: '🔢' },
@@ -7163,9 +7265,195 @@ const chapters = [
     { id: 'vocational_std5', name: 'Vocational Skills', class: 'std5_6', classLabel: 'Std V–VI', tags: 'vocational entrepreneurship agriculture crafts', desc: 'Entrepreneurship, Agriculture, Crafts, ICT', icon: '🛠️' },
 ];
 
+    kiswahili_std5: {
+        page1: `<h4>🇹🇿 Page 1: Fasihi & Uchanganuzi wa Ushairi</h4>
+        <div class="highlight-box"><strong>Competence:</strong> Tumia lugha ya Kiswahili kwa ustadi katika mawasiliano ya kitaaluma.</div>
+        <h4>Malengo ya Kujifunza</h4>
+        <ul><li>Kuchanganua kazi za fasihi (riwaya fupi, tamthilia, mashairi)</li><li>Kuandika insha ndefu (maneno 200-250)</li><li>Kutumia sarufi ya viwango vya juu</li><li>Kufanya mahojiano na hotuba</li></ul>
+        <h4>1. Uchanganuzi wa Mashairi</h4>
+        <p>Vigezo vya kuchanganua shairi:</p>
+        <ul><li><strong>Mfano wa shairi:</strong> Tathmini, Uhuru, Mshororo, Tathmini</li><li><strong>Vina:</strong> Sauti zinazorudiria mwishoni mwa mistari</li><li><strong>Mizani:</strong> Wingi wa silabi katika kila mstari</li><li><strong>Mafumbo:</strong> Maneno yenye maana mbili au zaidi</li></ul>
+        <div class="highlight-box"><strong>Shairi: "Mama"</strong><br><br>Mama yangu, mti wa matunda,<br>Chini yake napata uvumilivu.<br>Mama yangu, taa ya nyumbani,<br>Nuru yake huniongoza njiani.</div>`,
+        page2: `<h4>🇹🇿 Page 2: Sarufi ya Kiwango cha Juu</h4>
+        <h4>2. Vitenzi vya Kutendewa (Passive Voice)</h4>
+        <p>Vitenzi vinavyoonyesha mtu au kitu kikitendewa:</p>
+        <ul><li>Aktiv: Aliandika barua. → Passiv: Barua iliandikwa na yeye.</li><li>Aktiv: Walijenga shule. → Passiv: Shule ilijengwa na wao.</li></ul>
+        <h4>3. Nomino za Makundi (Collective Nouns)</h4>
+        <ul><li>Kundi la nyuki — mzinga</li><li>Kundi la wanyama — mbuga</li><li>Kundi la ndege — kirende</li><li>Kundi la watu — umati</li></ul>
+        <h4>4. Insha za Kiada</h4>
+        <p>Maelezo ya kitaalamu: barua rasmi, malalamiko, maombi. Zina mpangilio maalum: anwani, tarehe, salamu, maudhui, na kuhitimisha.</p>`,
+        page3: `<h4>🇹🇿 Page 3: Shughuli & Tathmini</h4>
+        <div class="activity-box"><strong>🎯 Shughuli 1: Uchanganuzi wa Ushairi</strong><br>Wanafunzi wasome shairi la "Mama" halafu wajibu: Mfano wa shairi ni upi? Mshairi anataja sifa zipi za mama? Je, unakubaliana na mshairi?</div>
+        <div class="activity-box"><strong>🎯 Shughuli 2: Andika Barua Rasmi</strong><br>Andika barua kwa mkuu wa shule ukitaka kuomba ruhusa ya kuhudhuria sherehe ya familia.</div>
+        <div class="activity-box"><strong>🎯 Shughuli 3: Hotuba</strong><br>Andika na utoe hotuba ya dakika 2 kuhusu "Umuhimu wa Elimu." Tumia viwakilishi, vitenzi, na vielezi kwa ufasaha.</div>
+        <div class="assess-box"><strong>📋 Tathmini:</strong><br>1. Changanua shairi kwa kujibu maswali 4/5.<br>2. Andika insha ya maneno 200+ yenye mwanzo, kati, mwisho, na mafundisho.<br>3. Badilisha sentensi 5 kutoka aktiv hadi passiv.<br>4. Toa hotuba ya dakika 2 bila kusoma karatasi.</div>`
+    },
+    english_std5: {
+        page1: `<h4>🌍 Page 1: Advanced Grammar</h4>
+        <div class="highlight-box"><strong>Competence:</strong> Use advanced English for academic, professional, and creative purposes.</div>
+        <h4>Learning Objectives</h4>
+        <ul><li>Master advanced grammar (conditionals, reported speech, passive voice)</li><li>Analyze and summarize texts</li><li>Write essays (250-300 words) with sophisticated vocabulary</li><li>Deliver persuasive speeches</li></ul>
+        <h4>1. Conditionals</h4>
+        <ul><li><strong>Zero:</strong> If you heat water, it boils. (Always true)</li><li><strong>First:</strong> If it rains, I will stay home. (Real future)</li><li><strong>Second:</strong> If I were rich, I would buy a car. (Unreal present)</li></ul>
+        <h4>2. Reported Speech</h4>
+        <p>Direct: "I am tired," she said. → Reported: She said (that) she was tired.<br>Direct: "I will help you," he said. → Reported: He said he would help me.</p>`,
+        page2: `<h4>🌍 Page 2: Passive Voice & Relative Clauses</h4>
+        <h4>3. Passive Voice</h4>
+        <p>Active: The farmer grows maize. → Passive: Maize is grown by the farmer.<br>Used when we don't know who did the action, or when the action is more important than the doer.</p>
+        <h4>4. Relative Clauses</h4>
+        <p>Using who, which, that, whose, where:</p>
+        <ul><li>The teacher <strong>who</strong> teaches us Math is kind.</li><li>This is the book <strong>which</strong> I bought yesterday.</li><li>The boy <strong>whose</strong> bag is red is my friend.</li></ul>
+        <h4>5. Text Analysis</h4>
+        <p>When analyzing a story, look for: Plot (what happens), Characters (who), Setting (where/when), Theme (the message), Conflict (the problem).</p>`,
+        page3: `<h4>🌍 Page 3: Activities & Assessment</h4>
+        <div class="activity-box"><strong>🎯 Activity 1: Grammar Auction</strong><br>Teams "buy" sentences. If the sentence is grammatically correct, they win points. If wrong, they lose points. Highest score wins!</div>
+        <div class="activity-box"><strong>🎯 Activity 2: Debate Preparation</strong><br>Topic: "Should Mobile Phones Be Allowed in Schools?" Research, prepare arguments (pros/cons), and conduct a formal debate.</div>
+        <div class="activity-box"><strong>🎯 Activity 3: Summary Writing</strong><br>Read a 300-word passage. Write a 50-word summary capturing only the main idea and key details.</div>
+        <div class="assess-box"><strong>📋 Assessment:</strong><br>1. Transform 10 direct speech sentences to reported speech.<br>2. Write a 250-word argumentative essay with clear structure.<br>3. Identify plot, character, setting, and theme in a short story.<br>4. Deliver a 2-minute persuasive speech with eye contact.</div>`
+    },
+    math_std5: {
+        page1: `<h4>🔢 Page 1: Fractions, Decimals & Percentages</h4>
+        <div class="highlight-box"><strong>Competence:</strong> Apply advanced mathematical reasoning to complex problems.</div>
+        <h4>Learning Objectives</h4>
+        <ul><li>Work with fractions, decimals, and percentages</li><li>Solve algebraic equations (one variable)</li><li>Calculate area and volume of composite shapes</li><li>Interpret and create data graphs</li></ul>
+        <h4>1. Converting Between Forms</h4>
+        <ul><li>Fraction → Decimal: ½ = 0.5, ¾ = 0.75</li><li>Decimal → Percentage: 0.5 = 50%, 0.25 = 25%</li><li>Percentage → Fraction: 20% = 20/100 = 1/5</li></ul>
+        <h4>2. Operations with Fractions</h4>
+        <p>Adding: Find common denominator first. ½ + ¼ = 2/4 + ¼ = ¾.<br>Multiplying: Multiply numerators, multiply denominators. ½ × ⅓ = 1/6.</p>`,
+        page2: `<h4>🔢 Page 2: Algebra & Geometry</h4>
+        <h4>3. Algebra</h4>
+        <p>A variable (like x) stands for an unknown number.</p>
+        <div class="highlight-box">Solve for x:<br>x + 5 = 12 → x = 12 - 5 → x = 7<br>3x = 15 → x = 15 ÷ 3 → x = 5<br>x/4 = 3 → x = 3 × 4 → x = 12</div>
+        <h4>4. Geometry</h4>
+        <ul><li><strong>Area of triangle:</strong> ½ × base × height</li><li><strong>Area of parallelogram:</strong> base × height</li><li><strong>Area of trapezium:</strong> ½ × (a + b) × height</li><li><strong>Volume of cuboid:</strong> length × width × height</li></ul>
+        <h4>5. Statistics</h4>
+        <p>Mean = total ÷ count. Median = middle number. Mode = most frequent. Range = highest - lowest.</p>`,
+        page3: `<h4>🔢 Page 3: Activities & Assessment</h4>
+        <div class="activity-box"><strong>🎯 Activity 1: Percentage Shop</strong><br>Set up a shop with "20% OFF" and "50% OFF" signs. Students calculate sale prices mentally.</div>
+        <div class="activity-box"><strong>🎯 Activity 2: Algebra Treasure Hunt</strong><br>Hide equation cards around the room. Students solve each equation to find the next clue. Final clue leads to a "treasure."</div>
+        <div class="activity-box"><strong>🎯 Activity 3: Data Project</strong><br>Survey classmates: favorite fruit. Collect data, create a bar graph and pie chart, calculate mean and mode. Present findings.</div>
+        <div class="assess-box"><strong>📋 Assessment:</strong><br>1. Convert between fractions, decimals, and percentages (10 problems).<br>2. Solve 5 algebraic equations and calculate volume of 3 shapes.<br>3. Find mean, median, mode, and range for a data set.<br>4. Solve 2 word problems involving percentages.</div>`
+    },
+    science_std5: {
+        page1: `<h4>🔬 Page 1: Human Body Systems</h4>
+        <div class="highlight-box"><strong>Competence:</strong> Investigate scientific systems and apply technology responsibly.</div>
+        <h4>Learning Objectives</h4>
+        <ul><li>Describe human body systems (digestive, respiratory, circulatory)</li><li>Explain ecosystems and food webs</li><li>Understand forces and simple machines in complex systems</li><li>Use basic ICT tools for learning</li></ul>
+        <h4>1. Digestive System</h4>
+        <p>Journey of food through the body:</p>
+        <ol><li><strong>Mouth:</strong> Teeth chew, saliva breaks down starch</li><li><strong>Oesophagus:</strong> Tube that carries food to stomach</li><li><strong>Stomach:</strong> Acid breaks down food into liquid</li><li><strong>Small intestine:</strong> Nutrients are absorbed into blood</li><li><strong>Large intestine:</strong> Water is absorbed; waste forms</li><li><strong>Rectum:</strong> Waste leaves the body</li></ol>`,
+        page2: `<h4>🔬 Page 2: Ecosystems, Forces & ICT</h4>
+        <h4>2. Ecosystems & Food Webs</h4>
+        <ul><li><strong>Producers:</strong> Plants that make food using sunlight (photosynthesis)</li><li><strong>Consumers:</strong> Animals that eat other organisms</li><li><strong>Decomposers:</strong> Bacteria and fungi that break down dead matter</li></ul>
+        <div class="highlight-box"><strong>Food Chain:</strong> Grass → Grasshopper → Frog → Snake → Eagle<br><strong>Food Web:</strong> Many connected food chains in an ecosystem</strong></div>
+        <h4>3. Forces</h4>
+        <ul><li><strong>Gravity:</strong> Pulls objects toward Earth. Makes things fall down.</li><li><strong>Friction:</strong> Slows moving objects. Rough surfaces = more friction.</li><li><strong>Magnetism:</strong> Invisible force that pulls iron objects.</li></ul>
+        <h4>4. ICT Basics</h4>
+        <p>Parts of a computer: monitor, CPU, keyboard, mouse. Safe internet: don't share personal info, tell an adult if something is wrong.</p>`,
+        page3: `<h4>🔬 Page 3: Activities & Assessment</h4>
+        <div class="activity-box"><strong>🎯 Activity 1: Body System Model</strong><br>Use a long string to trace the digestive system on the classroom floor. Walk through each organ and explain its job.</div>
+        <div class="activity-box"><strong>🎯 Activity 2: Ecosystem Diorama</strong><br>Create a shoebox diorama of a Tanzanian ecosystem (savanna, forest, lake). Include producers, consumers, and decomposers.</div>
+        <div class="activity-box"><strong>🎯 Activity 3: Heart Rate Experiment</strong><br>Measure resting pulse → Run in place for 2 minutes → Measure again → Rest 5 minutes → Measure. Record in a table and graph.</div>
+        <div class="assess-box"><strong>📋 Assessment:</strong><br>1. Label the digestive system diagram with 8 organs.<br>2. Create a food web with 6 organisms from a local ecosystem.<br>3. Explain gravity and friction with 2 real-life examples each.<br>4. Name 3 computer parts and 2 internet safety rules.</div>`
+    },
+    social_std5: {
+        page1: `<h4>🗺️ Page 1: Tanzania's History</h4>
+        <div class="highlight-box"><strong>Competence:</strong> Analyze historical, geographical, and economic issues in Tanzania.</div>
+        <h4>Learning Objectives</h4>
+        <ul><li>Describe Tanzania's precolonial history and independence struggle</li><li>Interpret physical and political maps</li><li>Explain basic economic concepts (supply, demand, trade)</li><li>Analyze environmental issues and solutions</li></ul>
+        <h4>1. Precolonial Kingdoms</h4>
+        <ul><li><strong>Kilwa:</strong> Powerful Swahili trading city on the coast. Traded gold, ivory, and spices with Arabs, Indians, and Chinese.</li><li><strong>Karagwe:</strong> Kingdom in northwest Tanzania, known for ironworking and cattle.</li></ul>
+        <h4>2. Colonial Period</h4>
+        <ul><li><strong>German rule (1880s-1918):</strong> Built railways, introduced cash crops (coffee, cotton)</li><li><strong>British rule (1918-1961):</strong> Indirect rule through local chiefs. Built more schools.</li></ul>`,
+        page2: `<h4>🗺️ Page 2: Independence, Geography & Economics</h4>
+        <h4>3. Independence & Ujamaa</h4>
+        <ul><li><strong>1961:</strong> Tanganyika gained independence from Britain. Julius Nyerere became first Prime Minister.</li><li><strong>1964:</strong> Tanganyika and Zanzibar united to form Tanzania.</li><li><strong>Ujamaa:</strong> Nyerere's policy of African socialism. Villages worked together on farms and shared profits.</li></ul>
+        <h4>4. Geography</h4>
+        <p>Physical features: <strong>Kilimanjaro</strong> (highest peak in Africa), <strong>Serengeti</strong> (famous wildlife migration), <strong>Lake Victoria</strong> (largest lake in Africa), <strong>Rufiji River</strong> (longest in Tanzania).</p>
+        <h4>5. Economics</h4>
+        <p><strong>Supply</strong> = how much is available. <strong>Demand</strong> = how much people want. When demand is high and supply is low, prices go up!</p>`,
+        page3: `<h4>🗺️ Page 3: Activities & Assessment</h4>
+        <div class="activity-box"><strong>🎯 Activity 1: Timeline of Tanzania</strong><br>Create a timeline from 1880 to present with 8 key events and their significance. Illustrate with drawings.</div>
+        <div class="activity-box"><strong>🎯 Activity 2: Map Interpretation</strong><br>Study a physical map of Tanzania. Identify 5 physical features and 5 regions. Calculate distance between two cities using scale.</div>
+        <div class="activity-box"><strong>🎯 Activity 3: Market Simulation</strong><br>Half the class are sellers, half are buyers. Sellers set prices. Buyers negotiate. Observe how supply and demand affect prices.</div>
+        <div class="assess-box"><strong>📋 Assessment:</strong><br>1. Place 6 historical events in correct chronological order.<br>2. Explain 3 causes of deforestation and 2 solutions.<br>3. Define supply and demand with examples from local market.<br>4. Identify 4 physical features of Tanzania on a map.</div>`
+    },
+    civic_std5: {
+        page1: `<h4>⚖️ Page 1: Democracy & Government</h4>
+        <div class="highlight-box"><strong>Competence:</strong> Participate actively in democratic processes and uphold integrity.</div>
+        <h4>Learning Objectives</h4>
+        <ul><li>Explain the structure of Tanzanian government</li><li>Analyze the causes and effects of corruption</li><li>Demonstrate leadership and teamwork skills</li><li>Advocate for human rights and gender equality</li></ul>
+        <h4>1. Structure of Government</h4>
+        <p>Tanzania has 3 branches:</p>
+        <ul><li><strong>Executive:</strong> President, Vice President, Prime Minister. Enforces laws.</li><li><strong>Legislature:</strong> Parliament (Bunge). Makes laws.</li><li><strong>Judiciary:</strong> Courts and judges. Interprets laws.</li></ul>
+        <h4>2. Democracy</h4>
+        <p>People choose their leaders through elections. Tanzania is a multiparty democracy since 1992. Before that, it was a one-party state (CCM).</p>`,
+        page2: `<h4>⚖️ Page 2: Anti-Corruption & Leadership</h4>
+        <h4>3. Anti-Corruption</h4>
+        <p><strong>Corruption</strong> = using power for personal gain. Forms:</p>
+        <ul><li>Bribery — giving money to get unfair advantage</li><li>Embezzlement — stealing public money</li><li>Nepotism — giving jobs to family members only</li></ul>
+        <p><strong>Prevention:</strong> Transparency, whistleblowing (reporting wrongdoing), fair elections, public audits.</p>
+        <h4>4. Leadership</h4>
+        <p><strong>Servant leadership:</strong> Leaders serve the people, not themselves. Good leaders are accountable, listen to feedback, and admit mistakes.</p>
+        <h4>5. Gender Equality</h4>
+        <p>Boys and girls have equal rights to education, work, and participation. CEDAW (Convention on Elimination of Discrimination Against Women) protects these rights globally.</p>`,
+        page3: `<h4>⚖️ Page 3: Activities & Assessment</h4>
+        <div class="activity-box"><strong>🎯 Activity 1: Mock Election</strong><br>Hold a class election for "Class President." Candidates give 1-minute speeches. Secret ballot voting. Count votes and declare winner.</div>
+        <div class="activity-box"><strong>🎯 Activity 2: Corruption Case Study</strong><br>Read a news story about corruption. Discuss: Who was hurt? What should happen? How could it have been prevented?</div>
+        <div class="activity-box"><strong>🎯 Activity 3: Gender Equality Poster</strong><br>Create a poster showing boys and girls doing the same activities: studying, playing football, cooking, being doctors. Caption: "Equal Rights, Equal Future."</div>
+        <div class="assess-box"><strong>📋 Assessment:</strong><br>1. Explain 3 branches of government and their functions.<br>2. Propose 2 strategies to reduce corruption in schools.<br>3. Define servant leadership with 3 qualities.<br>4. Debate: "Should girls be allowed to play football?"</div>`
+    },
+    re_std5: {
+        page1: `<h4>🙏 Page 1: Christian Ethics & Social Issues</h4>
+        <div class="highlight-box"><strong>Competence:</strong> Apply religious teachings to personal and social ethical challenges.</div>
+        <h4>Learning Objectives</h4>
+        <ul><li>Interpret sacred texts in context</li><li>Compare religious values across faiths</li><li>Apply religious ethics to contemporary issues</li><li>Lead communal prayers/devotions</li></ul>
+        <h4>Christianity: Life and Teachings of Jesus</h4>
+        <p><strong>Sermon on the Mount (Matthew 5-7):</strong></p>
+        <ul><li>Blessed are the peacemakers</li><li>Love your enemies</li><li>Do not judge others</li><li>The Lord's Prayer — Our Father in heaven...</li></ul>
+        <p><strong>Parables:</strong> Short stories with moral lessons. The Good Samaritan teaches helping strangers. The Prodigal Son teaches forgiveness. The Mustard Seed teaches faith.</p>`,
+        page2: `<h4>🙏 Page 2: Islamic Ethics & Contributions</h4>
+        <h4>Islamic Studies: Life of Prophet Muhammad (SAW)</h4>
+        <ul><li><strong>Makkah period:</strong> Born 570 CE, received first revelation at age 40 in Cave Hira. Preached monotheism.</li><li><strong>Madinah period:</strong> Established first Islamic state. Treaty of Hudaybiyyah showed wisdom in diplomacy.</li></ul>
+        <h4>Articles of Faith</h4>
+        <ol><li>Belief in Allah</li><li>Belief in Angels</li><li>Belief in Holy Books (Qur'an, Bible, Torah)</li><li>Belief in Prophets</li><li>Belief in Day of Judgment</li><li>Belief in Divine Decree (Qadar)</li></ol>
+        <h4>Islamic Contributions to Science</h4>
+        <p>Algebra (from Arabic "al-jabr"), astronomy, medicine (Ibn Sina's Canon of Medicine), and navigation.</p>`,
+        page3: `<h4>🙏 Page 3: Activities & Assessment</h4>
+        <div class="activity-box"><strong>🎯 Activity 1: Ethical Dilemma Discussion</strong><br>Scenario: You find a wallet with money. What does your religion teach? Discuss in groups and present your faith's guidance.</div>
+        <div class="activity-box"><strong>🎯 Activity 2: Interfaith Panel</strong><br>Students from different faiths present one shared value. Audience asks respectful questions. Focus on similarities, not differences.</div>
+        <div class="activity-box"><strong>🎯 Activity 3: Community Service Project</strong><br>Plan a class project: visit an orphanage, clean a mosque/church, or donate food. Connect the project to religious teachings on charity.</div>
+        <div class="assess-box"><strong>📋 Assessment:</strong><br>1. Explain 3 teachings of Jesus/Prophet Muhammad and their modern application.<br>2. Lead a class prayer/devotion.<br>3. Compare 2 shared values between Christianity and Islam.<br>4. Propose a community service project linked to religious ethics.</div>`
+    },
+    vocational_std5: {
+        page1: `<h4>🛠️ Page 1: Entrepreneurship & Business Planning</h4>
+        <div class="highlight-box"><strong>Competence:</strong> Develop practical skills for entrepreneurship and self-reliance.</div>
+        <h4>Learning Objectives</h4>
+        <ul><li>Create a simple business plan</li><li>Demonstrate basic agricultural techniques</li><li>Produce craft items for sale</li><li>Use ICT for communication and basic business</li></ul>
+        <h4>1. Entrepreneurship</h4>
+        <p>An entrepreneur sees a problem and creates a solution that people will pay for.</p>
+        <ul><li><strong>Opportunity:</strong> What do people in my village need?</li><li><strong>Product:</strong> What can I make or sell?</li><li><strong>Budget:</strong> How much will it cost?</li><li><strong>Price:</strong> How much should I charge?</li><li><strong>Profit:</strong> Price - Cost = Money I keep</li></ul>
+        <h4>2. Business Plan Template</h4>
+        <ol><li>Business name</li><li>What you sell</li><li>Who will buy it</li><li>What you need (materials, tools)</li><li>How much money you need to start</li><li>How you will sell (market, school, online)</li></ol>`,
+        page2: `<h4>🛠️ Page 2: Agriculture, Crafts & ICT</h4>
+        <h4>3. Agriculture</h4>
+        <ul><li><strong>Composting:</strong> Collect vegetable peels, dry leaves, and animal waste. Turn regularly. In 2-3 months, you have free fertilizer!</li><li><strong>Planting vegetables:</strong> Tomatoes, spinach, and amaranth grow quickly. Plant in rows, water daily, remove weeds.</li><li><strong>Poultry keeping:</strong> Chickens need clean water, grains, and a safe coop. Collect eggs daily.</li></ul>
+        <h4>4. Crafts</h4>
+        <ul><li><strong>Tie-dye:</strong> Twist fabric with rubber bands, dip in dye, untwist for beautiful patterns.</li><li><strong>Beadwork:</strong> String beads to make bracelets, necklaces, and keychains.</li><li><strong>Recycled art:</strong> Make baskets from plastic bottles, mats from old clothes.</li></ul>
+        <h4>5. ICT for Business</h4>
+        <p>Use a phone or computer to: create flyers, calculate profit with a calculator, keep records in a notebook or spreadsheet, sell on WhatsApp or Instagram.</p>`,
+        page3: `<h4>🛠️ Page 3: Activities & Assessment</h4>
+        <div class="activity-box"><strong>🎯 Activity 1: My Small Business</strong><br>Identify a product (beaded bracelets, vegetables, baked goods). Calculate costs. Set a price. Create a simple marketing poster. Present to class.</div>
+        <div class="activity-box"><strong>🎯 Activity 2: Planting Project</strong><br>Each student plants 3 vegetable seeds in a recycled container. Track growth for 4 weeks. Measure height, water daily, record observations.</div>
+        <div class="activity-box"><strong>🎯 Activity 3: Craft Fair</strong><br>Students produce one quality craft item. Set up a classroom "market." Use play money to buy and sell. Calculate total sales and profit.</div>
+        <div class="assess-box"><strong>📋 Assessment:</strong><br>1. Write a 1-page business plan with budget.<br>2. Produce one quality craft/agricultural product.<br>3. Calculate profit from a sample transaction.<br>4. Create a digital or hand-drawn advertisement for a product.</div>`
+    }
+};
+
 let downloadedChapters = new Set(JSON.parse(localStorage.getItem('aesf_downloaded') || '[]'));
 let currentFilter = 'all';
 let currentSearch = '';
+let expandedChapter = null;
 
 function getClassEmoji(label) {
     if (label.includes('Pre')) return '🧸';
@@ -7189,37 +7477,81 @@ function updateStats() {
     document.getElementById('progress-fill').style.width = pct + '%';
 }
 
+function getChapterContent(chapterId) {
+    const content = chapterContent[chapterId];
+    if (!content) return '<p style="color:#999;font-size:12px;">Content coming soon...</p>';
+    return `
+        <div class="ebook-page-tabs">
+            <button class="ebook-page-tab active" onclick="showPage(this, 'page1', '${chapterId}')">Page 1</button>
+            <button class="ebook-page-tab" onclick="showPage(this, 'page2', '${chapterId}')">Page 2</button>
+            <button class="ebook-page-tab" onclick="showPage(this, 'page3', '${chapterId}')">Page 3</button>
+        </div>
+        <div class="ebook-page-content active" id="page1-${chapterId}">${content.page1}</div>
+        <div class="ebook-page-content" id="page2-${chapterId}">${content.page2}</div>
+        <div class="ebook-page-content" id="page3-${chapterId}">${content.page3}</div>
+    `;
+}
+
+function showPage(btn, pageNum, chapterId) {
+    const card = btn.closest('.ebook-card');
+    card.querySelectorAll('.ebook-page-tab').forEach(t => t.classList.remove('active'));
+    card.querySelectorAll('.ebook-page-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(pageNum + '-' + chapterId).classList.add('active');
+}
+
+function toggleChapter(chapterId) {
+    const expandDiv = document.getElementById('expand-' + chapterId);
+    const isOpen = expandDiv.classList.contains('open');
+
+    // Close all others
+    document.querySelectorAll('.ebook-content-expand').forEach(el => el.classList.remove('open'));
+
+    if (!isOpen) {
+        expandDiv.classList.add('open');
+        expandedChapter = chapterId;
+        // Load content if not already loaded
+        if (!expandDiv.dataset.loaded) {
+            expandDiv.innerHTML = getChapterContent(chapterId);
+            expandDiv.dataset.loaded = 'true';
+        }
+    } else {
+        expandedChapter = null;
+    }
+}
+
 function renderChapters() {
     const container = document.getElementById('ebook-chapters');
     container.innerHTML = '';
-    
+
     let filtered = chapters;
     if (currentFilter !== 'all') {
         filtered = filtered.filter(c => c.class === currentFilter);
     }
     if (currentSearch) {
         const searchLower = currentSearch.toLowerCase();
-        filtered = filtered.filter(c => 
-            c.name.toLowerCase().includes(searchLower) || 
-            c.tags.toLowerCase().includes(searchLower) || 
+        filtered = filtered.filter(c =>
+            c.name.toLowerCase().includes(searchLower) ||
+            c.tags.toLowerCase().includes(searchLower) ||
             c.classLabel.toLowerCase().includes(searchLower)
         );
     }
-    
+
     const grouped = {};
     filtered.forEach(c => {
         if (!grouped[c.classLabel]) grouped[c.classLabel] = [];
         grouped[c.classLabel].push(c);
     });
-    
+
     Object.keys(grouped).forEach(classLabel => {
         const header = document.createElement('div');
         header.className = 'ebook-class-header';
         header.innerHTML = `<span>${getClassEmoji(classLabel)}</span> ${classLabel} Subjects`;
         container.appendChild(header);
-        
+
         grouped[classLabel].forEach(chapter => {
             const isDownloaded = downloadedChapters.has(chapter.id);
+            const isExpanded = expandedChapter === chapter.id;
             const card = document.createElement('div');
             card.className = 'ebook-card';
             card.innerHTML = `
@@ -7230,15 +7562,21 @@ function renderChapters() {
                         <p class="ebook-card-desc">✓ ${chapter.desc}</p>
                         ${isDownloaded ? '<p class="ebook-card-status">✓ Downloaded • Available offline</p>' : ''}
                     </div>
-                    <button class="ebook-download-btn ${isDownloaded ? 'saved' : ''}" onclick="downloadChapter('${chapter.id}')">
-                        ${isDownloaded ? '✓ Saved' : '⬇ PDF'}
-                    </button>
+                    <div class="ebook-actions">
+                        <button class="ebook-read-btn" onclick="toggleChapter('${chapter.id}')">${isExpanded ? '▲ Close' : '📖 Read'}</button>
+                        <button class="ebook-download-btn ${isDownloaded ? 'saved' : ''}" onclick="downloadChapter('${chapter.id}')">
+                            ${isDownloaded ? '✓ Saved' : '⬇ PDF'}
+                        </button>
+                    </div>
+                </div>
+                <div class="ebook-content-expand ${isExpanded ? 'open' : ''}" id="expand-${chapter.id}" data-loaded="${isExpanded ? 'true' : ''}">
+                    ${isExpanded ? getChapterContent(chapter.id) : ''}
                 </div>
             `;
             container.appendChild(card);
         });
     });
-    
+
     if (filtered.length === 0) {
         container.innerHTML = `
             <div class="ebook-empty">
@@ -7253,6 +7591,7 @@ function renderChapters() {
 
 function showClass(className) {
     currentFilter = className;
+    expandedChapter = null;
     document.querySelectorAll('.ebook-tab').forEach(el => el.classList.remove('active'));
     document.querySelector(`.ebook-tab[data-tab="${className}"]`).classList.add('active');
     renderChapters();
@@ -7270,10 +7609,10 @@ function downloadChapter(chapterId) {
     const progressText = document.getElementById('modal-progress-text');
     const title = document.getElementById('modal-title');
     const desc = document.getElementById('modal-desc');
-    
+
     modal.classList.add('active');
     title.textContent = chapter.name;
-    
+
     if (downloadedChapters.has(chapterId)) {
         desc.textContent = 'This chapter is already downloaded and available offline.';
         progressFill.style.width = '100%';
@@ -7281,12 +7620,12 @@ function downloadChapter(chapterId) {
         progressText.textContent = '100% • Saved';
         return;
     }
-    
+
     desc.textContent = 'Downloading your sample chapter...';
     progressFill.style.width = '0%';
     progressFill.classList.remove('complete');
     progressText.textContent = '0%';
-    
+
     let progress = 0;
     const interval = setInterval(() => {
         progress += Math.random() * 25;
@@ -7316,7 +7655,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderChapters();
 });
 </script>
-<!-- ==================== END E-BOOK SECTION ==================== -->
+
+
 <style>
 /* ===== Floating Action Button ===== */
 .payment-fab {
