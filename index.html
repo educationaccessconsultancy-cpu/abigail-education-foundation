@@ -8632,39 +8632,5 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
   }
 </style>
 
-<a href="#newsletterSection" class="nl-float-btn" id="nlFloatBtn" aria-label="Newsletter">
-  <span class="env-icon">📧</span>
-  <span class="at-badge">@</span>
-</a>
-
-<script>
-  (function(){
-    var btn = document.getElementById('nlFloatBtn');
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      var target = document.getElementById('newsletterSection');
-      if(target) target.scrollIntoView({ behavior: 'smooth' });
-    });
-  })();
-</script>
-<!-- ===== END NEWSLETTER FLOATING BUTTON ===== -->
-</style>
-/* Move red phone button to bottom center */
-.phone-float,
-.call-float {
-  bottom: 20px !important;
-  left: 50% !important;
-  right: auto !important;
-  top: auto !important;
-  transform: translateX(-50%) !important;
-}
-
-/* Move floating menu button to top-right, clear of newsletter */
-.menu-float,
-.float-menu {
-  top: 100px !important;
-  bottom: auto !important;
-  right: 20px !important;
-}
 </body>
 </html>
