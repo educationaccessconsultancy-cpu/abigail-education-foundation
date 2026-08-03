@@ -8557,49 +8557,22 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
   padding-left: 50px;
 }
 
-</style>
+  /* Move red phone button to bottom center */
+  .phone-float, .call-float {
+    bottom: 20px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+  }
+  /* Move floating menu button to top-right */
+  .menu-float, .float-menu {
+    top: 100px !important;
+    bottom: auto !important;
+    right: 20px !important;
+  }
+/style>
 
-<section class="newsletter-section" id="newsletterSection">
-t git 
-  <div class="newsletter-box" id="newsletterBox">
-    <h3>📬 Stay in the Loop</h3>
-    <p>Get updates on our impact, new programmes, and stories from the children we serve. No spam — just hope.</p>
-    <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <input type="hidden" name="_subject" value="Newsletter Subscription">
-      <input type="email" name="email" placeholder="your@email.com" required>
-      <button type="submit" id="nlSubmit">Subscribe</button>
-    </form>
-    <p class="newsletter-privacy">We respect your privacy. Unsubscribe anytime.</p>
-    <div class="newsletter-success" id="newsletterSuccess">
-      <h4>You're on the list!</h4>
-      <p>Thank you for staying connected with Abigail Eduaccess Shule.</p>
-    </div>
-  </div>
-</section>
 
-<script>
-  (function(){
-    var form = document.getElementById('newsletterForm');
-    var success = document.getElementById('newsletterSuccess');
-    var btn = document.getElementById('nlSubmit');
-    if(!form) return;
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      btn.textContent = '...';
-      var data = new FormData(form);
-      fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} })
-        .then(function(r){
-          if(r.ok){
-            form.style.display = 'none';
-            success.style.display = 'block';
-            document.querySelector('.newsletter-privacy').style.display = 'none';
-          } else {
-            btn.textContent = 'Try again';
-          }
-        })
-        .catch(function(){ btn.textContent = 'Try again'; });
-    });
-  })();
 </script>
 <!-- ===== END NEWSLETTER SIGNUP ===== -->
 <!-- Spacer to clear floating buttons -->
