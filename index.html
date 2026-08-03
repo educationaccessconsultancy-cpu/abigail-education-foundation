@@ -8489,12 +8489,53 @@ function closePayModal() {
     }
   }
 </script>
-feat: add floating bounce button with 3-page mission policy
+<style>
+@keyframes aeafB{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes aeafP{0%,100%{filter:drop-shadow(0 4px 10px rgba(0,0,0,.25))}50%{filter:drop-shadow(0 8px 22px rgba(0,0,0,.4))}}
+@keyframes aeafF{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes aeafS{from{opacity:0;transform:scale(.92) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+#aeaf-fab{position:fixed;bottom:24px;right:24px;width:120px;height:120px;border-radius:50%;border:3px solid #fff;background:transparent;cursor:pointer;padding:0;animation:aeafB 2.8s ease-in-out infinite,aeafP 2.8s ease-in-out infinite;transition:transform .2s;z-index:999;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+#aeaf-fab:hover{transform:scale(1.08)}#aeaf-fab:active{transform:scale(.94)}
+#aeaf-fab img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+#aeaf-m{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:1000;padding:16px;backdrop-filter:blur(4px)}
+#aeaf-m.aeaf-s{display:flex;animation:aeafF .25s}
+.aeaf-c{background:#fff;color:#111;border-radius:18px;width:100%;max-width:680px;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;animation:aeafS .35s;box-shadow:0 24px 80px rgba(0,0,0,.35);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+.aeaf-h{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid #eee;flex-shrink:0}
+.aeaf-h h2{font-size:17px;font-weight:600;color:#111;margin:0}
+.aeaf-x{width:34px;height:34px;border-radius:10px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#666;transition:background .15s}
+.aeaf-x:hover{background:#f5f5f5}
+.aeaf-t{display:flex;gap:6px;padding:14px 18px 0;border-bottom:1px solid #eee;flex-shrink:0;overflow-x:auto}
+.aeaf-b{padding:9px 16px;border-radius:10px;border:none;background:transparent;font-size:14px;font-weight:500;color:#666;cursor:pointer;white-space:nowrap;transition:all .15s;font-family:inherit}
+.aeaf-b:hover{background:#f5f5f5}.aeaf-b.aeaf-a{background:#111;color:#fff}
+.aeaf-d{padding:22px;overflow-y:auto;flex:1}
+.aeaf-p{display:none;animation:aeafF .3s}.aeaf-p.aeaf-a{display:block}
+.aeaf-p h3{font-size:15px;font-weight:600;color:#111;margin:0 0 8px}
+.aeaf-p p{font-size:14px;line-height:1.7;color:#444;margin:0 0 14px}
+.aeaf-p ul{margin:0 0 14px;padding-left:18px}
+.aeaf-p li{font-size:14px;line-height:1.7;color:#444;margin-bottom:7px}
+.aeaf-mo{background:#f7f7f7;border-radius:12px;padding:16px;margin:0 0 18px;text-align:center;font-style:italic;font-size:15px;color:#111;font-weight:600}
+.aeaf-l{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#999;margin:22px 0 8px;font-weight:600}
+.aeaf-g{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.aeaf-tg{background:#f0f0f0;color:#555;font-size:12px;padding:5px 12px;border-radius:8px}
+.aeaf-ct{background:#f0f0f0;border-radius:14px;padding:20px;margin-top:10px;text-align:center}
+.aeaf-ct p{margin:0;font-size:14px;color:#111;font-weight:600;line-height:1.6}
+.aeaf-o{font-size:13px;color:#888;margin-top:10px}
+</style>
 
-- Positioned fixed bottom-right with continuous bounce animation
-- Uses actual dove image with Tanzanian flag as button asset
-- Opens modal with tabbed navigation across all 3 policy pages
-- Includes identity, core policy, and commitment sections
-- Responsive, keyboard-accessible, self-contained snippet
+<button id="aeaf-fab" aria-label="Open mission policy">
+<img src="dove.jpg" alt="AEAF Mission">
+</button>
+
+<div id="aeaf-m"><div class="aeaf-c"><div class="aeaf-h"><h2>Abigail Education Access Foundation</h2><button class="aeaf-x" onclick="aeafC()" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="aeaf-t"><button class="aeaf-b aeaf-a" onclick="aeafT(1)">Our identity</button><button class="aeaf-b" onclick="aeafT(2)">Core policy</button><button class="aeaf-b" onclick="aeafT(3)">Our commitment</button></div><div class="aeaf-d"><div class="aeaf-p aeaf-a" data-aeaf="1"><div class="aeaf-mo">"Every foot in a nice shoe, every child in school"</div><p class="aeaf-l">Who we are</p><p>Abigail Education Access Foundation (AEAF) is a humanitarian and educational initiative committed to removing barriers that prevent children and young people from accessing quality education.</p><p>The Foundation believes that poverty should never determine a child's educational future. Through strategic partnerships, community engagement, and sustainable educational programmes, AEAF works to ensure that vulnerable learners receive the resources, guidance, and opportunities necessary to succeed.</p><p>Our work integrates education support, school health, digital learning, child protection, and community empowerment to improve educational outcomes throughout Tanzania and beyond.</p><p class="aeaf-l">Vision</p><p>To create a society where every child, regardless of economic or social background, has equitable access to quality education and the opportunity to realise their full potential.</p><p class="aeaf-l">Mission</p><p>To expand access to education through scholarships, learning resources, school supplies, menstrual hygiene support, digital education, academic guidance, community partnerships, and evidence-based educational programmes that promote lifelong learning and social transformation.</p></div><div class="aeaf-p" data-aeaf="2"><p class="aeaf-l">Guiding principles</p><ul><li>Equal educational opportunity for every learner</li><li>Child safeguarding and protection</li><li>Integrity, transparency, and accountability</li><li>Gender equality and inclusion</li><li>Respect for diversity and human dignity</li><li>Community participation and local ownership</li><li>Sustainable educational development</li><li>Evidence-based planning and continuous improvement</li></ul><p class="aeaf-l">Strategic programme areas</p><div class="aeaf-g"><span class="aeaf-tg">School shoes & uniforms</span><span class="aeaf-tg">Exercise books & textbooks</span><span class="aeaf-tg">School bags & stationery</span><span class="aeaf-tg">Menstrual hygiene education</span><span class="aeaf-tg">Sanitary pad distribution</span><span class="aeaf-tg">Scholarships & sponsorship</span><span class="aeaf-tg">Cambridge & national curriculum support</span><span class="aeaf-tg">Homeschooling & digital education</span><span class="aeaf-tg">Teacher development</span><span class="aeaf-tg">Educational research</span><span class="aeaf-tg">Career guidance & university admissions</span><span class="aeaf-tg">Digital literacy & technology access</span><span class="aeaf-tg">Emergency education assistance</span></div><p class="aeaf-l">Partnership policy</p><p>The Foundation welcomes collaboration with government institutions, schools, universities, faith-based organisations, development partners, NGOs, corporate organisations, community groups, and individual donors and volunteers.</p><p>All partnerships shall uphold transparency, child protection, ethical conduct, and responsible stewardship of resources.</p></div><div class="aeaf-p" data-aeaf="3"><p class="aeaf-l">Our promise</p><ul><li>Ensuring every donation creates measurable educational impact</li><li>Maintaining accountability in programme implementation</li><li>Protecting every child's dignity and safety</li><li>Promoting innovation in education</li><li>Supporting girls' education and menstrual dignity</li><li>Providing equitable access to learning opportunities</li><li>Strengthening families through educational support</li><li>Building sustainable partnerships for long-term impact</li></ul><p class="aeaf-l">Long-term goals</p><ul><li>Expand educational access across Tanzania</li><li>Support vulnerable learners from early childhood through higher education</li><li>Increase digital learning opportunities</li><li>Strengthen school-community partnerships</li><li>Improve educational quality through research and innovation</li><li>Promote inclusive education for children with diverse learning needs</li><li>Develop future leaders through mentorship and academic excellence</li></ul><div class="aeaf-ct"><p>Education transforms lives. Every contribution — whether financial, material, professional, or voluntary — helps remove barriers to learning and creates lasting opportunities for children and young people.</p><p class="aeaf-o">Abigail Education Access Foundation<br>"Empowering education. Transforming lives. Building the future."</p></div></div></div></div></div>
+
+<script>
+function aeafO(){document.getElementById('aeaf-m').classList.add('aeaf-s');document.body.style.overflow='hidden'}
+function aeafC(){document.getElementById('aeaf-m').classList.remove('aeaf-s');document.body.style.overflow=''}
+function aeafT(n){var t=['','Our identity','Core policy','Our commitment'];document.querySelectorAll('.aeaf-b').forEach(function(b){b.classList.toggle('aeaf-a',b.textContent.trim()===t[n])});document.querySelectorAll('.aeaf-p').forEach(function(p){p.classList.toggle('aeaf-a',p.dataset.aeaf==n)})}
+document.getElementById('aeaf-fab').addEventListener('click',aeafO);
+document.getElementById('aeaf-m').addEventListener('click',function(e){if(e.target===this)aeafC()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
+</script>
+
 </body>
 </html>
