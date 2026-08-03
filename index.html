@@ -8623,6 +8623,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
 </style>
 
 <section class="newsletter-section" id="newsletterSection">
+t git 
   <div class="newsletter-box" id="newsletterBox">
     <h3>📬 Stay in the Loop</h3>
     <p>Get updates on our impact, new programmes, and stories from the children we serve. No spam — just hope.</p>
@@ -8666,5 +8667,76 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
 <!-- ===== END NEWSLETTER SIGNUP ===== -->
 <!-- Spacer to clear floating buttons -->
 <div style="height: 140px;"></div>
-</body>
+<!-- ===== NEWSLETTER FLOATING BUTTON ===== -->
+
+<style>
+  .nl-float-btn {
+    position: fixed;
+    bottom: 100px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #2e7d32;
+    cursor: pointer;
+    z-index: 9998;
+    box-shadow: 0 4px 16px rgba(46,125,50,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: nlBounce 2s ease-in-out infinite;
+    padding: 0;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+  @keyframes nlBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .nl-float-btn:hover {
+    animation: none;
+    transform: scale(1.08);
+  }
+  .nl-float-btn:active { transform: scale(0.95); }
+
+  .nl-float-btn .env-icon {
+    font-size: 26px;
+    line-height: 1;
+  }
+  .nl-float-btn .at-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #2e7d32;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+  }
+</style>
+
+<a href="#newsletterSection" class="nl-float-btn" id="nlFloatBtn" aria-label="Newsletter">
+  <span class="env-icon">📧</span>
+  <span class="at-badge">@</span>
+</a>
+
+<script>
+  (function(){
+    var btn = document.getElementById('nlFloatBtn');
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var target = document.getElementById('newsletterSection');
+      if(target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  })();
+</script>
+<!-- ===== END NEWSLETTER FLOATING BUTTON ===== -->
+github.comgith</body>
 </html>
