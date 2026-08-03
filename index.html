@@ -8196,6 +8196,298 @@ function closePayModal() {
 }
 </script>
 
+
+<!-- Abigail Eduaccess Shule — Support Request Form Card -->
+<!-- Drop this entire block into your existing page where you want the form to appear -->
+
+<style>
+  /* ── Form Card Styles ── */
+  .aes-form-card {
+    background: #ffffff;
+    border: 2px solid #2e7d32;
+    border-radius: 24px;
+    padding: 28px 24px;
+    max-width: 480px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    position: relative;
+  }
+  .aes-form-card .aes-card-icon {
+    font-size: 36px;
+    text-align: center;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .aes-form-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a4720;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  .aes-form-card .aes-sub {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .aes-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .aes-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .aes-field.full { width: 100%; }
+  .aes-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .aes-label .req { color: #d93025; }
+  .aes-input, .aes-select, .aes-textarea {
+    padding: 10px 12px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #fafafa;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    color: #333;
+    font-family: inherit;
+    width: 100%;
+  }
+  .aes-input:focus, .aes-select:focus, .aes-textarea:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 3px rgba(46,125,50,0.1);
+    background: #fff;
+  }
+  .aes-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+  }
+  .aes-select:disabled { opacity: 0.5; cursor: not-allowed; }
+  .aes-textarea { min-height: 80px; resize: vertical; }
+  .aes-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2e7d32;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 6px;
+  }
+  .aes-btn:hover { background: #1b5e20; }
+  .aes-btn:active { transform: scale(0.98); }
+  .aes-footer-txt {
+    font-size: 11px;
+    color: #aaa;
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+  .aes-error {
+    color: #d93025;
+    font-size: 11px;
+    margin-top: 3px;
+    display: none;
+  }
+  .aes-input.error, .aes-select.error, .aes-textarea.error { border-color: #d93025; }
+  .aes-success {
+    display: none;
+    text-align: center;
+    padding: 24px 10px;
+  }
+  .aes-success svg {
+    width: 52px;
+    height: 52px;
+    color: #2e7d32;
+    margin-bottom: 12px;
+  }
+  .aes-success h4 {
+    font-size: 20px;
+    color: #1a4720;
+    margin-bottom: 6px;
+  }
+  .aes-success p {
+    font-size: 14px;
+    color: #666;
+  }
+  @media (max-width: 480px) {
+    .aes-row { flex-direction: column; gap: 0; }
+    .aes-form-card { padding: 20px 16px; }
+  }
+</style>
+
+<div class="aes-form-card">
+  <span class="aes-card-icon">🤝</span>
+  <h3>Submit a Support Request</h3>
+  <p class="aes-sub">Fill in your details and we'll reach out within 24 hours.</p>
+
+  <div id="aes-form-box">
+    <form id="aesForm" onsubmit="aesSubmit(event)">
+      <div class="aes-row">
+        <div class="aes-field">
+          <label class="aes-label">Full Name <span class="req">*</span></label>
+          <input class="aes-input" type="text" name="name" placeholder="John Doe" required>
+          <div class="aes-error" id="aes-err-name">Please enter your name</div>
+        </div>
+        <div class="aes-field">
+          <label class="aes-label">Email <span class="req">*</span></label>
+          <input class="aes-input" type="email" name="email" placeholder="john@example.com" required>
+          <div class="aes-error" id="aes-err-email">Please enter a valid email</div>
+        </div>
+      </div>
+
+      <div class="aes-row">
+        <div class="aes-field">
+          <label class="aes-label">WhatsApp <span class="req">*</span></label>
+          <input class="aes-input" type="tel" name="whatsapp" placeholder="+255 712 345 678" required>
+          <div class="aes-error" id="aes-err-whatsapp">Required</div>
+        </div>
+        <div class="aes-field">
+          <label class="aes-label">Location <span class="req">*</span></label>
+          <select class="aes-select" name="location" id="aes-loc" onchange="aesLocChange()" required>
+            <option value="">Select location</option>
+            <option value="tanzania">Tanzania</option>
+            <option value="international">International</option>
+          </select>
+          <div class="aes-error" id="aes-err-location">Required</div>
+        </div>
+      </div>
+
+      <div class="aes-row" id="aes-region-row">
+        <div class="aes-field full">
+          <label class="aes-label" id="aes-region-label">Region <span class="req">*</span></label>
+          <select class="aes-select" name="region" id="aes-region" disabled required>
+            <option value="">Select region</option>
+          </select>
+          <div class="aes-error" id="aes-err-region">Required</div>
+        </div>
+      </div>
+
+      <div class="aes-row">
+        <div class="aes-field full">
+          <label class="aes-label">How would you like to support? <span class="req">*</span></label>
+          <select class="aes-select" name="support" required>
+            <option value="">Select support option</option>
+            <option value="financial">Financial Contribution</option>
+            <option value="material">Material / Supplies</option>
+            <option value="volunteer">Volunteer Time</option>
+            <option value="partnership">Partnership / Collaboration</option>
+            <option value="other">Other</option>
+          </select>
+          <div class="aes-error" id="aes-err-support">Required</div>
+        </div>
+      </div>
+
+      <div class="aes-row">
+        <div class="aes-field full">
+          <label class="aes-label">Your message or additional details</label>
+          <textarea class="aes-textarea" name="message" placeholder="Tell us more about how you'd like to help, preferred quantity, delivery arrangements, or any questions..."></textarea>
+        </div>
+      </div>
+
+      <button class="aes-btn" type="submit">Submit Support Request</button>
+      <div class="aes-footer-txt">We will reach out to you via WhatsApp or email within 24 hours to coordinate your generous contribution.</div>
+    </form>
+  </div>
+
+  <div class="aes-success" id="aes-success">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <h4>Thank you!</h4>
+    <p>Your support request has been received. We'll contact you within 24 hours.</p>
+  </div>
+</div>
+
+<script>
+  // ── Region / Country Data ──
+  const aesRegions = {
+    tanzania: [
+      "Arusha", "Dar es Salaam", "Dodoma", "Geita", "Iringa", "Kagera", "Katavi", "Kigoma",
+      "Kilimanjaro", "Lindi", "Manyara", "Mara", "Mbeya", "Mjini Magharibi", "Morogoro",
+      "Mtwara", "Mwanza", "Njombe", "Pemba North", "Pemba South", "Pwani", "Rukwa",
+      "Ruvuma", "Shinyanga", "Simiyu", "Singida", "Songwe", "Tabora", "Tanga"
+    ],
+    international: [
+      "Kenya", "Uganda", "Rwanda", "Burundi", "DRC", "Zambia", "Malawi", "Mozambique",
+      "South Africa", "Nigeria", "Ghana", "Ethiopia", "United States", "United Kingdom",
+      "Canada", "Germany", "France", "Netherlands", "Australia", "India", "China", "Japan", "Other"
+    ]
+  };
+
+  // ── Two-step dropdown logic ──
+  function aesLocChange() {
+    const loc = document.getElementById('aes-loc').value;
+    const sel = document.getElementById('aes-region');
+    const lbl = document.getElementById('aes-region-label');
+
+    sel.innerHTML = '<option value="">Select region</option>';
+
+    if (loc && aesRegions[loc]) {
+      aesRegions[loc].forEach(function(r) {
+        const opt = document.createElement('option');
+        opt.value = r.toLowerCase().replace(/\s+/g, '_');
+        opt.textContent = r;
+        sel.appendChild(opt);
+      });
+      sel.disabled = false;
+      lbl.innerHTML = loc === 'tanzania'
+        ? 'Region in Tanzania <span class="req">*</span>'
+        : 'Country / Region <span class="req">*</span>';
+    } else {
+      sel.disabled = true;
+    }
+  }
+
+  // ── Form validation & submit ──
+  function aesSubmit(e) {
+    e.preventDefault();
+    let ok = true;
+    const form = e.target;
+    const data = new FormData(form);
+
+    // Clear previous errors
+    document.querySelectorAll('.aes-error').forEach(function(el) { el.style.display = 'none'; });
+    document.querySelectorAll('.aes-input, .aes-select, .aes-textarea').forEach(function(el) { el.classList.remove('error'); });
+
+    const checks = ['name', 'email', 'whatsapp', 'location', 'support'];
+    if (data.get('location')) checks.push('region');
+
+    checks.forEach(function(f) {
+      const v = data.get(f);
+      if (!v || (f === 'email' && !v.includes('@'))) {
+        ok = false;
+        const err = document.getElementById('aes-err-' + f);
+        const inp = form.querySelector('[name="' + f + '"]');
+        if (err) err.style.display = 'block';
+        if (inp) inp.classList.add('error');
+      }
+    });
+
+    if (ok) {
+      document.getElementById('aes-form-box').style.display = 'none';
+      document.getElementById('aes-success').style.display = 'block';
+      // TODO: Replace this with your actual backend endpoint
+      console.log('Form data ready to send:', Object.fromEntries(data));
+    }
+  }
 </script>
 </body>
 </html>
