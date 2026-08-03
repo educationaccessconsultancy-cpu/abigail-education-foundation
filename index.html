@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
 <style>
+  /* Tablet & Desktop Visibility Fix */
+  .wa-float-btn {
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .wa-overlay {
+    z-index: 100000 !important;
+  }
+
+  .wa-float-btn {
+    position: fixed;
+<style>
 /* === EMERGENCY MOBILE FIX === */
 html {
     width: 100% !important;
