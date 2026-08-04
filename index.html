@@ -8862,49 +8862,5 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
   })();
 </script>
 <!-- ===== END FOOTER ===== -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Target ONLY elements with exact "AEAF Mission" text or alt
-    var all = document.querySelectorAll('div, span, button, a, img');
-    var btn = null;
-    
-    for (var i = 0; i < all.length; i++) {
-      var el = all[i];
-      var text = (el.textContent || '').trim();
-      var alt = el.getAttribute('alt') || '';
-      // Exact match only — prevents catching "Our mission" or other text
-      if (text === 'AEAF Mission' || alt === 'AEAF Mission') {
-        btn = el;
-        break;
-      }
-    }
-    
-    // If still not found, try the parent of an image with that alt
-    if (!btn) {
-      var imgs = document.querySelectorAll('img[alt*="Mission"]');
-      for (var j = 0; j < imgs.length; j++) {
-        if (imgs[j].alt.indexOf('AEAF') !== -1 || imgs[j].alt.indexOf('AESF') !== -1) {
-          btn = imgs[j].parentElement;
-          break;
-        }
-      }
-    }
-    
-    if (!btn) return;
-    
-    // Only add touch support — do NOT change position or z-index
-    btn.style.cursor = 'pointer';
-    btn.style.webkitTapHighlightColor = 'transparent';
-    btn.style.touchAction = 'manipulation';
-    
-    // Fix tablet tap: use touchend (not touchstart) so scroll isn't blocked
-    btn.addEventListener('touchend', function(e) {
-      e.preventDefault();
-      // Fire a proper click event that matches the existing handler
-      var ev = new MouseEvent('click', { bubbles: true, cancelable: true, view: window });
-      btn.dispatchEvent(ev);
-    }, { passive: false });
-  });
-</script>
 </body>
 </html>
