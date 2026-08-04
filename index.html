@@ -8906,5 +8906,21 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
     }, { passive: false });
   });
 </script>
+<style>  
+/* Move the red sanitary/request button to middle left */
+.floating-btn,
+.fab,
+[class*="sanitary"],
+[class*="request"],
+[class*="support"] {
+  position: fixed !important;
+  left: 20px !important;
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
+  z-index: 9998 !important;
+}
+</style>
 </body>
 </html>
