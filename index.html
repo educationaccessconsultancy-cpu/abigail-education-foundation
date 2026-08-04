@@ -8862,5 +8862,49 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
   })();
 </script>
 <!-- ===== END FOOTER ===== -->
+<script>
+  (function() {
+    // Find the AEAF Mission button by its text
+    var all = document.querySelectorAll('div, span, button, a, img');
+    var btn = null;
+    for (var i = 0; i < all.length; i++) {
+      if (all[i].textContent.toLowerCase().includes('mission') || 
+          all[i].getAttribute('alt') === 'AEAF Mission') {
+        btn = all[i];
+        break;
+      }
+    }
+    if (!btn) return;
+
+    // Make it tablet-friendly
+    btn.style.cursor = 'pointer';
+    btn.style.webkitTapHighlightColor = 'transparent';
+    btn.style.touchAction = 'manipulation';
+    btn.style.userSelect = 'none';
+    btn.style.webkitUserSelect = 'none';
+    btn.style.minWidth = '48px';
+    btn.style.minHeight = '48px';
+    btn.style.position = 'relative';
+    btn.style.zIndex = '9999';
+
+    // Fix: first tap on tablet = immediate click (no hover delay)
+    btn.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      if (btn.onclick) btn.onclick(e);
+      else btn.click();
+    }, { passive: false });
+
+    // Keyboard support
+    btn.setAttribute('tabindex', '0');
+    btn.setAttribute('role', 'button');
+    btn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (btn.onclick) btn.onclick(e);
+        else btn.click();
+      }
+    });
+  })();
+</script>
 </body>
 </html>
