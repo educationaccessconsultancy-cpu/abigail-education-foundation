@@ -2035,8 +2035,7 @@ body {
   }
   .ticker-bar span {
     display: inline-block;
-    animation: tickerMove 30s linear infinite;
-
+    animation: tickerMove 25s linear infinite;
     padding-left: 100%;
   }
   @keyframes tickerMove {
@@ -2066,7 +2065,8 @@ body {
 
 <div class="scroll-bar" id="scrollBar"></div>
 <div class="ticker-bar">
-  <span>John from Arusha donated school shoes &nbsp;&bull;&nbsp; Sarah from London subscribed &nbsp;&bull;&nbsp; 1,247 children equipped &nbsp;&bull;&nbsp; 23 schools supported &nbsp;&bull;&nbsp; New Cambridge AS-Level programme launched &nbsp;&bull;&nbsp; John from Arusha donated school shoes &nbsp;&bull;&nbsp; Sarah from London subscribed &nbsp;&bull;&nbsp; 1,247 children equipped &nbsp;&bull;&nbsp; 23 schools supported &nbsp;&bull;&nbsp; New Cambridge AS-Level programme launched &nbsp;&bull;&nbsp; </span>
+  <span>John from Arusha donated school shoes &nbsp;&bull;&nbsp; Sarah from London subscribed &nbsp;&bull;&nbsp; 1,247 children equipped &nbsp;&bull;&nbsp; 23 schools supported &nbsp;&bull;&nbsp; New Cambridge AS-Level programme launched &nbsp;&bull;&nbsp; </span>
+</div>
 
 <script>
   (function(){
@@ -5758,8 +5758,11 @@ section, div {
     <div class="cambridge-modal-header">
       <div class="cambridge-header-icon" style="background-image: url('Screenshot_20260721_171348_Photos.jpg'); background-size: cover; background-position: center; border: none;"></div>
 
-        <img src="cambridge-bade.png.jpg" alt="Cambridge AS-Level" style="width:48px;height:48px;object-fit:contain;border-radius:50%;border:2px solid #c9a227;">
-
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+          <path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/>
+          <path d="M12 22V12"/>
+        </svg>
       </div>
       <h3>Cambridge AS-Level</h3>
       <p>Education Access Foundation</p>
