@@ -9108,232 +9108,92 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
 </div>
 
 <script>
-<!-- ===== AESF FLOATING BADGE + MISSION OVERLAY ===== -->
+<!-- AESF BADGE -->
 <style>
-/* Badge */
-#aesf-float-btn{
-  position:fixed !important;
-  right:18px !important;
-  top:50% !important;
-  transform:translateY(-50%) !important;
-  width:64px !important;
-  height:64px !important;
-  border-radius:50% !important;
-  background:linear-gradient(145deg,#1a5c1a,#2d7a2d) !important;
-  border:3px solid #B22222 !important;
-  color:#fff !important;
-  font-family:system-ui,-apple-system,sans-serif !important;
-  font-size:10px !important;
-  font-weight:700 !important;
-  letter-spacing:0.5px !important;
-  text-align:center !important;
-  line-height:1.15 !important;
-  cursor:pointer !important;
-  z-index:2147483647 !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  flex-direction:column !important;
-  padding:4px !important;
-  box-shadow:0 6px 24px rgba(0,0,0,0.35),0 0 0 0 rgba(178,34,34,0.4) !important;
-  animation:aesf-f 3s ease-in-out infinite,aesf-g 4s ease-in-out infinite,aesf-b 5s ease-in-out infinite !important;
-  -webkit-tap-highlight-color:transparent !important;
-  user-select:none !important;
-  touch-action:manipulation !important;
+#aesf-fab{
+  position:fixed;
+  right:16px;
+  top:50%;
+  width:58px;
+  height:58px;
+  margin-top:-29px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#1a5c1a,#2d8a2d);
+  border:3px solid #B22222;
+  color:#fff;
+  font-family:system-ui,sans-serif;
+  font-size:10px;
+  font-weight:700;
+  text-align:center;
+  cursor:pointer;
+  z-index:99999;
+  box-shadow:0 4px 12px rgba(0,0,0,0.35);
+  animation:aesf-v 2.5s ease-in-out infinite,aesf-r 3s ease-in-out infinite;
 }
-#aesf-float-btn:active{transform:translateY(-50%) scale(0.92) !important;}
-#aesf-float-btn span{display:block;font-size:18px;margin-bottom:1px;}
-@keyframes aesf-f{
-  0%,100%{transform:translateY(-50%) translateY(0);}
-  50%{transform:translateY(-50%) translateY(-14px);}
-}
-@keyframes aesf-g{
-  0%,100%{box-shadow:0 6px 24px rgba(0,0,0,0.35),0 0 0 0 rgba(178,34,34,0.45),0 0 18px 3px rgba(178,34,34,0.15);}
-  50%{box-shadow:0 6px 24px rgba(0,0,0,0.35),0 0 0 10px rgba(178,34,34,0),0 0 32px 12px rgba(178,34,34,0.3);}
-}
-@keyframes aesf-b{
-  0%,84%,100%{transform:translateY(-50%) translateY(0) scale(1);}
-  88%{transform:translateY(-50%) translateY(-8px) scale(1.06);}
-  92%{transform:translateY(-50%) translateY(2px) scale(0.97);}
-  96%{transform:translateY(-50%) translateY(-4px) scale(1.03);}
-}
+#aesf-fab::before{content:"🩸";font-size:20px;display:block;margin-top:8px}
+#aesf-fab::after{content:"AESF";display:block;margin-top:-2px}
+#aesf-fab:active{transform:scale(0.92)}
+@keyframes aesf-v{0%,100%{margin-top:-29px}50%{margin-top:-45px}}
+@keyframes aesf-r{0%,100%{box-shadow:0 4px 12px rgba(0,0,0,0.35),0 0 0 0 rgba(178,34,34,0.5)}50%{box-shadow:0 4px 12px rgba(0,0,0,0.35),0 0 0 10px rgba(178,34,34,0),0 0 20px 6px rgba(178,34,34,0.3)}}
 
-/* Overlay */
-#aesf-overlay{
-  position:fixed !important;
-  inset:0 !important;
-  background:rgba(10,20,10,0.96) !important;
-  z-index:2147483646 !important;
-  opacity:0;
-  visibility:hidden;
-  transition:opacity .35s ease,visibility .35s ease !important;
-  overflow-y:auto !important;
-  -webkit-overflow-scrolling:touch !important;
-  font-family:system-ui,-apple-system,sans-serif !important;
-}
-#aesf-overlay.active{opacity:1;visibility:visible;}
-
-/* Close button */
-#aesf-close{
-  position:fixed !important;
-  top:12px !important;
-  right:12px !important;
-  width:44px !important;
-  height:44px !important;
-  border-radius:50% !important;
-  background:rgba(255,255,255,0.12) !important;
-  border:1px solid rgba(255,255,255,0.25) !important;
-  color:#fff !important;
-  font-size:26px !important;
-  line-height:44px !important;
-  text-align:center !important;
-  cursor:pointer !important;
-  z-index:2147483647 !important;
-  backdrop-filter:blur(4px) !important;
-}
-#aesf-close:active{background:rgba(255,255,255,0.25) !important;}
-
-/* Content */
-#aesf-scroll{
-  max-width:720px !important;
-  margin:0 auto !important;
-  padding:56px 18px 40px !important;
-  color:#e8e8e8 !important;
-  line-height:1.75 !important;
-}
-#aesf-scroll h2{
-  color:#d4af37 !important;
-  font-size:22px !important;
-  font-weight:700 !important;
-  text-align:center !important;
-  margin:0 0 6px !important;
-}
-#aesf-scroll .aesf-sub{
-  text-align:center !important;
-  color:#b8b8b8 !important;
-  font-size:14px !important;
-  font-style:italic !important;
-  margin-bottom:28px !important;
-}
-#aesf-scroll .aesf-card{
-  background:#f8fdf8 !important;
-  border-radius:12px !important;
-  padding:20px !important;
-  margin-bottom:16px !important;
-  border-left:4px solid #B22222 !important;
-  color:#1a3c1a !important;
-}
-#aesf-scroll .aesf-card h3{
-  color:#1a5c1a !important;
-  font-size:16px !important;
-  font-weight:700 !important;
-  margin:0 0 10px !important;
-  display:flex !important;
-  align-items:center !important;
-  gap:8px !important;
-}
-#aesf-scroll .aesf-card h3::before{
-  content:"" !important;
-  display:inline-block !important;
-  width:7px !important;
-  height:7px !important;
-  background:#B22222 !important;
-  border-radius:50% !important;
-}
-#aesf-scroll .aesf-card p,#aesf-scroll .aesf-card li{
-  font-size:14px !important;
-  color:#2d4a2d !important;
-  margin:0 0 10px !important;
-}
-#aesf-scroll .aesf-card ul{margin:8px 0 12px 18px !important;padding:0 !important;}
-#aesf-scroll .aesf-card li{margin-bottom:6px !important;}
-#aesf-scroll .aesf-values{
-  display:grid !important;
-  grid-template-columns:repeat(auto-fit,minmax(100px,1fr)) !important;
-  gap:8px !important;
-  margin:12px 0 !important;
-}
-#aesf-scroll .aesf-val{
-  background:#fff !important;
-  border:2px solid #B22222 !important;
-  border-radius:8px !important;
-  padding:10px 6px !important;
-  text-align:center !important;
-  font-weight:700 !important;
-  color:#B22222 !important;
-  font-size:12px !important;
-}
-#aesf-scroll .aesf-cta{
-  background:#1a5c1a !important;
-  color:#fff !important;
-  border-radius:12px !important;
-  padding:20px !important;
-  text-align:center !important;
-  margin-top:20px !important;
-  border:2px solid #B22222 !important;
-}
-#aesf-scroll .aesf-cta h3{color:#ffd700 !important;font-size:16px !important;margin:0 0 10px !important;}
-#aesf-scroll .aesf-cta p,#aesf-scroll .aesf-cta li{font-size:14px !important;margin:0 0 10px !important;}
-#aesf-scroll .aesf-cta ul{text-align:left !important;margin:0 0 10px 18px !important;padding:0 !important;}
-#aesf-scroll .aesf-motto{
-  text-align:center !important;
-  margin-top:24px !important;
-  padding:18px !important;
-  background:#fff8f8 !important;
-  border:2px solid #B22222 !important;
-  border-radius:12px !important;
-  color:#B22222 !important;
-  font-weight:700 !important;
-  font-size:15px !important;
-}
-@media(max-width:480px){
-  #aesf-scroll{padding:52px 14px 32px !important;}
-  #aesf-scroll h2{font-size:20px !important;}
-}
+#aesf-modal{display:none;position:fixed;inset:0;background:rgba(5,10,5,0.97);z-index:99998;overflow-y:auto;font-family:system-ui,sans-serif}
+#aesf-modal.on{display:block}
+#aesf-x{position:fixed;top:10px;right:10px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;font-size:28px;line-height:44px;text-align:center;cursor:pointer;z-index:99999}
+#aesf-inner{max-width:720px;margin:0 auto;padding:60px 16px 40px;color:#e8e8e8;line-height:1.7}
+#aesf-inner h2{color:#d4af37;text-align:center;font-size:24px;margin:0 0 4px}
+#aesf-inner .sub{color:#aaa;text-align:center;font-style:italic;margin-bottom:24px;font-size:14px}
+#aesf-inner .card{background:#f8fdf8;border-radius:10px;padding:18px;margin-bottom:14px;border-left:3px solid #B22222;color:#1a3c1a;font-size:14px}
+#aesf-inner .card h3{color:#1a5c1a;font-size:16px;margin:0 0 8px;font-weight:700}
+#aesf-inner .card p{margin:0 0 10px}
+#aesf-inner .card ul{margin:8px 0 10px 18px;padding:0}
+#aesf-inner .card li{margin-bottom:6px}
+#aesf-inner .vals{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:12px 0}
+#aesf-inner .val{background:#fff;border:2px solid #B22222;border-radius:8px;padding:10px 4px;text-align:center;font-weight:700;color:#B22222;font-size:12px}
+#aesf-inner .cta{background:#1a5c1a;color:#fff;border-radius:10px;padding:20px;text-align:center;margin-top:18px;border:2px solid #B22222}
+#aesf-inner .cta h3{color:#ffd700;margin:0 0 10px;font-size:16px}
+#aesf-inner .cta p,#aesf-inner .cta li{font-size:14px;margin:0 0 8px}
+#aesf-inner .cta ul{text-align:left;margin:0 0 10px 18px;padding:0}
+#aesf-inner .motto{text-align:center;margin-top:20px;padding:16px;background:#fff8f8;border:2px solid #B22222;border-radius:10px;color:#B22222;font-weight:700;font-size:15px}
+@media(max-width:480px){#aesf-inner .vals{grid-template-columns:1fr 1fr}#aesf-inner h2{font-size:20px}}
 </style>
 
-<!-- Floating Badge -->
-<div id="aesf-float-btn" role="button" aria-label="Open AESF Mission" tabindex="0">
-  <span>🩸</span>
-  AESF
-</div>
+<div id="aesf-fab" role="button" aria-label="AESF Mission" tabindex="0"></div>
 
-<!-- Overlay -->
-<div id="aesf-overlay">
-  <div id="aesf-close">&times;</div>
-  <div id="aesf-scroll">
+<div id="aesf-modal">
+  <div id="aesf-x">&times;</div>
+  <div id="aesf-inner">
     <h2>Her Period. Her Dignity. Our Responsibility.</h2>
-    <p class="aesf-sub">Every Month Matters. Every Girl Matters.</p>
+    <p class="sub">Every Month Matters. Every Girl Matters.</p>
 
-    <div class="aesf-card">
+    <div class="card">
       <h3>The Reality</h3>
-      <p>A girl does not stop dreaming because she reaches adolescence. She dreams of becoming a doctor, a teacher, an engineer, a pilot, a lawyer, a scientist, a leader, or an entrepreneur. Yet every month, something as basic as access to sanitary pads can interrupt her education, confidence, health, and dignity.</p>
-      <p>Across many communities, thousands of schoolgirls quietly miss classes because they cannot afford menstrual hygiene products. Some stay home in fear of embarrassment. Others improvise with unsafe materials that may increase health risks.</p>
+      <p>A girl does not stop dreaming because she reaches adolescence. Yet every month, something as basic as access to sanitary pads can interrupt her education, confidence, health, and dignity.</p>
+      <p>Across many communities, thousands of schoolgirls quietly miss classes because they cannot afford menstrual hygiene products.</p>
       <p><strong>The Abigail EduAccess Shule Foundation (AESF) believes that menstruation should never become a barrier to education.</strong></p>
     </div>
 
-    <div class="aesf-card">
+    <div class="card">
       <h3>A Sanitary Pad Is More Than a Hygiene Product</h3>
-      <div class="aesf-values">
-        <div class="aesf-val">Protection</div>
-        <div class="aesf-val">Dignity</div>
-        <div class="aesf-val">Confidence</div>
-        <div class="aesf-val">Education</div>
-        <div class="aesf-val">Hope</div>
+      <div class="vals">
+        <div class="val">Protection</div>
+        <div class="val">Dignity</div>
+        <div class="val">Confidence</div>
+        <div class="val">Education</div>
+        <div class="val">Hope</div>
       </div>
-      <p>Our mission is simple: <strong>Every girl deserves to attend school every day of the month with dignity, confidence, and hope for a brighter future.</strong></p>
+      <p><strong>Every girl deserves to attend school every day of the month with dignity, confidence, and hope for a brighter future.</strong></p>
     </div>
 
-    <div class="aesf-card">
+    <div class="card">
       <h3>Why Every Parent Should Care</h3>
-      <p>Whether you have daughters or not, every responsible member of society has a role in protecting the next generation. The daughter you do not have today may one day become part of your own family—as the wife of your son, the mother of your grandchildren, a teacher educating your children, a nurse caring for your family, or a leader serving your community.</p>
-      <p>When we invest in girls today, we invest in the future stability of our families, communities, and nation. Supporting menstrual hygiene is not simply an act of charity. It is an investment in education, public health, gender equity, and national development.</p>
+      <p>Whether you have daughters or not, every responsible member of society has a role in protecting the next generation.</p>
+      <p>When we invest in girls today, we invest in the future stability of our families, communities, and nation. Supporting menstrual hygiene is an investment in education, public health, gender equity, and national development.</p>
     </div>
 
-    <div class="aesf-card">
+    <div class="card">
       <h3>Keeping Girls in School, Safe and Confident</h3>
       <p>Every month, a girl experiences a natural biological process. She should never have to choose between attending class and protecting her dignity.</p>
-      <p>AESF works to ensure that girls have access to essential menstrual hygiene support while promoting education, health awareness, and community care. Our programme encourages:</p>
+      <p>Our programme encourages:</p>
       <ul>
         <li>Regular school attendance.</li>
         <li>Safe menstrual hygiene practices.</li>
@@ -9346,31 +9206,31 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
       <p><strong>Menstrual hygiene is not a luxury. It is a necessity. Education is not a privilege. It is a right. Every girl deserves both.</strong></p>
     </div>
 
-    <div class="aesf-cta">
+    <div class="cta">
       <h3>Join the AESF Monthly Dignity Campaign</h3>
-      <p>A single packet of sanitary pads can help restore confidence for an entire month. Imagine what a community can achieve when thousands of people contribute together.</p>
+      <p>A single packet of sanitary pads can help restore confidence for an entire month.</p>
       <p><strong>You can support us through:</strong></p>
       <ul>
         <li>Monthly sanitary pad donations.</li>
         <li>Financial sponsorship for hygiene kits.</li>
         <li>School-based menstrual hygiene programmes.</li>
-        <li>Distribution logistics to rural and underserved communities.</li>
+        <li>Distribution logistics to rural communities.</li>
         <li>Community awareness and education initiatives.</li>
         <li>Volunteer outreach activities.</li>
         <li>Corporate social responsibility partnerships.</li>
         <li>Faith-based and community organization collaborations.</li>
       </ul>
       <p><strong>No contribution is too small.</strong> One donation may help one girl. Many donations transform entire communities.</p>
-      <p>Together we can ensure that no girl misses school because of her period. Together we can protect dignity. Together we can strengthen families. Together we can build a generation of educated, confident, healthy young women.</p>
+      <p>Together we can ensure that no girl misses school because of her period.</p>
     </div>
 
-    <div class="aesf-card">
+    <div class="card">
       <h3>Our Promise</h3>
       <p>At Abigail EduAccess Shule Foundation, every contribution is directed toward creating educational opportunity, restoring dignity, and expanding access for girls who need support.</p>
       <p>Every girl should know: <em>"Your community cares. Your education matters. Your dignity matters. Your future matters."</em></p>
     </div>
 
-    <div class="aesf-motto">
+    <div class="motto">
       Her Period. Her Dignity. Our Responsibility.<br>
       Keeping Girls in School. Empowering Futures.
     </div>
@@ -9379,18 +9239,16 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
 
 <script>
 (function(){
-  var btn=document.getElementById('aesf-float-btn');
-  var ov=document.getElementById('aesf-overlay');
-  var cl=document.getElementById('aesf-close');
-  function open(){ov.classList.add('active');btn.style.opacity='0';btn.style.pointerEvents='none';}
-  function close(){ov.classList.remove('active');setTimeout(function(){btn.style.opacity='1';btn.style.pointerEvents='auto';},350);}
-  btn.addEventListener('click',open);
-  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
-  cl.addEventListener('click',close);
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('active'))close();});
-  ov.addEventListener('click',function(e){if(e.target===ov)close();});
+  var f=document.getElementById('aesf-fab');
+  var m=document.getElementById('aesf-modal');
+  var x=document.getElementById('aesf-x');
+  f.addEventListener('click',function(){m.style.display='block';f.style.display='none'});
+  x.addEventListener('click',function(){m.style.display='none';f.style.display='block'});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.style.display==='block'){m.style.display='none';f.style.display='block'}});
+  m.addEventListener('click',function(e){if(e.target===m){m.style.display='none';f.style.display='block'}});
 })();
 </script>
-<!-- ===== END AESF FLOATING BADGE ===== -->
+<!-- END AESF BADGE -->
+
 </body>
 </html>
