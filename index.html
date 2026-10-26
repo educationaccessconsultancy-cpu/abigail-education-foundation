@@ -9052,5 +9052,187 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
   })();
 </script>
 <!-- End AESF Floating Contact Button -->
+    
+<!-- Floating Inspirational Books -->
+<style>
+  #book-float {
+    position: fixed;
+    right: 16px;
+    bottom: 88px;
+    z-index: 9999;
+    border: 2px solid #D4AF37;
+    border-radius: 30px;
+    padding: 13px 18px;
+    background: #064B2D;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 4px 16px #0004;
+    cursor: pointer;
+  }
+
+  #book-panel {
+    display: none;
+    position: fixed;
+    right: 16px;
+    bottom: 150px;
+    z-index: 10000;
+    width: min(340px, calc(100vw - 32px));
+    max-height: 70vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 20px;
+    border: 2px solid #D4AF37;
+    border-radius: 18px;
+    background: #064B2D;
+    color: #fff;
+    box-shadow: 0 8px 28px #0005;
+    font-family: Arial, sans-serif;
+  }
+
+  #book-panel h2 { color: #E5C45B; margin-top: 0; }
+
+  #book-panel label {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  #book-panel input,
+  #book-panel select,
+  #book-panel textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 5px;
+    padding: 11px;
+    border: 1px solid #c9b77a;
+    border-radius: 8px;
+    font: inherit;
+    color: #222;
+    background: #fff;
+  }
+
+  #book-panel button {
+    padding: 11px;
+    margin-top: 12px;
+    border: 0;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  #book-send {
+    width: 100%;
+    background: #D4AF37;
+    color: #12351f;
+  }
+
+  #book-close {
+    float: right;
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
+  }
+</style>
+
+<button id="book-float" type="button"
+  aria-controls="book-panel" aria-expanded="false">
+  📚 Inspirational Books
+</button>
+
+<section id="book-panel" aria-label="Book enquiry and orders">
+  <button id="book-close" type="button"
+    aria-label="Close panel">×</button>
+
+  <h2>Inspirational Books</h2>
+  <p>Discover a book. Share an enquiry. Place your order.</p>
+
+  <form id="book-form">
+    <label for="book-action">How can we assist you?</label>
+    <select id="book-action" required>
+      <option value="Book enquiry">Enquire about a book</option>
+      <option value="Book order">Place a book order</option>
+    </select>
+
+    <label for="book-title">Book title</label>
+    <input id="book-title" name="book-title"
+      placeholder="Enter the book title" required>
+
+    <label for="book-quantity">Quantity</label>
+    <input id="book-quantity" type="number"
+      min="1" step="1" value="1" required>
+
+    <label for="book-name">Your name</label>
+    <input id="book-name" name="book-name"
+      autocomplete="name" placeholder="Full name" required>
+
+    <label for="book-location">Your location</label>
+    <input id="book-location" name="book-location"
+      autocomplete="address-level2"
+      placeholder="Town or region">
+
+    <label for="book-format">Preferred format</label>
+    <select id="book-format">
+      <option>Printed book</option>
+      <option>Digital book (if available)</option>
+      <option>Either format</option>
+    </select>
+
+    <label for="book-notes">Additional message</label>
+    <textarea id="book-notes" rows="3"
+      placeholder="Questions, delivery needs or other details"></textarea>
+
+    <button id="book-send" type="submit">
+      Continue to WhatsApp
+    </button>
+  </form>
+</section>
+
+<script>
+(() => {
+  const trigger = document.getElementById('book-float');
+  const panel = document.getElementById('book-panel');
+  const close = document.getElementById('book-close');
+  const form = document.getElementById('book-form');
+
+  function setPanel(open) {
+    panel.style.display = open ? 'block' : 'none';
+    trigger.setAttribute('aria-expanded', String(open));
+  }
+
+  trigger.addEventListener('click', () => {
+    setPanel(panel.style.display !== 'block');
+  });
+
+  close.addEventListener('click', () => setPanel(false));
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const get = id => document.getElementById(id).value.trim();
+
+    const message = [
+      'Hello Education Access Foundation.',
+      'Inspirational Books — ' + get('book-action'),
+      'Book title: ' + get('book-title'),
+      'Quantity: ' + get('book-quantity'),
+      'Customer name: ' + get('book-name'),
+      'Location: ' + (get('book-location') || 'Not specified'),
+      'Preferred format: ' + get('book-format'),
+      'Additional message: ' + (get('book-notes') || 'None'),
+      '',
+      'Please confirm availability, price, payment and delivery arrangements.'
+    ].join('\n');
+
+    const url = 'https://wa.me/255788698126?text='
+      + encodeURIComponent(message);
+
+    window.open(url, '_blank', 'noopener,noreferrer');
+  });
+})();
+</script>
+
 </body>
 </html>
