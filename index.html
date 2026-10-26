@@ -5062,7 +5062,7 @@ section, div {
     transform: translateY(0);
   }
   
-  @keyframes gentleFloat {
+  @keyframes 6zzzzzh6 {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
 <style>
@@ -5893,7 +5893,7 @@ document.getElementById('cambridgeModal').addEventListener('click', function(e) 
 }
 
 .sanitary-badge:hover {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.71) rotate(5deg);
   box-shadow: 0 8px 30px rgba(236, 72, 153, 0.6);
 }
 
@@ -9053,186 +9053,198 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')aeafC()});
 </script>
 <!-- End AESF Floating Contact Button -->
     
-<!-- Floating Inspirational Books -->
+
+<!-- INSPIRATIONAL BOOKS FLOATING BUTTON -->
 <style>
-  #book-float {
+  #eaBooksButton {
     position: fixed;
     right: 16px;
-    bottom: 88px;
-    z-index: 9999;
-    border: 2px solid #D4AF37;
+    bottom: 20px;
+    z-index: 99999;
+    background: #083d91;
+    color: #fff9ef;
+    border: 2px solid #d4af37;
     border-radius: 30px;
-    padding: 13px 18px;
-    background: #064B2D;
-    color: #fff;
+    padding: 14px 19px;
+    font-size: 15px;
     font-weight: 700;
-    font-size: 14px;
-    box-shadow: 0 4px 16px #0004;
+    box-shadow: 0 5px 18px #0003;
     cursor: pointer;
   }
 
-  #book-panel {
+  #eaBooksPanel {
     display: none;
     position: fixed;
-    right: 16px;
-    bottom: 150px;
-    z-index: 10000;
-    width: min(340px, calc(100vw - 32px));
-    max-height: 70vh;
+    right: 12px;
+    bottom: 82px;
+    z-index: 99999;
+    width: min(370px, calc(100vw - 24px));
+    max-height: 78vh;
     overflow-y: auto;
+    background: #fff9ef;
+    color: #173052;
+    border: 2px solid #d4af37;
+    border-radius: 16px;
+    padding: 17px;
+    box-shadow: 0 8px 30px #0004;
     box-sizing: border-box;
-    padding: 20px;
-    border: 2px solid #D4AF37;
-    border-radius: 18px;
-    background: #064B2D;
-    color: #fff;
-    box-shadow: 0 8px 28px #0005;
     font-family: Arial, sans-serif;
   }
 
-  #book-panel h2 { color: #E5C45B; margin-top: 0; }
-
-  #book-panel label {
+  #eaBooksPanel h3 { margin: 0 0 7px; color: #083d91; }
+  #eaBooksPanel p { font-size: 13px; line-height: 1.5; }
+  #eaBooksPanel label {
     display: block;
-    margin-top: 12px;
-    font-size: 14px;
+    margin-top: 11px;
+    font-size: 13px;
+    font-weight: 700;
   }
-
-  #book-panel input,
-  #book-panel select,
-  #book-panel textarea {
+  #eaBooksPanel input,
+  #eaBooksPanel select,
+  #eaBooksPanel textarea {
     width: 100%;
     box-sizing: border-box;
+    padding: 10px;
     margin-top: 5px;
-    padding: 11px;
-    border: 1px solid #c9b77a;
+    border: 1px solid #c7cdd6;
     border-radius: 8px;
-    font: inherit;
-    color: #222;
-    background: #fff;
+    background: white;
+    color: #173052;
+    font-size: 14px;
   }
-
-  #book-panel button {
-    padding: 11px;
-    margin-top: 12px;
+  #eaBooksPanel textarea { min-height: 65px; resize: vertical; }
+  #eaBooksPanel .ea-book-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  #eaBooksPanel button {
+    cursor: pointer;
     border: 0;
     border-radius: 8px;
+    padding: 11px;
     font-weight: 700;
-    cursor: pointer;
   }
-
-  #book-send {
-    width: 100%;
-    background: #D4AF37;
-    color: #12351f;
+  #eaBooksSend {
+    flex: 1;
+    background: #16834a;
+    color: white;
   }
-
-  #book-close {
-    float: right;
-    background: transparent;
-    color: #fff;
-    font-size: 20px;
+  #eaBooksClose {
+    background: #e5e7eb;
+    color: #173052;
   }
 </style>
 
-<button id="book-float" type="button"
-  aria-controls="book-panel" aria-expanded="false">
+<button id="eaBooksButton" type="button"
+  aria-controls="eaBooksPanel" aria-expanded="false">
   📚 Inspirational Books
 </button>
 
-<section id="book-panel" aria-label="Book enquiry and orders">
-  <button id="book-close" type="button"
-    aria-label="Close panel">×</button>
+<section id="eaBooksPanel" aria-label="Inspirational Books enquiry">
+  <h3>Inspirational Books</h3>
+  <p>Choose a title to enquire or place an order through WhatsApp.</p>
 
-  <h2>Inspirational Books</h2>
-  <p>Discover a book. Share an enquiry. Place your order.</p>
-
-  <form id="book-form">
-    <label for="book-action">How can we assist you?</label>
-    <select id="book-action" required>
-      <option value="Book enquiry">Enquire about a book</option>
-      <option value="Book order">Place a book order</option>
+  <form id="eaBooksForm">
+    <label for="eaBookAction">Your request</label>
+    <select id="eaBookAction">
+      <option>Book enquiry</option>
+      <option>Place an order</option>
     </select>
 
-    <label for="book-title">Book title</label>
-    <input id="book-title" name="book-title"
-      placeholder="Enter the book title" required>
+    <label for="eaBookTitle">Select a book</label>
+    <select id="eaBookTitle" required>
+      <option value="">Choose a title</option>
+      <option>Think Loud</option>
+      <option>The Pullback Is Preparation</option>
+      <option>The Mature Life</option>
+      <option>Wake Up Your Dream</option>
+      <option>Love Beyond Tomorrow</option>
+      <option>The Legacy That Lives On</option>
+      <option>We Belong to One Another</option>
+      <option>Echoes of Presence</option>
+      <option>Steadfast in His Care</option>
+      <option>The Roots, Voices and Visions</option>
+      <option>Abigael the Brave</option>
+      <option>Life Isn't Written That Way</option>
+      <option>Beyond What Remains</option>
+    </select>
 
-    <label for="book-quantity">Quantity</label>
-    <input id="book-quantity" type="number"
+    <label for="eaBookName">Your name</label>
+    <input id="eaBookName" autocomplete="name"
+      placeholder="Enter your name" required>
+
+    <label for="eaBookQuantity">Quantity</label>
+    <input id="eaBookQuantity" type="number"
       min="1" step="1" value="1" required>
 
-    <label for="book-name">Your name</label>
-    <input id="book-name" name="book-name"
-      autocomplete="name" placeholder="Full name" required>
+    <label for="eaBookLocation">Your location</label>
+    <input id="eaBookLocation"
+      placeholder="Town or delivery location">
 
-    <label for="book-location">Your location</label>
-    <input id="book-location" name="book-location"
-      autocomplete="address-level2"
-      placeholder="Town or region">
-
-    <label for="book-format">Preferred format</label>
-    <select id="book-format">
+    <label for="eaBookFormat">Preferred format</label>
+    <select id="eaBookFormat">
       <option>Printed book</option>
-      <option>Digital book (if available)</option>
-      <option>Either format</option>
+      <option>Digital book</option>
+      <option>Please advise me</option>
     </select>
 
-    <label for="book-notes">Additional message</label>
-    <textarea id="book-notes" rows="3"
-      placeholder="Questions, delivery needs or other details"></textarea>
+    <label for="eaBookMessage">Additional message</label>
+    <textarea id="eaBookMessage"
+      placeholder="Ask about price, availability or delivery"></textarea>
 
-    <button id="book-send" type="submit">
-      Continue to WhatsApp
-    </button>
+    <div class="ea-book-actions">
+      <button id="eaBooksSend" type="submit">
+        Continue on WhatsApp
+      </button>
+      <button id="eaBooksClose" type="button">Close</button>
+    </div>
   </form>
 </section>
 
 <script>
-(() => {
-  const trigger = document.getElementById('book-float');
-  const panel = document.getElementById('book-panel');
-  const close = document.getElementById('book-close');
-  const form = document.getElementById('book-form');
+(function () {
+  const button = document.getElementById('eaBooksButton');
+  const panel = document.getElementById('eaBooksPanel');
+  const form = document.getElementById('eaBooksForm');
 
-  function setPanel(open) {
-    panel.style.display = open ? 'block' : 'none';
-    trigger.setAttribute('aria-expanded', String(open));
-  }
-
-  trigger.addEventListener('click', () => {
-    setPanel(panel.style.display !== 'block');
+  button.addEventListener('click', function () {
+    const opening = panel.style.display !== 'block';
+    panel.style.display = opening ? 'block' : 'none';
+    button.setAttribute('aria-expanded', String(opening));
   });
 
-  close.addEventListener('click', () => setPanel(false));
+  document.getElementById('eaBooksClose').addEventListener('click', function () {
+    panel.style.display = 'none';
+    button.setAttribute('aria-expanded', 'false');
+  });
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    if (!form.reportValidity()) return;
-
-    const get = id => document.getElementById(id).value.trim();
+    const title = document.getElementById('eaBookTitle').value;
+    if (!title) {
+      document.getElementById('eaBookTitle').focus();
+      return;
+    }
 
     const message = [
-      'Hello Education Access Foundation.',
-      'Inspirational Books — ' + get('book-action'),
-      'Book title: ' + get('book-title'),
-      'Quantity: ' + get('book-quantity'),
-      'Customer name: ' + get('book-name'),
-      'Location: ' + (get('book-location') || 'Not specified'),
-      'Preferred format: ' + get('book-format'),
-      'Additional message: ' + (get('book-notes') || 'None'),
-      '',
-      'Please confirm availability, price, payment and delivery arrangements.'
+      'INSPIRATIONAL BOOKS — EDUCATION ACCESS',
+      'Request: ' + document.getElementById('eaBookAction').value,
+      'Book: ' + title,
+      'Name: ' + document.getElementById('eaBookName').value.trim(),
+      'Quantity: ' + document.getElementById('eaBookQuantity').value,
+      'Location: ' + (document.getElementById('eaBookLocation').value.trim() || 'Not specified'),
+      'Format: ' + document.getElementById('eaBookFormat').value,
+      'Message: ' + (document.getElementById('eaBookMessage').value.trim() || 'None')
     ].join('\n');
 
-    const url = 'https://wa.me/255788698126?text='
-      + encodeURIComponent(message);
-
+    const url = 'https://wa.me/255788698126?text=' + encodeURIComponent(message);
     window.open(url, '_blank', 'noopener,noreferrer');
   });
 })();
 </script>
 
+    
 </body>
 </html>
